@@ -1973,9 +1973,6 @@ public class trial_edit_students extends javax.swing.JFrame {
                 .addComponent(panel)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel22Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel22Layout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addComponent(ADD)
                         .addGap(18, 18, 18)
@@ -1983,8 +1980,11 @@ public class trial_edit_students extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(DELETE)
                         .addGap(18, 18, 18)
-                        .addComponent(CLEAR)))
-                .addContainerGap())
+                        .addComponent(CLEAR))
+                    .addGroup(jPanel22Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40))
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel22Layout.setVerticalGroup(
