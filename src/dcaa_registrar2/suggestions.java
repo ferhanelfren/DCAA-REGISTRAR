@@ -194,7 +194,7 @@ public class suggestions extends javax.swing.JFrame {
                                            Class.forName("com.mysql.cj.jdbc.Driver");
                                            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root"); 
                                            PreparedStatement ps;   
-                                           ps=Mycon.prepareStatement("select a.id, s.name, a.lrnStatus, a.psa, a.lrnNumber, a.fullname, a.bdate, a.sex, a.age, a.ip, a.ip_status, a.mother_tongue, a.address, a.zip_code, a.fathername, a.mothername, a.guardianname, a.telephone, a.cellphone, a.last_grade_level_completed, a.last_school_year_completed, a.school_name, a.school_id, a.school_address, a.semester, a.track, a.strand, a.grade_level, a.enrolled_track from enrolled_students a, school_year s  where a.school_year_id = s.id ");
+                                             ps=Mycon.prepareStatement("select a.id, s.name, a.lrnStatus, a.student_account_no, a.lrnNumber, a.fullname, a.bdate, a.sex, a.age, a.ip, a.ip_status, a.mother_tongue, a.address, a.zip_code, a.fathername, a.mothername, a.guardianname, a.telephone, a.cellphone, a.last_grade_level_completed, a.last_school_year_completed, a.school_name, a.school_id, a.school_address, a.semester, a.track, a.strand, a.grade_level, a.enrolled_track from enrolled_students a, school_year s  where a.school_year_id = s.id ");
                                            ResultSet rs = ps.executeQuery();
                                             
                                             
@@ -210,45 +210,7 @@ public class suggestions extends javax.swing.JFrame {
                                              DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
                                               rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
                                               jTable.getColumnModel().getColumn(9).setCellRenderer(rightRenderer);
-                                              
-                                                   jTable.getColumnModel().getColumn(2).setPreferredWidth(50);
-                                                   jTable.getColumnModel().getColumn(3).setPreferredWidth(150);
-                                                   jTable.getColumnModel().getColumn(4).setPreferredWidth(40);
-                                                   jTable.getColumnModel().getColumn(8).setPreferredWidth(50);
-                                                   jTable.getColumnModel().getColumn(9).setPreferredWidth(50);
-                                              
-                                              
-                                            
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                             
-     
+
                                             model.setRowCount(0);
                                             
                                                 while (rs.next()) 
@@ -362,7 +324,7 @@ public class suggestions extends javax.swing.JFrame {
     
     
      //////////////////////////////////// para sa suggestions ni para mo pop cya///////////////////////////////////
-    private void pop(){
+    private void pops(){
         
        
           menu.show(txt, 0, txt.getHeight());
@@ -392,7 +354,7 @@ public class suggestions extends javax.swing.JFrame {
             
           
            LoadSearchData(); 
-           pop();
+           pops();
             
         }
     }//GEN-LAST:event_txtKeyReleased
@@ -408,7 +370,7 @@ public class suggestions extends javax.swing.JFrame {
     private void panel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panel1MouseClicked
        
         
-        //click();
+        click();
         
     }//GEN-LAST:event_panel1MouseClicked
 

@@ -256,15 +256,15 @@ public class LOGIN extends javax.swing.JFrame {
             
             
             Class.forName("com.mysql.cj.jdbc.Driver");
-                 Mycon=DriverManager.getConnection("jdbc:mysql://127.1.1.2:3306/dcaa_registrar","root","root");  
+            Mycon=DriverManager.getConnection("jdbc:mysql://127.1.1.2:3306/dcaa_registrar","root","root");  
             PreparedStatement ps;   
             ps=Mycon.prepareStatement("select * from user where username=? and password=?");
             //("select * from user where username=? and password=?");
             
             ps.setString(1, user);
             ps.setString(2,pass);
-             ResultSet rs;
-           rs = ps.executeQuery();
+            ResultSet rs;
+            rs = ps.executeQuery();
              
             
             
@@ -279,6 +279,7 @@ public class LOGIN extends javax.swing.JFrame {
                 
 
                Mainframe.usernamedesk.setText(username.getText());
+              
                 
                    this.hide();
                    

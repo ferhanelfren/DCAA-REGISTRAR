@@ -510,6 +510,9 @@ public void SomeWindow() {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -2061,6 +2064,34 @@ public void SomeWindow() {
             .addGap(0, 18, Short.MAX_VALUE)
         );
 
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add student/default.png"))); // NOI18N
+        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add student/hover.png"))); // NOI18N
+        jButton6.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add student/hover.png"))); // NOI18N
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/student info/default.png"))); // NOI18N
+        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/student info/hover.png"))); // NOI18N
+        jButton7.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/student info/hover.png"))); // NOI18N
+
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/edit/default.png"))); // NOI18N
+        jButton8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/edit/hover.png"))); // NOI18N
+        jButton8.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/edit/hover.png"))); // NOI18N
+
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/students form/default.png"))); // NOI18N
+        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/students form/hover.png"))); // NOI18N
+        jButton9.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/students form/hover.png"))); // NOI18N
+
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/default.png"))); // NOI18N
+        jButton10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/hover.png"))); // NOI18N
+        jButton10.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/hover.png"))); // NOI18N
+
+        jButton11.setBackground(new java.awt.Color(51, 51, 51));
+        jButton11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -2068,11 +2099,19 @@ public void SomeWindow() {
             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(83, 83, 83)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(315, 315, 315))
         );
         jPanel6Layout.setVerticalGroup(
@@ -2083,6 +2122,11 @@ public void SomeWindow() {
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -2579,6 +2623,8 @@ public void SomeWindow() {
     private javax.swing.JCheckBox Yes;
     private javax.swing.JTextField ZIPCODE;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2586,6 +2632,7 @@ public void SomeWindow() {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private com.toedter.calendar.JCalendar jCalendar1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
