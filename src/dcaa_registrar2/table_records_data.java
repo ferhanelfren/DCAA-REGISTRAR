@@ -5,6 +5,7 @@
  */
 package dcaa_registrar2;
 
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -22,6 +23,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
  *
@@ -39,6 +41,15 @@ public class table_records_data extends javax.swing.JFrame {
         initComponents();
        // Student();
        // FillList();
+       
+       sds();
+       
+       
+       
+         StudentCombo();
+        StudentTable();
+        FillList();
+      
        
     }
 
@@ -66,6 +77,7 @@ public class table_records_data extends javax.swing.JFrame {
             
             
         }
+
         
         
         @Override
@@ -77,6 +89,21 @@ public class table_records_data extends javax.swing.JFrame {
         } 
     }
 
+    
+    
+    
+    private void sds(){
+        
+       // String item = students2.getEditor().getItem().toString();
+        
+        //students2.getEditor().setItem("Text Has Changed");
+        
+            
+          
+          AutoCompleteDecorator.decorate(students1);
+        
+        
+    }
      
     
    
@@ -89,7 +116,7 @@ public class table_records_data extends javax.swing.JFrame {
                                             try {
                                                 
                                                 
-                                           Class.forName("com.mysql.cj.jdbc.Driver");
+                                           Class.forName("com.mysql.jdbc.Driver");
                                            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root"); 
                                            PreparedStatement ps;   
                                            ps=Mycon.prepareStatement("select * from enrolled_students");
@@ -134,25 +161,35 @@ public class table_records_data extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        students = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
+        students1 = new javax.swing.JComboBox();
         search = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList();
-        jButton2 = new javax.swing.JButton();
         STUDENT_NAME = new javax.swing.JTextField();
         ENROLLMENT = new javax.swing.JTextField();
         enrollment = new javax.swing.JButton();
         students2 = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
+        save = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        students.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        students1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        students1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                students1MouseClicked(evt);
+            }
+        });
+        students1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                students1KeyPressed(evt);
+            }
+        });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchKeyReleased(evt);
             }
         });
 
@@ -167,13 +204,6 @@ public class table_records_data extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         enrollment.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
         enrollment.setForeground(new java.awt.Color(204, 0, 0));
         enrollment.setText("Attach File");
@@ -184,64 +214,85 @@ public class table_records_data extends javax.swing.JFrame {
             }
         });
 
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Student's Name"
+            }
+        ));
+        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable);
+
+        save.setText("save");
+        save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(1102, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(153, 153, 153))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(448, 448, 448)
-                        .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 466, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118)
-                        .addComponent(jButton1))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(199, 199, 199)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(STUDENT_NAME)
+                                            .addComponent(ENROLLMENT, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(enrollment, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(students2, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(154, 154, 154)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(229, 229, 229)
-                        .addComponent(students, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(STUDENT_NAME)
-                            .addComponent(ENROLLMENT, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(enrollment, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(students2, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(students1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(222, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(572, 572, 572))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)))
-                .addGap(18, 18, 18)
-                .addComponent(students, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addGap(49, 49, 49)
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
+                .addComponent(students1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addGap(23, 23, 23)
+                .addGap(61, 61, 61)
                 .addComponent(STUDENT_NAME, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ENROLLMENT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enrollment, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addComponent(students2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ENROLLMENT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(enrollment, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addComponent(students2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(save)
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -262,10 +313,11 @@ public class table_records_data extends javax.swing.JFrame {
     
   
     
-    private void Student()
+    private void StudentTable()
     
     {
         
+        int c;
            try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -273,28 +325,96 @@ public class table_records_data extends javax.swing.JFrame {
                 PreparedStatement ps;
                 ps=Mycon.prepareStatement("select * from enrolled_students");
                 rs= ps.executeQuery();
-//                students.removeAllItems();
-//                jList1.removeAllItems();
                 
-                //DefaultListModel model =  new DefaultListModel();
+                DefaultTableModel modelt = (DefaultTableModel)jTable.getModel();
+                ResultSetMetaData rsd=rs.getMetaData();
+                   c = rsd.getColumnCount(); 
                 
+                     modelt.setRowCount(0);
+//                while (rs.next())
+//                
+//                {
+//                    
+//                    
+//                  //  students.addItem(new student(rs.getInt(1), rs.getString(6)));
+//              //  jComboBox1.addItem(new student(rs.getInt(1), rs.getString(6)));
+//                    // schoolyr.addItem(new Add_Students.SchoolYear2(rs.getInt(1),rs.getString(2)));
+//                    
+//                   // schoolyr.addItem(new Add_Students_Info.SchoolYear2(rs.getInt(1),rs.getString(2)));
+//                    
+//                  // model.addElement(new student(rs.getInt(1), rs.getString(6)));
+//               
+//                  
+//                }
+                
+                                    while (rs.next()) 
+                                                {          
+                                                    Vector v = new Vector();
+                                                    
+                                                    for (int i = 0; i <= 35; i++) 
+                                                    { 
+                                                         //v.add(rs.getString("id")); 
+                                                           
+                                                        v.add(new student(rs.getInt(1), rs.getString(6)));
+                                                    }
+                                                    
+                                                    modelt.addRow(v); 
+                                                   
+                                                }
+
+
+                    
+
+               //jList1.setModel(model);
+               
+               
+            }catch (ClassNotFoundException | SQLException  ex) {
+                Logger.getLogger(table_records_data.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            
+        
+        
+    }
+    
+    
+    
+     private void StudentCombo()
+    
+    {
+        
+        int c;
+           try {
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+                PreparedStatement ps;
+                ps=Mycon.prepareStatement("select * from enrolled_students");
+                rs= ps.executeQuery();
+                
+                DefaultTableModel modelt = (DefaultTableModel)jTable.getModel();
+                ResultSetMetaData rsd=rs.getMetaData();
+                   c = rsd.getColumnCount(); 
+                
+                     modelt.setRowCount(0);
                 while (rs.next())
                 
                 {
                     
                     
-                  //  students.addItem(new student(rs.getInt(1), rs.getString(6)));
-                    
+                    students1.addItem(new student(rs.getInt(1), rs.getString(6)));
+              //  jComboBox1.addItem(new student(rs.getInt(1), rs.getString(6)));
                     // schoolyr.addItem(new Add_Students.SchoolYear2(rs.getInt(1),rs.getString(2)));
                     
                    // schoolyr.addItem(new Add_Students_Info.SchoolYear2(rs.getInt(1),rs.getString(2)));
                     
-                   model.addElement(new student(rs.getInt(1), rs.getString(6)));
-                   
+                  // model.addElement(new student(rs.getInt(1), rs.getString(6)));
+               
+                  
                 }
                 
-               jList1.setModel(model);
-
+                           
+               
                
             }catch (ClassNotFoundException | SQLException  ex) {
                 Logger.getLogger(table_records_data.class.getName()).log(Level.SEVERE, null, ex);
@@ -307,72 +427,94 @@ public class table_records_data extends javax.swing.JFrame {
     
     
 
+      public void LoadSearchData(){
+         
+         
+         
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         
-        Student();
-      
-      //FillList();
-         // SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
-    }//GEN-LAST:event_jButton1ActionPerformed
+//           try {
+//               String name="%"+this.search.getText()+"%";
+//             
+//                 
+//                DefaultTableModel model =  (DefaultTableModel)jTable1.getModel() ;
+//                 int col;
+//                Class.forName("com.mysql.cj.jdbc.Driver");
+//               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+//               PreparedStatement ps;
+//               ps = Mycon.prepareStatement("select * from enrolled_students where fullname LIKE '"+name+"'"); 
+//
+//             ResultSet rs= ps.executeQuery();
+//             
+//               
+//           model.setRowCount(0);
+//                         while(rs.next()){   
+//                             
+//                             //number sa mga columns sa imohang tables
+//                        model.addRow(new Object[]{rs.getString(6)});
+//    
+//      
+//    
+//                                }  
+//             
+//            }catch (ClassNotFoundException  ex) {
+//                Logger.getLogger(table_suggetions.class.getName()).log(Level.SEVERE, null, ex);
+//            }catch ( SQLException ex) {
+//                Logger.getLogger(table_suggetions.class.getName()).log(Level.SEVERE, null, ex);
+//            }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         
-        
-        
-        
-        
-        
-       // students sy = (students) 
-       student sy = (student)students.getSelectedItem();
-      
-        String s= ENROLLMENT.getText();
-        try {   
-  
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-        PreparedStatement ps;
+            DefaultComboBoxModel moda = (DefaultComboBoxModel)students1.getModel(); 
+             
+            try {
+               String name="%"+this.search.getText()+"%";
+             
        
-       ps=Mycon.prepareStatement("INSERT INTO student_records ( enrolled_students_id, crt_enrollment) VALUES (?,?)");
+                Class.forName("com.mysql.cj.jdbc.Driver");
+               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+               PreparedStatement ps;
+               ps = Mycon.prepareStatement("select * from enrolled_students where fullname LIKE '"+name+"'"); 
 
-         ps.setInt(1, sy.id);
-         ps.setString(2, s);
-     
+             ResultSet rs= ps.executeQuery();
+             
+             
+                         while(rs.next()){   
+                            moda.addElement(new Object[]{rs.getString(6)});
+                                            }  
+             
+            }catch (ClassNotFoundException  ex) {
+                Logger.getLogger(table_suggetions.class.getName()).log(Level.SEVERE, null, ex);
+            }catch ( SQLException ex) {
+                Logger.getLogger(table_suggetions.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-        
-        ps.execute();      
 
-               
 
-     
 
-                               
-
-                    JOptionPane.showMessageDialog(null, "Student Successfully Enrolled");
-
-                    
-                    
-                // DESKTOP.schoolyear.setText(jComboBox1.getSelectedItem().toString());
-               
-         } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, ex, "ERROR", JOptionPane.ERROR_MESSAGE);
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex, "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-            
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+         
+         
+     }
+    
+    
+    
+    
+    
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-       JList list = (JList)evt.getSource();
-            
+      // JList list = (JList)evt.getSource();
+        DefaultListModel mod = (DefaultListModel) jList1.getModel();
+      int selecIndex = (int) jList1.getSelectedValue();
+        
+        
            if (evt.getClickCount() == 1) {
                
                //String index = list.locationToIndex(evt.getPoint());
-               String index = list.getSelectedValue().toString();
+            //   String index = list.getSelectedValue().toString();
              //   int index = (int) list.getSelectedValue();
-               String tmp = students.getSelectedItem().toString();
+            //    int i = Integer.parseInt( list.getSelectedValue().toString());
                  
-                 
+      //      students2.setSelectedItem(mod.get(Integer.parseInt(selecIndex)));
+            
+              //  students2.setSelectedItem(model.getElementAt(selecIndex, 28).toString() );
+                //.setSelectedItem(list.getValueAt(selecIndex, 28).toString() );
+
                //STUDENT_NAME.setText(index);
                
                
@@ -382,9 +524,9 @@ public class table_records_data extends javax.swing.JFrame {
             JComboBox comboBox = new JComboBox();
             comboBox.setModel(comboModel );
             
-            comboBox.setSelectedIndex(index);
+//            comboBox.setSelectedIndex(index);
             
-               students.getModel();
+               students1.getModel();
                
            }
     }//GEN-LAST:event_jList1MouseClicked
@@ -408,6 +550,74 @@ public class table_records_data extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_enrollmentActionPerformed
+
+    private void students1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_students1MouseClicked
+       
+       
+        
+    }//GEN-LAST:event_students1MouseClicked
+
+    private void students1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_students1KeyPressed
+        
+        
+   
+  
+         
+        
+       
+    }//GEN-LAST:event_students1KeyPressed
+
+    private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
+
+        LoadSearchData();
+    }//GEN-LAST:event_searchKeyReleased
+
+    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+
+        DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
+        int selecIndex = jTable.getSelectedRow();
+
+        
+        STUDENT_NAME.setText(model2.getValueAt(selecIndex, 0).toString());
+        students1.setSelectedItem(model2.getValueAt(selecIndex, 0).toString() );
+//        jComboBox2.setSelectedItem(model2.getValueAt(selecIndex, 0).toString() );
+    }//GEN-LAST:event_jTableMouseClicked
+
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+       
+        
+        student sy = (student)students1.getSelectedItem();
+        //String.valueOf(object) 
+       // student sy = (student)jTable1.getModel();
+        String z = ENROLLMENT.getText();
+        
+        
+        
+        
+         try {   
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+        PreparedStatement ps;
+       
+       ps=Mycon.prepareStatement("INSERT INTO student_records ( enrolled_students_id, crt_enrollment) VALUES (?,?)");
+       ps.setInt(1, sy.id);
+       ps.setString(2, z);
+       
+      
+        ps.execute();      
+
+                    JOptionPane.showMessageDialog(null, "Student Successfully Enrolled");
+
+                    
+                    
+                // DESKTOP.schoolyear.setText(jComboBox1.getSelectedItem().toString());
+               
+         } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Add_Records.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Add_Records.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_saveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -448,13 +658,14 @@ public class table_records_data extends javax.swing.JFrame {
     private javax.swing.JTextField ENROLLMENT;
     private javax.swing.JTextField STUDENT_NAME;
     private javax.swing.JButton enrollment;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JTable jTable;
+    private javax.swing.JButton save;
     private javax.swing.JTextField search;
-    private javax.swing.JComboBox students;
+    private javax.swing.JComboBox students1;
     private javax.swing.JComboBox<String> students2;
     // End of variables declaration//GEN-END:variables
 }
