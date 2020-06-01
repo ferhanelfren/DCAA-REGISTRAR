@@ -241,8 +241,8 @@ public class Search_Student_Info_Record extends javax.swing.JFrame {
                                            Class.forName("com.mysql.cj.jdbc.Driver");
                                            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root"); 
                                            PreparedStatement ps;   
-                                           ps=Mycon.prepareStatement("select a.id, s.name, a.lrnStatus, a.student_account_no, a.lrnNumber, a.fullname, a.bdate, a.sex, a.age, a.ip, a.ip_status, a.mother_tongue, a.address, a.zip_code, a.fathername, a.mothername, a.guardianname, a.telephone, a.cellphone, a.last_grade_level_completed, a.last_school_year_completed, a.school_name, a.school_id, a.school_address, a.semester, a.track, a.strand, a.grade_level, a.enrolled_track from enrolled_students a, school_year s  where a.school_year_id = s.id ");
-                                           ResultSet rs = ps.executeQuery();
+                                           ps=Mycon.prepareStatement("select a.id, s.school_year_name, a.lrnStatus, a.student_account_no, a.lrnNumber, a.fullname, a.bdate, a.sex, a.age, a.ip, a.ip_status, a.mother_tongue, a.address, a.zip_code, a.fathername, a.mothername, a.guardianname, a.telephone, a.cellphone, a.last_grade_level_completed, a.last_school_year_completed, a.school_name, a.school_id, a.school_address, a.semester, a.track, a.strand, a.grade_level, a.enrolled_track from enrolled_students a, school_year s  where a.school_year_id = s.id ");
+                                           rs = ps.executeQuery();
                                             
                                             
                                             ResultSetMetaData rsd=rs.getMetaData();
@@ -313,7 +313,7 @@ public class Search_Student_Info_Record extends javax.swing.JFrame {
                                                     for (int i = 0; i <= 35; i++) 
                                                     { 
                                                          v.add(rs.getString("id")); 
-                                                          v.add(rs.getString("name"));
+                                                          v.add(rs.getString("school_year_name"));
                                                           v.add(rs.getString("lrnStatus")); 
                                                            v.add(rs.getString("student_account_no")); 
                                                             v.add(rs.getString("lrnNumber")); 

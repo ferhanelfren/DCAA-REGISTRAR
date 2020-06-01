@@ -41,7 +41,7 @@ public class Edit_Students_Info extends javax.swing.JFrame {
         initComponents();
      table_update();
 
-       //AutoCompleteComboBox();    
+//        AutoCompleteComboBox();    
         schoolyear2();
         ButtonGroup bg = new ButtonGroup();
         bg.add(Male);
@@ -199,13 +199,18 @@ public class Edit_Students_Info extends javax.swing.JFrame {
                                                 jTable.getColumnModel().getColumn(2).setPreferredWidth(150);
                                                 jTable.getColumnModel().getColumn(3).setPreferredWidth(9);
                                                 jTable.getColumnModel().getColumn(4).setPreferredWidth(50);
-           
+
+                                              
+                                                
+                                                
+
+
        }
        
       public boolean verifyText()
     {
         
-        if (schoolyr.getSelectedItem().equals("") || LRN.getSelectedItem().toString().equals("") || STUDENT_ACCOUNT1.getText().equals("") || LRNNO.getText().equals("") || AGE1.getText().equals("")    || STUDENTNAME.getText().equals("") ||   jDateChooser1.getDate() == null ||  YES_IPSPECIFY.getText().equals("") ||  MOTHERTONGUE.getText().equals("") ||  ADDRESS.getText().equals("") ||  ZIPCODE.getText().equals("") ||  FATHERNAME.getText().equals("") ||  MOTHERNAME.getText().equals("") ||  GUARDIAN.getText().equals("") ||  TELNO.getText().equals("") ||  CELPHONE.getText().equals("") || LEVELCOMPLETED.getSelectedItem().equals("") || SYCOMPLETED.getText().equals("") ||  SCHOOLNAME.getText().equals("") || SCHOOLID.getText().equals("") || SCHOOLADDRESS.getText().equals("") || TRACK.getSelectedItem().equals("") || STRAND.getSelectedItem().equals("") || GRADELEVEL.getText().equals("") || TRACK_ENROLLED.getSelectedItem().equals(""))
+        if (schoolyr.getSelectedItem().toString().equals("")|| LRN.getSelectedItem().toString().equals("") || STUDENT_ACCOUNT1.getText().equals("") || LRNNO.getText().equals("") || AGE1.getText().equals("")    || STUDENTNAME.getText().equals("") ||   jDateChooser1.getDate() == null ||  YES_IPSPECIFY.getText().equals("") ||  MOTHERTONGUE.getText().equals("") ||  ADDRESS.getText().equals("") ||  ZIPCODE.getText().equals("") ||  FATHERNAME.getText().equals("") ||  MOTHERNAME.getText().equals("") ||  GUARDIAN.getText().equals("") ||  TELNO.getText().equals("") ||  CELPHONE.getText().equals("") || LEVELCOMPLETED.getSelectedItem().equals("") || SYCOMPLETED.getText().equals("") ||  SCHOOLNAME.getText().equals("") || SCHOOLID.getText().equals("") || SCHOOLADDRESS.getText().equals("") || TRACK.getSelectedItem().equals("") || STRAND.getSelectedItem().equals("") || GRADELEVEL.getText().equals("") || TRACK_ENROLLED.getSelectedItem().equals(""))
 
           {
             JOptionPane.showMessageDialog(this," Failed...!!! One or More Empty");
@@ -1788,9 +1793,7 @@ public class Edit_Students_Info extends javax.swing.JFrame {
         );
         jPanel30Layout.setVerticalGroup(
             jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(search, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+            .addComponent(search, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
         jLabel1.setFont(new java.awt.Font("Copperplate Gothic Light", 1, 24)); // NOI18N
@@ -1812,9 +1815,9 @@ public class Edit_Students_Info extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -1980,16 +1983,16 @@ public class Edit_Students_Info extends javax.swing.JFrame {
     
           private void AutoCompleteComboBox(){          
           AutoCompleteDecorator.decorate(schoolyr);
-          AutoCompleteDecorator.decorate(LRN);
+          //AutoCompleteDecorator.decorate(LRN);
     }
     
     
     private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
       DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
       int selecIndex = jTable.getSelectedRow();
-      
+      //SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
      
-       schoolyr.setSelectedItem(model2.getValueAt(selecIndex, 1).toString() );
+        schoolyr.setSelectedItem(model2.getValueAt(selecIndex, 1).toString());
         LRN.setSelectedItem(model2.getValueAt(selecIndex, 2).toString() );
         STUDENT_ACCOUNT1.setText(model2.getValueAt(selecIndex, 3).toString());
         LRNNO.setText(model2.getValueAt(selecIndex, 4).toString());
@@ -2181,8 +2184,9 @@ public class Edit_Students_Info extends javax.swing.JFrame {
 
                  if (verifyText()) {
                       ps.execute();
+                      table_update();
                     
-                    schoolyr.setSelectedIndex(-1);
+                   // schoolyr.setSelectedIndex(-1);
                     LRN.setSelectedIndex(-1);
                     STUDENT_ACCOUNT1.setText("None");
                     LRNNO.setText("None");
@@ -2342,7 +2346,8 @@ public class Edit_Students_Info extends javax.swing.JFrame {
                 if (verifyText()) {
 
                     ps.execute();
-                    schoolyr.setSelectedIndex(-1);
+                    table_update();
+                  //  schoolyr.setSelectedIndex(-1);
                     LRN.setSelectedIndex(-1);
                     STUDENT_ACCOUNT1.setText("None");
                     LRNNO.setText("None");
@@ -2744,10 +2749,10 @@ public class Edit_Students_Info extends javax.swing.JFrame {
             ps=Mycon.prepareStatement("delete from enrolled_students where id=?");
             ps.setInt(1, id);
                
-            ps.execute();
+                ps.execute();
                 table_update();
                 JOptionPane.showMessageDialog(null, "Student Successfully Deleted");
-                    schoolyr.setSelectedIndex(-1);
+                    //schoolyr.setSelectedIndex(-1);
                     LRN.setSelectedIndex(-1);
                     STUDENT_ACCOUNT1.setText("None");
                     LRNNO.setText("None");

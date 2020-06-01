@@ -207,11 +207,19 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                          <Component id="ENROLLMENT" min="-2" pref="500" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="enrollment" min="-2" pref="116" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                  <Component id="ENROLLMENT" min="-2" pref="500" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="enrool" min="-2" pref="116" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
+                                  <Component id="enrollment" min="-2" pref="116" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace pref="153" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -219,10 +227,12 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ENROLLMENT" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="enrollment" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="enrollment" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="ENROLLMENT" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="enrool" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="107" max="32767" attributes="0"/>
                       </Group>
@@ -253,6 +263,27 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="ENROLLMENT">
                 </Component>
+                <Component class="javax.swing.JButton" name="enrool">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="20" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="0" red="cc" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="sulod"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder>
+                          <Color PropertyName="color" blue="33" green="66" red="0" type="rgb"/>
+                        </LineBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enroolActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel4">
@@ -271,7 +302,7 @@
                           <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                           <Component id="GOODMORAL" min="-2" pref="500" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="goodmoral" min="-2" pref="116" max="-2" attributes="0"/>
+                          <Component id="goodmoral1" min="-2" pref="116" max="-2" attributes="0"/>
                           <EmptySpace pref="153" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -281,8 +312,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="GOODMORAL" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="goodmoral" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="GOODMORAL" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="goodmoral1" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="107" max="32767" attributes="0"/>
                       </Group>
@@ -292,7 +323,7 @@
               <SubComponents>
                 <Component class="javax.swing.JTextField" name="GOODMORAL">
                 </Component>
-                <Component class="javax.swing.JButton" name="goodmoral">
+                <Component class="javax.swing.JButton" name="goodmoral1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="20" style="1"/>
@@ -310,7 +341,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="goodmoralActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="goodmoral1ActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -851,15 +882,15 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="schoolyr" min="-2" pref="260" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="students1" min="-2" pref="335" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

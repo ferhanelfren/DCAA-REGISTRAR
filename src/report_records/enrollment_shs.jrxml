@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Enrollment" pageWidth="595" pageHeight="936" whenNoDataType="AllSectionsNoDetail" columnWidth="451" leftMargin="72" rightMargin="72" topMargin="144" bottomMargin="72" whenResourceMissingType="Empty" uuid="382c9b36-104b-428b-b434-00698783b7ce">
+	<property name="ireport.zoom" value="1.7715610000000053"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="144"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#385038">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#CFE6CF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="Table Dataset 1" uuid="7f5215ac-b646-45c1-89f8-448400e7da7c"/>
+	<parameter name="sy" class="java.lang.String"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="lrn" class="java.lang.String"/>
+	<parameter name="grade" class="java.lang.String"/>
+	<parameter name="trak" class="java.lang.String"/>
+	<parameter name="section" class="java.lang.String"/>
+	<parameter name="future sy" class="java.lang.String"/>
+	<parameter name="schoolregistrar" class="java.lang.String"/>
+	<parameter name="parameter1" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+    *
+FROM
+     certificate_of_enrollment]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="school_year_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="enrolled_students_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sections_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="timestamp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="0" width="417" height="79" uuid="3551747f-f747-4391-a77e-f776f21a315a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATE OF ENROLMENT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="527" splitType="Stretch">
+			<textField>
+				<reportElement x="133" y="29" width="188" height="16" uuid="b02774c3-36cd-422a-b21b-cd1bba99947f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="29" width="131" height="16" uuid="cc6c8107-171f-417c-a48a-84651a60926d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[	This is to certify that]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="29" width="43" height="16" uuid="61a24e3a-870d-43f3-a7ae-27c75c04bfd1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[with LRN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="44" width="291" height="16" uuid="82036c3b-32f9-4a10-b734-b3f8a7216741"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[presently    enrolled    in    Senior  High   School   (   Grade]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="255" y="44" width="36" height="16" uuid="7e835e75-2d95-489a-b9dc-0406ba809a56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{grade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="290" y="44" width="37" height="16" uuid="84c5982e-6378-427a-9891-0b9ce1cee17a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Section:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="327" y="44" width="97" height="16" uuid="9b57969c-2c3e-4b1a-a4f7-ee7ae9860949"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{section}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="161" y="59" width="235" height="16" uuid="516ef488-97d0-431a-b936-24d06a17a936"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[)  in  this  institution  for  this  Academic  Year]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="368" y="59" width="64" height="16" uuid="c08a0ca3-bb82-420f-bc55-66e805913cb8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="93" width="463" height="16" uuid="8edf97a7-d815-40ff-ab19-f56cb254a400"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[	This certification  is issued  upon  the request of the above-named student for his/her desire to]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="279" width="219" height="20" uuid="9edad947-5c7d-47ae-af30-00587a920283"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{schoolregistrar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="296" width="291" height="16" uuid="09156591-4e2c-4a09-88d4-ef2f45c701e5"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[School Registrar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="454" width="291" height="16" uuid="d98e32d6-1188-419e-bdca-8efa3c51f918"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[NOT VALID WITHOUT SCHOOL SEAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="59" width="40" height="16" uuid="a3dffedd-fa1c-4012-8f80-40a58aa21d24"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Strand :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="40" y="59" width="121" height="16" uuid="8e138966-48a9-4c52-af33-f8e4bf00e5b4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$P{trak}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="439" y="29" width="12" height="16" uuid="53a41a1d-a02c-47cd-999f-3f4a33dd32ea"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[is]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="364" y="29" width="75" height="16" uuid="dd839924-099a-44d2-9d5e-eddcd5576b1e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lrn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="419" y="59" width="13" height="16" uuid="eb43d62d-9f19-4964-9abf-b3bb45a3f2a1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[.]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="80" y="190" width="100" height="16" uuid="e7e0d781-2671-491b-97cd-62f2fde895e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="190" width="99" height="16" uuid="bd79b4f2-9cb9-4d19-9132-204465f2a3b0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[	Issued this]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="173" y="190" width="291" height="16" uuid="5e01b6c9-d67b-473f-bcf8-537d15c3edd7"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[at Digos Central Adventist Academy, Inc., Lapu-Lapu Extension,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="205" width="291" height="16" uuid="f9e5adbb-b33a-42d4-9a0d-bb364f8f2cc8"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Brgy. Zone 3,  Digos  City,  Davao  del  Sur  8002,  Philippines.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="157" width="463" height="16" uuid="56c9caf1-10ae-4d01-94a7-6fe7785ac7b2"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[in  this  school  on  the  above  specified  period.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="142" width="463" height="16" uuid="f2250e78-3f01-4e6a-914f-c06918dfdcc7"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[	This certifies further that he/she was not subjected to any disciplanry action during his/her stay]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="206" y="108" width="68" height="16" uuid="9748cb34-a2a6-4d90-a52c-13949b94b5f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{future sy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="108" width="219" height="16" uuid="058ebe8f-06ff-408a-a99a-2228348a5bde"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[to  enroll  in  your  institution  this  coming  S.Y.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="108" width="31" height="16" uuid="4efc3c73-9e7d-47ab-92d2-b4393df0d3ef"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<text><![CDATA[.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="44" width="37" height="16" uuid="228340c9-9656-43a0-887b-104293f53f4a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Track]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -8,13 +8,17 @@ package dcaa_registrar2;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
+import java.awt.HeadlessException;
 import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -79,69 +83,21 @@ public class Edit_Record extends javax.swing.JFrame {
            
            
        }
-    
-   
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     Connection Mycon;
     ResultSet rs;
    
 
-//      private void schoolyear2()
-//              
-//             
-//        {
-//            
-//           
-//              try {
-//
-//                Class.forName("com.mysql.cj.jdbc.Driver");
-//            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-//                PreparedStatement ps;
-//                ps=Mycon.prepareStatement("select * from school_year");
-//                rs= ps.executeQuery();
-//                schoolyr.removeAllItems();
-//                
-//                
-//                
-//                
-//                while (rs.next())
-//                
-//                {
-//                    
-//                    
-//                     schoolyr.addItem(new SchoolYear2(rs.getInt(1),rs.getString(2)));
-//                    
-//                }
-//                
-//
-//               
-//            }catch (ClassNotFoundException  ex) {
-//                Logger.getLogger(table_suggetions.class.getName()).log(Level.SEVERE, null, ex);
-//            }catch ( SQLException ex) {
-//                Logger.getLogger(table_suggetions.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//
-//            
-//            
-//            
-//        }
     
     
-    
-    
-    
+    public boolean verifyText()
+    {
+        return false;
+        
+        
+     
+        
+    }
     
     
     
@@ -183,9 +139,9 @@ public class Edit_Record extends javax.swing.JFrame {
                                                     
                                                     for (int i = 0; i <= 35; i++) 
                                                     { 
-                                                        v.add(rs.getString("id"));
+                                                         v.add(rs.getString("id"));
                                                          v.add(rs.getString("school_year_name"));
-                                                        v.add(rs.getString("fullname")); 
+                                                         v.add(rs.getString("fullname")); 
                                                          v.add(rs.getString("crt_enrollment"));
                                                          v.add(rs.getString("crt_goodmoral"));
                                                          v.add(rs.getString("crt_completion"));
@@ -231,7 +187,7 @@ public class Edit_Record extends javax.swing.JFrame {
         CLEAR1 = new javax.swing.JButton();
         DELETE1 = new javax.swing.JButton();
         UPDATE1 = new javax.swing.JButton();
-        ADD1 = new javax.swing.JButton();
+        CLEAR3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         ENROLLMENT = new javax.swing.JTextField();
@@ -239,7 +195,7 @@ public class Edit_Record extends javax.swing.JFrame {
         enrollment3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        ENROLLMENT1 = new javax.swing.JTextField();
+        GOODMORAL = new javax.swing.JTextField();
         enrollment1 = new javax.swing.JButton();
         enrollment4 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
@@ -252,6 +208,9 @@ public class Edit_Record extends javax.swing.JFrame {
         ENROLLMENT3 = new javax.swing.JTextField();
         enrollment6 = new javax.swing.JButton();
         enrollment7 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel30 = new javax.swing.JPanel();
+        search = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Forms and Records");
@@ -279,15 +238,16 @@ public class Edit_Record extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(244, 241, 233));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2));
 
         jTable.setAutoCreateRowSorter(true);
+        jTable.setBackground(new java.awt.Color(244, 241, 233));
         jTable.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jTable.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jTable.setForeground(new java.awt.Color(51, 51, 51));
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Id", "School Year", "Students Name", "Certificate of Enrollment", "Certificate of Good Moral", "Certificate of Completion", "Honorable Dismissal", "SF 10", "SF 9", "PSA", "Diploma"
@@ -308,12 +268,13 @@ public class Edit_Record extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable.setGridColor(new java.awt.Color(67, 21, 23));
-        jTable.setRowHeight(25);
+        jTable.setGridColor(new java.awt.Color(0, 0, 0));
+        jTable.setInheritsPopupMenu(true);
+        jTable.setRowHeight(50);
         jTable.setSelectionBackground(new java.awt.Color(43, 70, 60));
         jTable.setSelectionForeground(new java.awt.Color(244, 241, 233));
         jTable.setShowHorizontalLines(false);
-        jTable.setShowVerticalLines(false);
+        jTable.getTableHeader().setReorderingAllowed(false);
         jTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableMouseClicked(evt);
@@ -376,16 +337,16 @@ public class Edit_Record extends javax.swing.JFrame {
             }
         });
 
-        ADD1.setBackground(new java.awt.Color(51, 51, 51));
-        ADD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/default.png"))); // NOI18N
-        ADD1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        ADD1.setFocusPainted(false);
-        ADD1.setRolloverEnabled(true);
-        ADD1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/hover.png"))); // NOI18N
-        ADD1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/hover.png"))); // NOI18N
-        ADD1.addActionListener(new java.awt.event.ActionListener() {
+        CLEAR3.setBackground(new java.awt.Color(51, 51, 51));
+        CLEAR3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/EDIT/default.png"))); // NOI18N
+        CLEAR3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        CLEAR3.setFocusPainted(false);
+        CLEAR3.setRolloverEnabled(true);
+        CLEAR3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/EDIT/hover.png"))); // NOI18N
+        CLEAR3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/EDIT/hover.png"))); // NOI18N
+        CLEAR3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ADD1ActionPerformed(evt);
+                CLEAR3ActionPerformed(evt);
             }
         });
 
@@ -394,9 +355,9 @@ public class Edit_Record extends javax.swing.JFrame {
         jPanel32Layout.setHorizontalGroup(
             jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel32Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ADD1)
-                .addGap(18, 18, 18)
+                .addContainerGap(158, Short.MAX_VALUE)
+                .addComponent(CLEAR3)
+                .addGap(72, 72, 72)
                 .addComponent(UPDATE1)
                 .addGap(18, 18, 18)
                 .addComponent(DELETE1)
@@ -409,7 +370,7 @@ public class Edit_Record extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel32Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ADD1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CLEAR3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(UPDATE1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DELETE1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CLEAR1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -505,7 +466,7 @@ public class Edit_Record extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(ENROLLMENT1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(GOODMORAL, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(enrollment1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -520,7 +481,7 @@ public class Edit_Record extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ENROLLMENT1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(GOODMORAL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enrollment1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enrollment4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -636,48 +597,90 @@ public class Edit_Record extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 26)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel6.setText("Search:");
+
+        jPanel30.setBackground(new java.awt.Color(244, 241, 233));
+        jPanel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+
+        search.setBackground(new java.awt.Color(244, 241, 233));
+        search.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        search.setBorder(null);
+        search.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                searchCaretUpdate(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel30Layout = new javax.swing.GroupLayout(jPanel30);
+        jPanel30.setLayout(jPanel30Layout);
+        jPanel30Layout.setHorizontalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel30Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(search, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel30Layout.setVerticalGroup(
+            jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1549, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(279, 279, 279))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118)
+                .addGap(13, 13, 13)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                        .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -719,20 +722,28 @@ public class Edit_Record extends javax.swing.JFrame {
                                                 jTable.getTableHeader().setOpaque(false);
                                                 jTable.getTableHeader().setBackground(new Color(165,19,29));
                                                 jTable.getTableHeader().setForeground(new Color(255,255,255));
-                                                jTable.getRowHeight(20);
-                                                DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+                                                jTable.getTableHeader().setAlignmentX(CENTER_ALIGNMENT);
+                                                jTable.getRowHeight(25);
+//                                               DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+////                                                
+////                                                
+//                                                rightRenderer.setHorizontalAlignment(JLabel.LEADING);
+//                                                jTable.getColumnModel().getColumn(10).setCellRenderer(rightRenderer);
                                                 
                                                 
-                                                rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
-                                                jTable.getColumnModel().getColumn(10).setCellRenderer(rightRenderer);
-                                                
-                                                
-                                                
-                                                jTable.getColumnModel().getColumn(0).setPreferredWidth(5);
-                                                jTable.getColumnModel().getColumn(7).setPreferredWidth(5);
-                                                jTable.getColumnModel().getColumn(8).setPreferredWidth(5);
-                                                jTable.getColumnModel().getColumn(9).setPreferredWidth(5);
-                                                jTable.getColumnModel().getColumn(10).setPreferredWidth(5);
+//                                                
+//                                                
+                                                jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
+                                                jTable.getColumnModel().getColumn(1).setPreferredWidth(10);
+                                                 jTable.getColumnModel().getColumn(2).setPreferredWidth(90);
+                                                 jTable.getColumnModel().getColumn(3).setPreferredWidth(30);
+//                                                 jTable.getColumnModel().getColumn(4).setPreferredWidth(30);
+//                                                 jTable.getColumnModel().getColumn(5).setPreferredWidth(30);
+//                                                 jTable.getColumnModel().getColumn(6).setPreferredWidth(30);
+                                                jTable.getColumnModel().getColumn(7).setPreferredWidth(10);
+                                                jTable.getColumnModel().getColumn(8).setPreferredWidth(10);
+                                                jTable.getColumnModel().getColumn(9).setPreferredWidth(10);
+                                                jTable.getColumnModel().getColumn(10).setPreferredWidth(10);
                                                
        }
     
@@ -746,41 +757,14 @@ public class Edit_Record extends javax.swing.JFrame {
         
         
         ENROLLMENT.setText(model2.getValueAt(selecIndex, 3).toString() );
+        GOODMORAL.setText(model2.getValueAt(selecIndex, 4).toString() );
         
         
     }//GEN-LAST:event_jTableMouseClicked
 
     private void CLEAR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR1ActionPerformed
 
-        schoolyr.setSelectedIndex(-1);
-        LRN.setSelectedIndex(-1);
-        STUDENT_ACCOUNT1.setText("None");
-        LRNNO.setText("None");
-        STUDENTNAME.setText("Last Name,  First Name   Middle Name");
-        Male.setSelected(true);
-        Female.setSelected(true);
-        No.setSelected(false);
-        Yes.setSelected(false);
-        AGE1.setText("");
-        YES_IPSPECIFY.setText("Please Specify. . .");
-        MOTHERTONGUE.setText("None");
-        ADDRESS.setText("");
-        ZIPCODE.setText("0000");
-        FATHERNAME.setText("Last Name,  First Name   Middle Name");
-        MOTHERNAME.setText("Last Name,  First Name   Middle Name");
-        GUARDIAN.setText("Last Name,  First Name   Middle Name");
-        TELNO.setText("");
-        CELPHONE.setText("");
-        LEVELCOMPLETED.setSelectedIndex(0);
-        SYCOMPLETED.setText("");
-        SCHOOLNAME.setText("None");
-        SCHOOLID.setText("None");
-        SCHOOLADDRESS.setText("None");
-        Semester.setSelectedIndex(0);
-        TRACK.setSelectedIndex(0);
-        STRAND.setSelectedIndex(0);
-        GRADELEVEL.setText("None");
-        TRACK_ENROLLED.setSelectedIndex(0);
+       
     }//GEN-LAST:event_CLEAR1ActionPerformed
 
     private void DELETE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETE1ActionPerformed
@@ -800,41 +784,13 @@ public class Edit_Record extends javax.swing.JFrame {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
                 PreparedStatement ps;
-                ps=Mycon.prepareStatement("delete from enrolled_students where id=?");
+                ps=Mycon.prepareStatement("delete from student_records where id=?");
                 ps.setInt(1, id);
 
                 ps.execute();
                 table_update();
-                JOptionPane.showMessageDialog(null, "Student Successfully Deleted");
-                schoolyr.setSelectedIndex(-1);
-                LRN.setSelectedIndex(-1);
-                STUDENT_ACCOUNT1.setText("None");
-                LRNNO.setText("None");
-                STUDENTNAME.setText("Last Name,  First Name   Middle Name");
-                Male.setSelected(true);
-                Female.setSelected(true);
-                No.setSelected(false);
-                Yes.setSelected(false);
-                AGE1.setText("");
-                YES_IPSPECIFY.setText("Please Specify. . .");
-                MOTHERTONGUE.setText("None");
-                ADDRESS.setText("");
-                ZIPCODE.setText("0000");
-                FATHERNAME.setText("Last Name,  First Name   Middle Name");
-                MOTHERNAME.setText("Last Name,  First Name   Middle Name");
-                GUARDIAN.setText("Last Name,  First Name   Middle Name");
-                TELNO.setText("");
-                CELPHONE.setText("");
-                LEVELCOMPLETED.setSelectedIndex(0);
-                SYCOMPLETED.setText("");
-                SCHOOLNAME.setText("None");
-                SCHOOLID.setText("None");
-                SCHOOLADDRESS.setText("None");
-                Semester.setSelectedIndex(0);
-                TRACK.setSelectedIndex(0);
-                STRAND.setSelectedIndex(0);
-                GRADELEVEL.setText("None");
-                TRACK_ENROLLED.setSelectedIndex(0);
+                JOptionPane.showMessageDialog(null, "Student Record Successfully Deleted");
+               
 
             }catch (ClassNotFoundException | SQLException  ex) {
                 Logger.getLogger(Edit_Students_Info.class.getName()).log(Level.SEVERE, null, ex);
@@ -848,70 +804,9 @@ public class Edit_Record extends javax.swing.JFrame {
     }//GEN-LAST:event_DELETE1ActionPerformed
 
     private void UPDATE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATE1ActionPerformed
-        DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-        int selecIndex= jTable.getSelectedRow();
-        int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
-
-        SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
-        String lrn = LRN.getSelectedItem().toString();
-        String psa =STUDENT_ACCOUNT1.getText();
-        String lrnno=LRNNO.getText();
-        String lname=STUDENTNAME.getText();
-
-        //      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        //        String date = dateFormat.format(jDateChooser1.getDate());
-
-        String age=AGE1.getText();
-        String gender = "Male";
-        if (Female.isSelected()) {
-            gender="Female";
-        }
-
-        String ip = "No";
-        if (Yes.isSelected()) {
-            ip="Yes";
-        }
-
-        String ipstat=YES_IPSPECIFY.getText();
-        String mothertong=MOTHERTONGUE.getText();
-        String add= ADDRESS.getText();
-        String zip=ZIPCODE.getText();
-        String flname=FATHERNAME.getText();
-
-        String mlname=MOTHERNAME.getText();
-
-        String glnamae=GUARDIAN.getText();
-
-        String tel=TELNO.getText();
-        String cp=CELPHONE.getText();
-        String levelcompleted = LEVELCOMPLETED.getSelectedItem().toString();
-        String sycompleted=SYCOMPLETED.getText();
-        String schoolname = SCHOOLNAME.getText();
-        String schoolid = SCHOOLID.getText();
-        String schooladdress = SCHOOLADDRESS.getText();
-
-        String sem = Semester.getSelectedItem().toString();
-
-        String track=TRACK.getSelectedItem().toString();
-        String strand=STRAND.getSelectedItem().toString();
-
-        String gradelevel = GRADELEVEL.getText();
-        String trackenroll= TRACK_ENROLLED.getSelectedItem().toString();
-
-        DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime now= LocalDateTime.now();
-        String timestamp = dtf.format(now);
-
-        //java.util.Date now = new java.util.Date();
-
+     
         if (verifyText()) {
             try {
-                SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/d");
-                String dateString = String.valueOf(df.format(jDateChooser1.getDate()));
-                Date myDate = df.parse(dateString);
-                java.util.Date utilDate = new java.util.Date(myDate.getTime());
-                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
                 PreparedStatement ps;
@@ -919,76 +814,18 @@ public class Edit_Record extends javax.swing.JFrame {
                 //ps=Mycon.prepareStatement("update enrolled_students set school_year_id=?, lrnStatus=?, student_account_no=?, lrnNumber=?, fullname=?, bdate=?, sex=?, age=?, ip=?, ip_status=?, mother_tongue=?, address=?, zip_code=?, fathername=?, mothername=?, guardianname=?, telephone=?, cellphone=?, last_grade_level_completed=?, last_school_year_completed=?, school_name=?, school_id=?, school_address=?, semester=?, track=?, strand=?, grade_level=?, enrolled_track=? where id=?");
                 ps=Mycon.prepareStatement("update enrolled_students set school_year_id=?, lrnStatus=?, student_account_no=?, lrnNumber=?, fullname=?, bdate=?, sex=?, age=?, ip=?, ip_status=?, mother_tongue=?, address=?, zip_code=?, fathername=?, mothername=?, guardianname=?, telephone=?, cellphone=?, last_grade_level_completed=?, last_school_year_completed=?, school_name=?, school_id=?, school_address=?, semester=?, track=?, strand=?, grade_level=?, enrolled_track=? where id=?");
 
-                ps.setInt(1, sy.id);
-                ps.setString(2,lrn);
-                ps.setString(3,psa);
-                ps.setString(4,lrnno);
-                ps.setString(5, lname);
-                ps.setDate(6, (java.sql.Date) sqlDate);
-                ps.setString(7, gender);
-                ps.setString(8, age);
-                ps.setString(9, ip);
-                ps.setString(10, ipstat);
-                ps.setString(11, mothertong);
-                ps.setString(12, add);
-                ps.setString(13, zip);
-                ps.setString(14, flname);
-                ps.setString(15, mlname);
-                ps.setString(16, glnamae);
-                ps.setString(17, tel);
-                ps.setString(18, cp);
-                ps.setString(19, levelcompleted);
-                ps.setString(20, sycompleted);
-                ps.setString(21, schoolname);
-                ps.setString(22, schoolid);
-                ps.setString(23, schooladdress);
-                ps.setString(24, sem);
-                ps.setString(25, track);
-                ps.setString(26, strand);
-                ps.setString(27, gradelevel);
-                ps.setString(28, trackenroll);
-                ps.setInt(29,id);
-
+               
                 if (verifyText()) {
                     ps.execute();
 
-                    schoolyr.setSelectedIndex(-1);
-                    LRN.setSelectedIndex(-1);
-                    STUDENT_ACCOUNT1.setText("None");
-                    LRNNO.setText("None");
-                    STUDENTNAME.setText("Last Name,  First Name   Middle Name");
-                    Male.setSelected(true);
-                    Female.setSelected(true);
-                    No.setSelected(false);
-                    Yes.setSelected(false);
-                    AGE1.setText("");
-                    YES_IPSPECIFY.setText("Please Specify. . .");
-                    MOTHERTONGUE.setText("None");
-                    ADDRESS.setText("");
-                    ZIPCODE.setText("0000");
-                    FATHERNAME.setText("Last Name,  First Name   Middle Name");
-                    MOTHERNAME.setText("Last Name,  First Name   Middle Name");
-                    GUARDIAN.setText("Last Name,  First Name   Middle Name");
-                    TELNO.setText("");
-                    CELPHONE.setText("");
-                    LEVELCOMPLETED.setSelectedIndex(0);
-                    SYCOMPLETED.setText("");
-                    SCHOOLNAME.setText("None");
-                    SCHOOLID.setText("None");
-                    SCHOOLADDRESS.setText("None");
-                    Semester.setSelectedIndex(0);
-                    TRACK.setSelectedIndex(0);
-                    STRAND.setSelectedIndex(0);
-                    GRADELEVEL.setText("None");
-                    TRACK_ENROLLED.setSelectedIndex(0);
-
-                    JOptionPane.showMessageDialog(null, "Student Successfully Updated");
+                    
+                    JOptionPane.showMessageDialog(null, "Student Record Successfully Updated");
 
                 }
 
                 // DESKTOP.schoolyear.setText(jComboBox1.getSelectedItem().toString());
 
-            } catch (ClassNotFoundException | SQLException | ParseException  ex) {
+            } catch (ClassNotFoundException | SQLException ex) {
 
                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
             }
@@ -1001,157 +838,44 @@ public class Edit_Record extends javax.swing.JFrame {
 
     }//GEN-LAST:event_UPDATE1ActionPerformed
 
-    private void ADD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADD1ActionPerformed
-        SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem(); // SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
-        String lrn = LRN.getSelectedItem().toString();
-        String psa =STUDENT_ACCOUNT1.getText();
-        String lrnno=LRNNO.getText();
-        String lname=STUDENTNAME.getText();
-
-        //      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        //        String date = dateFormat.format(jDateChooser1.getDate());
-
-        String age=AGE1.getText();
-        String gender = "Male";
-        if (Female.isSelected()) {
-            gender="Female";
-        }
-
-        String ip = "No";
-        if (Yes.isSelected()) {
-            ip="Yes";
-        }
-
-        String ipstat=YES_IPSPECIFY.getText();
-        String mothertong=MOTHERTONGUE.getText();
-        String add= ADDRESS.getText();
-        String zip=ZIPCODE.getText();
-        String flname=FATHERNAME.getText();
-
-        String mlname=MOTHERNAME.getText();
-
-        String glnamae=GUARDIAN.getText();
-
-        String tel=TELNO.getText();
-        String cp=CELPHONE.getText();
-        String levelcompleted = LEVELCOMPLETED.getSelectedItem().toString();
-        String sycompleted=SYCOMPLETED.getText();
-        String schoolname = SCHOOLNAME.getText();
-        String schoolid = SCHOOLID.getText();
-        String schooladdress = SCHOOLADDRESS.getText();
-
-        String sem = Semester.getSelectedItem().toString();
-
-        String track=TRACK.getSelectedItem().toString();
-        String strand=STRAND.getSelectedItem().toString();
-
-        String gradelevel = GRADELEVEL.getText();
-        String trackenroll= TRACK_ENROLLED.getSelectedItem().toString();
-
-        DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        LocalDateTime now= LocalDateTime.now();
-        String timestamp = dtf.format(now);
-
-        //java.util.Date now = new java.util.Date();
-
-        if (verifyText()) {
-
-            try {
-
-                //            Calendar cal = Calendar.getInstance();
-                //            cal.getTime();
-                //
-
-                SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/d");
-                String dateString = String.valueOf(df.format(jDateChooser1.getDate()));
-                Date myDate = df.parse(dateString);
-                //
-
-                java.util.Date utilDate = new java.util.Date(myDate.getTime());
-                java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-                //
-                //            System.out.println(dateString);
-
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                PreparedStatement ps;
-                ps=Mycon.prepareStatement("insert into enrolled_students (school_year_id, lrnStatus, student_account_no, lrnNumber, fullname, bdate, sex, age, ip, ip_status, mother_tongue, address, zip_code, fathername, mothername, guardianname, telephone, cellphone, last_grade_level_completed, last_school_year_completed, school_name, school_id, school_address, semester, track, strand, grade_level, enrolled_track, timestamp) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                ps.setInt(1, sy.id);
-                ps.setString(2,lrn);
-                ps.setString(3,psa);
-                ps.setString(4,lrnno);
-                ps.setString(5, lname);
-                ps.setDate(6, (java.sql.Date) sqlDate);
-                ps.setString(7, gender);
-                ps.setString(8, age);
-                ps.setString(9, ip);
-                ps.setString(10, ipstat);
-                ps.setString(11, mothertong);
-                ps.setString(12, add);
-                ps.setString(13, zip);
-                ps.setString(14, flname);
-                ps.setString(15, mlname);
-                ps.setString(16, glnamae);
-                ps.setString(17, tel);
-                ps.setString(18, cp);
-                ps.setString(19, levelcompleted);
-                ps.setString(20, sycompleted);
-                ps.setString(21, schoolname);
-                ps.setString(22, schoolid);
-                ps.setString(23, schooladdress);
-                ps.setString(24, sem);
-                ps.setString(25, track);
-                ps.setString(26, strand);
-                ps.setString(27, gradelevel);
-                ps.setString(28, trackenroll);
-                ps.setString(29,timestamp );
-
-                if (verifyText()) {
-
-                    ps.execute();
-                    schoolyr.setSelectedIndex(-1);
-                    LRN.setSelectedIndex(-1);
-                    STUDENT_ACCOUNT1.setText("None");
-                    LRNNO.setText("None");
-                    STUDENTNAME.setText("Last Name,  First Name   Middle Name");
-                    Male.setSelected(true);
-                    Female.setSelected(true);
-                    No.setSelected(false);
-                    Yes.setSelected(false);
-                    AGE1.setText("");
-                    YES_IPSPECIFY.setText("Please Specify. . .");
-                    MOTHERTONGUE.setText("None");
-                    ADDRESS.setText("");
-                    ZIPCODE.setText("0000");
-                    FATHERNAME.setText("Last Name,  First Name   Middle Name");
-                    MOTHERNAME.setText("Last Name,  First Name   Middle Name");
-                    GUARDIAN.setText("Last Name,  First Name   Middle Name");
-                    TELNO.setText("");
-                    CELPHONE.setText("");
-                    LEVELCOMPLETED.setSelectedIndex(0);
-                    SYCOMPLETED.setText("");
-                    SCHOOLNAME.setText("None");
-                    SCHOOLID.setText("None");
-                    SCHOOLADDRESS.setText("None");
-                    Semester.setSelectedIndex(0);
-                    TRACK.setSelectedIndex(0);
-                    STRAND.setSelectedIndex(0);
-                    GRADELEVEL.setText("None");
-                    TRACK_ENROLLED.setSelectedIndex(0);
-                    JOptionPane.showMessageDialog(null, "Student Successfully Enrolled");
-                }
-            } catch (ClassNotFoundException | SQLException | ParseException  ex) {
-                JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_ADD1ActionPerformed
-
     private void enrollmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollmentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enrollmentActionPerformed
 
     private void enrollment3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollment3ActionPerformed
-        // TODO add your handling code here:
+        
+        String filepath=ENROLLMENT.getText();
+        
+        try {
+            
+            File pdfFile = new File(filepath);
+            if(pdfFile.exists())
+            {
+                if (Desktop.isDesktopSupported()) {
+                    
+                    Desktop.getDesktop().open(pdfFile);
+                    
+                }else {
+                    
+                    JOptionPane.showMessageDialog(rootPane, "Desktop is not supported");
+                    
+                      }
+                
+                
+            } else {
+                
+                JOptionPane.showMessageDialog(rootPane, "File not Exists");
+                
+                   }
+                
+                
+        } catch (HeadlessException | IOException e) {
+            
+            JOptionPane.showMessageDialog(this, e, "",JOptionPane.ERROR_MESSAGE);
+            
+        }
+        
+        
     }//GEN-LAST:event_enrollment3ActionPerformed
 
     private void enrollment1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollment1ActionPerformed
@@ -1159,7 +883,41 @@ public class Edit_Record extends javax.swing.JFrame {
     }//GEN-LAST:event_enrollment1ActionPerformed
 
     private void enrollment4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollment4ActionPerformed
-        // TODO add your handling code here:
+      
+        
+        String filepath=GOODMORAL.getText();
+        //ENROLLMENT
+        try {
+            
+            File pdfFile = new File(filepath);
+            
+            
+            
+            if(pdfFile.exists())
+            {
+                if (Desktop.isDesktopSupported()) {
+                    
+                    Desktop.getDesktop().open(pdfFile);
+                    
+                }else {
+                    
+                    JOptionPane.showMessageDialog(rootPane, "Desktop is not supported");
+                    
+                      }
+                
+                
+            } else {
+                
+                JOptionPane.showMessageDialog(rootPane, "File not Exists");
+                
+                   }
+                
+                
+        } catch (HeadlessException | IOException e) {
+            
+            JOptionPane.showMessageDialog(this, e, "",JOptionPane.ERROR_MESSAGE);
+            
+        }
     }//GEN-LAST:event_enrollment4ActionPerformed
 
     private void enrollment2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollment2ActionPerformed
@@ -1177,6 +935,14 @@ public class Edit_Record extends javax.swing.JFrame {
     private void enrollment7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollment7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_enrollment7ActionPerformed
+
+    private void CLEAR3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CLEAR3ActionPerformed
+
+    private void searchCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_searchCaretUpdate
+        //LoadSearchData();
+    }//GEN-LAST:event_searchCaretUpdate
 
     /**
      * @param args the command line arguments
@@ -1217,17 +983,13 @@ public class Edit_Record extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ADD;
-    private javax.swing.JButton ADD1;
-    private javax.swing.JButton CLEAR;
     private javax.swing.JButton CLEAR1;
-    private javax.swing.JButton DELETE;
+    private javax.swing.JButton CLEAR3;
     private javax.swing.JButton DELETE1;
     private javax.swing.JTextField ENROLLMENT;
-    private javax.swing.JTextField ENROLLMENT1;
     private javax.swing.JTextField ENROLLMENT2;
     private javax.swing.JTextField ENROLLMENT3;
-    private javax.swing.JButton UPDATE;
+    private javax.swing.JTextField GOODMORAL;
     private javax.swing.JButton UPDATE1;
     private javax.swing.JButton enrollment;
     private javax.swing.JButton enrollment1;
@@ -1242,10 +1004,11 @@ public class Edit_Record extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1254,5 +1017,6 @@ public class Edit_Record extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
+    private javax.swing.JTextField search;
     // End of variables declaration//GEN-END:variables
 }

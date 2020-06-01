@@ -1,0 +1,1 @@
+SELECT * FROM dcaa_registrar.school_registrar_incharge;

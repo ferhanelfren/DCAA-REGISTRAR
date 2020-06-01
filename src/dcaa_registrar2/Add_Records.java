@@ -8,9 +8,15 @@ package dcaa_registrar2;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -61,6 +67,8 @@ public class Add_Records extends javax.swing.JFrame {
         AutoCompleteComboBox();
         tableEditFormat();
     }
+
+    
     
     
     
@@ -194,9 +202,10 @@ public class Add_Records extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         enrollment = new javax.swing.JButton();
         ENROLLMENT = new javax.swing.JTextField();
+        enrool = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         GOODMORAL = new javax.swing.JTextField();
-        goodmoral = new javax.swing.JButton();
+        goodmoral1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         COMPLETION = new javax.swing.JTextField();
         completion = new javax.swing.JButton();
@@ -293,36 +302,53 @@ public class Add_Records extends javax.swing.JFrame {
             }
         });
 
+        enrool.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        enrool.setForeground(new java.awt.Color(204, 0, 0));
+        enrool.setText("sulod");
+        enrool.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51)));
+        enrool.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enroolActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(ENROLLMENT, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(enrollment, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(ENROLLMENT, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(enrool, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(278, 278, 278)
+                        .addComponent(enrollment, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ENROLLMENT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enrollment, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(enrollment, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ENROLLMENT, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enrool, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
 
         PSA.addTab("Certification of Enrollment", jPanel3);
 
-        goodmoral.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
-        goodmoral.setForeground(new java.awt.Color(204, 0, 0));
-        goodmoral.setText("Attach File");
-        goodmoral.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51)));
-        goodmoral.addActionListener(new java.awt.event.ActionListener() {
+        goodmoral1.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        goodmoral1.setForeground(new java.awt.Color(204, 0, 0));
+        goodmoral1.setText("Attach File");
+        goodmoral1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51)));
+        goodmoral1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goodmoralActionPerformed(evt);
+                goodmoral1ActionPerformed(evt);
             }
         });
 
@@ -334,7 +360,7 @@ public class Add_Records extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addComponent(GOODMORAL, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(goodmoral, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(goodmoral1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(153, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -342,8 +368,8 @@ public class Add_Records extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(107, 107, 107)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(GOODMORAL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(goodmoral, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(GOODMORAL, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(goodmoral1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
 
@@ -664,15 +690,15 @@ public class Add_Records extends javax.swing.JFrame {
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(schoolyr, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(students1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -991,7 +1017,7 @@ public boolean verifyText()
         student studentmame = (student)students1.getSelectedItem();
          
          
-        String enr= ENROLLMENT.getText();           
+        //String enr= ENROLLMENT.get           
         String good= GOODMORAL.getText();
         String com= COMPLETION.getText();
         String dis= DISMISSAL.getText();
@@ -1000,28 +1026,32 @@ public boolean verifyText()
         String pss= PSA1.getText();
         String dip= DIPLOMA.getText();
             
-         DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDateTime now= LocalDateTime.now();
         String timestamp = dtf.format(now);
     
-
-
-
+        Path pat = Paths.get(ENROLLMENT.getText());
+        
+       
 
          try {   
              
-             
-        
+          byte[] fileContent = Files.readAllBytes(pat);
+          ByteArrayInputStream bias = new ByteArrayInputStream(fileContent);
+          File pdf = new File(ENROLLMENT.getText());
+          FileInputStream FileInput = new FileInputStream(pdf);        
+          ByteArrayOutputStream bos = new ByteArrayOutputStream();
+          
              
         Class.forName("com.mysql.cj.jdbc.Driver");
         Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
         PreparedStatement ps;
        
-       ps=Mycon.prepareStatement("INSERT INTO student_records ( school_year_id, enrolled_students_id, crt_enrollment, crt_goodmoral, crt_completion, honorable_dismissal, sf10, sf9, psa, diploma, timestamp) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+        ps=Mycon.prepareStatement("INSERT INTO student_records ( school_year_id, enrolled_students_id, crt_enrollment, crt_goodmoral, crt_completion, honorable_dismissal, sf10, sf9, psa, diploma, timestamp) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
         
          ps.setInt(1,  sy.id);
        ps.setInt(2,  studentmame.id);
-        ps.setString(3, enr);
+        ps.setBlob(3, bias);  
         ps.setString(4, good);
         ps.setString(5, com);
         ps.setString(6, dis);
@@ -1030,12 +1060,23 @@ public boolean verifyText()
         ps.setString(9, pss);
         ps.setString(10, dip);
         ps.setString(11, timestamp);
+        
+//        String sql = "INSERT INTO testtable(stringcolumn, blobcolumn) VALUES(?,?)";
+//
+//        PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+//        statement.setLong(1, version);
+//        ByteArrayInputStream bais = new ByteArrayInputStream(getByteArrayFromFile(document));
+//        statement.setBlob(2, bais);          
+//        statement.execute();
+        
+        
+        
 
         ps.execute();      
 
                     JOptionPane.showMessageDialog(null, "Student Successfully Enrolled");
                     
-                     schoolyr.setSelectedIndex(-1);
+                    // schoolyr.setSelectedIndex(-1);
                      students1.setSelectedIndex(-1);
                      ENROLLMENT.setText("");
                      GOODMORAL.setText("");
@@ -1050,9 +1091,11 @@ public boolean verifyText()
                 // DESKTOP.schoolyear.setText(jComboBox1.getSelectedItem().toString());
                
          } catch (ClassNotFoundException | SQLException ex) {
-                   // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, ex,"ERROR",  JOptionPane.ERROR_MESSAGE);
                      Logger.getLogger(table_suggetions.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } catch (IOException ex) {
+             Logger.getLogger(Add_Records.class.getName()).log(Level.SEVERE, null, ex);
+         }
             
     }//GEN-LAST:event_SAVEActionPerformed
 
@@ -1064,9 +1107,10 @@ public boolean verifyText()
         try {
             
         File f =  jfchoose.getSelectedFile();
-        //filepath = f.getName();
+        
+
          filepath = f.getAbsolutePath();
-        filepath = filepath.replace('\\', '/');
+       // filepath = filepath.replace('\\', '/');
         ENROLLMENT.setText(filepath);
             
             
@@ -1078,26 +1122,83 @@ public boolean verifyText()
         
     }//GEN-LAST:event_enrollmentActionPerformed
 
-    private void goodmoralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goodmoralActionPerformed
-         JFileChooser jfchoose = new JFileChooser();
+     @SuppressWarnings("empty-statement")
+    private void enroolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enroolActionPerformed
+
+        
+        byte[] photo=null;
+        String filename=null;
+        
+        JFileChooser jfchoose = new JFileChooser();
         jfchoose.showOpenDialog(this);
         
-        
-        try {
-            
         File f =  jfchoose.getSelectedFile();
-        //filepath = f.getName();
-         filepath = f.getAbsolutePath();
-        filepath = filepath.replace('\\', '/');
-        GOODMORAL.setText(filepath);
-            
-            
-        } catch (Exception e) {
-            
-             JOptionPane.showMessageDialog(this, e,"ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_goodmoralActionPerformed
+        filename=f.getAbsolutePath();
+          
 
+          try {
+            
+              
+              filepath = f.getAbsolutePath();
+              filepath = filepath.replace('\\', '/');
+              ENROLLMENT.setText(filepath);
+              
+              
+              
+             
+              
+              
+        } catch (Exception e) {
+        }
+          
+          
+//        try {
+//            
+//        File f =  jfchoose.getSelectedFile();
+//        
+//        //filepath = f.getName();
+//         filepath = f.getAbsolutePath();
+//        filepath = filepath.replace('\\', '/');
+//        GOODMORAL.setText(filepath);
+//            
+//            
+//        } catch (Exception e) {
+//            
+//             JOptionPane.showMessageDialog(this, e,"ERROR", JOptionPane.ERROR_MESSAGE);
+//        }
+              
+
+//
+//        try {
+//            
+//        File pdf = new File(filename);
+//        FileInputStream FileInput = new FileInputStream(pdf);
+//       // ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//       
+//       byte [] buf = new byte[1024];
+//        ByteArrayInputStream bias = new ByteArrayInputStream(FileInput);
+//        
+//        
+//        
+//        
+//        
+//            for (int readNum; (readNum=FileInput.read(buf))!=1;) {
+//                
+//                
+//                
+//                bias.write(buf, 0, readNum);
+//                
+//                
+//            }
+//                    
+//        photo=bias.toByteArray();
+//                    
+//        } catch (IOException e) {
+//        }
+              
+    }//GEN-LAST:event_enroolActionPerformed
+
+    
     private void completionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completionActionPerformed
         JFileChooser jfchoose = new JFileChooser();
         jfchoose.showOpenDialog(this);
@@ -1255,6 +1356,11 @@ public boolean verifyText()
       LoadSearchData();
     }//GEN-LAST:event_searchKeyReleased
 
+    private void goodmoral1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goodmoral1ActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_goodmoral1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1311,7 +1417,8 @@ public boolean verifyText()
     private javax.swing.JButton diploma;
     private javax.swing.JButton dismissal;
     private javax.swing.JButton enrollment;
-    private javax.swing.JButton goodmoral;
+    private javax.swing.JButton enrool;
+    private javax.swing.JButton goodmoral1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;

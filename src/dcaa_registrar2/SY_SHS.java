@@ -52,7 +52,7 @@ public class SY_SHS extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Mycon=DriverManager.getConnection("jdbc:mysql://127.1.1.2:3306/dcaa_registrar","root","root");  
             PreparedStatement ps;   
-            ps=Mycon.prepareStatement("insert into school_year (name) values (?)");
+            ps=Mycon.prepareStatement("insert into school_year (school_year_name) values (?)");
             //("select * from user where username=? and password=?");
             
             ps.setString(1, SYNAME);
@@ -60,17 +60,8 @@ public class SY_SHS extends javax.swing.JFrame {
           // rs = ps.executeQuery();
              
             ps.executeUpdate();
-          
-                
-                
-                SHS_FORM dk= new  SHS_FORM();
-                
-                
-           
-                   this.hide();
-                   
-                 dk.setVisible(true);
-                
+        
+                JOptionPane.showMessageDialog(null, "School Year Successfully Added");
         
             
        } catch (ClassNotFoundException  ex) {
@@ -114,7 +105,7 @@ public class SY_SHS extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
-        jButton1.setText("Proceed");
+        jButton1.setText("S A V E");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
