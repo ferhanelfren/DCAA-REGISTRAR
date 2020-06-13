@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Enrollment" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="451" leftMargin="72" rightMargin="72" topMargin="144" bottomMargin="72" whenResourceMissingType="Empty" uuid="382c9b36-104b-428b-b434-00698783b7ce">
 	<property name="ireport.zoom" value="1.9487171000000054"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="325"/>
+	<property name="ireport.y" value="240"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -82,7 +82,7 @@ FROM
 			<textField>
 				<reportElement x="133" y="29" width="188" height="16" uuid="b02774c3-36cd-422a-b21b-cd1bba99947f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="8" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
 			</textField>
@@ -198,7 +198,7 @@ FROM
 				</textElement>
 				<text><![CDATA[	Issued this]]></text>
 			</staticText>
-			<textField pattern="dd MMMMM yyyy">
+			<textField pattern="dd   MMMMM   yyyy">
 				<reportElement x="80" y="189" width="100" height="16" uuid="98890121-b311-48fa-82a7-06c0ee85392d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>

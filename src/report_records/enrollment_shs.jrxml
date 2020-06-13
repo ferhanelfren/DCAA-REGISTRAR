@@ -204,7 +204,7 @@ FROM
 				</textElement>
 				<text><![CDATA[.]]></text>
 			</staticText>
-			<textField pattern="dd MMMMM yyyy">
+			<textField pattern="dd   MMMMM   yyyy" isBlankWhenNull="false">
 				<reportElement x="80" y="190" width="100" height="16" uuid="e7e0d781-2671-491b-97cd-62f2fde895e4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>

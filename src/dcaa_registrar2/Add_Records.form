@@ -728,7 +728,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="CLEAR4" min="-2" max="-2" attributes="0"/>
                           <Component id="CLEAR1" min="-2" max="-2" attributes="0"/>
-                          <Component id="CLEAR3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TRYSAVE" min="-2" max="-2" attributes="0"/>
                           <Component id="SAVE" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="18" max="32767" attributes="0"/>
@@ -741,7 +741,7 @@
                       <EmptySpace pref="28" max="32767" attributes="0"/>
                       <Component id="SAVE" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="CLEAR3" min="-2" pref="60" max="-2" attributes="0"/>
+                      <Component id="TRYSAVE" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="CLEAR1" min="-2" pref="60" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -780,7 +780,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SAVEActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="CLEAR3">
+            <Component class="javax.swing.JButton" name="TRYSAVE">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -805,7 +805,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CLEAR3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TRYSAVEActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="CLEAR1">

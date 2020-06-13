@@ -24,8 +24,10 @@ import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
@@ -109,6 +111,7 @@ public class Edit_Students_Info extends javax.swing.JFrame {
                                            Class.forName("com.mysql.cj.jdbc.Driver");
                                            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root"); 
                                            PreparedStatement ps;   
+                                           //select a.file_id, b.school_year_name, c.fullname, a.file_name, a.file_size_in_kb, a.file_extension, a.file_content, a.timestamp from insert_data_file a, enrolled_students c, school_year b  where a.school_year_id = b.id and a.enrolled_students_id = c.id
                                            ps=Mycon.prepareStatement("select a.id, s.school_year_name, a.lrnStatus, a.student_account_no, a.lrnNumber, a.fullname, a.bdate, a.sex, a.age, a.ip, a.ip_status, a.mother_tongue, a.address, a.zip_code, a.fathername, a.mothername, a.guardianname, a.telephone, a.cellphone, a.last_grade_level_completed, a.last_school_year_completed, a.school_name, a.school_id, a.school_address, a.semester, a.track, a.strand, a.grade_level, a.enrolled_track from enrolled_students a, school_year s  where a.school_year_id = s.id ");
                                            ResultSet rs = ps.executeQuery();
                                             ResultSetMetaData rsd=rs.getMetaData();
@@ -168,9 +171,19 @@ public class Edit_Students_Info extends javax.swing.JFrame {
                                                 jTable.getTableHeader().setBackground(new Color(165,19,29));
                                                 jTable.getTableHeader().setForeground(new Color(255,255,255));
                                                 jTable.getRowHeight(20);
-                                                DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
-                                                rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
-                                                jTable.getColumnModel().getColumn(6).setCellRenderer(rightRenderer);
+                                               
+                                                
+                                                    DefaultTableCellRenderer renderer = (DefaultTableCellRenderer)  jTable.getTableHeader().getDefaultRenderer();
+                                                renderer.setHorizontalAlignment(SwingConstants.CENTER);
+                                                 jTable.getColumnModel().getColumn(6).setCellRenderer(renderer);
+                                                
+                                                TableColumn col = jTable.getColumnModel().getColumn(0);
+                                                    DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();  
+                                                    dtcr.setHorizontalAlignment(SwingConstants.CENTER);
+                                                    col.setCellRenderer(dtcr);
+                                                
+                                                
+                                                
                                                 jTable.removeColumn(jTable.getColumnModel().getColumn(0));
                                                 jTable.removeColumn(jTable.getColumnModel().getColumn(0));
                                                 jTable.removeColumn(jTable.getColumnModel().getColumn(0));
@@ -210,7 +223,7 @@ public class Edit_Students_Info extends javax.swing.JFrame {
       public boolean verifyText()
     {
         
-        if (schoolyr.getSelectedItem().toString().equals("")|| LRN.getSelectedItem().toString().equals("") || STUDENT_ACCOUNT1.getText().equals("") || LRNNO.getText().equals("") || AGE1.getText().equals("")    || STUDENTNAME.getText().equals("") ||   jDateChooser1.getDate() == null ||  YES_IPSPECIFY.getText().equals("") ||  MOTHERTONGUE.getText().equals("") ||  ADDRESS.getText().equals("") ||  ZIPCODE.getText().equals("") ||  FATHERNAME.getText().equals("") ||  MOTHERNAME.getText().equals("") ||  GUARDIAN.getText().equals("") ||  TELNO.getText().equals("") ||  CELPHONE.getText().equals("") || LEVELCOMPLETED.getSelectedItem().equals("") || SYCOMPLETED.getText().equals("") ||  SCHOOLNAME.getText().equals("") || SCHOOLID.getText().equals("") || SCHOOLADDRESS.getText().equals("") || TRACK.getSelectedItem().equals("") || STRAND.getSelectedItem().equals("") || GRADELEVEL.getText().equals("") || TRACK_ENROLLED.getSelectedItem().equals(""))
+        if (schoolyr.getSelectedItem().toString().equals("")|| LRN.getSelectedItem().toString().equals("") || STUDENT_ACCOUNT1.getText().equals("") || LRNNO.getText().equals("") ||  STUDENTNAME.getText().equals("") ||   jDateChooser1.getDate() == null || AGE1.getText().equals("")    || YES_IPSPECIFY.getText().equals("") ||  MOTHERTONGUE.getText().equals("") ||  ADDRESS.getText().equals("") ||  ZIPCODE.getText().equals("") ||  FATHERNAME.getText().equals("") ||  MOTHERNAME.getText().equals("") ||  GUARDIAN.getText().equals("") ||  TELNO.getText().equals("") ||  CELPHONE.getText().equals("") || LEVELCOMPLETED.getSelectedItem().equals("") || SYCOMPLETED.getText().equals("") ||  SCHOOLNAME.getText().equals("") || SCHOOLID.getText().equals("") || SCHOOLADDRESS.getText().equals("") || TRACK.getSelectedItem().equals("") || STRAND.getSelectedItem().equals("") || GRADELEVEL.getText().equals("") || TRACK_ENROLLED.getSelectedItem().equals(""))
 
           {
             JOptionPane.showMessageDialog(this," Failed...!!! One or More Empty");
@@ -224,9 +237,7 @@ public class Edit_Students_Info extends javax.swing.JFrame {
         } else {
              return true;
         }
-     
-     
-        
+
     }
             public void LoadSearchData(){
            try {
@@ -371,6 +382,7 @@ public class Edit_Students_Info extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Enrolled Student's");
 
         jPanel1.setBackground(new java.awt.Color(233, 240, 192));
 
@@ -2080,7 +2092,10 @@ public class Edit_Students_Info extends javax.swing.JFrame {
     }//GEN-LAST:event_CLEARActionPerformed
 
     private void UPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATEActionPerformed
-         DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
+        
+        if (verifyText()) {
+            
+            DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
          int selecIndex= jTable.getSelectedRow();
          int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
         
@@ -2095,6 +2110,8 @@ public class Edit_Students_Info extends javax.swing.JFrame {
         //        String date = dateFormat.format(jDateChooser1.getDate());
 
         String age=AGE1.getText();
+        
+        
         String gender = "Male";
         if (Female.isSelected()) {
             gender="Female";
@@ -2152,6 +2169,7 @@ public class Edit_Students_Info extends javax.swing.JFrame {
                 //ps=Mycon.prepareStatement("update enrolled_students set school_year_id=?, lrnStatus=?, student_account_no=?, lrnNumber=?, fullname=?, bdate=?, sex=?, age=?, ip=?, ip_status=?, mother_tongue=?, address=?, zip_code=?, fathername=?, mothername=?, guardianname=?, telephone=?, cellphone=?, last_grade_level_completed=?, last_school_year_completed=?, school_name=?, school_id=?, school_address=?, semester=?, track=?, strand=?, grade_level=?, enrolled_track=? where id=?");
                ps=Mycon.prepareStatement("update enrolled_students set school_year_id=?, lrnStatus=?, student_account_no=?, lrnNumber=?, fullname=?, bdate=?, sex=?, age=?, ip=?, ip_status=?, mother_tongue=?, address=?, zip_code=?, fathername=?, mothername=?, guardianname=?, telephone=?, cellphone=?, last_grade_level_completed=?, last_school_year_completed=?, school_name=?, school_id=?, school_address=?, semester=?, track=?, strand=?, grade_level=?, enrolled_track=? where id=?");
 
+                 if (verifyText()) {
                 ps.setInt(1, sy.id);
                 ps.setString(2,lrn);
                 ps.setString(3,psa);
@@ -2182,7 +2200,7 @@ public class Edit_Students_Info extends javax.swing.JFrame {
                 ps.setString(28, trackenroll);
                 ps.setInt(29,id);
 
-                 if (verifyText()) {
+                
                       ps.execute();
                       table_update();
                     
@@ -2229,6 +2247,12 @@ public class Edit_Students_Info extends javax.swing.JFrame {
             }
        }
 
+            
+            
+            
+            
+        }
+        
            
             //catch (ParseException ex) {
                //catch (ParseException ex) {
@@ -2239,6 +2263,9 @@ public class Edit_Students_Info extends javax.swing.JFrame {
     }//GEN-LAST:event_UPDATEActionPerformed
 
     private void ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDActionPerformed
+      
+         if (verifyText()) {
+        
         SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem(); // SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
         String lrn = LRN.getSelectedItem().toString();
         String psa =STUDENT_ACCOUNT1.getText();
@@ -2291,7 +2318,7 @@ public class Edit_Students_Info extends javax.swing.JFrame {
 
         //java.util.Date now = new java.util.Date();
 
-        if (verifyText()) {
+       
 
             try {
 

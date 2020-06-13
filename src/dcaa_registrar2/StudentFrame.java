@@ -17,12 +17,12 @@ import javax.swing.plaf.basic.BasicButtonUI;
  *
  * @author GOD
  */
-public class Mainframe extends javax.swing.JFrame {
+public class StudentFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form mainframe
      */
-    public Mainframe() {
+    public StudentFrame() {
         initComponents();
         
         Component [] components = this.getContentPane().getComponents();
@@ -87,6 +87,11 @@ public void SomeWindow() {
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         usernamedesk = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -259,20 +264,68 @@ public void SomeWindow() {
                 .addGap(20, 20, 20))
         );
 
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add student/default.png"))); // NOI18N
+        jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add student/hover.png"))); // NOI18N
+        jButton6.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add student/hover.png"))); // NOI18N
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/student info/default.png"))); // NOI18N
+        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/student info/hover.png"))); // NOI18N
+        jButton7.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/student info/hover.png"))); // NOI18N
+
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/default.png"))); // NOI18N
+        jButton10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/hover.png"))); // NOI18N
+        jButton10.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/hover.png"))); // NOI18N
+
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/students form/default.png"))); // NOI18N
+        jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/students form/hover.png"))); // NOI18N
+        jButton9.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/students form/hover.png"))); // NOI18N
+
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/default.png"))); // NOI18N
+        jButton11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton11.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/hover.png"))); // NOI18N
+        jButton11.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/hover.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1114, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1114, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(223, 223, 223)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(96, 96, 96)
+                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(83, 83, 83)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(155, 155, 155))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -330,31 +383,38 @@ public void SomeWindow() {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Mainframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Mainframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Mainframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Mainframe.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Mainframe().setVisible(true);
+                new StudentFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton home;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton9;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -102,7 +102,7 @@ FROM
 			<textField>
 				<reportElement x="133" y="29" width="188" height="16" uuid="b02774c3-36cd-422a-b21b-cd1bba99947f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="8" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
 			</textField>
@@ -128,7 +128,7 @@ FROM
 				<text><![CDATA[bonafide]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="73" y="44" width="29" height="16" uuid="7e835e75-2d95-489a-b9dc-0406ba809a56"/>
+				<reportElement x="71" y="44" width="29" height="16" uuid="7e835e75-2d95-489a-b9dc-0406ba809a56"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" isBold="true"/>
 				</textElement>
@@ -149,7 +149,7 @@ FROM
 				<text><![CDATA[that  possessed  good  moral  character.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="317" y="44" width="56" height="16" uuid="c08a0ca3-bb82-420f-bc55-66e805913cb8"/>
+				<reportElement x="312" y="44" width="56" height="16" uuid="c08a0ca3-bb82-420f-bc55-66e805913cb8"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" isBold="false"/>
 				</textElement>
@@ -176,7 +176,7 @@ FROM
 				</textElement>
 				<text><![CDATA[	Issued this]]></text>
 			</staticText>
-			<textField pattern="dd MMMMM yyyy">
+			<textField pattern="dd  MMMMM   yyyy">
 				<reportElement x="80" y="136" width="100" height="16" uuid="98890121-b311-48fa-82a7-06c0ee85392d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
@@ -247,11 +247,11 @@ FROM
 				<text><![CDATA[Student]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="398" y="44" width="54" height="16" uuid="3ced71d5-edd8-4299-be5f-4ff09bfe4422"/>
+				<reportElement x="398" y="44" width="66" height="16" uuid="3ced71d5-edd8-4299-be5f-4ff09bfe4422"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>
-				<text><![CDATA[is a student]]></text>
+				<text><![CDATA[is  a  student]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="377" y="45" width="39" height="16" uuid="3dcd5523-3c46-40d1-a27b-8ada9f419cdf"/>
@@ -279,14 +279,14 @@ FROM
 				<textFieldExpression><![CDATA[$P{position2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="120" y="304" width="201" height="20" uuid="42212f4a-6258-4f3e-ac33-26c64fe68531"/>
+				<reportElement x="73" y="304" width="291" height="20" uuid="42212f4a-6258-4f3e-ac33-26c64fe68531"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{president}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="120" y="321" width="201" height="20" uuid="089ce567-060c-4dc9-82ee-28eea41310ba"/>
+				<reportElement x="73" y="321" width="291" height="20" uuid="089ce567-060c-4dc9-82ee-28eea41310ba"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
 				</textElement>

@@ -56,6 +56,9 @@ public class Enrollment extends javax.swing.JFrame {
           tableEditFormat();
           table_update();
           registrar();
+          Pres();
+          vpres();
+          
         ButtonGroup bg = new ButtonGroup();
         bg.add(He);
         bg.add(She);
@@ -199,6 +202,22 @@ public class Enrollment extends javax.swing.JFrame {
            int id;
            String name;
            public President (int id, String name)
+           {     
+               this.id=id;
+               this.name=name;     
+           }
+           @Override
+           public String toString ()
+           {   
+               return name;  
+            }
+       }
+       
+       public class VPresident 
+       {
+           int id;
+           String name;
+           public VPresident (int id, String name)
            {     
                this.id=id;
                this.name=name;     
@@ -418,24 +437,24 @@ public class Enrollment extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         registrar = new javax.swing.JComboBox();
-        position2 = new javax.swing.JComboBox();
+        presposistion = new javax.swing.JComboBox();
         jLabel27 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         pres = new javax.swing.JComboBox();
         jLabel28 = new javax.swing.JLabel();
         vpresident = new javax.swing.JComboBox();
         jLabel29 = new javax.swing.JLabel();
-        position3 = new javax.swing.JComboBox();
+        vpresposisition = new javax.swing.JComboBox();
         jLabel31 = new javax.swing.JLabel();
-        position4 = new javax.swing.JComboBox();
+        regesposition = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         CLEAR = new javax.swing.JButton();
         PRINT = new javax.swing.JButton();
         CLEAR2 = new javax.swing.JButton();
         SAVE = new javax.swing.JButton();
-        CLEAR4 = new javax.swing.JButton();
-        CLEAR5 = new javax.swing.JButton();
-        CLEAR6 = new javax.swing.JButton();
+        HONORABLE = new javax.swing.JButton();
+        ENROLL = new javax.swing.JButton();
+        MORAL = new javax.swing.JButton();
         CLEAR7 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -445,8 +464,9 @@ public class Enrollment extends javax.swing.JFrame {
         jTable = new javax.swing.JTable();
         jPanel10 = new javax.swing.JPanel();
         search = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(244, 241, 233));
 
@@ -604,7 +624,7 @@ public class Enrollment extends javax.swing.JFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0)));
 
         NAME.setBackground(new java.awt.Color(244, 241, 233));
-        NAME.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        NAME.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         NAME.setForeground(new java.awt.Color(51, 51, 51));
         NAME.setBorder(null);
         NAME.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -724,7 +744,7 @@ public class Enrollment extends javax.swing.JFrame {
 
         registrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        position2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        presposistion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel27.setBackground(new java.awt.Color(255, 255, 255));
         jLabel27.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -750,14 +770,14 @@ public class Enrollment extends javax.swing.JFrame {
         jLabel29.setForeground(new java.awt.Color(56, 74, 19));
         jLabel29.setText("Position :");
 
-        position3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        vpresposisition.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel31.setBackground(new java.awt.Color(255, 255, 255));
         jLabel31.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(56, 74, 19));
         jLabel31.setText("Position :");
 
-        position4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        regesposition.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -784,15 +804,15 @@ public class Enrollment extends javax.swing.JFrame {
                         .addGroup(jPanel12Layout.createSequentialGroup()
                             .addComponent(jLabel27)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(position2, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(presposistion, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel12Layout.createSequentialGroup()
                             .addComponent(jLabel29)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(position3, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(vpresposisition, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addComponent(jLabel31)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(position4, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(regesposition, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(49, 49, 49))
         );
         jPanel12Layout.setVerticalGroup(
@@ -803,15 +823,15 @@ public class Enrollment extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(position4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(regesposition, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(position2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(presposistion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(position3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(vpresposisition, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel12Layout.createSequentialGroup()
@@ -890,7 +910,7 @@ public class Enrollment extends javax.swing.JFrame {
                     .addComponent(csy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(psy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -929,8 +949,8 @@ public class Enrollment extends javax.swing.JFrame {
                             .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sectioNs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(244, 241, 233));
@@ -988,42 +1008,42 @@ public class Enrollment extends javax.swing.JFrame {
             }
         });
 
-        CLEAR4.setBackground(new java.awt.Color(51, 51, 51));
-        CLEAR4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DISMISSAL/default.png"))); // NOI18N
-        CLEAR4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        CLEAR4.setFocusPainted(false);
-        CLEAR4.setRolloverEnabled(true);
-        CLEAR4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DISMISSAL/hover.png"))); // NOI18N
-        CLEAR4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DISMISSAL/hover.png"))); // NOI18N
-        CLEAR4.addActionListener(new java.awt.event.ActionListener() {
+        HONORABLE.setBackground(new java.awt.Color(51, 51, 51));
+        HONORABLE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DISMISSAL/default.png"))); // NOI18N
+        HONORABLE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        HONORABLE.setFocusPainted(false);
+        HONORABLE.setRolloverEnabled(true);
+        HONORABLE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DISMISSAL/hover.png"))); // NOI18N
+        HONORABLE.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DISMISSAL/hover.png"))); // NOI18N
+        HONORABLE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CLEAR4ActionPerformed(evt);
+                HONORABLEActionPerformed(evt);
             }
         });
 
-        CLEAR5.setBackground(new java.awt.Color(51, 51, 51));
-        CLEAR5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Enrollment/default.png"))); // NOI18N
-        CLEAR5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        CLEAR5.setFocusPainted(false);
-        CLEAR5.setRolloverEnabled(true);
-        CLEAR5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Enrollment/hover.png"))); // NOI18N
-        CLEAR5.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Enrollment/hover.png"))); // NOI18N
-        CLEAR5.addActionListener(new java.awt.event.ActionListener() {
+        ENROLL.setBackground(new java.awt.Color(51, 51, 51));
+        ENROLL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Enrollment/default.png"))); // NOI18N
+        ENROLL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        ENROLL.setFocusPainted(false);
+        ENROLL.setRolloverEnabled(true);
+        ENROLL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Enrollment/hover.png"))); // NOI18N
+        ENROLL.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Enrollment/hover.png"))); // NOI18N
+        ENROLL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CLEAR5ActionPerformed(evt);
+                ENROLLActionPerformed(evt);
             }
         });
 
-        CLEAR6.setBackground(new java.awt.Color(51, 51, 51));
-        CLEAR6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/GOOD MORAL/default.png"))); // NOI18N
-        CLEAR6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        CLEAR6.setFocusPainted(false);
-        CLEAR6.setRolloverEnabled(true);
-        CLEAR6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/GOOD MORAL/hover.png"))); // NOI18N
-        CLEAR6.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/GOOD MORAL/hover.png"))); // NOI18N
-        CLEAR6.addActionListener(new java.awt.event.ActionListener() {
+        MORAL.setBackground(new java.awt.Color(51, 51, 51));
+        MORAL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/GOOD MORAL/default.png"))); // NOI18N
+        MORAL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        MORAL.setFocusPainted(false);
+        MORAL.setRolloverEnabled(true);
+        MORAL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/GOOD MORAL/hover.png"))); // NOI18N
+        MORAL.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/GOOD MORAL/hover.png"))); // NOI18N
+        MORAL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CLEAR6ActionPerformed(evt);
+                MORALActionPerformed(evt);
             }
         });
 
@@ -1044,39 +1064,39 @@ public class Enrollment extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(MORAL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ENROLL)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(HONORABLE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CLEAR7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CLEAR6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CLEAR5)
+                .addComponent(CLEAR2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SAVE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CLEAR4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CLEAR2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PRINT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CLEAR)
-                .addGap(48, 48, 48))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CLEAR7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CLEAR6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CLEAR5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CLEAR4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CLEAR2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PRINT, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CLEAR, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(CLEAR, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CLEAR7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HONORABLE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ENROLL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MORAL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jPanel9.setBackground(new java.awt.Color(43, 70, 60));
@@ -1185,8 +1205,13 @@ public class Enrollment extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(search, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+            .addComponent(search, javax.swing.GroupLayout.Alignment.TRAILING)
         );
+
+        jLabel25.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel25.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(56, 74, 19));
+        jLabel25.setText("Search :");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1205,22 +1230,26 @@ public class Enrollment extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel25)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(389, 389, 389))
+                .addGap(295, 295, 295))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addGap(0, 5, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -1287,7 +1316,8 @@ public class Enrollment extends javax.swing.JFrame {
     
     
     private void PRINTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRINTActionPerformed
-           
+
+        
         
     }//GEN-LAST:event_PRINTActionPerformed
 
@@ -1331,15 +1361,17 @@ public class Enrollment extends javax.swing.JFrame {
         
     }//GEN-LAST:event_SAVEActionPerformed
 
-    private void CLEAR4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR4ActionPerformed
-         try {
+    private void HONORABLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HONORABLEActionPerformed
+
+        
+        try {
                
              
                  
                
                 Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-               JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\enrollment_shs.jrxml");
+               JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\dismissal_grade.jrxml");
                String query="select * from certificate_of_enrollment"; 
 
                JRDesignQuery updateQuery = new JRDesignQuery();
@@ -1356,8 +1388,63 @@ public class Enrollment extends javax.swing.JFrame {
                 para.put("name",NAME.getText());
                 para.put("grade", GRADES.getText());
                 para.put("section",sectioNs.getSelectedItem().toString());
-                para.put("trak", SCHOOLYEARS.getText());
+                //para.put("trak", SCHOOLYEARS.getText());
                 para.put("schoolregistrar", registrar.getSelectedItem().toString());
+                para.put("regsisposisiton", regesposition.getSelectedItem().toString());
+                para.put("schoolpresident", pres.getSelectedItem().toString());
+                para.put("presiposisitons", presposistion.getSelectedItem().toString());
+                 
+                
+                //jTextField1
+               
+               JasperReport jreport = JasperCompileManager.compileReport(jdesign);
+               JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
+               
+               JasperViewer.viewReport(jprint);
+               
+               
+
+
+
+          
+            }catch (ClassNotFoundException | SQLException  ex) {
+                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+            } catch (JRException ex) {         
+            Logger.getLogger(Enrollment.class.getName()).log(Level.SEVERE, null, ex);
+        }         
+    }//GEN-LAST:event_HONORABLEActionPerformed
+
+    private void ENROLLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENROLLActionPerformed
+
+                   try {
+               
+             
+                 
+               
+                Class.forName("com.mysql.cj.jdbc.Driver");
+               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+               JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\enrollment_grade.jrxml");
+               String query="select * from certificate_of_enrollment"; 
+
+               JRDesignQuery updateQuery = new JRDesignQuery();
+               updateQuery.setText(query);
+             
+               jdesign.setQuery(updateQuery);
+               
+               
+               
+                HashMap<String,Object> para = new HashMap<>();
+                para.put("sy",psy.getText() );
+                para.put("future sy",csy.getText() ); // 
+                para.put("lrn",LRN.getText());
+                para.put("name",NAME.getText());
+                para.put("grade", GRADES.getText());
+                para.put("section",sectioNs.getSelectedItem().toString());
+                //para.put("trak", SCHOOLYEARS.getText());
+                para.put("schoolregistrar", registrar.getSelectedItem().toString());
+                para.put("regsisposisiton", regesposition.getSelectedItem().toString());
+                //para.put("schoolpresident", pres.getSelectedItem().toString());
+              //  para.put("presiposisitons", presposistion.getSelectedItem().toString());
                  
                 
                 //jTextField1
@@ -1371,12 +1458,8 @@ public class Enrollment extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
             } catch (JRException ex) {         
             Logger.getLogger(Enrollment.class.getName()).log(Level.SEVERE, null, ex);
-        }         
-    }//GEN-LAST:event_CLEAR4ActionPerformed
-
-    private void CLEAR5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CLEAR5ActionPerformed
+        }  
+    }//GEN-LAST:event_ENROLLActionPerformed
 
     private void NAMEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NAMEKeyReleased
 
@@ -1444,12 +1527,132 @@ public class Enrollment extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchFocusLost
 
-    private void CLEAR6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CLEAR6ActionPerformed
+    private void MORALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MORALActionPerformed
+             try {
+               
+             
+                 
+               
+                Class.forName("com.mysql.cj.jdbc.Driver");
+               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+               JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\moral_grade.jrxml");
+               String query="select * from certificate_of_enrollment"; 
+
+               JRDesignQuery updateQuery = new JRDesignQuery();
+               updateQuery.setText(query);
+             
+               jdesign.setQuery(updateQuery);
+               
+               
+               
+                HashMap<String,Object> para = new HashMap<>();
+                para.put("sy",psy.getText() );
+                para.put("future sy",csy.getText() ); // 
+                para.put("lrn",LRN.getText());
+                para.put("name",NAME.getText());
+                para.put("grade", GRADES.getText());
+                para.put("section",sectioNs.getSelectedItem().toString());
+                //para.put("trak", SCHOOLYEARS.getText());
+                
+                para.put("schoolregistrar", registrar.getSelectedItem().toString());
+                para.put("posistion1", regesposition.getSelectedItem().toString());
+                para.put("president", pres.getSelectedItem().toString());
+                para.put("position3", presposistion.getSelectedItem().toString());
+                 
+                para.put("vp", vpresident.getSelectedItem().toString());
+                para.put("position2", vpresposisition.getSelectedItem().toString());
+                        
+                
+              
+                
+        if (She.isSelected()) {
+           para.put("genders", "She");
+        }else {
+            
+            para.put("genders", "He");
+        }
+                 
+                //jTextField1
+               
+               JasperReport jreport = JasperCompileManager.compileReport(jdesign);
+               JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
+              
+               
+               
+               
+               JasperViewer.viewReport(jprint);
+               
+               
+          
+            }catch (ClassNotFoundException | SQLException  ex) {
+                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+            } catch (JRException ex) {         
+            Logger.getLogger(Enrollment.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+    }//GEN-LAST:event_MORALActionPerformed
 
     private void CLEAR7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR7ActionPerformed
-        // TODO add your handling code here:
+           try {
+               
+             
+                 
+               
+                Class.forName("com.mysql.cj.jdbc.Driver");
+               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+               JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_diploma\\elementary.jrxml");
+               String query="select * from certificate_of_enrollment"; 
+
+               JRDesignQuery updateQuery = new JRDesignQuery();
+               updateQuery.setText(query);
+             
+               jdesign.setQuery(updateQuery);
+               
+               
+               
+                HashMap<String,Object> para = new HashMap<>();
+//                para.put("sy",psy.getText() );
+//                para.put("future sy",csy.getText() ); // 
+//                para.put("lrn",LRN.getText());
+                para.put("studentsname",NAME.getText());
+//                para.put("grade", GRADES.getText());
+//                para.put("section",sectioNs.getSelectedItem().toString());
+//                //para.put("trak", SCHOOLYEARS.getText());
+//                
+//                para.put("schoolregistrar", registrar.getSelectedItem().toString());
+//                para.put("posistion1", regesposition.getSelectedItem().toString());
+//                para.put("president", pres.getSelectedItem().toString());
+//                para.put("position3", presposistion.getSelectedItem().toString());
+//                 
+//                para.put("vp", vpresident.getSelectedItem().toString());
+//                para.put("position2", vpresposisition.getSelectedItem().toString());
+//                        
+                
+              
+                
+//        if (She.isSelected()) {
+//           para.put("genders", "She");
+//        }else {
+//            
+//            para.put("genders", "He");
+//        }
+//                 
+//                //jTextField1
+               
+               JasperReport jreport = JasperCompileManager.compileReport(jdesign);
+               JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
+              
+               
+               
+               
+               JasperViewer.viewReport(jprint);
+               
+               
+          
+            }catch (ClassNotFoundException | SQLException  ex) {
+                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+            } catch (JRException ex) {         
+            Logger.getLogger(Enrollment.class.getName()).log(Level.SEVERE, null, ex);
+        }  
     }//GEN-LAST:event_CLEAR7ActionPerformed
 
     
@@ -1518,6 +1721,28 @@ public class Enrollment extends javax.swing.JFrame {
   
         }
       
+       private void Pres()
+        {
+             try {
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+                PreparedStatement ps;
+                ps=Mycon.prepareStatement("select * from school_president_director");
+                rs= ps.executeQuery();
+                pres.removeAllItems();
+                presposistion.removeAllItems();
+                while (rs.next())
+                {             
+                     pres.addItem(new President(rs.getInt(1),rs.getString(2)));    
+                     presposistion.addItem(new President(rs.getInt(1),rs.getString(3))); 
+                }
+            }catch (ClassNotFoundException | SQLException  ex) {
+                 // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+  
+        }
+      
       
       private void registrar()
         {
@@ -1529,9 +1754,33 @@ public class Enrollment extends javax.swing.JFrame {
                 ps=Mycon.prepareStatement("select * from school_registrar_incharge");
                 rs= ps.executeQuery();
                 registrar.removeAllItems();
+                regesposition.removeAllItems();
                 while (rs.next())
                 {             
-                     registrar.addItem(new Section(rs.getInt(1),rs.getString(2)));             
+                     registrar.addItem(new Section(rs.getInt(1),rs.getString(2)));  
+                     regesposition.addItem(new Section(rs.getInt(1),rs.getString(3)));   
+                }
+            }catch (ClassNotFoundException | SQLException  ex) {
+                 // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+  
+        }
+      
+       private void vpres()
+        {
+             try {
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+                PreparedStatement ps;
+                ps=Mycon.prepareStatement("select * from school_vicepresident");
+                rs= ps.executeQuery();
+                vpresident.removeAllItems();
+                 vpresposisition.removeAllItems();
+                while (rs.next())
+                {             
+                     vpresident.addItem(new VPresident(rs.getInt(1),rs.getString(2)));  
+                     vpresposisition.addItem(new VPresident(rs.getInt(1),rs.getString(3)));   
                 }
             }catch (ClassNotFoundException | SQLException  ex) {
                  // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1647,13 +1896,13 @@ public class Enrollment extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CLEAR;
     private javax.swing.JButton CLEAR2;
-    private javax.swing.JButton CLEAR4;
-    private javax.swing.JButton CLEAR5;
-    private javax.swing.JButton CLEAR6;
     private javax.swing.JButton CLEAR7;
+    private javax.swing.JButton ENROLL;
     private javax.swing.JTextField GRADES;
+    private javax.swing.JButton HONORABLE;
     private javax.swing.JCheckBox He;
     private javax.swing.JTextField LRN;
+    private javax.swing.JButton MORAL;
     private javax.swing.JTextField NAME;
     private javax.swing.JButton PRINT;
     private javax.swing.JButton SAVE;
@@ -1671,6 +1920,7 @@ public class Enrollment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -1695,14 +1945,14 @@ public class Enrollment extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable;
-    private javax.swing.JComboBox position2;
-    private javax.swing.JComboBox position3;
-    private javax.swing.JComboBox position4;
     private javax.swing.JComboBox pres;
+    private javax.swing.JComboBox presposistion;
     private javax.swing.JFormattedTextField psy;
+    private javax.swing.JComboBox regesposition;
     private javax.swing.JComboBox registrar;
     private javax.swing.JTextField search;
     private javax.swing.JComboBox sectioNs;
     private javax.swing.JComboBox vpresident;
+    private javax.swing.JComboBox vpresposisition;
     // End of variables declaration//GEN-END:variables
 }

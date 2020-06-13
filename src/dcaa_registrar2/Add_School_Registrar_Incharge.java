@@ -703,7 +703,7 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
                 PreparedStatement ps;
-                ps=Mycon.prepareStatement("update school_registrar_incharge set fullname=?, gender=?, status=? where id=?");
+                ps=Mycon.prepareStatement("update school_registrar_incharge set fullname=?, status=?, gender=? where id=?");
 
                  ps.setString(1, lname);
                  ps.setString(2, stat);

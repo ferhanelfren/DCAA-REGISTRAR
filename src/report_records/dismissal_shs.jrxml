@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Enrollment" pageWidth="595" pageHeight="936" whenNoDataType="AllSectionsNoDetail" columnWidth="451" leftMargin="72" rightMargin="72" topMargin="144" bottomMargin="72" whenResourceMissingType="Empty" uuid="382c9b36-104b-428b-b434-00698783b7ce">
 	<property name="ireport.zoom" value="2.143588810000005"/>
-	<property name="ireport.x" value="71"/>
-	<property name="ireport.y" value="275"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="755"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -122,7 +122,7 @@ FROM
 				</textElement>
 				<text><![CDATA[	Issued this]]></text>
 			</staticText>
-			<textField pattern="dd MMMMM yyyy">
+			<textField pattern="dd   MMMMM   yyyy">
 				<reportElement x="80" y="202" width="100" height="16" uuid="98890121-b311-48fa-82a7-06c0ee85392d"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial"/>
@@ -156,20 +156,6 @@ FROM
 					<font fontName="Arial" size="6" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[NOT VALID WITHOUT SCHOOL SEAL]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="0" y="394" width="219" height="20" uuid="82527f46-33c8-4155-9a35-3e90c556c4dc"/>
-				<textElement verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{schoolpresident}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="0" y="411" width="291" height="16" uuid="01348a44-59ac-4bd1-8aba-c9f2912b88da"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
-				<text><![CDATA[School President & HRQA Director]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="357" width="291" height="16" uuid="c5019122-508f-4503-85c1-c13b0b41a0fa"/>

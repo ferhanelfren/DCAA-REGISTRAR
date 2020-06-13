@@ -66,6 +66,7 @@ public class Add_Records extends javax.swing.JFrame {
         StudentCombo();
         AutoCompleteComboBox();
         tableEditFormat();
+ 
     }
 
     
@@ -226,7 +227,7 @@ public class Add_Records extends javax.swing.JFrame {
         DIPLOMA = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         SAVE = new javax.swing.JButton();
-        CLEAR3 = new javax.swing.JButton();
+        TRYSAVE = new javax.swing.JButton();
         CLEAR1 = new javax.swing.JButton();
         CLEAR4 = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
@@ -589,16 +590,16 @@ public class Add_Records extends javax.swing.JFrame {
             }
         });
 
-        CLEAR3.setBackground(new java.awt.Color(51, 51, 51));
-        CLEAR3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/EDIT/default.png"))); // NOI18N
-        CLEAR3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        CLEAR3.setFocusPainted(false);
-        CLEAR3.setRolloverEnabled(true);
-        CLEAR3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/EDIT/hover.png"))); // NOI18N
-        CLEAR3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/EDIT/hover.png"))); // NOI18N
-        CLEAR3.addActionListener(new java.awt.event.ActionListener() {
+        TRYSAVE.setBackground(new java.awt.Color(51, 51, 51));
+        TRYSAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/EDIT/default.png"))); // NOI18N
+        TRYSAVE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        TRYSAVE.setFocusPainted(false);
+        TRYSAVE.setRolloverEnabled(true);
+        TRYSAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/EDIT/hover.png"))); // NOI18N
+        TRYSAVE.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/EDIT/hover.png"))); // NOI18N
+        TRYSAVE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CLEAR3ActionPerformed(evt);
+                TRYSAVEActionPerformed(evt);
             }
         });
 
@@ -637,7 +638,7 @@ public class Add_Records extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CLEAR4)
                     .addComponent(CLEAR1)
-                    .addComponent(CLEAR3)
+                    .addComponent(TRYSAVE)
                     .addComponent(SAVE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -647,7 +648,7 @@ public class Add_Records extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE)
                 .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CLEAR3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TRYSAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CLEAR1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1013,7 +1014,7 @@ public boolean verifyText()
          //String name= ENROLLMENT.getText().toString();
          
          
-           SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem(); 
+        SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem(); 
         student studentmame = (student)students1.getSelectedItem();
          
          
@@ -1126,30 +1127,77 @@ public boolean verifyText()
     private void enroolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enroolActionPerformed
 
         
+      
+
+         
+             
         byte[] photo=null;
         String filename=null;
         
+        
         JFileChooser jfchoose = new JFileChooser();
         jfchoose.showOpenDialog(this);
-        
         File f =  jfchoose.getSelectedFile();
         filename=f.getAbsolutePath();
-          
-
-          try {
-            
-              
               filepath = f.getAbsolutePath();
               filepath = filepath.replace('\\', '/');
               ENROLLMENT.setText(filepath);
-              
-              
+             
+//          byte[] fileContent = Files.readAllBytes(pat);
+//          ByteArrayInputStream bias = new ByteArrayInputStream(fileContent);
+//          File pdf = new File(ENROLLMENT.getText());
+//          FileInputStream FileInput = new FileInputStream(pdf);        
+//          ByteArrayOutputStream bos = new ByteArrayOutputStream();
+          
+             
+       
+//        try {
+//
+//        File f =  jfchoose.getSelectedFile();
+//
+//        //filepath = f.getName();
+//         filepath = f.getAbsolutePath();
+//        filepath = filepath.replace('\\', '/');
+//        GOODMORAL.setText(filepath);
+//
+//
+//        } catch (Exception e) {
+//
+//             JOptionPane.showMessageDialog(this, e,"ERROR", JOptionPane.ERROR_MESSAGE);
+//        }
+//
+//        try {
+//
+//        File pdf = new File(filename);
+//        FileInputStream FileInput = new FileInputStream(pdf);
+//       // ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//
+//       byte [] buf = new byte[1024];
+//        ByteArrayInputStream bias = new ByteArrayInputStream(FileInput);
+//
+//
+//
+//
+//
+//            for (int readNum; (readNum=FileInput.read(buf))!=1;) {
+//
+//
+//
+//                bias.write(buf, 0, readNum);
+//
+//
+//            }
+//
+//        photo=bias.toByteArray();
+//
+//        } catch (IOException e) {
+//        }
+         
+            
               
              
               
-              
-        } catch (Exception e) {
-        }
+        
           
           
 //        try {
@@ -1319,9 +1367,57 @@ public boolean verifyText()
         }
     }//GEN-LAST:event_diplomaActionPerformed
 
-    private void CLEAR3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CLEAR3ActionPerformed
+    private void TRYSAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TRYSAVEActionPerformed
+      
+        
+         File f = new File("D:/USERSsdasda/Documents/debussyclairdelune.pdf");
+        
+        try{
+        
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+        PreparedStatement ps;
+       
+       // ps=Mycon.prepareStatement("INSERT INTO student_records ( school_year_id, enrolled_students_id, crt_enrollment, crt_goodmoral, crt_completion, honorable_dismissal, sf10, sf9, psa, diploma, timestamp) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+       ps = Mycon.prepareStatement("INSERT INTO insertfilesample ( name, file values (?,?)");
+       
+       ps.setString(1, f.getName());
+      
+        
+       FileInputStream  fileInputStream = new FileInputStream(f);
+        ps.setBinaryStream(2, fileInputStream, fileInputStream.available());
+       
+        
+//        String sql = "INSERT INTO testtable(stringcolumn, blobcolumn) VALUES(?,?)";
+//
+//        PreparedStatement statement = conn.getConnection().prepareStatement(sql);
+//        statement.setLong(1, version);
+//        ByteArrayInputStream bais = new ByteArrayInputStream(getByteArrayFromFile(document));
+//        statement.setBlob(2, bais);          
+//        statement.execute();
+        
+        
+        
+
+        ps.executeUpdate();      
+
+                    JOptionPane.showMessageDialog(null, "Bright Ka");
+                    
+                    // schoolyr.setSelectedIndex(-1);
+            
+                    
+                    
+                // DESKTOP.schoolyear.setText(jComboBox1.getSelectedItem().toString());
+               
+         }catch (ClassNotFoundException | SQLException ex) {
+                    JOptionPane.showMessageDialog(this, ex,"ERROR",  JOptionPane.ERROR_MESSAGE);
+                     Logger.getLogger(table_suggetions.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (FileNotFoundException ex) {
+             Logger.getLogger(Add_Records.class.getName()).log(Level.SEVERE, null, ex);
+         } catch (IOException ex) {
+             Logger.getLogger(Add_Records.class.getName()).log(Level.SEVERE, null, ex);
+         } 
+    }//GEN-LAST:event_TRYSAVEActionPerformed
 
     private void CLEAR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR1ActionPerformed
        
@@ -1401,7 +1497,6 @@ public boolean verifyText()
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CLEAR1;
-    private javax.swing.JButton CLEAR3;
     private javax.swing.JButton CLEAR4;
     private javax.swing.JTextField COMPLETION;
     private javax.swing.JTextField DIPLOMA;
@@ -1413,6 +1508,7 @@ public boolean verifyText()
     private javax.swing.JButton SAVE;
     private javax.swing.JTextField SF10;
     private javax.swing.JTextField SF9;
+    private javax.swing.JButton TRYSAVE;
     private javax.swing.JButton completion;
     private javax.swing.JButton diploma;
     private javax.swing.JButton dismissal;
