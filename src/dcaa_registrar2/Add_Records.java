@@ -1182,7 +1182,11 @@ File filed;
         STUDENTNAMES.setSelectedItem(model2.getValueAt(selecIndex, 2).toString());
         file_text.setText(model2.getValueAt(selecIndex, 3).toString());
     
-      
+        while (file_text.equals(true)) {            
+            
+            path = filed.getAbsoluteFile().toString();
+            
+        }
             
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -1355,7 +1359,7 @@ File filed;
                
                  if (verifyText()) {
                      
-                                
+                                File filed= null;
                                 filed = new File (path);
                                 
                                 System.out.println("Following files are saved in database..");                 		

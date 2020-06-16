@@ -8,9 +8,18 @@ package dcaa_registrar2;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicButtonUI;
 
 /**
@@ -42,8 +51,13 @@ public class Mainframe extends javax.swing.JFrame {
         
         
       SomeWindow();
+      studentcount();
         
     }
+    
+    
+    Connection Mycon;
+    
     
   //  private void makeFrameFullSize(JFrame aFrame) {
 //    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -88,7 +102,7 @@ public void SomeWindow() {
         jLabel2 = new javax.swing.JLabel();
         usernamedesk = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        students = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -283,19 +297,17 @@ public void SomeWindow() {
 
         jPanel6.setBackground(new java.awt.Color(46, 69, 131));
 
-        jLabel3.setText("jLabel3");
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addGap(0, 179, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(students, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+            .addComponent(students, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
         );
 
         jPanel7.setBackground(new java.awt.Color(46, 69, 131));
@@ -654,6 +666,60 @@ public void SomeWindow() {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void studentcount()
+    {
+//        
+//        //Registering the Driver
+//      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+//      //Getting the connection
+//      String mysqlUrl = "jdbc:mysql://localhost/mydatabase";
+//      Connection con = DriverManager.getConnection(mysqlUrl, "root", "password");
+//      System.out.println("Connection established......");
+//      //Creating the Statement object
+//      Statement stmt = con.createStatement();
+//      //Query to get the number of rows in a table
+//      String query = "select count(*) from Cricketers_Data";
+//      //Executing the query
+//      ResultSet rs = stmt.executeQuery(query);
+//      //Retrieving the result
+//      rs.next();
+//      int count = rs.getInt(1);
+//      System.out.println("Number of records in the cricketers_data table: "+count);
+//        
+        
+        
+         try {
+
+              
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+                PreparedStatement ps;
+                ps=Mycon.prepareStatement("select count(*) from enrolled_students");
+                ResultSet rs =  ps.executeQuery();
+               
+                while (rs.next()) {                 
+                 
+                    int count = rs.getInt(1);
+                    
+                    students.setText(Integer.toString(count));
+                    
+             }
+                   
+                   
+               
+            } catch (ClassNotFoundException | SQLException   ex) {
+               JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        
+        
+    }
+    
+    
+    
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -722,7 +788,6 @@ public void SomeWindow() {
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -750,6 +815,7 @@ public void SomeWindow() {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel students;
     public static javax.swing.JLabel usernamedesk;
     // End of variables declaration//GEN-END:variables
 }
