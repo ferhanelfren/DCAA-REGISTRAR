@@ -613,9 +613,9 @@ public class table_records_data extends javax.swing.JFrame {
                 // DESKTOP.schoolyear.setText(jComboBox1.getSelectedItem().toString());
                
          } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Add_Records.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Add_Records2.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Add_Records.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Add_Records2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_saveActionPerformed
 

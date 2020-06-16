@@ -1057,7 +1057,7 @@ byte[] buffer = new byte[4096];
                   
             
         }catch (ClassNotFoundException | SQLException  ex) {
-                        Logger.getLogger(Edit_Students_Info.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Add_Students.class.getName()).log(Level.SEVERE, null, ex);
         }    catch (IOException ex) {
                 JOptionPane.showMessageDialog(this, "Already Downloaded");
                  Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
@@ -1113,7 +1113,7 @@ byte[] buffer = new byte[4096];
                   
             
         }catch (ClassNotFoundException | SQLException  ex) {
-                        Logger.getLogger(Edit_Students_Info.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(Add_Students.class.getName()).log(Level.SEVERE, null, ex);
         }
  
         } else {

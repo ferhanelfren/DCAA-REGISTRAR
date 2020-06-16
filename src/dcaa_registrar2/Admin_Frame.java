@@ -17,12 +17,12 @@ import javax.swing.plaf.basic.BasicButtonUI;
  *
  * @author GOD
  */
-public class StudentFrame extends javax.swing.JFrame {
+public class Admin_Frame extends javax.swing.JFrame {
 
     /**
      * Creates new form mainframe
      */
-    public StudentFrame() {
+    public Admin_Frame() {
         initComponents();
         
         Component [] components = this.getContentPane().getComponents();
@@ -92,6 +92,8 @@ public void SomeWindow() {
         jButton10 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -105,6 +107,8 @@ public void SomeWindow() {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Admin ");
+        setAlwaysOnTop(true);
 
         jPanel2.setBackground(new java.awt.Color(253, 253, 255));
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -264,30 +268,40 @@ public void SomeWindow() {
                 .addGap(20, 20, 20))
         );
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add student/default.png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Activity Log/defult.png"))); // NOI18N
         jButton6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
-        jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add student/hover.png"))); // NOI18N
-        jButton6.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add student/hover.png"))); // NOI18N
+        jButton6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Activity Log/hover.png"))); // NOI18N
+        jButton6.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Activity Log/hover.png"))); // NOI18N
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/student info/default.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Help/default.png"))); // NOI18N
         jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
-        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/student info/hover.png"))); // NOI18N
-        jButton7.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/student info/hover.png"))); // NOI18N
+        jButton7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Help/hover.png"))); // NOI18N
+        jButton7.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Help/hover.png"))); // NOI18N
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/default.png"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/President/default.png"))); // NOI18N
         jButton10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
-        jButton10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/hover.png"))); // NOI18N
-        jButton10.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/hover.png"))); // NOI18N
+        jButton10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Registrar/hover.png"))); // NOI18N
+        jButton10.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/President/hover.png"))); // NOI18N
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/students form/default.png"))); // NOI18N
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Registrar/default.png"))); // NOI18N
         jButton9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
-        jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/students form/hover.png"))); // NOI18N
-        jButton9.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/students form/hover.png"))); // NOI18N
+        jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Registrar/hover.png"))); // NOI18N
+        jButton9.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Registrar/hover.png"))); // NOI18N
 
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/default.png"))); // NOI18N
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Section/default.png"))); // NOI18N
         jButton11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
-        jButton11.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/hover.png"))); // NOI18N
-        jButton11.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Add Student/add form/hover.png"))); // NOI18N
+        jButton11.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Section/hover.png"))); // NOI18N
+        jButton11.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Section/hover.png"))); // NOI18N
+
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/User/default.png"))); // NOI18N
+        jButton12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton12.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/User/hover.png"))); // NOI18N
+        jButton12.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/User/hover.png"))); // NOI18N
+
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Vice President/default.png"))); // NOI18N
+        jButton13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78)));
+        jButton13.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Vice President/hover.png"))); // NOI18N
+        jButton13.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/AdminFrame/Vice President/hover.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -298,18 +312,24 @@ public void SomeWindow() {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 1114, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(223, 223, 223)
                                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(96, 96, 96)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(83, 83, 83)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(83, 83, 83)
+                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69)
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(100, 100, 100)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(57, 57, 57)
+                                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(175, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -318,9 +338,11 @@ public void SomeWindow() {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -383,14 +405,42 @@ public void SomeWindow() {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StudentFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admin_Frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -399,7 +449,7 @@ public void SomeWindow() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StudentFrame().setVisible(true);
+                new Admin_Frame().setVisible(true);
             }
         });
     }
@@ -408,6 +458,8 @@ public void SomeWindow() {
     private javax.swing.JButton home;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
