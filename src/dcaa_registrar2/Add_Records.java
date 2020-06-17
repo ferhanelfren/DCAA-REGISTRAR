@@ -70,23 +70,14 @@ File filed;
      * Creates new form Enrollment
      */
     public Add_Records() {
-        initComponents();
-        
-        AutoCompleteDecorator.decorate(schoolyr);
-        AutoCompleteDecorator.decorate(STUDENTNAMES);
-        
-        menu.add(panel);
-        table_update();
-
-        jTable.getTableHeader().hide();
-        jTable.getRowHeight(0);
-
-         schoolyear();
-         studentnames();
-         StudentTable();
+        initComponents();       
+//        AutoCompleteDecorator.decorate(schoolyr);
+//        AutoCompleteDecorator.decorate(STUDENTNAMES);
           tableEditFormat();
-          table_update();
           table_update_files();
+       StudenttableEditFormat2();
+        table_update();
+        
          
      
          
@@ -148,90 +139,7 @@ File filed;
 
     Connection Mycon;
     ResultSet rs;
-    
-    
-      private void StudentTable()
-    
-    {
-        
-        int c;
-           try {
-
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-                PreparedStatement ps;
-                ps=Mycon.prepareStatement("select * from enrolled_students");
-                rs= ps.executeQuery();
-                
-                DefaultTableModel modelt = (DefaultTableModel)jTable.getModel();
-                ResultSetMetaData rsd=rs.getMetaData();
-                   c = rsd.getColumnCount(); 
-                
-                     modelt.setRowCount(0);
-
-                
-                                    while (rs.next()) 
-                                                {          
-                                                    Vector v = new Vector();
-                                                    
-                                                    for (int i = 0; i <= 35; i++) 
-                                                    { 
-                                                         //v.add(rs.getString("id")); 
-                                                           
-                                                        v.add(new STUDENT(rs.getInt(1), rs.getString(6)));
-                                                    }
-                                                    
-                                                    modelt.addRow(v); 
-                                                   
-                                                }        
-            }catch (ClassNotFoundException | SQLException  ex) {
-                JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-
-    }
-    
-      
-      
-      
-      private void schoolyear()
-        {
-             try {
-
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-                PreparedStatement ps;
-                ps=Mycon.prepareStatement("select * from school_year");
-                rs= ps.executeQuery();
-                schoolyr.removeAllItems();
-                while (rs.next())
-                {             
-                     schoolyr.addItem(new SchoolYear2(rs.getInt(1),rs.getString(2)));             
-                }
-            }catch (ClassNotFoundException | SQLException  ex) {
-                 // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-  
-        }
-      
-       private void studentnames()
-        {
-             try {
-
-                Class.forName("com.mysql.cj.jdbc.Driver");
-            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-                PreparedStatement ps;
-                ps=Mycon.prepareStatement("select * from enrolled_students");
-                rs= ps.executeQuery();
-                STUDENTNAMES.removeAllItems();
-                while (rs.next())
-                {             
-                     STUDENTNAMES.addItem(new STUDENT(rs.getInt(1),rs.getString(6)));             
-                }
-            }catch (ClassNotFoundException | SQLException  ex) {
-                  JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-      
+          
       
        private void table_update()
     {
@@ -290,66 +198,22 @@ File filed;
     }
        
        
-          private void table_update_files()
-    {
-               int c;              
-                                            try {       
-                                           Class.forName("com.mysql.cj.jdbc.Driver");
-                                           Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root"); 
-                                           PreparedStatement ps;   
-                                           ps=Mycon.prepareStatement("select a.file_id, b.school_year_name, c.fullname, a.file_name, a.file_size_in_kb, a.file_extension, a.file_content, a.timestamp from insert_data_file a, enrolled_students c, school_year b  where a.school_year_id = b.id and a.enrolled_students_id = c.id");
-                                           ResultSet rs = ps.executeQuery();
-                                            ResultSetMetaData rsd=rs.getMetaData();
-                                                c = rsd.getColumnCount();            
-                                                DefaultTableModel model =  (DefaultTableModel)jTable1.getModel() ;
-                                                
-                                            model.setRowCount(0);
-                                                while (rs.next()) 
-                                                {          
-                                                    Vector v = new Vector();
-                                                    for (int i = 0; i <= 35; i++) 
-                                                    { 
-                                                          v.add(rs.getString("file_id")); 
-                                                          v.add(rs.getString("school_year_name")); 
-                                                        
-                                                          v.add(rs.getString("fullname")); 
-                                                          v.add(rs.getString("file_name"));
-                                                          v.add(rs.getString("file_size_in_kb")); 
-                                                          v.add(rs.getString("file_extension")); 
-                                                        //  v.add(rs.getString("file_content")); 
-                                                        //  v.add(rs.getString("timestamp"));   
-                                                    }
-                                                    model.addRow(v); 
-                                                }
-                                        }  catch (ClassNotFoundException | SQLException  ex) {
-                                               JOptionPane.showMessageDialog(this,  ex, "Error", JOptionPane.ERROR_MESSAGE);
-                                        }
-    }   
-       
-       
-       
-       
-       
          private void tableEditFormat()
        {
            
             
-                                                jTable1.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,14));
-                                                jTable1.getTableHeader().setOpaque(false);
-                                                jTable1.getTableHeader().setBackground(new Color(165,19,29));
-                                                jTable1.getTableHeader().setForeground(new Color(255,255,255));
-                                                jTable1.getRowHeight(20);
+                                                jTable.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,14));
+                                                jTable.getTableHeader().setOpaque(false);
+                                                jTable.getTableHeader().setBackground(new Color(165,19,29));
+                                                jTable.getTableHeader().setForeground(new Color(255,255,255));
+                                                jTable.getRowHeight(10);
                                                 
-                                                jTable1.setGridColor(new Color(43,70,60));
 
-                                                DefaultTableCellRenderer renderer = (DefaultTableCellRenderer)  jTable1.getTableHeader().getDefaultRenderer();
+                                                DefaultTableCellRenderer renderer = (DefaultTableCellRenderer)  jTable.getTableHeader().getDefaultRenderer();
                                                 renderer.setHorizontalAlignment(SwingConstants.CENTER);
-                                                
-                                                TableColumn col = jTable1.getColumnModel().getColumn(0);
-                                                    DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();  
-                                                    dtcr.setHorizontalAlignment(SwingConstants.CENTER);
-                                                    col.setCellRenderer(dtcr);
-
+//                                                DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+//                                                rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
+//                                                jTable.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
 
                                                 jTable.removeColumn(jTable.getColumnModel().getColumn(1));
                                                 jTable.removeColumn(jTable.getColumnModel().getColumn(1));
@@ -380,19 +244,195 @@ File filed;
                                                 jTable.removeColumn(jTable.getColumnModel().getColumn(2));
                                                 
                                                //  jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
+                                               //  jTable.getColumnModel().getColumn(1).setPreferredWidth(300);
+                                                 
+                                                 
+                                                 TableColumn col = jTable.getColumnModel().getColumn(0);
+                                                    DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();  
+                                                    dtcr.setHorizontalAlignment(SwingConstants.CENTER);
+                                                    col.setCellRenderer(dtcr);
+                                                 
+       }
+    
+
+      
+
+       
+      
+    
+          private void table_update_files()
+    {
+               int c;              
+                                            try {       
+                                           Class.forName("com.mysql.cj.jdbc.Driver");
+                                           Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root"); 
+                                           PreparedStatement ps;   
+                                           ps=Mycon.prepareStatement("select * from insert_data_file");
+                                           ResultSet rs = ps.executeQuery();
+                                            ResultSetMetaData rsd=rs.getMetaData();
+                                                c = rsd.getColumnCount();            
+                                                DefaultTableModel model =  (DefaultTableModel)jTable1.getModel() ;
+                                                
+                                            model.setRowCount(0);
+                                                while (rs.next()) 
+                                                {          
+                                                    Vector v = new Vector();
+                                                    for (int i = 0; i <= 35; i++) 
+                                                    { 
+                                                          v.add(rs.getString("file_id")); 
+                                                           v.add(rs.getString("Student_Name"));
+                                                          v.add(rs.getString("file_name"));
+                                                          v.add(rs.getString("file_size_in_kb")); 
+                                                          v.add(rs.getString("file_extension")); 
+                                                        //  v.add(rs.getString("file_content")); 
+                                                        //  v.add(rs.getString("timestamp"));   
+                                                    }
+                                                    model.addRow(v); 
+                                                }
+                                        }  catch (ClassNotFoundException | SQLException  ex) {
+                                               JOptionPane.showMessageDialog(this,  ex, "Error", JOptionPane.ERROR_MESSAGE);
+                                        }
+    }   
+       
+       
+       
+       
+       
+         private void StudenttableEditFormat2()
+       {
+           
+                                                jTable1.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,16));
+                                                jTable1.getTableHeader().setOpaque(false);
+                                                jTable1.getTableHeader().setBackground(new Color(165,19,29));
+                                                jTable1.getTableHeader().setForeground(new Color(255,255,255));
+                                                jTable1.getRowHeight(20);
+                                                
+                                                jTable1.setGridColor(new Color(43,70,60));
+
+                                                DefaultTableCellRenderer renderer2 = (DefaultTableCellRenderer)  jTable1.getTableHeader().getDefaultRenderer();
+                                                renderer2.setHorizontalAlignment(SwingConstants.CENTER);
+                                                
+                                              
+                                                
+                                                TableColumn col2 = jTable1.getColumnModel().getColumn(0);
+                                                    DefaultTableCellRenderer dtcr2 = new DefaultTableCellRenderer();  
+                                                    dtcr2.setHorizontalAlignment(SwingConstants.CENTER);
+                                                    col2.setCellRenderer(dtcr2);
+                                                    
+                                                      
+
+                                                
+                                               //  jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
                                                  jTable1.getColumnModel().getColumn(0).setPreferredWidth(10);
                                                  jTable1.getColumnModel().getColumn(1).setPreferredWidth(10);
-                                                
-                                                 
-                                                 
-                                                 
 
                                                  
        }
          
    
+//           private void studentTableFormat()
+//       {
+//           
+////            
+////                                                jTable1.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,14));
+////                                                jTable1.getTableHeader().setOpaque(false);
+////                                                jTable1.getTableHeader().setBackground(new Color(165,19,29));
+////                                                jTable1.getTableHeader().setForeground(new Color(255,255,255));
+////                                                jTable1.getRowHeight(20);
+//                                                
+//                                                jTable1.setGridColor(new Color(43,70,60));
+//
+//                                                DefaultTableCellRenderer renderer2 = (DefaultTableCellRenderer)  jTable1.getTableHeader().getDefaultRenderer();
+//                                                renderer2.setHorizontalAlignment(SwingConstants.CENTER);
+//                                                
+//                                              
+//                                                
+//                                                TableColumn col2 = jTable1.getColumnModel().getColumn(0);
+//                                                    DefaultTableCellRenderer dtcr2 = new DefaultTableCellRenderer();  
+//                                                    dtcr2.setHorizontalAlignment(SwingConstants.CENTER);
+//                                                    col2.setCellRenderer(dtcr2);
+//                                                    
+//                                                      
+//
+//
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+//                                                
+//                                              
+//                                                 
+//                                                 
+//
+//                                                 
+//       }
+//         
+         
+          public void LoadSearchDataStudentsName(){
          
          
+         
+    
+           try {
+               
+               
+               String src="%"+this.searchstudent.getText()+"%";
+                 //System.out.println(src);
+                DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+                
+               int col;
+               Class.forName("com.mysql.cj.jdbc.Driver");
+               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+               PreparedStatement ps;
+              // ps = Mycon.prepareStatement(" select a.file_id, b.school_year_name, c.fullname, a.file_name, a.file_size_in_kb, a.file_extension, a.file_content, a.timestamp from insert_data_file a, enrolled_students c, school_year b  where a.school_year_id = b.id and a.enrolled_students_id = c.id LIKE '"+src+"'");
+               //ps = Mycon.prepareStatement("select a.file_id, c.fullname from insert_data_file a, enrolled_students c, where a.enrolled_students_id = c.id  LIKE '"+src+"'");
+               ps = Mycon.prepareStatement("select * from enrolled_students where fullname LIKE '"+src+"'"); 
+              // ps = Mycon.prepareStatement("select a.file_id, b.school_year_name, c.fullname, a.file_name, a.file_size_in_kb, a.file_extension, a.file_content, a.timestamp from insert_data_file a, enrolled_students c, school_year b  where a.school_year_id = b.id and a.enrolled_students_id = c.id  LIKE '"+src+"'");
+           
+               
+             ResultSet rs;
+             rs= ps.executeQuery();
+             
+               
+          
+                         while(rs.next()){   
+                             
+                        
+                        model.setRowCount(0);          
+                        //number sa mga columns sa imohang tables
+                        model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20),rs.getString(21),rs.getString(22),rs.getString(23),rs.getString(24),rs.getString(25),rs.getString(26),rs.getString(27),rs.getString(28),rs.getString(29)});
+                        //model.addRow(new Object[]{rs.getString(6)});
+                                }  
+             //model.setRowCount(0);
+            }catch (ClassNotFoundException  ex) {
+                Logger.getLogger(suggestions.class.getName()).log(Level.SEVERE, null, ex);
+            }catch ( SQLException ex) {
+                Logger.getLogger(suggestions.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           }
          
          
          
@@ -406,29 +446,30 @@ File filed;
                
                String src="%"+this.search.getText()+"%";
                  //System.out.println(src);
-                DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+                DefaultTableModel model =  (DefaultTableModel)jTable1.getModel() ;
                 
                int col;
                Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
                PreparedStatement ps;
-               ps = Mycon.prepareStatement("select * from insert_data_file where fullname  LIKE '"+src+"'");
-           
+              // ps = Mycon.prepareStatement(" select a.file_id, b.school_year_name, c.fullname, a.file_name, a.file_size_in_kb, a.file_extension, a.file_content, a.timestamp from insert_data_file a, enrolled_students c, school_year b  where a.school_year_id = b.id and a.enrolled_students_id = c.id LIKE '"+src+"'");
+               //ps = Mycon.prepareStatement("select a.file_id, c.fullname from insert_data_file a, enrolled_students c, where a.enrolled_students_id = c.id  LIKE '"+src+"'");
+               ps = Mycon.prepareStatement("select * from insert_data_file where enrolled_students_id LIKE '"+src+"'");
+              // ps = Mycon.prepareStatement("select a.file_id, b.school_year_name, c.fullname, a.file_name, a.file_size_in_kb, a.file_extension, a.file_content, a.timestamp from insert_data_file a, enrolled_students c, school_year b  where a.school_year_id = b.id and a.enrolled_students_id = c.id  LIKE '"+src+"'");
            
                
-             ResultSet rs= ps.executeQuery();
+             ResultSet rs;
+             rs= ps.executeQuery();
              
                
           
                          while(rs.next()){   
                              
                         
-                        model.setRowCount(0);      
-                             
+                        model.setRowCount(0);          
                         //number sa mga columns sa imohang tables
-                       
-                        model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),rs.getString(14),rs.getString(15),rs.getString(16),rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20),rs.getString(21),rs.getString(22),rs.getString(23),rs.getString(24),rs.getString(25),rs.getString(26),rs.getString(27),rs.getString(28),rs.getString(29)});
-
+                        model.addRow(new Object[]{rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4)});
+                        //model.addRow(new Object[]{rs.getString(6)});
                                 }  
              //model.setRowCount(0);
             }catch (ClassNotFoundException  ex) {
@@ -436,13 +477,12 @@ File filed;
             }catch ( SQLException ex) {
                 Logger.getLogger(suggestions.class.getName()).log(Level.SEVERE, null, ex);
             }
-
            }
          
          public boolean verifyText()
     {
         
-       if (schoolyr.getSelectedItem().equals("") || STUDENTNAMES.getSelectedItem().toString().equals("") || file_text.getText().equals(""))
+       if ( STUDENTNAME.getText().equals("")|| file_text.getText().equals(""))
 
           {
             JOptionPane.showMessageDialog(this," Failed...!!! One or More Empty");
@@ -451,7 +491,6 @@ File filed;
         } else {
              return true;
         }
-
     }
          
          
@@ -487,21 +526,22 @@ File filed;
     private void initComponents() {
 
         panel = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
         menu = new javax.swing.JPopupMenu();
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        schoolyr = new javax.swing.JComboBox();
-        STUDENTNAMES = new javax.swing.JComboBox();
         jPanel6 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         file_text = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        STUDENTNAME = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
+        jPanel8 = new javax.swing.JPanel();
+        searchstudent = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         SAVE = new javax.swing.JButton();
         UPDATE = new javax.swing.JButton();
@@ -521,57 +561,15 @@ File filed;
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        jTable.setAutoCreateRowSorter(true);
-        jTable.setBackground(new java.awt.Color(244, 241, 233));
-        jTable.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Id", "School Year", "Lrn Status", "S.A  No.", "LRN No.", "Student Name", "Birth Date", "Gender", "Age", "Indigent People", "Tribe", "Mother Tongue", "Address", "Zip Code", "Father's Name", "Mother's Name", "Guardian's Name", "Tell No.", "Cell No.", "Last Grade Level Completed", "Last School Year Completed", "School Name", "School Id", "School Address", "Semester", "Track", "Strand", "Grade Level", "Track & Strand"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable.setFocusable(false);
-        jTable.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        jTable.setOpaque(false);
-        jTable.setRequestFocusEnabled(false);
-        jTable.setRowHeight(50);
-        jTable.setSelectionBackground(new java.awt.Color(43, 70, 60));
-        jTable.setSelectionForeground(new java.awt.Color(244, 241, 233));
-        jTable.setShowVerticalLines(false);
-        jTable.getTableHeader().setReorderingAllowed(false);
-        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableMouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(jTable);
-
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+            .addGap(0, 538, Short.MAX_VALUE)
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 279, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -602,21 +600,6 @@ File filed;
 
         jPanel2.setBackground(new java.awt.Color(244, 241, 233));
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(56, 74, 19));
-        jLabel17.setText("Student's  Name  :");
-
-        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(56, 74, 19));
-        jLabel19.setText("School  Year  :");
-
-        schoolyr.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-
-        STUDENTNAMES.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "China", "Japan", "Korea", "Indonesia", "Thailand", "Philippines" }));
-        STUDENTNAMES.setSelectedIndex(-1);
 
         jPanel6.setBackground(new java.awt.Color(244, 241, 233));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Insert  File  Here :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(153, 0, 0))); // NOI18N
@@ -666,25 +649,146 @@ File filed;
             }
         });
 
+        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(43, 70, 60));
+        jLabel17.setText("Student's  Name  :");
+
+        STUDENTNAME.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        STUDENTNAME.setText("Last Name, Full Name Middle Name");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(STUDENTNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addGap(9, 9, 9)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(STUDENTNAME, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17))
+        );
+
+        jPanel7.setBackground(new java.awt.Color(244, 241, 233));
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Search Student Here :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 1, 18), new java.awt.Color(153, 0, 0))); // NOI18N
+
+        jTable.setAutoCreateRowSorter(true);
+        jTable.setBackground(new java.awt.Color(244, 241, 233));
+        jTable.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "School Year", "Lrn Status", "S.A  No.", "LRN No.", "Student Name", "Birth Date", "Gender", "Age", "Indigent People", "Tribe", "Mother Tongue", "Address", "Zip Code", "Father's Name", "Mother's Name", "Guardian's Name", "Tell No.", "Cell No.", "Last Grade Level Completed", "Last School Year Completed", "School Name", "School Id", "School Address", "Semester", "Track", "Strand", "Grade Level", "Track & Strand"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable.setFocusable(false);
+        jTable.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        jTable.setOpaque(false);
+        jTable.setRequestFocusEnabled(false);
+        jTable.setRowHeight(25);
+        jTable.setSelectionBackground(new java.awt.Color(43, 70, 60));
+        jTable.setSelectionForeground(new java.awt.Color(244, 241, 233));
+        jTable.setShowVerticalLines(false);
+        jTable.getTableHeader().setReorderingAllowed(false);
+        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTable);
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(43, 70, 60)));
+
+        searchstudent.setBackground(new java.awt.Color(255, 255, 255));
+        searchstudent.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        searchstudent.setText("Search Here....");
+        searchstudent.setBorder(null);
+        searchstudent.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchstudentFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchstudentFocusLost(evt);
+            }
+        });
+        searchstudent.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchstudentKeyReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(searchstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(searchstudent, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -692,29 +796,20 @@ File filed;
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel19)
-                    .addComponent(STUDENTNAMES, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(schoolyr, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(schoolyr, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel17)
-                .addGap(5, 5, 5)
-                .addComponent(STUDENTNAMES, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(244, 241, 233));
@@ -829,7 +924,7 @@ File filed;
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addComponent(SAVE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UPDATE)
@@ -849,8 +944,8 @@ File filed;
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(HONORABLE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -861,7 +956,7 @@ File filed;
                     .addComponent(DELETE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(UPDATE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel9.setBackground(new java.awt.Color(43, 70, 60));
@@ -906,22 +1001,10 @@ File filed;
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         search.setBackground(new java.awt.Color(255, 255, 255));
-        search.setText("Search Here. . . .");
-        search.setAutoscrolls(false);
         search.setBorder(null);
-        search.setDoubleBuffered(true);
-        search.setDragEnabled(true);
-        search.setFocusCycleRoot(true);
-        search.setFocusTraversalPolicyProvider(true);
-        search.setInheritsPopupMenu(true);
-        search.setOpaque(false);
-        search.setRequestFocusEnabled(false);
-        search.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                searchFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                searchFocusLost(evt);
+        search.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                searchCaretUpdate(evt);
             }
         });
         search.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -935,13 +1018,13 @@ File filed;
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(search, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(search)
         );
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
@@ -949,46 +1032,22 @@ File filed;
         jLabel25.setForeground(new java.awt.Color(56, 74, 19));
         jLabel25.setText("Search :");
 
+        jTable1.setAutoCreateRowSorter(true);
+        jTable1.setBackground(new java.awt.Color(244, 241, 233));
         jTable1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Id", "School Year", "Students Name", "File Name"
+                "Id", "Students Name", "File Name"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1023,19 +1082,20 @@ File filed;
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 299, Short.MAX_VALUE)
                         .addComponent(jLabel25)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(272, 272, 272)))
-                .addContainerGap())
+                        .addGap(278, 278, 278))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1071,29 +1131,6 @@ File filed;
     }// </editor-fold>//GEN-END:initComponents
 
     
-    
-    
-    
-    
-    
-    private void searchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFocusGained
-
-        if( search.getText().trim().equals("Search Here. . . ."))
-        {
-            search.setText("");
-            search.setForeground(Color.black);
-        }
-    }//GEN-LAST:event_searchFocusGained
-
-    private void searchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFocusLost
-
-        if(search.getText().trim().equals(""))
-        {
-            search.setText("Search Here. . . .");
-            search.setForeground(new Color(51,51,51));
-        }
-    }//GEN-LAST:event_searchFocusLost
-
     private void DOWNLOADActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DOWNLOADActionPerformed
 
          if (verifyText()) {
@@ -1138,8 +1175,8 @@ File filed;
 			}
 
                 table_update_files();
-                schoolyr.setSelectedIndex(-1);
-                STUDENTNAMES.setSelectedIndex(-1);
+//                schoolyr.setSelectedIndex(-1);
+                STUDENTNAME.setText("");
                 file_text.setText("");
                 JOptionPane.showMessageDialog(this, "Successfully Download","Save",JOptionPane.WARNING_MESSAGE);
  
@@ -1155,32 +1192,14 @@ File filed;
         }
     }//GEN-LAST:event_DOWNLOADActionPerformed
 
-    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
-
-       
-    }//GEN-LAST:event_jTableMouseClicked
-
-    private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
-//
-//        // String searh= search.getText().trim();
-//        
-//       // if (!searh.equals("")) {
-//            
-//          
-//           LoadSearchData();
-//           pops();
-//            
-//      //  }
-    }//GEN-LAST:event_searchKeyReleased
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
        
          DefaultTableModel model2 =  (DefaultTableModel)jTable1.getModel() ;
         int selecIndex = jTable1.getSelectedRow();
         
-        schoolyr.setSelectedItem(model2.getValueAt(selecIndex, 1).toString());
-        STUDENTNAMES.setSelectedItem(model2.getValueAt(selecIndex, 2).toString());
-        file_text.setText(model2.getValueAt(selecIndex, 3).toString());
+//        schoolyr.setSelectedItem(model2.getValueAt(selecIndex, 1).toString());
+        STUDENTNAME.setText(model2.getValueAt(selecIndex, 1).toString());
+        file_text.setText(model2.getValueAt(selecIndex, 2).toString());
     
         while (file_text.equals(true)) {            
             
@@ -1237,16 +1256,14 @@ File filed;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
-       
-        
-        
-         
-        
-         
+
          if (verifyText()) {
          
-         SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
-         STUDENT stud = (STUDENT)STUDENTNAMES.getSelectedItem();
+//         SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
+//         STUDENT stud = (STUDENT)STUDENTNAMES.getSelectedItem();
+         
+         String name = STUDENTNAME.getText();
+         
          DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd");
          LocalDateTime now= LocalDateTime.now();
          String timestamp = dtf.format(now);
@@ -1257,7 +1274,7 @@ File filed;
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
                     PreparedStatement ps = null;
-                    ps=Mycon.prepareStatement("INSERT INTO insert_data_file (school_year_id, enrolled_students_id, file_name, file_size_in_kb, file_extension, file_content, timestamp)VALUES(?,?,?,?,?,?,?)");
+                    ps=Mycon.prepareStatement("INSERT INTO insert_data_file ( Student_Name,file_name, file_size_in_kb, file_extension, file_content, timestamp)VALUES(?,?,?,?,?,?)");
 
                             
                     if (verifyText()) {
@@ -1276,20 +1293,20 @@ File filed;
                                 
 				long fileLengthInKb=fileLength/1024;
 				
-                                ps.setInt(1, sy.id);
-                                ps.setInt(2, stud.id);
-				ps.setString(3, fileName);                               
-				ps.setLong(4, fileLengthInKb);				
-				ps.setString(5, fileName.substring(fileName.lastIndexOf(".")+1));
-				
+//                                ps.setInt(1, sy.id);
+                                ps.setString(1, name);
+                                //ps.setString(2, none); 
+				ps.setString(2, fileName);                               
+				ps.setLong(3, fileLengthInKb);				
+				ps.setString(4, fileName.substring(fileName.lastIndexOf(".")+1));			
 				FileInputStream fis = new FileInputStream(filed);
-				ps.setBinaryStream(6, fis, fileLength);
-                                ps.setString(7,timestamp);
-
+				ps.setBinaryStream(5, fis, fileLength);
+                                ps.setString(6,timestamp);
                                 ps.execute();
+                                
                                 table_update_files();
-                                schoolyr.setSelectedIndex(-1);
-                                STUDENTNAMES.setSelectedIndex(-1);
+//                                schoolyr.setSelectedIndex(-1);
+                                STUDENTNAME.setText("Last Name, Full Name Middle Name");
                                 file_text.setText("");
                                 
                                 JOptionPane.showMessageDialog(this, "Successfully Save","Save",JOptionPane.WARNING_MESSAGE);     
@@ -1312,12 +1329,6 @@ File filed;
                      Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
-         
-         
-       
-	
-        
-        
     }//GEN-LAST:event_SAVEActionPerformed
 
     private void UPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATEActionPerformed
@@ -1336,8 +1347,8 @@ File filed;
          
          int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
          
-         SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
-         STUDENT stud = (STUDENT)STUDENTNAMES.getSelectedItem();
+//         SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
+        String name = STUDENTNAME.getText();
         
           DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd");
          LocalDateTime now= LocalDateTime.now();
@@ -1354,7 +1365,7 @@ File filed;
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
                 PreparedStatement ps;
-                ps=Mycon.prepareStatement("update insert_data_file set school_year_id=?, enrolled_students_id=?, file_name=?, file_size_in_kb=?, file_extension=?, file_content=? where file_id=?");
+                ps=Mycon.prepareStatement("update insert_data_file set Student_Name=?, file_name=?, file_size_in_kb=?, file_extension=?, file_content=? where file_id=?");
                 
                
                  if (verifyText()) {
@@ -1371,22 +1382,22 @@ File filed;
                                 
 				long fileLengthInKb=fileLength/1024;
 				
-                                ps.setInt(1, sy.id);
-                                ps.setInt(2, stud.id);
-				ps.setString(3, fileName);                               
-				ps.setLong(4, fileLengthInKb);				
-				ps.setString(5, fileName.substring(fileName.lastIndexOf(".")+1));
+                               // ps.setInt(1, sy.id);
+                                ps.setString(1, name);
+				ps.setString(2, fileName);                               
+				ps.setLong(3, fileLengthInKb);				
+				ps.setString(4, fileName.substring(fileName.lastIndexOf(".")+1));
 				
 				FileInputStream fis = new FileInputStream(filed);
-				ps.setBinaryStream(6, fis, fileLength);
+				ps.setBinaryStream(5, fis, fileLength);
                                 
                                 
-                                ps.setInt(7,id);
+                                ps.setInt(6,id);
 
                                 ps.execute();
                                 table_update_files();
-                                schoolyr.setSelectedIndex(-1);
-                                STUDENTNAMES.setSelectedIndex(-1);
+                               // schoolyr.setSelectedIndex(-1);
+                                STUDENTNAME.setText("Last Name, Full Name Middle Name");
                                 file_text.setText("");
 
                     JOptionPane.showMessageDialog(null, "Student Successfully Updated");
@@ -1441,8 +1452,8 @@ File filed;
                      if (verifyText()) {
                          
                 ps.execute();
-                schoolyr.setSelectedIndex(-1);
-                STUDENTNAMES.setSelectedIndex(-1);
+//                schoolyr.setSelectedIndex(-1);
+                STUDENTNAME.setText("Last Name, Full Name Middle Name");
                 file_text.setText("");
                 
                 table_update_files();
@@ -1456,18 +1467,51 @@ File filed;
              
              JOptionPane.showMessageDialog(null, "Then please Proceed");
              
-        }                 
-            
-            
-            
-        }
-       
-                    
+        }                   
+        } 
     }//GEN-LAST:event_DELETEActionPerformed
 
     private void jTable1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1MouseEntered
+
+    private void searchCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_searchCaretUpdate
+
+       
+    }//GEN-LAST:event_searchCaretUpdate
+
+    private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
+
+       LoadSearchData();
+    }//GEN-LAST:event_searchKeyReleased
+
+    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+
+        DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
+        int selecIndex = jTable.getSelectedRow();
+        
+        STUDENTNAME.setText(model2.getValueAt(selecIndex, 5).toString());
+      
+    }//GEN-LAST:event_jTableMouseClicked
+
+    private void searchstudentFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchstudentFocusGained
+        if( searchstudent.getText().trim().equals("Search Here...."))
+        {
+           searchstudent.setText("");
+            searchstudent.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_searchstudentFocusGained
+
+    private void searchstudentFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchstudentFocusLost
+         if ( searchstudent.getText().trim().isEmpty()) {
+           searchstudent.setForeground(new Color(51,51,51));
+           searchstudent.setText("Search Here....");
+        }
+    }//GEN-LAST:event_searchstudentFocusLost
+
+    private void searchstudentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchstudentKeyReleased
+        LoadSearchDataStudentsName();
+    }//GEN-LAST:event_searchstudentKeyReleased
 
     
 
@@ -1502,10 +1546,8 @@ File filed;
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Add_Records().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Add_Records().setVisible(true);
         });
     }
 
@@ -1517,13 +1559,12 @@ File filed;
     private javax.swing.JButton HONORABLE;
     private javax.swing.JButton MORAL;
     private javax.swing.JButton SAVE;
-    private javax.swing.JComboBox STUDENTNAMES;
+    private javax.swing.JLabel STUDENTNAME;
     private javax.swing.JButton UPDATE;
     private javax.swing.JTextField file_text;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
@@ -1535,6 +1576,8 @@ File filed;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1542,7 +1585,7 @@ File filed;
     private javax.swing.JTable jTable1;
     private javax.swing.JPopupMenu menu;
     private javax.swing.JPanel panel;
-    private javax.swing.JComboBox schoolyr;
     private javax.swing.JTextField search;
+    private javax.swing.JTextField searchstudent;
     // End of variables declaration//GEN-END:variables
 }

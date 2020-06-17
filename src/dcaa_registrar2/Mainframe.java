@@ -295,7 +295,7 @@ public void SomeWindow() {
                 .addGap(20, 20, 20))
         );
 
-        jPanel6.setBackground(new java.awt.Color(46, 69, 131));
+        jPanel6.setBackground(new java.awt.Color(56, 74, 19));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -441,8 +441,7 @@ public void SomeWindow() {
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
-                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -451,8 +450,8 @@ public void SomeWindow() {
                         .addGap(0, 0, 0)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -669,26 +668,7 @@ public void SomeWindow() {
     
     private void studentcount()
     {
-//        
-//        //Registering the Driver
-//      DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-//      //Getting the connection
-//      String mysqlUrl = "jdbc:mysql://localhost/mydatabase";
-//      Connection con = DriverManager.getConnection(mysqlUrl, "root", "password");
-//      System.out.println("Connection established......");
-//      //Creating the Statement object
-//      Statement stmt = con.createStatement();
-//      //Query to get the number of rows in a table
-//      String query = "select count(*) from Cricketers_Data";
-//      //Executing the query
-//      ResultSet rs = stmt.executeQuery(query);
-//      //Retrieving the result
-//      rs.next();
-//      int count = rs.getInt(1);
-//      System.out.println("Number of records in the cricketers_data table: "+count);
-//        
-        
-        
+
          try {
 
               
