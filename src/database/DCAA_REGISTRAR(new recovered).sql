@@ -1,1 +1,1 @@
-SELECT * FROM dcaa_registrar.insertfilesample2;
+SELECT * FROM dcaa_registrar.insert_data_file;

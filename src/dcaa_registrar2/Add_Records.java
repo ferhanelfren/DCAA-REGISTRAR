@@ -437,13 +437,8 @@ File filed;
          
          
            public void LoadSearchData(){
-         
-         
-         
     
            try {
-               
-               
                String src="%"+this.search.getText()+"%";
                  //System.out.println(src);
                 DefaultTableModel model =  (DefaultTableModel)jTable1.getModel() ;
@@ -452,23 +447,16 @@ File filed;
                Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
                PreparedStatement ps;
-              // ps = Mycon.prepareStatement(" select a.file_id, b.school_year_name, c.fullname, a.file_name, a.file_size_in_kb, a.file_extension, a.file_content, a.timestamp from insert_data_file a, enrolled_students c, school_year b  where a.school_year_id = b.id and a.enrolled_students_id = c.id LIKE '"+src+"'");
-               //ps = Mycon.prepareStatement("select a.file_id, c.fullname from insert_data_file a, enrolled_students c, where a.enrolled_students_id = c.id  LIKE '"+src+"'");
-               ps = Mycon.prepareStatement("select * from insert_data_file where enrolled_students_id LIKE '"+src+"'");
-              // ps = Mycon.prepareStatement("select a.file_id, b.school_year_name, c.fullname, a.file_name, a.file_size_in_kb, a.file_extension, a.file_content, a.timestamp from insert_data_file a, enrolled_students c, school_year b  where a.school_year_id = b.id and a.enrolled_students_id = c.id  LIKE '"+src+"'");
+               ps = Mycon.prepareStatement("select * from insert_data_file where Student_Name LIKE '"+src+"'");
+             
            
                
              ResultSet rs;
              rs= ps.executeQuery();
-             
-               
-          
                          while(rs.next()){   
-                             
-                        
                         model.setRowCount(0);          
                         //number sa mga columns sa imohang tables
-                        model.addRow(new Object[]{rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4)});
+                        model.addRow(new Object[]{rs.getInt(1),rs.getString(2),rs.getString(3)});
                         //model.addRow(new Object[]{rs.getString(6)});
                                 }  
              //model.setRowCount(0);
@@ -655,6 +643,7 @@ File filed;
         jLabel17.setText("Student's  Name  :");
 
         STUDENTNAME.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        STUDENTNAME.setForeground(new java.awt.Color(204, 0, 0));
         STUDENTNAME.setText("Last Name, Full Name Middle Name");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -740,6 +729,11 @@ File filed;
         searchstudent.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         searchstudent.setText("Search Here....");
         searchstudent.setBorder(null);
+        searchstudent.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                searchstudentCaretUpdate(evt);
+            }
+        });
         searchstudent.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 searchstudentFocusGained(evt);
@@ -807,7 +801,7 @@ File filed;
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -1018,8 +1012,8 @@ File filed;
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -1476,13 +1470,12 @@ File filed;
     }//GEN-LAST:event_jTable1MouseEntered
 
     private void searchCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_searchCaretUpdate
-
-       
+                LoadSearchData();
     }//GEN-LAST:event_searchCaretUpdate
 
     private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
 
-       LoadSearchData();
+     
     }//GEN-LAST:event_searchKeyReleased
 
     private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
@@ -1491,6 +1484,8 @@ File filed;
         int selecIndex = jTable.getSelectedRow();
         
         STUDENTNAME.setText(model2.getValueAt(selecIndex, 5).toString());
+        file_text.setText("");
+        
       
     }//GEN-LAST:event_jTableMouseClicked
 
@@ -1510,8 +1505,13 @@ File filed;
     }//GEN-LAST:event_searchstudentFocusLost
 
     private void searchstudentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchstudentKeyReleased
-        LoadSearchDataStudentsName();
+       
     }//GEN-LAST:event_searchstudentKeyReleased
+
+    private void searchstudentCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_searchstudentCaretUpdate
+
+         LoadSearchDataStudentsName();
+    }//GEN-LAST:event_searchstudentCaretUpdate
 
     
 
