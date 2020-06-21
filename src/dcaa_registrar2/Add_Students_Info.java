@@ -1778,8 +1778,7 @@ public class Add_Students_Info extends javax.swing.JFrame {
         String lrnno=LRNNO.getText();
         String lname=STUDENTNAME.getText();
 
-        //      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        //        String date = dateFormat.format(jDateChooser1.getDate());
+
 
         String age=AGE1.getText();
         String gender = "Male";
@@ -1822,7 +1821,6 @@ public class Add_Students_Info extends javax.swing.JFrame {
         LocalDateTime now= LocalDateTime.now();
         String timestamp = dtf.format(now);
 
-        //java.util.Date now = new java.util.Date();
 
         if (verifyText()) {
 

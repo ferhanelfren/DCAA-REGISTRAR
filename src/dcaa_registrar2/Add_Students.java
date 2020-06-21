@@ -414,6 +414,7 @@ public class Add_Students extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable.setFocusable(false);
         jTable.setRequestFocusEnabled(false);
         jTable.setRowHeight(25);
         jTable.setSelectionBackground(new java.awt.Color(43, 70, 60));

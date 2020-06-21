@@ -330,67 +330,6 @@ File filed;
        }
          
    
-//           private void studentTableFormat()
-//       {
-//           
-////            
-////                                                jTable1.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,14));
-////                                                jTable1.getTableHeader().setOpaque(false);
-////                                                jTable1.getTableHeader().setBackground(new Color(165,19,29));
-////                                                jTable1.getTableHeader().setForeground(new Color(255,255,255));
-////                                                jTable1.getRowHeight(20);
-//                                                
-//                                                jTable1.setGridColor(new Color(43,70,60));
-//
-//                                                DefaultTableCellRenderer renderer2 = (DefaultTableCellRenderer)  jTable1.getTableHeader().getDefaultRenderer();
-//                                                renderer2.setHorizontalAlignment(SwingConstants.CENTER);
-//                                                
-//                                              
-//                                                
-//                                                TableColumn col2 = jTable1.getColumnModel().getColumn(0);
-//                                                    DefaultTableCellRenderer dtcr2 = new DefaultTableCellRenderer();  
-//                                                    dtcr2.setHorizontalAlignment(SwingConstants.CENTER);
-//                                                    col2.setCellRenderer(dtcr2);
-//                                                    
-//                                                      
-//
-//
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-//                                                
-//                                              
-//                                                 
-//                                                 
-//
-//                                                 
-//       }
-//         
-         
           public void LoadSearchDataStudentsName(){
          
          

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Enrollment" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="451" leftMargin="72" rightMargin="72" topMargin="144" bottomMargin="72" whenResourceMissingType="Empty" uuid="382c9b36-104b-428b-b434-00698783b7ce">
-	<property name="ireport.zoom" value="1.6105100000000045"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="2.3579476910000117"/>
+	<property name="ireport.x" value="26"/>
+	<property name="ireport.y" value="457"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -99,196 +99,136 @@ FROM
 	</columnHeader>
 	<detail>
 		<band height="544" splitType="Stretch">
-			<textField>
-				<reportElement x="133" y="29" width="188" height="16" uuid="b02774c3-36cd-422a-b21b-cd1bba99947f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="10" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="0" y="29" width="131" height="16" uuid="cc6c8107-171f-417c-a48a-84651a60926d"/>
+				<reportElement x="0" y="44" width="70" height="16" uuid="82036c3b-32f9-4a10-b734-b3f8a7216741"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Calibri" size="12"/>
 				</textElement>
-				<text><![CDATA[	This is to certify that]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="321" y="29" width="43" height="16" uuid="61a24e3a-870d-43f3-a7ae-27c75c04bfd1"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
-				<text><![CDATA[with LRN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="1" y="44" width="41" height="16" uuid="82036c3b-32f9-4a10-b734-b3f8a7216741"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
-				<text><![CDATA[bonafide]]></text>
+				<text><![CDATA[is  a  bonafide]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="71" y="44" width="29" height="16" uuid="7e835e75-2d95-489a-b9dc-0406ba809a56"/>
+				<reportElement x="105" y="44" width="20" height="16" uuid="7e835e75-2d95-489a-b9dc-0406ba809a56"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Calibri" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{grade}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="140" y="44" width="181" height="16" uuid="516ef488-97d0-431a-b936-24d06a17a936"/>
+				<reportElement x="173" y="44" width="225" height="16" uuid="516ef488-97d0-431a-b936-24d06a17a936"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" isBold="false"/>
+					<font fontName="Calibri" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[of this institution for this Academic Year]]></text>
+				<text><![CDATA[of  this  institution   for  this   Academic  Year]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="59" width="240" height="16" uuid="3f93e7a1-2fea-4d29-ab68-9f26f48b2d96"/>
+				<reportElement x="20" y="59" width="333" height="16" uuid="3f93e7a1-2fea-4d29-ab68-9f26f48b2d96"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Calibri" size="12"/>
 				</textElement>
-				<text><![CDATA[that  possessed  good  moral  character.]]></text>
+				<text><![CDATA[is  a  student  that  possessed  good  moral  character.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="312" y="44" width="56" height="16" uuid="c08a0ca3-bb82-420f-bc55-66e805913cb8"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" isBold="false"/>
+				<reportElement x="383" y="44" width="66" height="16" uuid="c08a0ca3-bb82-420f-bc55-66e805913cb8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{sy}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="89" width="477" height="16" uuid="8edf97a7-d815-40ff-ab19-f56cb254a400"/>
+				<reportElement x="-21" y="89" width="495" height="16" uuid="8edf97a7-d815-40ff-ab19-f56cb254a400"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Calibri" size="12"/>
 				</textElement>
-				<text><![CDATA[	This certification is issued  upon  the request of the  above-named student  for  whatever  legal]]></text>
+				<text><![CDATA[	This  certification  is  issued upon  the  request of the above-named student for whatever ]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="0" y="104" width="219" height="16" uuid="a221d359-c91d-4f8f-9ae3-ad51fc21b8c1"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Calibri" size="12"/>
 				</textElement>
-				<text><![CDATA[purpose  it  may  serve.]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="136" width="99" height="16" uuid="2e0429c4-4ac2-48a4-bb4d-b80087895d31"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
-				<text><![CDATA[	Issued this]]></text>
-			</staticText>
-			<textField pattern="dd  MMMMM   yyyy">
-				<reportElement x="80" y="136" width="100" height="16" uuid="98890121-b311-48fa-82a7-06c0ee85392d"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
-				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="173" y="136" width="291" height="16" uuid="43a6ebf3-cc7b-414a-85e6-c1807bd7772f"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
-				<text><![CDATA[at Digos Central Adventist Academy, Inc., Lapu-Lapu Extension,]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="0" y="151" width="291" height="16" uuid="48778264-2fa5-48f7-a11e-88d711e75456"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font fontName="Arial"/>
-				</textElement>
-				<text><![CDATA[Brgy. Zone 3,  Digos  City,  Davao  del  Sur  8002,  Philippines.]]></text>
+				<text><![CDATA[legal purpose  it  may  serve.]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="0" y="226" width="202" height="20" uuid="9edad947-5c7d-47ae-af30-00587a920283"/>
+				<reportElement x="-1" y="286" width="204" height="20" uuid="9edad947-5c7d-47ae-af30-00587a920283"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Calibri" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{schoolregistrar}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-1" y="454" width="291" height="16" uuid="d98e32d6-1188-419e-bdca-8efa3c51f918"/>
+				<reportElement x="-1" y="455" width="291" height="16" uuid="d98e32d6-1188-419e-bdca-8efa3c51f918"/>
 				<textElement textAlignment="Justified" verticalAlignment="Middle">
 					<font fontName="Arial" size="6" isBold="true" isItalic="true"/>
 				</textElement>
 				<text><![CDATA[NOT VALID WITHOUT SCHOOL SEAL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="440" y="29" width="11" height="16" uuid="5082b7da-d861-48e6-8921-4bd4b68ecb0c"/>
+				<reportElement x="431" y="44" width="21" height="16" uuid="ce30f83a-0c29-4f27-8f1b-a7a0858226ec"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Arial" size="10"/>
-				</textElement>
-				<text><![CDATA[is]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="364" y="29" width="76" height="16" uuid="798e507a-f5c0-4021-b5a2-67b7dbbb666b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="10" isBold="false"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{lrn}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="352" y="44" width="21" height="16" uuid="ce30f83a-0c29-4f27-8f1b-a7a0858226ec"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Arial" size="10"/>
+					<font fontName="Calibri" size="12"/>
 				</textElement>
 				<text><![CDATA[.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="39" y="44" width="41" height="16" uuid="26cffb69-5901-4589-b8af-066a9f7c02a1"/>
+				<reportElement x="68" y="44" width="41" height="16" uuid="26cffb69-5901-4589-b8af-066a9f7c02a1"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Calibri" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Grade]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="99" y="44" width="44" height="16" uuid="78848250-c54b-4f85-b278-4be013ccb102"/>
+				<reportElement x="126" y="44" width="49" height="16" uuid="78848250-c54b-4f85-b278-4be013ccb102"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Calibri" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Student]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="398" y="44" width="66" height="16" uuid="3ced71d5-edd8-4299-be5f-4ff09bfe4422"/>
+				<reportElement x="0" y="74" width="175" height="16" uuid="3ced71d5-edd8-4299-be5f-4ff09bfe4422"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Arial" size="12"/>
 				</textElement>
-				<text><![CDATA[is  a  student]]></text>
+				<text><![CDATA[]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="377" y="45" width="39" height="16" uuid="3dcd5523-3c46-40d1-a27b-8ada9f419cdf"/>
+				<reportElement x="0" y="59" width="39" height="16" uuid="3dcd5523-3c46-40d1-a27b-8ada9f419cdf"/>
+				<textElement>
+					<font fontName="Calibri" size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{genders}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="1" y="243" width="201" height="17" uuid="22d36026-36ad-45d4-bc29-bdf9b3e003aa"/>
+				<reportElement x="-1" y="303" width="204" height="17" uuid="22d36026-36ad-45d4-bc29-bdf9b3e003aa"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Calibri" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{posistion1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="252" y="226" width="200" height="20" uuid="6051bb53-d580-4922-b185-54545a436408"/>
+				<reportElement x="253" y="286" width="198" height="20" uuid="6051bb53-d580-4922-b185-54545a436408"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Calibri" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{vp}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="252" y="243" width="199" height="20" uuid="0eecc545-dce1-44ba-9df7-98a8e39060c9"/>
+				<reportElement x="253" y="303" width="199" height="20" uuid="0eecc545-dce1-44ba-9df7-98a8e39060c9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Calibri" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{position2}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="73" y="304" width="291" height="20" uuid="42212f4a-6258-4f3e-ac33-26c64fe68531"/>
+				<reportElement x="74" y="364" width="291" height="20" uuid="42212f4a-6258-4f3e-ac33-26c64fe68531"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" isBold="true"/>
+					<font fontName="Calibri" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{president}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="73" y="321" width="291" height="20" uuid="089ce567-060c-4dc9-82ee-28eea41310ba"/>
+				<reportElement x="74" y="381" width="291" height="20" uuid="089ce567-060c-4dc9-82ee-28eea41310ba"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial"/>
+					<font fontName="Calibri" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{position3}]]></textFieldExpression>
 			</textField>
@@ -325,6 +265,73 @@ FROM
 					<font fontName="Arial" size="7" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Gov’t Recognition No. 001 s. 2015 (Junior High School) I Gov’t Permit No. 062 s. 2015 (Senior High School)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="119" width="175" height="16" uuid="b78707ec-4c4d-4728-8f41-347d1bf6ad04"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-21" y="29" width="144" height="16" uuid="b144d1d5-0f4c-4748-95a5-eecec7c0cb7a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[	This is to certify that]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="119" y="29" width="194" height="16" uuid="e2c71768-f368-4ef8-b848-50a2a7cf0ac6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-46" y="29" width="26" height="227" uuid="3ed44e8a-f266-4975-ab96-15738c53022e"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="29" width="46" height="16" uuid="96557408-0216-40fb-83fb-c730d0d42de6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[with LRN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="359" y="31" width="92" height="16" uuid="f5da6e4f-26aa-4079-8670-0bfa412eaa2e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Courier New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lrn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-21" y="134" width="107" height="16" uuid="85f9bd12-73d3-4ab4-822c-ae47c2772b4e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[	Issued   this ]]></text>
+			</staticText>
+			<textField pattern="dd  MMMMM  yyyy">
+				<reportElement x="78" y="134" width="87" height="16" uuid="7d2b9c8e-3e8d-4cac-8e80-4b0855412a81"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="163" y="134" width="310" height="16" uuid="690d6244-e2e1-4dc3-b63d-17762eedf7be"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[at  Digos  Central  Adventist  Academy,  Inc.,  Lapu-Lapu  Ex-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="149" width="442" height="16" uuid="2d3d7a70-49e2-4512-aba6-552b3da42918"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[tension, Brgy. Zone 3,  Digos  City,  Davao  del  Sur  8002,  Philippines.]]></text>
 			</staticText>
 		</band>
 	</detail>
