@@ -413,6 +413,23 @@ public class Certificates_JHS extends javax.swing.JFrame {
      }
          
        
+       public boolean verifyText()
+    {
+        
+       if ( psy.getText().equals("") || csy.getText().equals("") || LRN.getText().equals("") || NAME.getText().equals("") || GRADES.getText().equals("") || sectioNs.getSelectedItem().equals("") || registrar.getSelectedItem().equals("") || regesposition.getSelectedItem().equals("") || pres.getSelectedItem().equals("") || presposistion.getSelectedItem().equals("") || vpresident.getSelectedItem().equals("") )
+
+          {
+            JOptionPane.showMessageDialog(this," Failed...!!! One or More Empty");
+            return false;
+       
+        } else {
+             return true;
+        }
+    }
+   
+   
+   
+   
       
     /**
      * This method is called from within the constructor to initialize the form.
@@ -461,7 +478,6 @@ public class Certificates_JHS extends javax.swing.JFrame {
         regesposition = new javax.swing.JComboBox();
         jPanel4 = new javax.swing.JPanel();
         CLEAR = new javax.swing.JButton();
-        PRINT = new javax.swing.JButton();
         CLEAR2 = new javax.swing.JButton();
         HONORABLE = new javax.swing.JButton();
         ENROLL = new javax.swing.JButton();
@@ -536,6 +552,11 @@ public class Certificates_JHS extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Certificates");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(244, 241, 233));
 
@@ -906,19 +927,6 @@ public class Certificates_JHS extends javax.swing.JFrame {
             }
         });
 
-        PRINT.setBackground(new java.awt.Color(51, 51, 51));
-        PRINT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Print/default.png"))); // NOI18N
-        PRINT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        PRINT.setFocusPainted(false);
-        PRINT.setRolloverEnabled(true);
-        PRINT.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Print/hover.png"))); // NOI18N
-        PRINT.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Print/hover.png"))); // NOI18N
-        PRINT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PRINTActionPerformed(evt);
-            }
-        });
-
         CLEAR2.setBackground(new java.awt.Color(51, 51, 51));
         CLEAR2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD RECORD/default.png"))); // NOI18N
         CLEAR2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
@@ -989,7 +997,7 @@ public class Certificates_JHS extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(96, 96, 96)
                 .addComponent(MORAL)
                 .addGap(18, 18, 18)
                 .addComponent(ENROLL)
@@ -1000,24 +1008,21 @@ public class Certificates_JHS extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(CLEAR2)
                 .addGap(18, 18, 18)
-                .addComponent(PRINT)
-                .addGap(18, 18, 18)
                 .addComponent(CLEAR)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CLEAR2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PRINT, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CLEAR, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CLEAR7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(HONORABLE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ENROLL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MORAL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel9.setBackground(new java.awt.Color(43, 70, 60));
@@ -1038,14 +1043,14 @@ public class Certificates_JHS extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(290, 290, 290)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(288, 288, 288))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1212,50 +1217,33 @@ public class Certificates_JHS extends javax.swing.JFrame {
     }//GEN-LAST:event_csyKeyTyped
 
     private void CLEARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEARActionPerformed
+        
+        psy.setText("");
+        csy.setText("");
+        LRN.setText("");
+        NAME.setText("");
+        GRADES.setText("");
+        sectioNs.setSelectedIndex(-1);
+        registrar.setSelectedIndex(-1);
+        regesposition.setSelectedIndex(-1);
+        pres.setSelectedIndex(-1);
+        presposistion.setSelectedIndex(-1);
+        vpresident.setSelectedIndex(-1);
+        vpresposisition.setSelectedIndex(-1);
 
-//        SCHOOLYEAR.setText("empty");
-//        LRN_STATUS.setText("empty");
-//        STUDENT_ACCOUNT.setText("empty");
-//        LRN.setText("empty");
-//        STUDENT_NAME.setText("empty");
-//        BDATE.setText("empty");
-//        AGE.setText("empty");
-//        GENDER.setText("empty");
-//        IP.setText("empty");
-//        IP_STATUS.setText("empty");
-//        MOTHER_TONGUE.setText("empty");
-//        ADDRESS.setText("empty");
-//        ZIPCODE.setText("empty");
-//        FATHER.setText("empty");
-//        MOTHER.setText("empty");
-//        GUARDIAN.setText("empty");
-//        CELPHONE.setText("empty");
-//        TELEPHONE.setText("empty");
-//        LAST_GRADE_LEVEL.setText("empty");
-//        LAST_SCHOOL_YEAR.setText("empty");
-//        SCHOOL_NAME.setText("empty");
-//        SCHOOL_ID.setText("empty");
-//        SCHOOL_ADDRESS.setText("empty");
-//        SEMESTER.setText("empty");
-//        TRACK.setText("empty");
-//        STRAND.setText("empty");
-//        GRADE_LEVEL.setText("empty");
-//        ENROLLED_TRACK.setText("empty");
-
+        
     }//GEN-LAST:event_CLEARActionPerformed
   
-    private void PRINTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PRINTActionPerformed
-
-    }//GEN-LAST:event_PRINTActionPerformed
-
     private void CLEAR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CLEAR2ActionPerformed
 
     private void HONORABLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HONORABLEActionPerformed
 
-        
-        try {
+        if (verifyText()) {
+            
+            
+             try {
                
              
                  
@@ -1300,19 +1288,24 @@ public class Certificates_JHS extends javax.swing.JFrame {
           
             }catch (ClassNotFoundException | SQLException  ex) {
                  JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+                 Logger.getLogger(Certificates_JHS.class.getName()).log(Level.SEVERE, null, ex);
             } catch (JRException ex) {         
             Logger.getLogger(Certificates_JHS.class.getName()).log(Level.SEVERE, null, ex);
         }         
+            
+            
+        }
+       
     }//GEN-LAST:event_HONORABLEActionPerformed
 
     private void ENROLLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENROLLActionPerformed
 
-                   try {
-               
-             
-                 
-               
-                Class.forName("com.mysql.cj.jdbc.Driver");
+        
+        if (verifyText()) {
+            
+            
+            try {
+               Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\enrollment_grade.jrxml");
                String query="select * from certificate_of_enrollment"; 
@@ -1347,9 +1340,12 @@ public class Certificates_JHS extends javax.swing.JFrame {
           
             }catch (ClassNotFoundException | SQLException  ex) {
                  JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+                 Logger.getLogger(Certificates_JHS.class.getName()).log(Level.SEVERE, null, ex);
             } catch (JRException ex) {         
             Logger.getLogger(Certificates_JHS.class.getName()).log(Level.SEVERE, null, ex);
         }  
+            
+        }
     }//GEN-LAST:event_ENROLLActionPerformed
 
     private void NAMEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NAMEKeyReleased
@@ -1409,12 +1405,13 @@ public class Certificates_JHS extends javax.swing.JFrame {
     }//GEN-LAST:event_searchFocusLost
 
     private void MORALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MORALActionPerformed
-             try {
-               
              
-                 
-               
-                Class.forName("com.mysql.cj.jdbc.Driver");
+        
+        if (verifyText()) {
+            
+            
+              try {
+               Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\moral_grade.jrxml");
                String query="select * from certificate_of_enrollment"; 
@@ -1464,9 +1461,16 @@ public class Certificates_JHS extends javax.swing.JFrame {
           
             }catch (ClassNotFoundException | SQLException  ex) {
                  JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+                 Logger.getLogger(Certificates_JHS.class.getName()).log(Level.SEVERE, null, ex);
             } catch (JRException ex) {         
             Logger.getLogger(Certificates_JHS.class.getName()).log(Level.SEVERE, null, ex);
         }  
+            
+            
+        }
+        
+        
+      
     }//GEN-LAST:event_MORALActionPerformed
 
     private void CLEAR7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR7ActionPerformed
@@ -1542,6 +1546,14 @@ public class Certificates_JHS extends javax.swing.JFrame {
 
           LoadSearchData();
     }//GEN-LAST:event_searchKeyReleased
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+
+        Shs_Jhs m = new Shs_Jhs();
+             this.hide();
+             m.setVisible(true);
+        
+    }//GEN-LAST:event_formWindowClosing
 
     
     
@@ -1799,7 +1811,6 @@ public class Certificates_JHS extends javax.swing.JFrame {
     private javax.swing.JTextField LRN;
     private javax.swing.JButton MORAL;
     private javax.swing.JTextField NAME;
-    private javax.swing.JButton PRINT;
     private javax.swing.JCheckBox She;
     private javax.swing.JFormattedTextField csy;
     private javax.swing.JLabel jLabel1;

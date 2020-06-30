@@ -23,8 +23,10 @@ import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -93,39 +95,14 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
                                                 jTable.getRowHeight(20);
                                                 DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
                                                 rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
-//                                            jTable.getColumnModel().getColumn(6).setCellRenderer(rightRenderer);
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(3));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
-//                                            jTable.getColumnModel().getColumn(1).setPreferredWidth(50);
-//                                            jTable.getColumnModel().getColumn(2).setPreferredWidth(150);
-//                                            jTable.getColumnModel().getColumn(3).setPreferredWidth(9);
-//                                            jTable.getColumnModel().getColumn(4).setPreferredWidth(50);
-jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
-jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
-                                              
-                                                
+
+                                                jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
+                                                jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
+
+                                                 TableColumn col = jTable.getColumnModel().getColumn(0);
+                                                    DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();  
+                                                    dtcr.setHorizontalAlignment(SwingConstants.CENTER);
+                                                    col.setCellRenderer(dtcr);
                                                 
 
 
@@ -161,7 +138,7 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
                Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
                PreparedStatement ps;
-               ps = Mycon.prepareStatement("select * from school_registrar_incharge where fullname LIKE '"+name+"'"); 
+               ps = Mycon.prepareStatement("select * from school_vicepresident where fullname LIKE '"+name+"'"); 
                          ResultSet rs= ps.executeQuery();
                          model.setRowCount(0);
                          while(rs.next()){   
@@ -207,7 +184,13 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
         txt = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("School Vice President");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(244, 241, 233));
 
@@ -414,7 +397,7 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
         jLabel2.setBackground(new java.awt.Color(244, 241, 233));
         jLabel2.setFont(new java.awt.Font("Century Schoolbook", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(244, 241, 233));
-        jLabel2.setText("School President :");
+        jLabel2.setText("School Vice President :");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -422,7 +405,7 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -540,20 +523,19 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(5, 5, 5)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(271, 271, 271))))
+                .addContainerGap(363, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(271, 271, 271))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1)
+                .addGap(14, 14, 14))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -837,6 +819,14 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
        NAME.setText(NAME.getText().toUpperCase());
        NAME.setCaretPosition(position);
     }//GEN-LAST:event_NAMEKeyReleased
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+
+         AdminFrame z=new AdminFrame();
+                    this.hide();
+                    z.setVisible(true);
+                        
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

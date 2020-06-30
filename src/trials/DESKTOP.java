@@ -470,14 +470,14 @@ public class DESKTOP extends javax.swing.JFrame {
 
     private void jPanel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseClicked
        
-        STUDENT_DESKTOP sd = new STUDENT_DESKTOP();
-        
-        STUDENT_DESKTOP.usernamedesk3.setText(usernamedesk.getText());
-        
-        this.hide();
-        
-        
-        sd.setVisible(true);
+//        STUDENT_DESKTOP sd = new STUDENT_DESKTOP();
+//        
+//        STUDENT_DESKTOP.usernamedesk3.setText(usernamedesk.getText());
+//        
+//        this.hide();
+//        
+//        
+//        sd.setVisible(true);
         
         
     }//GEN-LAST:event_jPanel7MouseClicked

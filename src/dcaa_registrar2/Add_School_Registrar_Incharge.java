@@ -23,8 +23,10 @@ import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -93,40 +95,15 @@ public class Add_School_Registrar_Incharge extends javax.swing.JFrame {
                                                 jTable.getRowHeight(20);
                                                 DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
                                                 rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
-//                                            jTable.getColumnModel().getColumn(6).setCellRenderer(rightRenderer);
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(0));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(3));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.removeColumn(jTable.getColumnModel().getColumn(4));
-//                                            jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
-//                                            jTable.getColumnModel().getColumn(1).setPreferredWidth(50);
-//                                            jTable.getColumnModel().getColumn(2).setPreferredWidth(150);
-//                                            jTable.getColumnModel().getColumn(3).setPreferredWidth(9);
-//                                            jTable.getColumnModel().getColumn(4).setPreferredWidth(50);
-jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
-jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
+
+                                                jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
+                                                jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
                                               
                                                 
-                                                
+                                                 TableColumn col = jTable.getColumnModel().getColumn(0);
+                                                    DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();  
+                                                    dtcr.setHorizontalAlignment(SwingConstants.CENTER);
+                                                    col.setCellRenderer(dtcr);
 
 
        }
@@ -183,8 +160,6 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Female = new javax.swing.JCheckBox();
         Male = new javax.swing.JCheckBox();
@@ -207,30 +182,16 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
         txt = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("School Registrar");
+        setPreferredSize(new java.awt.Dimension(1164, 430));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(244, 241, 233));
-
-        jPanel5.setBackground(new java.awt.Color(43, 70, 60));
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("All Rights Reserved 2020");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
-        );
 
         jPanel2.setBackground(new java.awt.Color(244, 241, 233));
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -539,23 +500,21 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(5, 5, 5)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(271, 271, 271))))
+                .addContainerGap(363, Short.MAX_VALUE)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(271, 271, 271))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -565,15 +524,14 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(7, 7, 7)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -584,7 +542,9 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 165, Short.MAX_VALUE))
         );
 
         pack();
@@ -835,6 +795,14 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
        NAME.setCaretPosition(position);
     }//GEN-LAST:event_NAMEKeyReleased
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+
+          AdminFrame z=new AdminFrame();
+                    this.hide();
+                    z.setVisible(true);
+                        
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -878,7 +846,6 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
     private javax.swing.JTextField NAME;
     private javax.swing.JTextField STATUS;
     private javax.swing.JButton UPDATE;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -891,7 +858,6 @@ jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
     private javax.swing.JTextField txt;

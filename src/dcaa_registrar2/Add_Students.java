@@ -22,6 +22,7 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -43,7 +44,7 @@ public class Add_Students extends javax.swing.JFrame {
         initComponents();
      table_update();
 
-        AutoCompleteComboBox();    
+    //    AutoCompleteComboBox();    
         schoolyear2();
         ButtonGroup bg = new ButtonGroup();
         bg.add(Male);
@@ -53,10 +54,18 @@ public class Add_Students extends javax.swing.JFrame {
         bg2.add(Yes);
         
        tableEditFormat();
+       SomeWindow();
 
     }
     
     
+    public void SomeWindow() {
+   // this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   // this.setSize(windowWidth, windowHeight);
+    this.setResizable(false);
+   // this.setLocation(0,0);
+    this.setVisible(true);
+}
     
     
     public class SchoolYear2 
@@ -245,7 +254,9 @@ public class Add_Students extends javax.swing.JFrame {
                Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
                PreparedStatement ps;
-               ps = Mycon.prepareStatement("select * from enrolled_students where fullname LIKE '"+name+"'"); 
+               //ps = Mycon.prepareStatement("select * from enrolled_students where fullname LIKE '"+name+"'"); 
+               ps = Mycon.prepareStatement("select a.id, s.school_year_name, a.lrnStatus, a.student_account_no, a.lrnNumber, a.fullname, a.bdate, a.sex, a.age, a.ip, a.ip_status, a.mother_tongue, a.address, a.zip_code, a.fathername, a.mothername, a.guardianname, a.telephone, a.cellphone, a.last_grade_level_completed, a.last_school_year_completed, a.school_name, a.school_id, a.school_address, a.semester, a.track, a.strand, a.grade_level, a.enrolled_track from enrolled_students a, school_year s  where a.school_year_id = s.id and fullname LIKE '"+name+"'"); 
+               
                          ResultSet rs= ps.executeQuery();
                          model.setRowCount(0);
                          while(rs.next()){   
@@ -382,8 +393,13 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Enrolled Student's");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(233, 240, 192));
 
@@ -1512,18 +1528,22 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel54.setForeground(new java.awt.Color(56, 74, 19));
         jLabel54.setText("School Address:");
 
+        jLabel40.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(0, 102, 0));
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel40.setText("Barangay");
 
+        jLabel28.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(0, 102, 0));
         jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel28.setText("Street");
 
+        jLabel26.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 102, 0));
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("Municipality/City");
 
+        jLabel24.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 102, 0));
         jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel24.setText("Province");
@@ -1615,7 +1635,7 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel55.setText("Track:");
 
         TRACK.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        TRACK.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "ACADEMIC", "TECHNICAL-VOCATIONAL" }));
+        TRACK.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "ACADEMIC", "TECHNICAL VOCATIONAL" }));
 
         jLabel56.setBackground(new java.awt.Color(255, 255, 255));
         jLabel56.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -1623,7 +1643,7 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel56.setText("Strand:");
 
         STRAND.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        STRAND.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "ABM", "GAS", "HUMMS", "CCS", "CSS", "EIM", "FOS", "FBS", "HOUSE KEEPING", "BEAUTY NAILCARE" }));
+        STRAND.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "ABM", "GAS", "HUMMS", "STEM", " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", "BEAUTY NAILCARE", "CCS", "CSS", "EIM", "FBS", "FOS", "HOUSE KEEPING" }));
 
         Semester.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Semester.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "1st Semester", "2nd Semester" }));
@@ -1633,20 +1653,20 @@ public class Add_Students extends javax.swing.JFrame {
         jPanel27Layout.setHorizontalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel27Layout.createSequentialGroup()
-                .addGap(144, 144, 144)
+                .addGap(188, 188, 188)
                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel56)
                     .addComponent(jLabel55)
                     .addComponent(jLabel41)
-                    .addComponent(Semester, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TRACK, 0, 356, Short.MAX_VALUE)
-                    .addComponent(STRAND, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(242, Short.MAX_VALUE))
+                    .addComponent(TRACK, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(STRAND, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Semester, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel27Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+                .addGap(110, 110, 110)
                 .addComponent(jLabel41)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Semester, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1658,7 +1678,7 @@ public class Add_Students extends javax.swing.JFrame {
                 .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(STRAND, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -2830,6 +2850,29 @@ public class Add_Students extends javax.swing.JFrame {
     private void TELNOKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TELNOKeyTyped
 
     }//GEN-LAST:event_TELNOKeyTyped
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+      
+//                              
+//            int dialogResult = JOptionPane.showConfirmDialog(null, "");
+//          
+//          if (dialogResult == JOptionPane.YES_OPTION) 
+//          {
+//                    StudentFrame z=new StudentFrame();
+//                    this.hide();
+//                    z.setVisible(true);
+//          } else {
+//                    StudentFrame z=new StudentFrame();
+//                    this.hide();
+//                    z.setVisible(true);
+//          }   
+//                        
+                    StudentFrame z=new StudentFrame();
+                    this.hide();
+                    z.setVisible(true);
+                        
+        
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

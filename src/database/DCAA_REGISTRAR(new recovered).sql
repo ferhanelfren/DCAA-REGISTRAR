@@ -1,1 +1,1 @@
-SELECT * FROM dcaa_registrar.insert_data_file;
+select count(*) from enrolled_students where track = 'ABM';
