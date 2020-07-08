@@ -54,7 +54,7 @@ public class Certificates_SHS extends javax.swing.JFrame {
          sectionname();
          StudentTable();
           tableEditFormat();
-          table_update();
+        table_update();
           registrar();
           Pres();
           vpres();
@@ -248,7 +248,7 @@ public class Certificates_SHS extends javax.swing.JFrame {
                 ps=Mycon.prepareStatement("select * from enrolled_students");
                 rs= ps.executeQuery();
                 
-                DefaultTableModel modelt = (DefaultTableModel)jTable.getModel();
+                DefaultTableModel modelt = (DefaultTableModel)jTableCERTIFICATESSHS.getModel();
                 ResultSetMetaData rsd=rs.getMetaData();
                    c = rsd.getColumnCount(); 
                 
@@ -290,7 +290,7 @@ public class Certificates_SHS extends javax.swing.JFrame {
                                            ResultSet rs = ps.executeQuery();
                                             ResultSetMetaData rsd=rs.getMetaData();
                                                 c = rsd.getColumnCount();            
-                                                DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+                                                DefaultTableModel model =  (DefaultTableModel)jTableCERTIFICATESSHS.getModel() ;
                                                 
                                             model.setRowCount(0);
                                                 while (rs.next()) 
@@ -340,52 +340,52 @@ public class Certificates_SHS extends javax.swing.JFrame {
        {
            
             
-                                                jTable.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,16));
-                                                jTable.getTableHeader().setOpaque(false);
-                                                jTable.getTableHeader().setBackground(new Color(165,19,29));
-                                                jTable.getTableHeader().setForeground(new Color(255,255,255));
-                                                jTable.getRowHeight(20);
+                                                jTableCERTIFICATESSHS.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,16));
+                                                jTableCERTIFICATESSHS.getTableHeader().setOpaque(false);
+                                                jTableCERTIFICATESSHS.getTableHeader().setBackground(new Color(165,19,29));
+                                                jTableCERTIFICATESSHS.getTableHeader().setForeground(new Color(255,255,255));
+                                                jTableCERTIFICATESSHS.getRowHeight(20);
                                                 
 
-                                                DefaultTableCellRenderer renderer = (DefaultTableCellRenderer)  jTable.getTableHeader().getDefaultRenderer();
+                                                DefaultTableCellRenderer renderer = (DefaultTableCellRenderer)  jTableCERTIFICATESSHS.getTableHeader().getDefaultRenderer();
                                                 renderer.setHorizontalAlignment(SwingConstants.CENTER);
 //                                                DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
 //                                                rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
 //                                                jTable.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
 
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                                 jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(1));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(1));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(1));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(1));
+                                                 jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATESSHS.removeColumn(jTableCERTIFICATESSHS.getColumnModel().getColumn(2));
                                                 
                                                //  jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
-                                                 jTable.getColumnModel().getColumn(1).setPreferredWidth(300);
+                                                 jTableCERTIFICATESSHS.getColumnModel().getColumn(1).setPreferredWidth(300);
                                                  
                                                  
-                                                 TableColumn col = jTable.getColumnModel().getColumn(0);
+                                                 TableColumn col = jTableCERTIFICATESSHS.getColumnModel().getColumn(0);
                                                     DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();  
                                                     dtcr.setHorizontalAlignment(SwingConstants.CENTER);
                                                     col.setCellRenderer(dtcr);
@@ -394,8 +394,8 @@ public class Certificates_SHS extends javax.swing.JFrame {
          
    public void LoadSearchData(){
            try {
-               String name="%"+this.search.getText()+"%";
-               DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+               String name="%"+this.searchcertificateshs.getText()+"%";
+               DefaultTableModel model =  (DefaultTableModel)jTableCERTIFICATESSHS.getModel() ;
                int col;
                Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
@@ -486,9 +486,9 @@ public class Certificates_SHS extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
+        jTableCERTIFICATESSHS = new javax.swing.JTable();
         jPanel10 = new javax.swing.JPanel();
-        search = new javax.swing.JTextField();
+        searchcertificateshs = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
 
         jPanel11.setBackground(new java.awt.Color(204, 204, 204));
@@ -1097,9 +1097,9 @@ public class Certificates_SHS extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable.setBackground(new java.awt.Color(244, 241, 233));
-        jTable.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCERTIFICATESSHS.setBackground(new java.awt.Color(244, 241, 233));
+        jTableCERTIFICATESSHS.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jTableCERTIFICATESSHS.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -1128,42 +1128,42 @@ public class Certificates_SHS extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable.setFocusable(false);
-        jTable.setRequestFocusEnabled(false);
-        jTable.setRowHeight(25);
-        jTable.setSelectionBackground(new java.awt.Color(43, 70, 60));
-        jTable.setSelectionForeground(new java.awt.Color(244, 241, 233));
-        jTable.setShowVerticalLines(false);
-        jTable.getTableHeader().setReorderingAllowed(false);
-        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableCERTIFICATESSHS.setFocusable(false);
+        jTableCERTIFICATESSHS.setRequestFocusEnabled(false);
+        jTableCERTIFICATESSHS.setRowHeight(25);
+        jTableCERTIFICATESSHS.setSelectionBackground(new java.awt.Color(43, 70, 60));
+        jTableCERTIFICATESSHS.setSelectionForeground(new java.awt.Color(244, 241, 233));
+        jTableCERTIFICATESSHS.setShowVerticalLines(false);
+        jTableCERTIFICATESSHS.getTableHeader().setReorderingAllowed(false);
+        jTableCERTIFICATESSHS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableMouseClicked(evt);
+                jTableCERTIFICATESSHSMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(jTable);
+        jScrollPane3.setViewportView(jTableCERTIFICATESSHS);
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        search.setBackground(new java.awt.Color(255, 255, 255));
-        search.setText("Search Here. . . .");
-        search.setBorder(null);
-        search.addCaretListener(new javax.swing.event.CaretListener() {
+        searchcertificateshs.setBackground(new java.awt.Color(255, 255, 255));
+        searchcertificateshs.setText("Search Here. . . .");
+        searchcertificateshs.setBorder(null);
+        searchcertificateshs.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                searchCaretUpdate(evt);
+                searchcertificateshsCaretUpdate(evt);
             }
         });
-        search.addFocusListener(new java.awt.event.FocusAdapter() {
+        searchcertificateshs.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                searchFocusGained(evt);
+                searchcertificateshsFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                searchFocusLost(evt);
+                searchcertificateshsFocusLost(evt);
             }
         });
-        search.addKeyListener(new java.awt.event.KeyAdapter() {
+        searchcertificateshs.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                searchKeyReleased(evt);
+                searchcertificateshsKeyReleased(evt);
             }
         });
 
@@ -1173,12 +1173,12 @@ public class Certificates_SHS extends javax.swing.JFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchcertificateshs, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(search, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(searchcertificateshs, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
@@ -1249,124 +1249,7 @@ public class Certificates_SHS extends javax.swing.JFrame {
     private void csyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_csyKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_csyKeyTyped
-
-    private void CLEARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEARActionPerformed
-        psy.setText("");
-        csy.setText("");
-        LRN.setText("");
-        NAME.setText("");
-        GRADES.setText("");
-        TRACK.setText("");
-        sectioNs.setSelectedIndex(-1);
-        registrar.setSelectedIndex(-1);
-        regesposition.setSelectedIndex(-1);
-        pres.setSelectedIndex(-1);
-        presposistion.setSelectedIndex(-1);
-        vpresident.setSelectedIndex(-1);
-        vpresposisition.setSelectedIndex(-1);
-    }//GEN-LAST:event_CLEARActionPerformed
   
-    private void CLEAR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CLEAR2ActionPerformed
-
-    private void HONORABLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HONORABLEActionPerformed
-
-       
-        if (verifyText()) {
-            
-            
-              try {
-               Class.forName("com.mysql.cj.jdbc.Driver");
-               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-               JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\dismissal_shs.jrxml");
-               String query="select * from certificate_of_enrollment"; 
-
-               JRDesignQuery updateQuery = new JRDesignQuery();
-               updateQuery.setText(query);
-             
-               jdesign.setQuery(updateQuery);
-               
-               
-               
-                HashMap<String,Object> para = new HashMap<>();
-                para.put("sy",psy.getText() );
-                para.put("future sy",csy.getText() ); // 
-                para.put("lrn",LRN.getText());
-                para.put("name",NAME.getText());
-                para.put("grade", GRADES.getText());
-                para.put("section",sectioNs.getSelectedItem().toString());
-                para.put("trak", TRACK.getText());
-                para.put("schoolregistrar", registrar.getSelectedItem().toString());
-                para.put("regpos", regesposition.getSelectedItem().toString());
-                para.put("schoolpresident", pres.getSelectedItem().toString());
-                para.put("prespos", presposistion.getSelectedItem().toString());
-                 
-                
-                //jTextField1
-               
-               JasperReport jreport = JasperCompileManager.compileReport(jdesign);
-               JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
-               JasperViewer.viewReport(jprint);
-               
-            }catch (ClassNotFoundException | SQLException  ex) {
-                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-            } catch (JRException ex) {         
-            Logger.getLogger(Certificates_SHS.class.getName()).log(Level.SEVERE, null, ex);
-        }         
-            
-            
-        }
-      
-    }//GEN-LAST:event_HONORABLEActionPerformed
-
-    private void ENROLLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENROLLActionPerformed
-
-            
-        if (verifyText()) {
-            
-             try {
-               Class.forName("com.mysql.cj.jdbc.Driver");
-               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-               JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\enrollment_shs.jrxml");
-               String query="select * from certificate_of_enrollment"; 
-
-               JRDesignQuery updateQuery = new JRDesignQuery();
-               updateQuery.setText(query);
-             
-               jdesign.setQuery(updateQuery);
-               
-               
-               
-                HashMap<String,Object> para = new HashMap<>();
-                para.put("sy",psy.getText() );
-                para.put("future sy",csy.getText() ); // 
-                para.put("lrn",LRN.getText());
-                para.put("name",NAME.getText());
-                para.put("grade", GRADES.getText());
-                para.put("section",sectioNs.getSelectedItem().toString()); //trak TRACK
-               para.put("trak", TRACK.getText());
-                para.put("schoolregistrar", registrar.getSelectedItem().toString());
-                para.put("regpos", regesposition.getSelectedItem().toString());
-                //para.put("schoolpresident", pres.getSelectedItem().toString());
-              //  para.put("presiposisitons", presposistion.getSelectedItem().toString());
-
-               JasperReport jreport = JasperCompileManager.compileReport(jdesign);
-               JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
-               JasperViewer.viewReport(jprint);
-          
-            }catch (ClassNotFoundException | SQLException  ex) {
-                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-            } catch (JRException ex) {         
-            Logger.getLogger(Certificates_SHS.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-            
-            
-        }
-        
-       
-    }//GEN-LAST:event_ENROLLActionPerformed
-
     private void NAMEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NAMEKeyReleased
 
        int position = NAME.getCaretPosition();
@@ -1374,10 +1257,10 @@ public class Certificates_SHS extends javax.swing.JFrame {
        NAME.setCaretPosition(position);
     }//GEN-LAST:event_NAMEKeyReleased
 
-    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+    private void jTableCERTIFICATESSHSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCERTIFICATESSHSMouseClicked
 
-        DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-        int selecIndex = jTable.getSelectedRow();
+        DefaultTableModel model2 =  (DefaultTableModel)jTableCERTIFICATESSHS.getModel() ;
+        int selecIndex = jTableCERTIFICATESSHS.getSelectedRow();
       
 
 //        SCHOOLYEARS.setText(model2.getValueAt(selecIndex, 1).toString());
@@ -1395,7 +1278,7 @@ public class Certificates_SHS extends javax.swing.JFrame {
         
         GRADES.setText(model2.getValueAt(selecIndex, 27).toString());
         TRACK.setText(model2.getValueAt(selecIndex, 28).toString());
-    }//GEN-LAST:event_jTableMouseClicked
+    }//GEN-LAST:event_jTableCERTIFICATESSHSMouseClicked
 
     private void HeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HeActionPerformed
         // TODO add your handling code here:
@@ -1405,159 +1288,33 @@ public class Certificates_SHS extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SheActionPerformed
 
-    private void searchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFocusGained
+    private void searchcertificateshsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchcertificateshsFocusGained
 
-        if( search.getText().trim().equals("Search Here. . . ."))
+        if( searchcertificateshs.getText().trim().equals("Search Here. . . ."))
         {
-            search.setText("");
-            search.setForeground(Color.black);
+            searchcertificateshs.setText("");
+            searchcertificateshs.setForeground(Color.black);
         }
-    }//GEN-LAST:event_searchFocusGained
+    }//GEN-LAST:event_searchcertificateshsFocusGained
 
-    private void searchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFocusLost
+    private void searchcertificateshsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchcertificateshsFocusLost
 
-        if(search.getText().trim().equals(""))
+        if(searchcertificateshs.getText().trim().equals(""))
         {
-            search.setText("Search Here. . . .");
-            search.setForeground(new Color(51,51,51));
+            searchcertificateshs.setText("Search Here. . . .");
+            searchcertificateshs.setForeground(new Color(51,51,51));
         }
-    }//GEN-LAST:event_searchFocusLost
+    }//GEN-LAST:event_searchcertificateshsFocusLost
 
-    private void MORALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MORALActionPerformed
-            
-        
-        if (verifyText()) {
-            
-             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\moral_grade.jrxml");
-               String query="select * from certificate_of_enrollment"; 
-
-               JRDesignQuery updateQuery = new JRDesignQuery();
-               updateQuery.setText(query);
-             
-               jdesign.setQuery(updateQuery);
-               
-               
-               
-                HashMap<String,Object> para = new HashMap<>();
-                para.put("sy",psy.getText() );
-                para.put("future sy",csy.getText() ); // 
-                para.put("lrn",LRN.getText());
-                para.put("name",NAME.getText());
-                para.put("grade", GRADES.getText());
-                para.put("section",sectioNs.getSelectedItem().toString());
-                para.put("schoolregistrar", registrar.getSelectedItem().toString());
-                para.put("posistion1", regesposition.getSelectedItem().toString());
-                para.put("president", pres.getSelectedItem().toString());
-                para.put("position3", presposistion.getSelectedItem().toString()); 
-                para.put("vp", vpresident.getSelectedItem().toString());
-                para.put("position2", vpresposisition.getSelectedItem().toString());
-                        
-                
-              
-                
-        if (She.isSelected()) {
-           para.put("genders", "She");
-        }else {
-            
-            para.put("genders", "He");
-        }
-                 
-                //jTextField1
-               
-               JasperReport jreport = JasperCompileManager.compileReport(jdesign);
-               JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
-               JasperViewer.viewReport(jprint);
-
-            }catch (ClassNotFoundException | SQLException  ex) {
-                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-            } catch (JRException ex) {         
-            Logger.getLogger(Certificates_SHS.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-            
-            
-            
-            
-        }
-        
-   
-    }//GEN-LAST:event_MORALActionPerformed
-
-    private void CLEAR7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR7ActionPerformed
-           try {
-               
-             
-                 
-               
-                Class.forName("com.mysql.cj.jdbc.Driver");
-               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-               JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_diploma\\elementary.jrxml");
-               String query="select * from certificate_of_enrollment"; 
-
-               JRDesignQuery updateQuery = new JRDesignQuery();
-               updateQuery.setText(query);
-             
-               jdesign.setQuery(updateQuery);
-               
-               
-               
-                HashMap<String,Object> para = new HashMap<>();
-//                para.put("sy",psy.getText() );
-//                para.put("future sy",csy.getText() ); // 
-//                para.put("lrn",LRN.getText());
-                para.put("studentsname",NAME.getText());
-//                para.put("grade", GRADES.getText());
-//                para.put("section",sectioNs.getSelectedItem().toString());
-//                //para.put("trak", SCHOOLYEARS.getText());
-//                
-//                para.put("schoolregistrar", registrar.getSelectedItem().toString());
-//                para.put("posistion1", regesposition.getSelectedItem().toString());
-//                para.put("president", pres.getSelectedItem().toString());
-//                para.put("position3", presposistion.getSelectedItem().toString());
-//                 
-//                para.put("vp", vpresident.getSelectedItem().toString());
-//                para.put("position2", vpresposisition.getSelectedItem().toString());
-//                        
-                
-              
-                
-//        if (She.isSelected()) {
-//           para.put("genders", "She");
-//        }else {
-//            
-//            para.put("genders", "He");
-//        }
-//                 
-//                //jTextField1
-               
-               JasperReport jreport = JasperCompileManager.compileReport(jdesign);
-               JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
-              
-               
-               
-               
-               JasperViewer.viewReport(jprint);
-               
-               
-          
-            }catch (ClassNotFoundException | SQLException  ex) {
-                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-            } catch (JRException ex) {         
-            Logger.getLogger(Certificates_SHS.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-    }//GEN-LAST:event_CLEAR7ActionPerformed
-
-    private void searchCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_searchCaretUpdate
+    private void searchcertificateshsCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_searchcertificateshsCaretUpdate
 
     
-    }//GEN-LAST:event_searchCaretUpdate
+    }//GEN-LAST:event_searchcertificateshsCaretUpdate
 
-    private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
+    private void searchcertificateshsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchcertificateshsKeyReleased
 
           LoadSearchData();
-    }//GEN-LAST:event_searchKeyReleased
+    }//GEN-LAST:event_searchcertificateshsKeyReleased
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
@@ -1565,6 +1322,216 @@ public class Certificates_SHS extends javax.swing.JFrame {
              this.hide();
              m.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
+
+    private void CLEARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEARActionPerformed
+        psy.setText("");
+        csy.setText("");
+        LRN.setText("");
+        NAME.setText("");
+        GRADES.setText("");
+        TRACK.setText("");
+        sectioNs.setSelectedIndex(-1);
+        registrar.setSelectedIndex(-1);
+        regesposition.setSelectedIndex(-1);
+        pres.setSelectedIndex(-1);
+        presposistion.setSelectedIndex(-1);
+        vpresident.setSelectedIndex(-1);
+        vpresposisition.setSelectedIndex(-1);
+    }//GEN-LAST:event_CLEARActionPerformed
+
+    private void CLEAR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CLEAR2ActionPerformed
+
+    private void CLEAR7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR7ActionPerformed
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+            JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_diploma\\elementary.jrxml");
+            String query="select * from certificate_of_enrollment";
+
+            JRDesignQuery updateQuery = new JRDesignQuery();
+            updateQuery.setText(query);
+
+            jdesign.setQuery(updateQuery);
+
+            HashMap<String,Object> para = new HashMap<>();
+            //                para.put("sy",psy.getText() );
+            //                para.put("future sy",csy.getText() ); //
+            //                para.put("lrn",LRN.getText());
+            para.put("studentsname",NAME.getText());
+            //                para.put("grade", GRADES.getText());
+            //                para.put("section",sectioNs.getSelectedItem().toString());
+            //                //para.put("trak", SCHOOLYEARS.getText());
+            //
+            //                para.put("schoolregistrar", registrar.getSelectedItem().toString());
+            //                para.put("posistion1", regesposition.getSelectedItem().toString());
+            //                para.put("president", pres.getSelectedItem().toString());
+            //                para.put("position3", presposistion.getSelectedItem().toString());
+            //
+            //                para.put("vp", vpresident.getSelectedItem().toString());
+            //                para.put("position2", vpresposisition.getSelectedItem().toString());
+            //
+
+            //        if (She.isSelected()) {
+                //           para.put("genders", "She");
+                //        }else {
+                //
+                //            para.put("genders", "He");
+                //        }
+            //
+            //                //jTextField1
+
+            JasperReport jreport = JasperCompileManager.compileReport(jdesign);
+            JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
+
+            JasperViewer.viewReport(jprint);
+
+        }catch (ClassNotFoundException | SQLException  ex) {
+            JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+        } catch (JRException ex) {
+            Logger.getLogger(Certificates_SHS.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_CLEAR7ActionPerformed
+
+    private void HONORABLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HONORABLEActionPerformed
+
+        if (verifyText()) {
+
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\dismissal_shs.jrxml");
+                String query="select * from certificate_of_enrollment";
+
+                JRDesignQuery updateQuery = new JRDesignQuery();
+                updateQuery.setText(query);
+
+                jdesign.setQuery(updateQuery);
+
+                HashMap<String,Object> para = new HashMap<>();
+                para.put("sy",psy.getText() );
+                para.put("future sy",csy.getText() ); //
+                para.put("lrn",LRN.getText());
+                para.put("name",NAME.getText());
+                para.put("grade", GRADES.getText());
+                para.put("section",sectioNs.getSelectedItem().toString());
+                para.put("trak", TRACK.getText());
+                para.put("schoolregistrar", registrar.getSelectedItem().toString());
+                para.put("regpos", regesposition.getSelectedItem().toString());
+                para.put("schoolpresident", pres.getSelectedItem().toString());
+                para.put("prespos", presposistion.getSelectedItem().toString());
+
+                //jTextField1
+
+                JasperReport jreport = JasperCompileManager.compileReport(jdesign);
+                JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
+                JasperViewer.viewReport(jprint);
+
+            }catch (ClassNotFoundException | SQLException  ex) {
+                JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+            } catch (JRException ex) {
+                Logger.getLogger(Certificates_SHS.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+    }//GEN-LAST:event_HONORABLEActionPerformed
+
+    private void ENROLLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENROLLActionPerformed
+
+        if (verifyText()) {
+
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\enrollment_shs.jrxml");
+                String query="select * from certificate_of_enrollment";
+
+                JRDesignQuery updateQuery = new JRDesignQuery();
+                updateQuery.setText(query);
+
+                jdesign.setQuery(updateQuery);
+
+                HashMap<String,Object> para = new HashMap<>();
+                para.put("sy",psy.getText() );
+                para.put("future sy",csy.getText() ); //
+                para.put("lrn",LRN.getText());
+                para.put("name",NAME.getText());
+                para.put("grade", GRADES.getText());
+                para.put("section",sectioNs.getSelectedItem().toString()); //trak TRACK
+                para.put("trak", TRACK.getText());
+                para.put("schoolregistrar", registrar.getSelectedItem().toString());
+                para.put("regpos", regesposition.getSelectedItem().toString());
+                //para.put("schoolpresident", pres.getSelectedItem().toString());
+                //  para.put("presiposisitons", presposistion.getSelectedItem().toString());
+
+                JasperReport jreport = JasperCompileManager.compileReport(jdesign);
+                JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
+                JasperViewer.viewReport(jprint);
+
+            }catch (ClassNotFoundException | SQLException  ex) {
+                JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+            } catch (JRException ex) {
+                Logger.getLogger(Certificates_SHS.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+    }//GEN-LAST:event_ENROLLActionPerformed
+
+    private void MORALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MORALActionPerformed
+
+        if (verifyText()) {
+
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\moral_grade.jrxml");
+                String query="select * from certificate_of_enrollment";
+
+                JRDesignQuery updateQuery = new JRDesignQuery();
+                updateQuery.setText(query);
+
+                jdesign.setQuery(updateQuery);
+
+                HashMap<String,Object> para = new HashMap<>();
+                para.put("sy",psy.getText() );
+                para.put("future sy",csy.getText() ); //
+                para.put("lrn",LRN.getText());
+                para.put("name",NAME.getText());
+                para.put("grade", GRADES.getText());
+                para.put("section",sectioNs.getSelectedItem().toString());
+                para.put("schoolregistrar", registrar.getSelectedItem().toString());
+                para.put("posistion1", regesposition.getSelectedItem().toString());
+                para.put("president", pres.getSelectedItem().toString());
+                para.put("position3", presposistion.getSelectedItem().toString());
+                para.put("vp", vpresident.getSelectedItem().toString());
+                para.put("position2", vpresposisition.getSelectedItem().toString());
+
+                if (She.isSelected()) {
+                    para.put("genders", "She");
+                }else {
+
+                    para.put("genders", "He");
+                }
+
+                //jTextField1
+
+                JasperReport jreport = JasperCompileManager.compileReport(jdesign);
+                JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
+                JasperViewer.viewReport(jprint);
+
+            }catch (ClassNotFoundException | SQLException  ex) {
+                JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+            } catch (JRException ex) {
+                Logger.getLogger(Certificates_SHS.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+    }//GEN-LAST:event_MORALActionPerformed
 
     
     
@@ -1701,74 +1668,6 @@ public class Certificates_SHS extends javax.swing.JFrame {
     
     
     
-//     private void lRn()
-//        {
-//             try {
-//
-//                Class.forName("com.mysql.cj.jdbc.Driver");
-//                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-//                PreparedStatement ps;
-//                ps=Mycon.prepareStatement("select * from enrolled_students");
-//                rs= ps.executeQuery();
-//                lrN.removeAllItems();
-//                while (rs.next())
-//                {             
-//                     lrN.addItem(new Lrn(rs.getInt(1),rs.getString(5)));             
-//                }
-//            }catch (ClassNotFoundException | SQLException  ex) {
-//                 // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-//                 
-//                 Logger.getLogger(Certificates_Shs.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//  
-//        }
-    
-//       private void gRade()
-//        {
-//             try {
-//
-//                Class.forName("com.mysql.cj.jdbc.Driver");
-//                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-//                PreparedStatement ps;
-//                ps=Mycon.prepareStatement("select * from enrolled_students");
-//                rs= ps.executeQuery();
-//                gradelevel.removeAllItems();
-//                while (rs.next())
-//                {             
-//                     gradelevel.addItem(new Gradelevels(rs.getInt(1),rs.getString(28)));             
-//                }
-//            }catch (ClassNotFoundException | SQLException  ex) {
-//                 // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-//                 
-//                 Logger.getLogger(Certificates_Shs.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//  
-//        }
-       
-//       private void tRack()
-//        {
-//             try {
-//
-//                Class.forName("com.mysql.cj.jdbc.Driver");
-//                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-//                PreparedStatement ps;
-//                ps=Mycon.prepareStatement("select * from enrolled_students");
-//                rs= ps.executeQuery();
-//                enrolledtrack.removeAllItems();
-//                while (rs.next())
-//                {             
-//                     enrolledtrack.addItem(new Trackenrolled(rs.getInt(1),rs.getString(29)));             
-//                }
-//            }catch (ClassNotFoundException | SQLException  ex) {
-//                 // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-//                 
-//                 Logger.getLogger(Certificates_Shs.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//  
-//        }
-//    enrollment_shs
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -1865,13 +1764,13 @@ public class Certificates_SHS extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable;
+    private javax.swing.JTable jTableCERTIFICATESSHS;
     private javax.swing.JComboBox pres;
     private javax.swing.JComboBox presposistion;
     private javax.swing.JFormattedTextField psy;
     private javax.swing.JComboBox regesposition;
     private javax.swing.JComboBox registrar;
-    private javax.swing.JTextField search;
+    private javax.swing.JTextField searchcertificateshs;
     private javax.swing.JComboBox sectioNs;
     private javax.swing.JComboBox vpresident;
     private javax.swing.JComboBox vpresposisition;

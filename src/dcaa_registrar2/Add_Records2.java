@@ -5,6 +5,7 @@
  */
 package dcaa_registrar2;
 
+import trials.table_suggetions;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;

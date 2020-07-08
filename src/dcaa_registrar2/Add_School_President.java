@@ -61,7 +61,7 @@ public class Add_School_President extends javax.swing.JFrame {
                                            ResultSet rs = ps.executeQuery();
                                             ResultSetMetaData rsd=rs.getMetaData();
                                                 c = rsd.getColumnCount();            
-                                                DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+                                                DefaultTableModel model =  (DefaultTableModel)jTableSchoolPresident.getModel() ;
                                                 
                                             model.setRowCount(0);
                                                 while (rs.next()) 
@@ -88,20 +88,20 @@ public class Add_School_President extends javax.swing.JFrame {
        {
            
             
-                                                jTable.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,15));
-                                                jTable.getTableHeader().setOpaque(false);
-                                                jTable.getTableHeader().setBackground(new Color(165,19,29));
-                                                jTable.getTableHeader().setForeground(new Color(255,255,255));
-                                                jTable.getRowHeight(20);
+                                                jTableSchoolPresident.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,15));
+                                                jTableSchoolPresident.getTableHeader().setOpaque(false);
+                                                jTableSchoolPresident.getTableHeader().setBackground(new Color(165,19,29));
+                                                jTableSchoolPresident.getTableHeader().setForeground(new Color(255,255,255));
+                                                jTableSchoolPresident.getRowHeight(20);
                                                 DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
                                                 rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
                                           
 
-                                                jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
-                                                jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
+                                                jTableSchoolPresident.getColumnModel().getColumn(0).setPreferredWidth(10);
+                                                jTableSchoolPresident.getColumnModel().getColumn(3).setPreferredWidth(10);
                                               
                                                     
-                                                 TableColumn col = jTable.getColumnModel().getColumn(0);
+                                                 TableColumn col = jTableSchoolPresident.getColumnModel().getColumn(0);
                                                     DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();  
                                                     dtcr.setHorizontalAlignment(SwingConstants.CENTER);
                                                     col.setCellRenderer(dtcr);
@@ -135,7 +135,7 @@ public class Add_School_President extends javax.swing.JFrame {
       public void LoadSearchData(){
            try {
                String name="%"+this.txt.getText()+"%";
-               DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+               DefaultTableModel model =  (DefaultTableModel)jTableSchoolPresident.getModel() ;
                int col;
                Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
@@ -175,7 +175,7 @@ public class Add_School_President extends javax.swing.JFrame {
         jPanel20 = new javax.swing.JPanel();
         NAME = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
+        jTableSchoolPresident = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -364,7 +364,7 @@ public class Add_School_President extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSchoolPresident.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -387,15 +387,15 @@ public class Add_School_President extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable.setRequestFocusEnabled(false);
-        jTable.setSelectionBackground(new java.awt.Color(0, 51, 0));
-        jTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableSchoolPresident.setRequestFocusEnabled(false);
+        jTableSchoolPresident.setSelectionBackground(new java.awt.Color(0, 51, 0));
+        jTableSchoolPresident.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jTableSchoolPresident.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableMouseClicked(evt);
+                jTableSchoolPresidentMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable);
+        jScrollPane1.setViewportView(jTableSchoolPresident);
 
         jPanel3.setBackground(new java.awt.Color(43, 70, 60));
 
@@ -529,17 +529,18 @@ public class Add_School_President extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-                .addGap(14, 14, 14))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 324, Short.MAX_VALUE)
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(304, 304, 304))
         );
         jPanel1Layout.setVerticalGroup(
@@ -660,8 +661,8 @@ public class Add_School_President extends javax.swing.JFrame {
             
             if (verifyText()) {
                 
-        DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-        int selecIndex= jTable.getSelectedRow();
+        DefaultTableModel model2 =  (DefaultTableModel)jTableSchoolPresident.getModel() ;
+        int selecIndex= jTableSchoolPresident.getSelectedRow();
         
         int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
                 
@@ -718,8 +719,8 @@ public class Add_School_President extends javax.swing.JFrame {
 
                  try {
                 
-         DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-        int selecIndex = jTable.getSelectedRow();
+         DefaultTableModel model2 =  (DefaultTableModel)jTableSchoolPresident.getModel() ;
+        int selecIndex = jTableSchoolPresident.getSelectedRow();
         int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -764,9 +765,9 @@ public class Add_School_President extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_STATUSKeyReleased
 
-    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
-        DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-      int selecIndex = jTable.getSelectedRow();
+    private void jTableSchoolPresidentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSchoolPresidentMouseClicked
+        DefaultTableModel model2 =  (DefaultTableModel)jTableSchoolPresident.getModel() ;
+      int selecIndex = jTableSchoolPresident.getSelectedRow();
       //SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
      
         
@@ -781,7 +782,7 @@ public class Add_School_President extends javax.swing.JFrame {
             Female.setSelected(true);
             Male.setSelected(false);
         }
-    }//GEN-LAST:event_jTableMouseClicked
+    }//GEN-LAST:event_jTableSchoolPresidentMouseClicked
 
     private void NAMEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NAMEKeyReleased
        
@@ -791,7 +792,7 @@ public class Add_School_President extends javax.swing.JFrame {
     }//GEN-LAST:event_NAMEKeyReleased
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-         AdminFrame z=new AdminFrame();
+         AdminFrame3 z=new AdminFrame3();
                     this.hide();
                     z.setVisible(true);
                         
@@ -856,7 +857,7 @@ public class Add_School_President extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable;
+    private javax.swing.JTable jTableSchoolPresident;
     private javax.swing.JTextField txt;
     // End of variables declaration//GEN-END:variables
 }

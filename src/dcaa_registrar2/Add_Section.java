@@ -5,6 +5,7 @@
  */
 package dcaa_registrar2;
 
+import trials.table_suggetions;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -54,7 +55,7 @@ public class Add_Section extends javax.swing.JFrame {
                                            ResultSet rs = ps.executeQuery();
                                             ResultSetMetaData rsd=rs.getMetaData();
                                                 c = rsd.getColumnCount();            
-                                                DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+                                                DefaultTableModel model =  (DefaultTableModel)jTableSection.getModel() ;
                                                 
                                             model.setRowCount(0);
                                                 while (rs.next()) 
@@ -90,7 +91,7 @@ public class Add_Section extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
+        jTableSection = new javax.swing.JTable();
         jLabel18 = new javax.swing.JLabel();
         section = new javax.swing.JTextField();
         ADD = new javax.swing.JButton();
@@ -100,8 +101,8 @@ public class Add_Section extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(244, 241, 233));
 
-        jTable.setAutoCreateRowSorter(true);
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSection.setAutoCreateRowSorter(true);
+        jTableSection.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -117,7 +118,7 @@ public class Add_Section extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable);
+        jScrollPane1.setViewportView(jTableSection);
 
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -292,7 +293,7 @@ public class Add_Section extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable;
+    private javax.swing.JTable jTableSection;
     private javax.swing.JTextField section;
     // End of variables declaration//GEN-END:variables
 }

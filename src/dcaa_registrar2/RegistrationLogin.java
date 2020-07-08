@@ -42,8 +42,8 @@ public class RegistrationLogin extends javax.swing.JFrame {
     public RegistrationLogin() {
         initComponents();
         ButtonGroup bg = new ButtonGroup();
-        bg.add(Male);
-        bg.add(Female);
+        bg.add(Male1);
+        bg.add(Female1);
  
        SomeWindow();
     }
@@ -94,8 +94,8 @@ public class RegistrationLogin extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         fullname = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
-        Male = new javax.swing.JCheckBox();
-        Female = new javax.swing.JCheckBox();
+        Male1 = new javax.swing.JCheckBox();
+        Female1 = new javax.swing.JCheckBox();
         jLabel13 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -161,29 +161,29 @@ public class RegistrationLogin extends javax.swing.JFrame {
         jLabel36.setForeground(new java.awt.Color(0, 51, 51));
         jLabel36.setText("Gender :");
 
-        Male.setBackground(new java.awt.Color(244, 241, 233));
-        Male.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Male.setForeground(new java.awt.Color(43, 70, 60));
-        Male.setText("Male");
-        Male.setBorder(null);
-        Male.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Male.setInheritsPopupMenu(true);
-        Male.addActionListener(new java.awt.event.ActionListener() {
+        Male1.setBackground(new java.awt.Color(244, 241, 233));
+        Male1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Male1.setForeground(new java.awt.Color(43, 70, 60));
+        Male1.setText("Male");
+        Male1.setBorder(null);
+        Male1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Male1.setInheritsPopupMenu(true);
+        Male1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MaleActionPerformed(evt);
+                Male1ActionPerformed(evt);
             }
         });
 
-        Female.setBackground(new java.awt.Color(244, 241, 233));
-        Female.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Female.setForeground(new java.awt.Color(43, 70, 60));
-        Female.setText("Female");
-        Female.setBorder(null);
-        Female.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Female.setInheritsPopupMenu(true);
-        Female.addActionListener(new java.awt.event.ActionListener() {
+        Female1.setBackground(new java.awt.Color(244, 241, 233));
+        Female1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Female1.setForeground(new java.awt.Color(43, 70, 60));
+        Female1.setText("Female");
+        Female1.setBorder(null);
+        Female1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Female1.setInheritsPopupMenu(true);
+        Female1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FemaleActionPerformed(evt);
+                Female1ActionPerformed(evt);
             }
         });
 
@@ -348,9 +348,9 @@ public class RegistrationLogin extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addGroup(jPanel7Layout.createSequentialGroup()
                             .addGap(59, 59, 59)
-                            .addComponent(Male)
+                            .addComponent(Male1)
                             .addGap(110, 110, 110)
-                            .addComponent(Female)))
+                            .addComponent(Female1)))
                     .addContainerGap(31, Short.MAX_VALUE)))
         );
         jPanel7Layout.setVerticalGroup(
@@ -387,8 +387,8 @@ public class RegistrationLogin extends javax.swing.JFrame {
                     .addComponent(jLabel36)
                     .addGap(0, 0, 0)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Male, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Female, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Male1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Female1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(365, Short.MAX_VALUE)))
         );
 
@@ -462,13 +462,13 @@ public class RegistrationLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_fullnameFocusLost
 
-    private void MaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaleActionPerformed
+    private void Male1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Male1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MaleActionPerformed
+    }//GEN-LAST:event_Male1ActionPerformed
 
-    private void FemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FemaleActionPerformed
+    private void Female1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Female1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_FemaleActionPerformed
+    }//GEN-LAST:event_Female1ActionPerformed
 
     private void ADD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADD3ActionPerformed
 
@@ -479,7 +479,7 @@ public class RegistrationLogin extends javax.swing.JFrame {
         String mdname = password.getText();
 
         String gender = "Male";
-        if (Female.isSelected()) {
+        if (Female1.isSelected()) {
             gender="Female";
         }
 
@@ -625,8 +625,8 @@ public class RegistrationLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADD3;
-    private javax.swing.JCheckBox Female;
-    private javax.swing.JCheckBox Male;
+    private javax.swing.JCheckBox Female1;
+    private javax.swing.JCheckBox Male1;
     private javax.swing.JTextField answer;
     private javax.swing.JLabel create;
     private javax.swing.JLabel create1;

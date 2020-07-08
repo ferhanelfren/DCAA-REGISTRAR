@@ -5,6 +5,7 @@
  */
 package dcaa_registrar2;
 
+import trials.table_suggetions;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

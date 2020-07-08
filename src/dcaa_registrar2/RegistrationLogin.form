@@ -134,9 +134,9 @@
                               <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                  <Component id="Male" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Male1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                                  <Component id="Female" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Female1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="31" max="32767" attributes="0"/>
@@ -180,8 +180,8 @@
                           <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="Male" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="Female" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="Male1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="Female1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="365" max="32767" attributes="0"/>
                       </Group>
@@ -253,7 +253,7 @@
                 <Property name="text" type="java.lang.String" value="Gender :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="Male">
+            <Component class="javax.swing.JCheckBox" name="Male1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e9" green="f1" red="f4" type="rgb"/>
@@ -272,10 +272,10 @@
                 <Property name="inheritsPopupMenu" type="boolean" value="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MaleActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Male1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="Female">
+            <Component class="javax.swing.JCheckBox" name="Female1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e9" green="f1" red="f4" type="rgb"/>
@@ -294,7 +294,7 @@
                 <Property name="inheritsPopupMenu" type="boolean" value="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FemaleActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Female1ActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">

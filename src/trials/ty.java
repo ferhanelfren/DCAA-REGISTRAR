@@ -5,7 +5,6 @@
  */
 package trials;
 
-import dcaa_registrar2.FORM;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

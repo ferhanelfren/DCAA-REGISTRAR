@@ -667,7 +667,7 @@ public class Add_SchoolYear extends javax.swing.JFrame {
     }//GEN-LAST:event_SYKeyTyped
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-      AdminFrame z=new AdminFrame();
+      AdminFrame3 z=new AdminFrame3();
                     this.hide();
                     z.setVisible(true);
     }//GEN-LAST:event_formWindowClosing

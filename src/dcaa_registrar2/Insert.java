@@ -5,6 +5,7 @@
  */
 package dcaa_registrar2;
 
+import trials.table_suggetions;
 import com.itextpdf.io.util.FileUtil;
 import com.mysql.cj.jdbc.Blob;
 import java.awt.event.ActionListener;

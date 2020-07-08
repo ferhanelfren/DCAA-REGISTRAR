@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dcaa_registrar2;
+package trials;
 
+import dcaa_registrar2.Add_Records2;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.sql.Connection;

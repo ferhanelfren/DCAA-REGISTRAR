@@ -5,6 +5,7 @@
  */
 package dcaa_registrar2;
 
+import trials.StudentFrame2;
 import java.awt.Color;
 import java.awt.Font;
 import java.sql.Connection;
@@ -230,7 +231,7 @@ public class Add_Students extends javax.swing.JFrame {
       public boolean verifyText()
     {
         
-        if (schoolyr.getSelectedItem().toString().equals("")|| LRN.getSelectedItem().toString().equals("") || STUDENT_ACCOUNT1.getText().equals("") || LRNNO.getText().equals("") ||  STUDENTNAME.getText().equals("") ||   jDateChooser1.getDate() == null || AGE1.getText().equals("")    || YES_IPSPECIFY.getText().equals("") ||  MOTHERTONGUE.getText().equals("") ||  ADDRESS.getText().equals("") ||  ZIPCODE.getText().equals("") ||  FATHERNAME.getText().equals("") ||  MOTHERNAME.getText().equals("") ||  GUARDIAN.getText().equals("") ||  TELNO.getText().equals("") ||  CELPHONE.getText().equals("") || LEVELCOMPLETED.getSelectedItem().equals("") || SYCOMPLETED.getText().equals("") ||  SCHOOLNAME.getText().equals("") || SCHOOLID.getText().equals("") || SCHOOLADDRESS.getText().equals("") || TRACK.getSelectedItem().equals("") || STRAND.getSelectedItem().equals("") || GRADELEVEL.getText().equals("") || TRACK_ENROLLED.getSelectedItem().equals(""))
+        if (schoolyr.getSelectedItem().toString().equals("")|| LRN.getSelectedItem().toString().equals("") || STUDENT_ACCOUNTS.getText().equals("") || LRNNO.getText().equals("") ||  STUDENTNAME.getText().equals("") ||   jDateChooser1.getDate() == null || AGES.getText().equals("")    || YES_IPSPECIFY.getText().equals("") ||  MOTHERTONGUE.getText().equals("") ||  ADDRESS.getText().equals("") ||  ZIPCODE.getText().equals("") ||  FATHERNAME.getText().equals("") ||  MOTHERNAME.getText().equals("") ||  GUARDIAN.getText().equals("") ||  TELNO.getText().equals("") ||  CELPHONE.getText().equals("") || LEVELCOMPLETED.getSelectedItem().equals("") || SYCOMPLETED.getText().equals("") ||  SCHOOLNAME.getText().equals("") || SCHOOLID.getText().equals("") || SCHOOLADDRESS.getText().equals("") || TRACK.getSelectedItem().equals("") || STRAND.getSelectedItem().equals("") || GRADELEVEL.getText().equals("") || TRACK_ENROLLED.getSelectedItem().equals(""))
 
           {
             JOptionPane.showMessageDialog(this," Failed...!!! One or More Empty");
@@ -268,7 +269,9 @@ public class Add_Students extends javax.swing.JFrame {
             }
      }
      
-     
+            
+            
+       
        
     /**
      * This method is called from within the constructor to initialize the form.
@@ -289,7 +292,7 @@ public class Add_Students extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jPanel34 = new javax.swing.JPanel();
-        STUDENT_ACCOUNT1 = new javax.swing.JTextField();
+        STUDENT_ACCOUNTS = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         LRN = new javax.swing.JComboBox();
         jLabel42 = new javax.swing.JLabel();
@@ -305,7 +308,7 @@ public class Add_Students extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jPanel20 = new javax.swing.JPanel();
-        AGE1 = new javax.swing.JTextField();
+        AGES = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel43 = new javax.swing.JLabel();
         jPanel19 = new javax.swing.JPanel();
@@ -463,28 +466,28 @@ public class Add_Students extends javax.swing.JFrame {
         jPanel34.setBackground(new java.awt.Color(255, 255, 255));
         jPanel34.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        STUDENT_ACCOUNT1.setBackground(new java.awt.Color(255, 255, 255));
-        STUDENT_ACCOUNT1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        STUDENT_ACCOUNT1.setForeground(new java.awt.Color(0, 0, 0));
-        STUDENT_ACCOUNT1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        STUDENT_ACCOUNT1.setText("None");
-        STUDENT_ACCOUNT1.setBorder(null);
-        STUDENT_ACCOUNT1.addFocusListener(new java.awt.event.FocusAdapter() {
+        STUDENT_ACCOUNTS.setBackground(new java.awt.Color(255, 255, 255));
+        STUDENT_ACCOUNTS.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        STUDENT_ACCOUNTS.setForeground(new java.awt.Color(0, 0, 0));
+        STUDENT_ACCOUNTS.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        STUDENT_ACCOUNTS.setText("None");
+        STUDENT_ACCOUNTS.setBorder(null);
+        STUDENT_ACCOUNTS.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                STUDENT_ACCOUNT1FocusGained(evt);
+                STUDENT_ACCOUNTSFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                STUDENT_ACCOUNT1FocusLost(evt);
+                STUDENT_ACCOUNTSFocusLost(evt);
             }
         });
-        STUDENT_ACCOUNT1.addActionListener(new java.awt.event.ActionListener() {
+        STUDENT_ACCOUNTS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                STUDENT_ACCOUNT1ActionPerformed(evt);
+                STUDENT_ACCOUNTSActionPerformed(evt);
             }
         });
-        STUDENT_ACCOUNT1.addKeyListener(new java.awt.event.KeyAdapter() {
+        STUDENT_ACCOUNTS.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                STUDENT_ACCOUNT1KeyPressed(evt);
+                STUDENT_ACCOUNTSKeyPressed(evt);
             }
         });
 
@@ -494,12 +497,12 @@ public class Add_Students extends javax.swing.JFrame {
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel34Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(STUDENT_ACCOUNT1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(STUDENT_ACCOUNTS, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73))
         );
         jPanel34Layout.setVerticalGroup(
             jPanel34Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(STUDENT_ACCOUNT1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+            .addComponent(STUDENT_ACCOUNTS, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
         );
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
@@ -646,13 +649,13 @@ public class Add_Students extends javax.swing.JFrame {
         jPanel20.setBackground(new java.awt.Color(255, 255, 255));
         jPanel20.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        AGE1.setBackground(new java.awt.Color(255, 255, 255));
-        AGE1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        AGE1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        AGE1.setBorder(null);
-        AGE1.addKeyListener(new java.awt.event.KeyAdapter() {
+        AGES.setBackground(new java.awt.Color(255, 255, 255));
+        AGES.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        AGES.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        AGES.setBorder(null);
+        AGES.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                AGE1KeyTyped(evt);
+                AGESKeyTyped(evt);
             }
         });
 
@@ -662,14 +665,14 @@ public class Add_Students extends javax.swing.JFrame {
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(AGE1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AGES, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(AGE1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(AGES, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jDateChooser1.setBackground(new java.awt.Color(51, 51, 51));
@@ -2036,7 +2039,7 @@ public class Add_Students extends javax.swing.JFrame {
      
         schoolyr.setSelectedItem(model2.getValueAt(selecIndex, 1).toString());
         LRN.setSelectedItem(model2.getValueAt(selecIndex, 2).toString() );
-        STUDENT_ACCOUNT1.setText(model2.getValueAt(selecIndex, 3).toString());
+        STUDENT_ACCOUNTS.setText(model2.getValueAt(selecIndex, 3).toString());
         LRNNO.setText(model2.getValueAt(selecIndex, 4).toString());
         STUDENTNAME.setText(model2.getValueAt(selecIndex, 5).toString());
         Date bdate;
@@ -2054,7 +2057,7 @@ public class Add_Students extends javax.swing.JFrame {
             Female.setSelected(true);
             Male.setSelected(false);
         }
-        AGE1.setText(model2.getValueAt(selecIndex, 8).toString());
+        AGES.setText(model2.getValueAt(selecIndex, 8).toString());
         if (model2.getValueAt(selecIndex, 9).toString().equals("No")) {
             No.setSelected(true);
             Yes.setSelected(false);
@@ -2092,14 +2095,14 @@ public class Add_Students extends javax.swing.JFrame {
 
                // schoolyr.setSelectedIndex(-1);
                     LRN.setSelectedIndex(0);
-                    STUDENT_ACCOUNT1.setText("None");
+                    STUDENT_ACCOUNTS.setText("None");
                     LRNNO.setText("None");
                     STUDENTNAME.setText("Last Name,  First Name   Middle Name");
                     Male.setSelected(true);
                     Female.setSelected(true);
                     No.setSelected(false);
                     Yes.setSelected(false);
-                    AGE1.setText("");
+                    AGES.setText("");
                     YES_IPSPECIFY.setText("Please Specify. . .");
                     MOTHERTONGUE.setText("None");
                     ADDRESS.setText("");
@@ -2132,14 +2135,14 @@ public class Add_Students extends javax.swing.JFrame {
           
         SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
         String lrn = LRN.getSelectedItem().toString();
-        String psa =STUDENT_ACCOUNT1.getText();
+        String psa =STUDENT_ACCOUNTS.getText();
         String lrnno=LRNNO.getText();
         String lname=STUDENTNAME.getText();
 
         //      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         //        String date = dateFormat.format(jDateChooser1.getDate());
 
-        String age=AGE1.getText();
+        String age=AGES.getText();
         
         
         String gender = "Male";
@@ -2236,14 +2239,14 @@ public class Add_Students extends javax.swing.JFrame {
                     
                    // schoolyr.setSelectedIndex(-1);
                     LRN.setSelectedIndex(-1);
-                    STUDENT_ACCOUNT1.setText("None");
+                    STUDENT_ACCOUNTS.setText("None");
                     LRNNO.setText("None");
                     STUDENTNAME.setText("Last Name,  First Name   Middle Name");
                     Male.setSelected(true);
                     Female.setSelected(true);
                     No.setSelected(false);
                     Yes.setSelected(false);
-                    AGE1.setText("");
+                    AGES.setText("");
                     YES_IPSPECIFY.setText("Please Specify. . .");
                     MOTHERTONGUE.setText("None");
                     ADDRESS.setText("");
@@ -2298,14 +2301,14 @@ public class Add_Students extends javax.swing.JFrame {
         
         SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem(); // SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
         String lrn = LRN.getSelectedItem().toString();
-        String psa =STUDENT_ACCOUNT1.getText();
+        String psa =STUDENT_ACCOUNTS.getText();
         String lrnno=LRNNO.getText();
         String lname=STUDENTNAME.getText();
 
         //      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         //        String date = dateFormat.format(jDateChooser1.getDate());
 
-        String age=AGE1.getText();
+        String age=AGES.getText();
         String gender = "Male";
         if (Female.isSelected()) {
             gender="Female";
@@ -2406,14 +2409,14 @@ public class Add_Students extends javax.swing.JFrame {
                     table_update();
                   //  schoolyr.setSelectedIndex(-1);
                     LRN.setSelectedIndex(-1);
-                    STUDENT_ACCOUNT1.setText("None");
+                    STUDENT_ACCOUNTS.setText("None");
                     LRNNO.setText("None");
                     STUDENTNAME.setText("Last Name,  First Name   Middle Name");
                     Male.setSelected(true);
                     Female.setSelected(true);
                     No.setSelected(false);
                     Yes.setSelected(false);
-                    AGE1.setText("");
+                    AGES.setText("");
                     YES_IPSPECIFY.setText("Please Specify. . .");
                     MOTHERTONGUE.setText("None");
                     ADDRESS.setText("");
@@ -2441,30 +2444,30 @@ public class Add_Students extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_ADDActionPerformed
 
-    private void STUDENT_ACCOUNT1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_STUDENT_ACCOUNT1FocusGained
+    private void STUDENT_ACCOUNTSFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_STUDENT_ACCOUNTSFocusGained
 
-        if( STUDENT_ACCOUNT1.getText().trim().equals("None"))
+        if( STUDENT_ACCOUNTS.getText().trim().equals("None"))
         {
-            STUDENT_ACCOUNT1.setText("");
-            STUDENT_ACCOUNT1.setForeground(Color.black);
+            STUDENT_ACCOUNTS.setText("");
+            STUDENT_ACCOUNTS.setForeground(Color.black);
         }
-    }//GEN-LAST:event_STUDENT_ACCOUNT1FocusGained
+    }//GEN-LAST:event_STUDENT_ACCOUNTSFocusGained
 
-    private void STUDENT_ACCOUNT1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_STUDENT_ACCOUNT1FocusLost
+    private void STUDENT_ACCOUNTSFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_STUDENT_ACCOUNTSFocusLost
 
-        if ( STUDENT_ACCOUNT1.getText().trim().isEmpty()) {
-            STUDENT_ACCOUNT1.setForeground(new Color(51,51,51));
-            STUDENT_ACCOUNT1.setText("None");
+        if ( STUDENT_ACCOUNTS.getText().trim().isEmpty()) {
+            STUDENT_ACCOUNTS.setForeground(new Color(51,51,51));
+            STUDENT_ACCOUNTS.setText("None");
         }
-    }//GEN-LAST:event_STUDENT_ACCOUNT1FocusLost
+    }//GEN-LAST:event_STUDENT_ACCOUNTSFocusLost
 
-    private void STUDENT_ACCOUNT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STUDENT_ACCOUNT1ActionPerformed
+    private void STUDENT_ACCOUNTSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_STUDENT_ACCOUNTSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_STUDENT_ACCOUNT1ActionPerformed
+    }//GEN-LAST:event_STUDENT_ACCOUNTSActionPerformed
 
-    private void STUDENT_ACCOUNT1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_STUDENT_ACCOUNT1KeyPressed
+    private void STUDENT_ACCOUNTSKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_STUDENT_ACCOUNTSKeyPressed
 
-    }//GEN-LAST:event_STUDENT_ACCOUNT1KeyPressed
+    }//GEN-LAST:event_STUDENT_ACCOUNTSKeyPressed
 
     private void LRNNOFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LRNNOFocusGained
 
@@ -2528,9 +2531,9 @@ public class Add_Students extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_MaleActionPerformed
 
-    private void AGE1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AGE1KeyTyped
+    private void AGESKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AGESKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_AGE1KeyTyped
+    }//GEN-LAST:event_AGESKeyTyped
 
     private void YES_IPSPECIFYFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_YES_IPSPECIFYFocusGained
 
@@ -2807,14 +2810,14 @@ public class Add_Students extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Student Successfully Deleted");
                     //schoolyr.setSelectedIndex(-1);
                     LRN.setSelectedIndex(-1);
-                    STUDENT_ACCOUNT1.setText("None");
+                    STUDENT_ACCOUNTS.setText("None");
                     LRNNO.setText("None");
                     STUDENTNAME.setText("Last Name,  First Name   Middle Name");
                     Male.setSelected(true);
                     Female.setSelected(true);
                     No.setSelected(false);
                     Yes.setSelected(false);
-                    AGE1.setText("");
+                    AGES.setText("");
                     YES_IPSPECIFY.setText("Please Specify. . .");
                     MOTHERTONGUE.setText("None");
                     ADDRESS.setText("");
@@ -2858,16 +2861,16 @@ public class Add_Students extends javax.swing.JFrame {
 //          
 //          if (dialogResult == JOptionPane.YES_OPTION) 
 //          {
-//                    StudentFrame z=new StudentFrame();
+//                    StudentFrame2 z=new StudentFrame2();
 //                    this.hide();
 //                    z.setVisible(true);
 //          } else {
-//                    StudentFrame z=new StudentFrame();
+//                    StudentFrame2 z=new StudentFrame2();
 //                    this.hide();
 //                    z.setVisible(true);
 //          }   
 //                        
-                    StudentFrame z=new StudentFrame();
+                    StudentFrame2 z=new StudentFrame2();
                     this.hide();
                     z.setVisible(true);
                         
@@ -2915,7 +2918,7 @@ public class Add_Students extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADD;
     private javax.swing.JTextField ADDRESS;
-    private javax.swing.JTextField AGE1;
+    private javax.swing.JTextField AGES;
     private javax.swing.JFormattedTextField CELPHONE;
     private javax.swing.JButton CLEAR;
     private javax.swing.JButton DELETE;
@@ -2936,7 +2939,7 @@ public class Add_Students extends javax.swing.JFrame {
     private javax.swing.JTextField SCHOOLNAME;
     private javax.swing.JComboBox STRAND;
     private javax.swing.JTextField STUDENTNAME;
-    private javax.swing.JTextField STUDENT_ACCOUNT1;
+    private javax.swing.JTextField STUDENT_ACCOUNTS;
     private javax.swing.JFormattedTextField SYCOMPLETED;
     private javax.swing.JComboBox Semester;
     private javax.swing.JFormattedTextField TELNO;

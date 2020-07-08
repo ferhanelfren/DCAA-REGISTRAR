@@ -54,7 +54,7 @@ public class Certificates_JHS extends javax.swing.JFrame {
          sectionname();
          StudentTable();
           tableEditFormat();
-          table_update();
+//          table_update();
           registrar();
           Pres();
           vpres();
@@ -99,21 +99,7 @@ public class Certificates_JHS extends javax.swing.JFrame {
     }
 
     
-     public class SchoolYear2 
-       {
-           int id;
-           String name;
-           public SchoolYear2 (int id, String name)
-           {     
-               this.id=id;
-               this.name=name;     
-           }
-           @Override
-           public String toString ()
-           {   
-               return name;  
-            }
-       }
+   
      
      public class Section 
        {
@@ -248,7 +234,7 @@ public class Certificates_JHS extends javax.swing.JFrame {
                 ps=Mycon.prepareStatement("select * from enrolled_students");
                 rs= ps.executeQuery();
                 
-                DefaultTableModel modelt = (DefaultTableModel)jTable.getModel();
+                DefaultTableModel modelt = (DefaultTableModel)jTableCERTIFICATES.getModel();
                 ResultSetMetaData rsd=rs.getMetaData();
                    c = rsd.getColumnCount(); 
                 
@@ -279,113 +265,56 @@ public class Certificates_JHS extends javax.swing.JFrame {
         
       
       
-       private void table_update()
-    {
-               int c;              
-                                            try {       
-                                           Class.forName("com.mysql.cj.jdbc.Driver");
-                                           Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root"); 
-                                           PreparedStatement ps;   
-                                           ps=Mycon.prepareStatement("select a.id, s.school_year_name, a.lrnStatus, a.student_account_no, a.lrnNumber, a.fullname, a.bdate, a.sex, a.age, a.ip, a.ip_status, a.mother_tongue, a.address, a.zip_code, a.fathername, a.mothername, a.guardianname, a.telephone, a.cellphone, a.last_grade_level_completed, a.last_school_year_completed, a.school_name, a.school_id, a.school_address, a.semester, a.track, a.strand, a.grade_level, a.enrolled_track from enrolled_students a, school_year s  where a.school_year_id = s.id ");
-                                           ResultSet rs = ps.executeQuery();
-                                            ResultSetMetaData rsd=rs.getMetaData();
-                                                c = rsd.getColumnCount();            
-                                                DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
-                                                
-                                            model.setRowCount(0);
-                                                while (rs.next()) 
-                                                {          
-                                                    Vector v = new Vector();
-                                                    for (int i = 0; i <= 35; i++) 
-                                                    { 
-                                                         v.add(rs.getString("id")); 
-                                                          v.add(rs.getString("school_year_name"));
-                                                          v.add(rs.getString("lrnStatus")); 
-                                                           v.add(rs.getString("student_account_no")); 
-                                                            v.add(rs.getString("lrnNumber")); 
-                                                             v.add(rs.getString("fullname")); 
-                                                                 v.add(rs.getString("bdate"));
-                                                                  v.add(rs.getString("sex"));
-                                                                   v.add(rs.getString("age")); 
-                                                                    v.add(rs.getString("ip")); 
-                                                                     v.add(rs.getString("ip_status"));
-                                                                      v.add(rs.getString("mother_tongue")); 
-                                                                       v.add(rs.getString("address"));
-                                                                        v.add(rs.getString("zip_code"));
-                                                                        v.add(rs.getString("fathername"));
-                                                                        v.add(rs.getString("mothername"));
-                                                                        v.add(rs.getString("guardianname"));
-                                                                        v.add(rs.getString("telephone"));
-                                                                        v.add(rs.getString("cellphone"));
-                                                                       v.add(rs.getString("last_grade_level_completed"));
-                                                                                    v.add(rs.getString("last_school_year_completed")); 
-                                                                                    v.add(rs.getString("school_name")); 
-                                                                                     v.add(rs.getString("school_id"));
-                                                                                     v.add(rs.getString("school_address")); 
-                                                                                       v.add(rs.getString("semester")); 
-                                                                                        v.add(rs.getString("track")); 
-                                                                                         v.add(rs.getString("strand")); 
-                                                                                         v.add(rs.getString("grade_level"));
-                                                                                          v.add(rs.getString("enrolled_track")); 
-                                                    }
-                                                    model.addRow(v); 
-                                                }
-                                        }  catch (ClassNotFoundException | SQLException  ex) {
-                                               JOptionPane.showMessageDialog(this,  ex, "Error", JOptionPane.ERROR_MESSAGE);
-                                        }
-    }
-       
+    
        
          private void tableEditFormat()
        {
            
             
-                                                jTable.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,16));
-                                                jTable.getTableHeader().setOpaque(false);
-                                                jTable.getTableHeader().setBackground(new Color(165,19,29));
-                                                jTable.getTableHeader().setForeground(new Color(255,255,255));
-                                                jTable.getRowHeight(20);
+                                                jTableCERTIFICATES.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,16));
+                                                jTableCERTIFICATES.getTableHeader().setOpaque(false);
+                                                jTableCERTIFICATES.getTableHeader().setBackground(new Color(165,19,29));
+                                                jTableCERTIFICATES.getTableHeader().setForeground(new Color(255,255,255));
+                                                jTableCERTIFICATES.getRowHeight(20);
                                                 
 
-                                                DefaultTableCellRenderer renderer = (DefaultTableCellRenderer)  jTable.getTableHeader().getDefaultRenderer();
+                                                DefaultTableCellRenderer renderer = (DefaultTableCellRenderer)  jTableCERTIFICATES.getTableHeader().getDefaultRenderer();
                                                 renderer.setHorizontalAlignment(SwingConstants.CENTER);
-//                                                DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
-//                                                rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
-//                                                jTable.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
 
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(1));
-                                                 jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
-                                                jTable.removeColumn(jTable.getColumnModel().getColumn(2));
+
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(1));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(1));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(1));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(1));
+                                                 jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
+                                                jTableCERTIFICATES.removeColumn(jTableCERTIFICATES.getColumnModel().getColumn(2));
                                                 
                                                //  jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
-                                                 jTable.getColumnModel().getColumn(1).setPreferredWidth(300);
+                                                 jTableCERTIFICATES.getColumnModel().getColumn(1).setPreferredWidth(300);
                                                  
                                                  
-                                                 TableColumn col = jTable.getColumnModel().getColumn(0);
+                                                 TableColumn col = jTableCERTIFICATES.getColumnModel().getColumn(0);
                                                     DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();  
                                                     dtcr.setHorizontalAlignment(SwingConstants.CENTER);
                                                     col.setCellRenderer(dtcr);
@@ -395,7 +324,7 @@ public class Certificates_JHS extends javax.swing.JFrame {
    public void LoadSearchData(){
            try {
                String name="%"+this.search.getText()+"%";
-               DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+               DefaultTableModel model =  (DefaultTableModel)jTableCERTIFICATES.getModel() ;
                int col;
                Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
@@ -488,7 +417,7 @@ public class Certificates_JHS extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
+        jTableCERTIFICATES = new javax.swing.JTable();
         jPanel10 = new javax.swing.JPanel();
         search = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
@@ -1009,7 +938,7 @@ public class Certificates_JHS extends javax.swing.JFrame {
                 .addComponent(CLEAR2)
                 .addGap(18, 18, 18)
                 .addComponent(CLEAR)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1063,9 +992,9 @@ public class Certificates_JHS extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable.setBackground(new java.awt.Color(244, 241, 233));
-        jTable.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCERTIFICATES.setBackground(new java.awt.Color(244, 241, 233));
+        jTableCERTIFICATES.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jTableCERTIFICATES.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
@@ -1094,19 +1023,19 @@ public class Certificates_JHS extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable.setFocusable(false);
-        jTable.setRequestFocusEnabled(false);
-        jTable.setRowHeight(25);
-        jTable.setSelectionBackground(new java.awt.Color(43, 70, 60));
-        jTable.setSelectionForeground(new java.awt.Color(244, 241, 233));
-        jTable.setShowVerticalLines(false);
-        jTable.getTableHeader().setReorderingAllowed(false);
-        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableCERTIFICATES.setFocusable(false);
+        jTableCERTIFICATES.setRequestFocusEnabled(false);
+        jTableCERTIFICATES.setRowHeight(25);
+        jTableCERTIFICATES.setSelectionBackground(new java.awt.Color(43, 70, 60));
+        jTableCERTIFICATES.setSelectionForeground(new java.awt.Color(244, 241, 233));
+        jTableCERTIFICATES.setShowVerticalLines(false);
+        jTableCERTIFICATES.getTableHeader().setReorderingAllowed(false);
+        jTableCERTIFICATES.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableMouseClicked(evt);
+                jTableCERTIFICATESMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(jTable);
+        jScrollPane3.setViewportView(jTableCERTIFICATES);
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1161,19 +1090,19 @@ public class Certificates_JHS extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(233, 233, 233)
-                        .addComponent(jLabel25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1355,10 +1284,10 @@ public class Certificates_JHS extends javax.swing.JFrame {
        NAME.setCaretPosition(position);
     }//GEN-LAST:event_NAMEKeyReleased
 
-    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+    private void jTableCERTIFICATESMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCERTIFICATESMouseClicked
 
-        DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-        int selecIndex = jTable.getSelectedRow();
+        DefaultTableModel model2 =  (DefaultTableModel)jTableCERTIFICATES.getModel() ;
+        int selecIndex = jTableCERTIFICATES.getSelectedRow();
       
 
 //        SCHOOLYEARS.setText(model2.getValueAt(selecIndex, 1).toString());
@@ -1376,7 +1305,7 @@ public class Certificates_JHS extends javax.swing.JFrame {
         
         GRADES.setText(model2.getValueAt(selecIndex, 27).toString());
 //        TRACK.setText(model2.getValueAt(selecIndex, 28).toString());
-    }//GEN-LAST:event_jTableMouseClicked
+    }//GEN-LAST:event_jTableCERTIFICATESMouseClicked
 
     private void HeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HeActionPerformed
         // TODO add your handling code here:
@@ -1843,7 +1772,7 @@ public class Certificates_JHS extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable;
+    private javax.swing.JTable jTableCERTIFICATES;
     private javax.swing.JComboBox pres;
     private javax.swing.JComboBox presposistion;
     private javax.swing.JFormattedTextField psy;

@@ -5,6 +5,8 @@
  */
 package dcaa_registrar2;
 
+import trials.StudentFrame2;
+import trials.suggestions;
 import com.mysql.cj.jdbc.Blob;
 import dcaa_registrar2.Add_Records.STUDENT;
 import java.awt.Color;
@@ -516,14 +518,6 @@ File filed;
         STUDENTNAMES = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        SAVE = new javax.swing.JButton();
-        UPDATE = new javax.swing.JButton();
-        DELETE = new javax.swing.JButton();
-        CLEAR = new javax.swing.JButton();
-        DOWNLOAD = new javax.swing.JButton();
-        MORAL = new javax.swing.JButton();
-        ENROLL = new javax.swing.JButton();
-        HONORABLE = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -800,148 +794,15 @@ File filed;
         jPanel4.setBackground(new java.awt.Color(244, 241, 233));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, java.awt.Color.red));
 
-        SAVE.setBackground(new java.awt.Color(51, 51, 51));
-        SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/default.png"))); // NOI18N
-        SAVE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        SAVE.setFocusPainted(false);
-        SAVE.setRolloverEnabled(true);
-        SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/hover.png"))); // NOI18N
-        SAVE.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/hover.png"))); // NOI18N
-        SAVE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SAVEActionPerformed(evt);
-            }
-        });
-
-        UPDATE.setBackground(new java.awt.Color(51, 51, 51));
-        UPDATE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/default.png"))); // NOI18N
-        UPDATE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        UPDATE.setFocusPainted(false);
-        UPDATE.setRolloverEnabled(true);
-        UPDATE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/hover.png"))); // NOI18N
-        UPDATE.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/hover.png"))); // NOI18N
-        UPDATE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UPDATEActionPerformed(evt);
-            }
-        });
-
-        DELETE.setBackground(new java.awt.Color(51, 51, 51));
-        DELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DELETE/default.png"))); // NOI18N
-        DELETE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        DELETE.setFocusPainted(false);
-        DELETE.setRolloverEnabled(true);
-        DELETE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DELETE/hover.png"))); // NOI18N
-        DELETE.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DELETE/hover.png"))); // NOI18N
-        DELETE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DELETEActionPerformed(evt);
-            }
-        });
-
-        CLEAR.setBackground(new java.awt.Color(51, 51, 51));
-        CLEAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/CLEAR/default.png"))); // NOI18N
-        CLEAR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        CLEAR.setFocusPainted(false);
-        CLEAR.setRolloverEnabled(true);
-        CLEAR.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/CLEAR/hover.png"))); // NOI18N
-        CLEAR.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/CLEAR/hover.png"))); // NOI18N
-        CLEAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CLEARActionPerformed(evt);
-            }
-        });
-
-        DOWNLOAD.setBackground(new java.awt.Color(51, 51, 51));
-        DOWNLOAD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Download/default.png"))); // NOI18N
-        DOWNLOAD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        DOWNLOAD.setFocusPainted(false);
-        DOWNLOAD.setRolloverEnabled(true);
-        DOWNLOAD.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Download/hover.png"))); // NOI18N
-        DOWNLOAD.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Download/hover.png"))); // NOI18N
-        DOWNLOAD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DOWNLOADActionPerformed(evt);
-            }
-        });
-
-        MORAL.setBackground(new java.awt.Color(51, 51, 51));
-        MORAL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/GOOD MORAL/default.png"))); // NOI18N
-        MORAL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        MORAL.setFocusPainted(false);
-        MORAL.setRolloverEnabled(true);
-        MORAL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/GOOD MORAL/hover.png"))); // NOI18N
-        MORAL.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/GOOD MORAL/hover.png"))); // NOI18N
-        MORAL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MORALActionPerformed(evt);
-            }
-        });
-
-        ENROLL.setBackground(new java.awt.Color(51, 51, 51));
-        ENROLL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Enrollment/default.png"))); // NOI18N
-        ENROLL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        ENROLL.setFocusPainted(false);
-        ENROLL.setRolloverEnabled(true);
-        ENROLL.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Enrollment/hover.png"))); // NOI18N
-        ENROLL.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Enrollment/hover.png"))); // NOI18N
-        ENROLL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ENROLLActionPerformed(evt);
-            }
-        });
-
-        HONORABLE.setBackground(new java.awt.Color(51, 51, 51));
-        HONORABLE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DISMISSAL/default.png"))); // NOI18N
-        HONORABLE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        HONORABLE.setFocusPainted(false);
-        HONORABLE.setRolloverEnabled(true);
-        HONORABLE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DISMISSAL/hover.png"))); // NOI18N
-        HONORABLE.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DISMISSAL/hover.png"))); // NOI18N
-        HONORABLE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HONORABLEActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(SAVE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UPDATE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DELETE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DOWNLOAD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CLEAR)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MORAL)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ENROLL)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HONORABLE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 292, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(HONORABLE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ENROLL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MORAL, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(DOWNLOAD, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CLEAR, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DELETE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UPDATE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 72, Short.MAX_VALUE)
         );
 
         jPanel9.setBackground(new java.awt.Color(43, 70, 60));
@@ -1074,12 +935,12 @@ File filed;
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(278, 278, 278))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1116,67 +977,6 @@ File filed;
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private void DOWNLOADActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DOWNLOADActionPerformed
-
-         if (verifyText()) {
-            
-         DefaultTableModel model2 =  (DefaultTableModel)jTable1.getModel() ;
-         int selecIndex = jTable1.getSelectedRow();
-         int row = jTable1.getSelectedRow();
-         int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
-         String tc = jTable1.getModel().getValueAt(row, 0).toString();
-         
-               try {
-            
-            
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-            PreparedStatement ps;
-            ps=Mycon.prepareStatement("SELECT * from insert_data_file where  file_id="+tc+" ");
-            
-                   if (verifyText()) 
-                   {
-                        rs = ps.executeQuery();                    
-			System.out.println("Following flies are downloaded from database..");
-
-			while (rs.next()) {
-
-				int fileId = rs.getInt("file_id");
-				String fileName = rs.getString("file_name");
-				long fileSizeInKb = rs.getLong("file_size_in_kb");
-				String fileExtension = rs.getString("file_extension");
-				System.out.println("File Id:"+fileId);
-				System.out.println("File Name:"+fileName);
-				System.out.println("File Size In KB:"+fileSizeInKb);
-				System.out.println("File Extension:"+fileExtension);
-				
-				Blob blob = (Blob) rs.getBlob("file_content");
-				InputStream inputStream = blob.getBinaryStream();
-				
-				System.out.println("-----------------------------------");
-                                String home = System.getProperty("user.home");
-                                File filed = new File(home+"/Downloads/" + fileName);         
-                                Files.copy(inputStream, Paths.get(filed + fileName));
-			}
-
-                table_update_files();
-//                schoolyr.setSelectedIndex(-1);
-                STUDENTNAME.setText("");
-                file_text.setText("");
-                JOptionPane.showMessageDialog(this, "Successfully Download","Save",JOptionPane.WARNING_MESSAGE);
- 
-                   }
-                
-            
-        }catch (ClassNotFoundException | SQLException  ex) {
-                        Logger.getLogger(Add_Students.class.getName()).log(Level.SEVERE, null, ex);
-        }    catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Already Downloaded");
-                 Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
-             }
-        }
-    }//GEN-LAST:event_DOWNLOADActionPerformed
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
        
          DefaultTableModel model2 =  (DefaultTableModel)jTable1.getModel() ;
@@ -1206,24 +1006,6 @@ File filed;
         // TODO add your handling code here:
     }//GEN-LAST:event_file_textKeyReleased
 
-    private void CLEARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEARActionPerformed
-
-    }//GEN-LAST:event_CLEARActionPerformed
-
-    private void MORALActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MORALActionPerformed
-      
-    }//GEN-LAST:event_MORALActionPerformed
-
-    private void ENROLLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENROLLActionPerformed
-
-     
-    }//GEN-LAST:event_ENROLLActionPerformed
-
-    private void HONORABLEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HONORABLEActionPerformed
-
-       
-    }//GEN-LAST:event_HONORABLEActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         JFileChooser jfchoose = new JFileChooser();
@@ -1239,225 +1021,6 @@ File filed;
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
-
-         if (verifyText()) {
-         
-//         SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
-         STUDENT stud = (STUDENT)STUDENTNAMES.getSelectedItem();
-        // String name = STUDENTNAME.getText();
-         
-         DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd");
-         LocalDateTime now= LocalDateTime.now();
-         String timestamp = dtf.format(now);
-             
-             
-              try {
-
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                    PreparedStatement ps = null;
-                    ps=Mycon.prepareStatement("INSERT INTO insert_data_file ( enrolled_students_id,file_name, file_size_in_kb, file_extension, file_content, timestamp)VALUES(?,?,?,?,?,?)");
-
-                            
-                    if (verifyText()) {
-                      
-                        
-                        
-                         
-                                filed = new File (path);
-                                
-                                System.out.println("Following files are saved in database..");                 		
-				System.out.println(filed.getName());
-
-				String fileName = filed.getName();
-                                
-				long fileLength =filed.length();
-                                
-				long fileLengthInKb=fileLength/1024;
-				
-//                                ps.setInt(1, sy.id);
-                                ps.setInt(1, stud.id);
-                                //ps.setString(2, none); 
-				ps.setString(2, fileName);                               
-				ps.setLong(3, fileLengthInKb);				
-				ps.setString(4, fileName.substring(fileName.lastIndexOf(".")+1));			
-				FileInputStream fis = new FileInputStream(filed);
-				ps.setBinaryStream(5, fis, fileLength);
-                                ps.setString(6,timestamp);
-                                ps.execute();
-                                
-                                table_update_files();
-//                                schoolyr.setSelectedIndex(-1);
-                                STUDENTNAME.setText("Last Name, Full Name Middle Name");
-                                file_text.setText("");
-                                
-                                JOptionPane.showMessageDialog(this, "Successfully Save","Save",JOptionPane.WARNING_MESSAGE);     
-                                
-			System.out.println("----------------------------------------");
-                        System.out.println("");
-                        
-                        
-                        
-                        
-                  }
-		} catch (IOException e) {
-			e.printStackTrace();
-                        JOptionPane.showMessageDialog(this, e,"ERROR",  JOptionPane.ERROR_MESSAGE);
-		} catch (SQLException ex) {
-                     JOptionPane.showMessageDialog(this, ex,"ERROR",  JOptionPane.ERROR_MESSAGE);
-                     Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
-                     JOptionPane.showMessageDialog(this, ex,"ERROR",  JOptionPane.ERROR_MESSAGE);
-                     Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
-                }
-        }
-    }//GEN-LAST:event_SAVEActionPerformed
-
-    private void UPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATEActionPerformed
-
-        
-        try {
-                
-            
-            
-             if (verifyText()) {
-            
-            
-             
-         DefaultTableModel model2 =  (DefaultTableModel)jTable1.getModel() ;
-         int selecIndex= jTable1.getSelectedRow();
-
-         int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
-         
-
-         
-        STUDENT stud =  (STUDENT)  STUDENTNAMES.getSelectedItem();
-       
-        
-                
-                      try {
-              
-                
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                PreparedStatement ps;
-                ps=Mycon.prepareStatement("update insert_data_file set enrolled_students_id=?, file_name=?, file_size_in_kb=?, file_extension=?, file_content=? where id=?");
-                
-               
-                 if (verifyText()) {
-                     
-                     
-                            if (path == null) {
-                         
-                                JOptionPane.showMessageDialog(this, "Error");
-                     } else {
-                                    
-                               filed = new File (path);
-                                System.out.println("Following files are saved in database..");                 		
-				System.out.println(filed.getName());
-
-				String fileName = filed.getName();
-                                
-				long fileLength =filed.length();
-                                
-				long fileLengthInKb=fileLength/1024;
-				
-                               // ps.setInt(1, sy.id);
-                                ps.setInt(1, stud.id);
-				ps.setString(2, fileName);                               
-				ps.setLong(3, fileLengthInKb);				
-				ps.setString(4, fileName.substring(fileName.lastIndexOf(".")+1));
-				
-				FileInputStream fis = new FileInputStream(filed);
-				ps.setBinaryStream(5, fis, fileLength);
-                                
-                                
-                                ps.setInt(6,id);
-
-                                ps.executeUpdate();
-                                table_update_files();
-                               
-                                STUDENTNAMES.setSelectedIndex(-1);
-                                file_text.setText("");
-
-                    JOptionPane.showMessageDialog(null, "Student Successfully Updated");
-
-                            }
-                    
-           
-                               
-                               
-                 }
-            } catch (ClassNotFoundException | SQLException ex) {
-
-                JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-                Logger.getLogger(Add_Records.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (FileNotFoundException ex) {
-        Logger.getLogger(Add_Records.class.getName()).log(Level.SEVERE, null, ex);
-    }
-                     
-                     
-                 }
-
-             } catch (HeadlessException | NumberFormatException e) {
-                 
-                 JOptionPane.showMessageDialog(this, "ERROR");
-             }
-         
-        
-                 
-                  
-    
-         
-         
-           
-    }//GEN-LAST:event_UPDATEActionPerformed
-
-    private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
-         
-        
-        if (verifyText()) {
-            
-            
-         DefaultTableModel model2 =  (DefaultTableModel)jTable1.getModel() ;
-         int selecIndex = jTable1.getSelectedRow();
-         int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
-         int dialogResult = JOptionPane.showConfirmDialog(null, "Do you want to delete the record","Warning",JOptionPane.YES_NO_OPTION);
-         if (dialogResult == JOptionPane.YES_OPTION) 
-         
-         { 
-             
-                 
-                 try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-            PreparedStatement ps;
-            ps=Mycon.prepareStatement("delete from insert_data_file where id=?");
-            ps.setInt(1, id);
-               
-                     if (verifyText()) {
-                         
-                ps.execute();
-//                schoolyr.setSelectedIndex(-1);
-                STUDENTNAME.setText("Last Name, Full Name Middle Name");
-                file_text.setText("");
-                
-                table_update_files();
-                JOptionPane.showMessageDialog(null, "Successfully Deleted");
-                     }
-        }catch (ClassNotFoundException | SQLException  ex) {
-                        Logger.getLogger(Add_Students.class.getName()).log(Level.SEVERE, null, ex);
-        }
- 
-        } else {
-             
-             JOptionPane.showMessageDialog(null, "Then please Proceed");
-             
-        }                   
-        } 
-    }//GEN-LAST:event_DELETEActionPerformed
 
     private void jTable1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseEntered
         // TODO add your handling code here:
@@ -1508,7 +1071,7 @@ File filed;
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
-          StudentFrame z=new StudentFrame();
+          StudentFrame2 z=new StudentFrame2();
                     this.hide();
                     z.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
@@ -1553,16 +1116,8 @@ File filed;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CLEAR;
-    private javax.swing.JButton DELETE;
-    private javax.swing.JButton DOWNLOAD;
-    private javax.swing.JButton ENROLL;
-    private javax.swing.JButton HONORABLE;
-    private javax.swing.JButton MORAL;
-    private javax.swing.JButton SAVE;
     private javax.swing.JLabel STUDENTNAME;
     private javax.swing.JComboBox STUDENTNAMES;
-    private javax.swing.JButton UPDATE;
     private javax.swing.JTextField file_text;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

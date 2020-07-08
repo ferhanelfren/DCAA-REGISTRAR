@@ -5,6 +5,8 @@
  */
 package dcaa_registrar2;
 
+import trials.StudentFrame2;
+
 /**
  *
  * @author GOD
@@ -112,7 +114,7 @@ public class Shs_Jhs extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
-        StudentFrame z=new StudentFrame();
+        StudentFrame2 z=new StudentFrame2();
                     this.hide();
                     z.setVisible(true);
     }//GEN-LAST:event_formWindowClosing

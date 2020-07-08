@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dcaa_registrar2;
+package trials;
 
 import com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException;
 import java.awt.Color;

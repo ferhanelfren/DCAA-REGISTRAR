@@ -61,7 +61,7 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
                                            ResultSet rs = ps.executeQuery();
                                             ResultSetMetaData rsd=rs.getMetaData();
                                                 c = rsd.getColumnCount();            
-                                                DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+                                                DefaultTableModel model =  (DefaultTableModel)jTableSchoolVice.getModel() ;
                                                 
                                             model.setRowCount(0);
                                                 while (rs.next()) 
@@ -88,18 +88,18 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
        {
            
             
-                                                jTable.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,15));
-                                                jTable.getTableHeader().setOpaque(false);
-                                                jTable.getTableHeader().setBackground(new Color(165,19,29));
-                                                jTable.getTableHeader().setForeground(new Color(255,255,255));
-                                                jTable.getRowHeight(20);
+                                                jTableSchoolVice.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,15));
+                                                jTableSchoolVice.getTableHeader().setOpaque(false);
+                                                jTableSchoolVice.getTableHeader().setBackground(new Color(165,19,29));
+                                                jTableSchoolVice.getTableHeader().setForeground(new Color(255,255,255));
+                                                jTableSchoolVice.getRowHeight(20);
                                                 DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
                                                 rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
 
-                                                jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
-                                                jTable.getColumnModel().getColumn(3).setPreferredWidth(10);
+                                                jTableSchoolVice.getColumnModel().getColumn(0).setPreferredWidth(10);
+                                                jTableSchoolVice.getColumnModel().getColumn(3).setPreferredWidth(10);
 
-                                                 TableColumn col = jTable.getColumnModel().getColumn(0);
+                                                 TableColumn col = jTableSchoolVice.getColumnModel().getColumn(0);
                                                     DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();  
                                                     dtcr.setHorizontalAlignment(SwingConstants.CENTER);
                                                     col.setCellRenderer(dtcr);
@@ -133,7 +133,7 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
       public void LoadSearchData(){
            try {
                String name="%"+this.txt.getText()+"%";
-               DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+               DefaultTableModel model =  (DefaultTableModel)jTableSchoolVice.getModel() ;
                int col;
                Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
@@ -173,7 +173,7 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
         jPanel20 = new javax.swing.JPanel();
         NAME = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
+        jTableSchoolVice = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
@@ -362,7 +362,7 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTableSchoolVice.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -385,12 +385,12 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableSchoolVice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableMouseClicked(evt);
+                jTableSchoolViceMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable);
+        jScrollPane1.setViewportView(jTableSchoolVice);
 
         jPanel3.setBackground(new java.awt.Color(43, 70, 60));
 
@@ -655,8 +655,8 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
             
             if (verifyText()) {
                 
-        DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-        int selecIndex= jTable.getSelectedRow();
+        DefaultTableModel model2 =  (DefaultTableModel)jTableSchoolVice.getModel() ;
+        int selecIndex= jTableSchoolVice.getSelectedRow();
         
         int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
                 
@@ -733,8 +733,8 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
                 
                  try {
                 
-         DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-        int selecIndex = jTable.getSelectedRow();
+         DefaultTableModel model2 =  (DefaultTableModel)jTableSchoolVice.getModel() ;
+        int selecIndex = jTableSchoolVice.getSelectedRow();
         int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
@@ -794,9 +794,9 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_STATUSKeyReleased
 
-    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
-        DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-      int selecIndex = jTable.getSelectedRow();
+    private void jTableSchoolViceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSchoolViceMouseClicked
+        DefaultTableModel model2 =  (DefaultTableModel)jTableSchoolVice.getModel() ;
+      int selecIndex = jTableSchoolVice.getSelectedRow();
       //SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
      
         
@@ -811,7 +811,7 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
             Female.setSelected(true);
             Male.setSelected(false);
         }
-    }//GEN-LAST:event_jTableMouseClicked
+    }//GEN-LAST:event_jTableSchoolViceMouseClicked
 
     private void NAMEKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NAMEKeyReleased
        
@@ -822,7 +822,7 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
-         AdminFrame z=new AdminFrame();
+         AdminFrame3 z=new AdminFrame3();
                     this.hide();
                     z.setVisible(true);
                         
@@ -889,7 +889,7 @@ public class Add_School_VicePresident extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable;
+    private javax.swing.JTable jTableSchoolVice;
     private javax.swing.JTextField txt;
     // End of variables declaration//GEN-END:variables
 }
