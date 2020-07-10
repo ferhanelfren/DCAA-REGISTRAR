@@ -1,1 +1,1 @@
-select count(*) from enrolled_students where track = 'ABM';
+SELECT * FROM dcaa_registrar.enrolled_students;

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="936" whenNoDataType="AllSectionsNoDetail" columnWidth="468" leftMargin="72" rightMargin="72" topMargin="144" bottomMargin="72" uuid="5f422c5e-aae4-4e41-a315-14634dedf0f0">
+	<property name="ireport.zoom" value="1.7715610000000055"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="588"/>
+	<parameter name="name" class="java.lang.String"/>
+	<parameter name="posistion1" class="java.lang.String"/>
+	<parameter name="trak" class="java.lang.String"/>
+	<parameter name="sy" class="java.lang.String"/>
+	<parameter name="genders" class="java.lang.String"/>
+	<parameter name="schoolregistrar" class="java.lang.String"/>
+	<parameter name="lrn" class="java.lang.String"/>
+	<parameter name="grade" class="java.lang.String"/>
+	<parameter name="president" class="java.lang.String"/>
+	<parameter name="section" class="java.lang.String"/>
+	<parameter name="future sy" class="java.lang.String"/>
+	<parameter name="vp" class="java.lang.String"/>
+	<parameter name="position2" class="java.lang.String"/>
+	<parameter name="position3" class="java.lang.String"/>
+	<parameter name="schoolpresident" class="java.lang.String"/>
+	<parameter name="regsisposisiton" class="java.lang.String"/>
+	<parameter name="presiposisitons" class="java.lang.String"/>
+	<parameter name="regpos" class="java.lang.String"/>
+	<parameter name="prespos" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="468" height="39" uuid="daadc3e3-ad72-45cb-886b-1449b766e44a"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Calibri" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATE OF ENROLMENT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="166" splitType="Stretch">
+			<staticText>
+				<reportElement x="58" y="-171" width="388" height="32" uuid="a3f7ed63-22d5-4737-ab69-87ea3139335c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cooper Black" size="14"/>
+				</textElement>
+				<text><![CDATA[	DIGOS CENTRAL ADVENTIST ACADEMY, INC.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="-136" width="290" height="20" uuid="539adea7-2bd1-456e-94ba-c5119b01b70f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tel. No.: 082-553-3172    Email: dcaaonline@gmail.com]]></text>
+			</staticText>
+			<image>
+				<reportElement x="15" y="-182" width="84" height="86" uuid="e03c120b-20e9-4d4b-a190-dcf07da99597"/>
+				<imageExpression><![CDATA["D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\ICONS\\Untitled-2.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="8" y="-86" width="441" height="1" uuid="a94a901a-b239-466b-85b3-62ec99c3542e"/>
+			</line>
+			<staticText>
+				<reportElement x="99" y="-147" width="346" height="15" uuid="af71a904-6b62-4f6c-8734-6e479b26b385"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Lapu - lapu  Extension,  Digos  City,  Davao  del  Sur  8002  Philippines]]></text>
+			</staticText>
+			<line>
+				<reportElement x="8" y="-84" width="441" height="1" uuid="18be091b-e6c2-4ece-8537-23bda69aee22"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="-43" width="175" height="16" uuid="cdda8cb3-0ba2-49f0-a8ca-ef7194c81e36"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="-27" width="175" height="16" uuid="8da6a6bf-63d4-4c1b-b7b9-3c8c1ac746f7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-45" y="1" width="26" height="123" uuid="7e7840fe-f6f8-4b6e-aed3-1bce24565cf2"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="0" width="46" height="16" uuid="bbd7aa94-91e4-4b00-9eaf-d3b8f2ac97b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[with LRN]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="2" width="92" height="16" uuid="53bb84ef-937a-4e1b-9703-0ed12a401321"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Courier New" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lrn}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="45" width="87" height="16" uuid="433ab952-b3dc-4934-80df-528f357307f2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="192" height="16" uuid="20fa7d36-5c30-4717-bd19-418a40c14872"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[institution for this  Academic  Year]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="351" y="15" width="101" height="16" uuid="ce1ed9d8-a355-4867-a51d-5860f9167d30"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[) in this ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="15" width="100" height="16" uuid="832dd5bf-7625-4262-8bd9-baf7b7642674"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{section}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="194" height="16" uuid="cc11ff59-c697-463e-a020-0bf891ce3df7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="15" width="36" height="16" uuid="e9c32aef-6ec4-487b-8aa0-39b1401543f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{grade}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="207" y="30" width="21" height="16" uuid="c612fa9f-9fc2-4e4a-a184-c2a1d50b7915"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="15" width="49" height="16" uuid="a473dae7-fd14-4595-b31e-7c8a65e73881"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Section:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="273" height="16" uuid="cacbc01c-af27-446c-b9b6-be51e28c1ffd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[is   presently   enrolled   in   Grade  School   (  Grade]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="170" y="30" width="56" height="16" uuid="c6004cec-ddbc-4be2-a9e0-bb423fb0e79a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-20" y="0" width="144" height="16" uuid="f13806cd-d675-474e-a64d-1551eacfc05a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[	This is to certify that]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="75" width="269" height="16" uuid="a416a648-52bb-4eda-8307-6e1f040b9d43"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[desire to  enroll  in  your  institution  this  coming  S.Y.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="120" width="452" height="16" uuid="fc74d3af-6b09-421f-bbce-6a3cdc78c104"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[his/her stay  in  this  school  on  the  above  specified  period.]]></text>
+			</staticText>
+			<textField pattern="dd  MMMMM  yyyy">
+				<reportElement x="80" y="150" width="87" height="16" uuid="7362af12-1b8f-4ce2-a12e-68f2a2a9a054"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-19" y="105" width="494" height="16" uuid="bfff76ad-45a6-4596-acf4-3002b7ba4d7e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[	This certifies  further  that  he/she  was  not  subjected  to  any  disciplanry action  during ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-19" y="60" width="494" height="16" uuid="6baac1bc-d8e6-423c-ae77-14d9349addab"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[	This  certification  is  issued  upon  the  request  of  the  above-named student for his/her]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="135" width="87" height="16" uuid="2dcb3784-ee34-450a-8343-531d0de0e4d9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="258" y="75" width="68" height="16" uuid="95bb3037-f47f-47ba-8c27-dbaa89fc954f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{future sy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="308" y="75" width="13" height="16" uuid="b81ca475-760c-4349-b1a8-388950474fdd"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-19" y="150" width="107" height="16" uuid="b9998e84-a4b1-4882-893e-96c63f01084b"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[	Issued   this ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="90" width="87" height="16" uuid="57b63617-cd42-4607-8535-64531af11911"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="150" width="310" height="16" uuid="f6205272-9b82-48ce-a457-26683d8a88be"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[at  Digos  Central  Adventist  Academy,  Inc.,  Lapu-Lapu Ex-]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="256" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="14" width="98" height="16" uuid="88ffa7f1-1ab7-4c1c-996c-476eac8355aa"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="-1" width="442" height="16" uuid="ac159847-a096-4f21-a9ab-57615a0c2b27"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<text><![CDATA[tension, Brgy. Zone 3,  Digos  City,  Davao  del  Sur  8002,  Philippines.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="77" width="292" height="20" uuid="1164ec05-0277-414d-ae5d-6ba86743dfc6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{regpos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="60" width="219" height="20" uuid="7058f562-fbe8-45b2-b9be-28faf84d3f13"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{schoolregistrar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="44" width="98" height="16" uuid="aba04a02-3193-4a39-9285-a3affe955e0d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="29" width="98" height="16" uuid="73bec71d-c1da-46ce-8f52-d89dd2a35e79"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="74" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="291" height="16" uuid="3f2a7891-59cf-4083-b580-9c30b9231aad"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[NOT VALID WITHOUT SCHOOL SEAL]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="2" width="451" height="1" uuid="f9d01cfe-c9cd-4bb7-84c8-d8ca330ea6fe"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="3" width="451" height="20" uuid="565c473f-aa5b-4a96-812f-868c7ec0d36a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gov’t Recognition No. 001 s. 2014 (Kindergarten) I Gov’t Recognition No. 018 s. 1989 (Elementary)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="17" width="451" height="20" uuid="9285b965-41ec-4142-bfb2-1ac888a80d4b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gov’t Recognition No. 001 s. 2015 (Junior High School) I Gov’t Permit No. 062 s. 2015 (Senior High School)]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

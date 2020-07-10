@@ -240,7 +240,7 @@ public void SomeWindow() {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("User Profile");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -698,9 +698,9 @@ public void SomeWindow() {
         
        JOptionPane.showMessageDialog(this, " Unable to Close : " + "\n Please Log out Before you Leave   ","Message", JOptionPane.WARNING_MESSAGE);
         
-//        Mainframe m = new Mainframe();
-//        this.hide();
-//        m.setVisible(true);
+        ProfileFrame m = new ProfileFrame();
+        this.dispose();
+        m.setVisible(true);
 
     }//GEN-LAST:event_formWindowClosing
 
@@ -812,14 +812,15 @@ public void SomeWindow() {
          {
              
              Login l = new Login();
-             this.hide();
+             this.dispose();
              l.setVisible(true);
-             dispose();
+             
              
              
          } else {
           
             Mainframe m = new Mainframe();
+            this.dispose();
             m.setVisible(true);
         }
     }//GEN-LAST:event_jButton6ActionPerformed

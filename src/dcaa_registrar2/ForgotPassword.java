@@ -244,6 +244,11 @@ public class ForgotPassword extends javax.swing.JFrame {
         jButton3.setBorder(null);
         jButton3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/forgot/back/hover.png"))); // NOI18N
         jButton3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/forgot/back/hover.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -346,8 +351,8 @@ public class ForgotPassword extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         
-        if (verifyText()) 
-        {
+//        if (verifyText()) 
+//        {
                                 String emailname=email.getText();
 
 
@@ -361,7 +366,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                               ps.setString(1, emailname);
                               ResultSet rs= ps.executeQuery();
 
-                                  if (verifyText()) {
+                                 // if (verifyText()) {
 
                                         if (rs.next() == false) {
                                       JOptionPane.showMessageDialog(null, "Email does not Exist");
@@ -373,20 +378,20 @@ public class ForgotPassword extends javax.swing.JFrame {
                                       question.setText(ques.trim());
 
                                   }
-                                  }  
+                                //  }  
                           } catch (ClassNotFoundException  ex) {
                               Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
                           }catch ( SQLException ex) {
                               Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
                           }
-        }
+//        }
  
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        if (verifyText()) 
-        {
+//        if (verifyText()) 
+//        {
                             String ans =answers.getText();
 
 
@@ -436,7 +441,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                         }catch ( SQLException ex) {
                                         Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
                         }
-        }
+//        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -446,6 +451,13 @@ public class ForgotPassword extends javax.swing.JFrame {
        l.setVisible(true);
         
     }//GEN-LAST:event_formWindowClosing
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        Login l = new Login();
+        this.dispose();
+        l.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
        
     

@@ -815,7 +815,7 @@ public void SomeWindow() {
          public boolean verifyText_SHS()
     {
         
-       if ( TRACK1.getText().equals("")  ||  psy1.getText().equals("") || csy1.getText().equals("") || lrnno1.getText().equals("") || NAME1.getText().equals("") || GRADES1.getText().equals("") || sectioNs1.getSelectedItem().equals("") || registrar1.getSelectedItem().equals("") || regesposition1.getSelectedItem().equals("") || pres1.getSelectedItem().equals("") || presposistion1.getSelectedItem().equals("") || vpresident1.getSelectedItem().equals("") )
+       if ( TRACKSH.getText().equals("")  ||  psySH.getText().equals("") || csySH.getText().equals("") || lrnnoSH.getText().equals("") || NAMESH.getText().equals("") || GRADESSH.getText().equals("") || sectioNsSH.getSelectedItem().equals("") || registrarSH.getSelectedItem().equals("") || regespositionSH.getSelectedItem().equals("") || presSH.getSelectedItem().equals("") || presposistionSH.getSelectedItem().equals("") || vpresidentSH.getSelectedItem().equals("") )
 
           {
             JOptionPane.showMessageDialog(this," Unable to Generate Certificate" + "\n Please fill the Necessary Empty Fields");
@@ -955,7 +955,7 @@ public void SomeWindow() {
          public boolean verifyTextCertificatesJHS()
     {
         
-       if ( psy.getText().equals("") || csy.getText().equals("") || lrnno.getText().equals("") || studename.getText().equals("") || GRDAESLEVELS.getText().equals("") || sectioNs.getSelectedItem().equals("") || registrar.getSelectedItem().equals("") || regesposition.getSelectedItem().equals("") || pres.getSelectedItem().equals("") || presposistion.getSelectedItem().equals("") || vpresident.getSelectedItem().equals("") )
+       if ( psyJH.getText().equals("") || csyJH.getText().equals("") || lrnnoJH.getText().equals("") || studenameJH.getText().equals("") || GRDAESLEVELSJH.getText().equals("") || sectioNsJH.getSelectedItem().equals("") || registrarJH.getSelectedItem().equals("") || regespositionJH.getSelectedItem().equals("") || presJH.getSelectedItem().equals("") || presposistionJH.getSelectedItem().equals("") || vpresidentJH.getSelectedItem().equals("") )
 
           {
             JOptionPane.showMessageDialog(this," Unable to Generate Certificate" + "\n Please fill the Necessary Empty Fields");
@@ -979,12 +979,12 @@ public void SomeWindow() {
                 PreparedStatement ps;
                 ps=Mycon.prepareStatement("select * from sections");
                 ResultSet rs= ps.executeQuery();
-                sectioNs.removeAllItems();
-                sectioNs1.removeAllItems();
+                sectioNsJH.removeAllItems();
+                sectioNsSH.removeAllItems();
                 while (rs.next())
                 {             
-                     sectioNs.addItem(new Section(rs.getInt(1),rs.getString(2)));
-                     sectioNs1.addItem(new Section(rs.getInt(1),rs.getString(2)));
+                     sectioNsJH.addItem(new Section(rs.getInt(1),rs.getString(2)));
+                     sectioNsSH.addItem(new Section(rs.getInt(1),rs.getString(2)));
                 }
             }catch (ClassNotFoundException | SQLException  ex) {
                  // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1001,16 +1001,16 @@ public void SomeWindow() {
                 PreparedStatement ps;
                 ps=Mycon.prepareStatement("select * from school_president_director");
                 ResultSet rs= ps.executeQuery();
-                pres.removeAllItems();
-                presposistion.removeAllItems();
-                pres1.removeAllItems();
-                presposistion1.removeAllItems();
+                presJH.removeAllItems();
+                presposistionJH.removeAllItems();
+                presSH.removeAllItems();
+                presposistionSH.removeAllItems();
                 while (rs.next())
                 {             
-                     pres.addItem(new President(rs.getInt(1),rs.getString(2)));    
-                     presposistion.addItem(new President(rs.getInt(1),rs.getString(3))); 
-                     pres1.addItem(new President(rs.getInt(1),rs.getString(2)));    
-                     presposistion1.addItem(new President(rs.getInt(1),rs.getString(3)));
+                     presJH.addItem(new President(rs.getInt(1),rs.getString(2)));    
+                     presposistionJH.addItem(new President(rs.getInt(1),rs.getString(3))); 
+                     presSH.addItem(new President(rs.getInt(1),rs.getString(2)));    
+                     presposistionSH.addItem(new President(rs.getInt(1),rs.getString(3)));
                 }
             }catch (ClassNotFoundException | SQLException  ex) {
                  // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1028,16 +1028,16 @@ public void SomeWindow() {
                 PreparedStatement ps;
                 ps=Mycon.prepareStatement("select * from school_registrar_incharge");
                 ResultSet rs= ps.executeQuery();
-                registrar.removeAllItems();
-                regesposition.removeAllItems();
-                registrar1.removeAllItems();
-                regesposition1.removeAllItems();
+                registrarJH.removeAllItems();
+                regespositionJH.removeAllItems();
+                registrarSH.removeAllItems();
+                regespositionSH.removeAllItems();
                 while (rs.next())
                 {             
-                     registrar.addItem(new Section(rs.getInt(1),rs.getString(2)));  
-                     regesposition.addItem(new Section(rs.getInt(1),rs.getString(3)));  
-                     registrar1.addItem(new Section(rs.getInt(1),rs.getString(2)));  
-                     regesposition1.addItem(new Section(rs.getInt(1),rs.getString(3)));
+                     registrarJH.addItem(new Section(rs.getInt(1),rs.getString(2)));  
+                     regespositionJH.addItem(new Section(rs.getInt(1),rs.getString(3)));  
+                     registrarSH.addItem(new Section(rs.getInt(1),rs.getString(2)));  
+                     regespositionSH.addItem(new Section(rs.getInt(1),rs.getString(3)));
                 }
             }catch (ClassNotFoundException | SQLException  ex) {
                  // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1054,16 +1054,16 @@ public void SomeWindow() {
                 PreparedStatement ps;
                 ps=Mycon.prepareStatement("select * from school_vicepresident");
                 ResultSet rs= ps.executeQuery();
-                vpresident.removeAllItems();
-                vpresposisition.removeAllItems();
-                vpresident1.removeAllItems();
-                vpresposisition1.removeAllItems();
+                vpresidentJH.removeAllItems();
+                vpresposisitionJH.removeAllItems();
+                vpresidentSH.removeAllItems();
+                vpresposisitionSH.removeAllItems();
                 while (rs.next())
                 {             
-                     vpresident.addItem(new VPresident(rs.getInt(1),rs.getString(2)));  
-                     vpresposisition.addItem(new VPresident(rs.getInt(1),rs.getString(3))); 
-                     vpresident1.addItem(new VPresident(rs.getInt(1),rs.getString(2)));  
-                     vpresposisition1.addItem(new VPresident(rs.getInt(1),rs.getString(3)));   
+                     vpresidentJH.addItem(new VPresident(rs.getInt(1),rs.getString(2)));  
+                     vpresposisitionJH.addItem(new VPresident(rs.getInt(1),rs.getString(3))); 
+                     vpresidentSH.addItem(new VPresident(rs.getInt(1),rs.getString(2)));  
+                     vpresposisitionSH.addItem(new VPresident(rs.getInt(1),rs.getString(3)));   
                 }
             }catch (ClassNotFoundException | SQLException  ex) {
                  // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1232,33 +1232,33 @@ public void SomeWindow() {
         searchcertificatesJHS = new javax.swing.JTextField();
         jPanel33 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        csy = new javax.swing.JFormattedTextField();
-        psy = new javax.swing.JFormattedTextField();
+        csyJH = new javax.swing.JFormattedTextField();
+        psyJH = new javax.swing.JFormattedTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-        sectioNs = new javax.swing.JComboBox();
+        sectioNsJH = new javax.swing.JComboBox();
         jPanel48 = new javax.swing.JPanel();
-        lrnno = new javax.swing.JTextField();
+        lrnnoJH = new javax.swing.JTextField();
         jPanel50 = new javax.swing.JPanel();
-        studename = new javax.swing.JTextField();
+        studenameJH = new javax.swing.JTextField();
         jPanel51 = new javax.swing.JPanel();
-        GRDAESLEVELS = new javax.swing.JTextField();
+        GRDAESLEVELSJH = new javax.swing.JTextField();
         jPanel52 = new javax.swing.JPanel();
         jLabel57 = new javax.swing.JLabel();
-        registrar = new javax.swing.JComboBox();
-        presposistion = new javax.swing.JComboBox();
+        registrarJH = new javax.swing.JComboBox();
+        presposistionJH = new javax.swing.JComboBox();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
-        pres = new javax.swing.JComboBox();
+        presJH = new javax.swing.JComboBox();
         jLabel60 = new javax.swing.JLabel();
-        vpresident = new javax.swing.JComboBox();
+        vpresidentJH = new javax.swing.JComboBox();
         jLabel61 = new javax.swing.JLabel();
-        vpresposisition = new javax.swing.JComboBox();
+        vpresposisitionJH = new javax.swing.JComboBox();
         jLabel62 = new javax.swing.JLabel();
-        regesposition = new javax.swing.JComboBox();
+        regespositionJH = new javax.swing.JComboBox();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTableCERTIFICATES = new javax.swing.JTable();
         jPanel62 = new javax.swing.JPanel();
@@ -1273,41 +1273,42 @@ public void SomeWindow() {
         jTableCERTIFICATESSHS = new javax.swing.JTable();
         jPanel55 = new javax.swing.JPanel();
         jLabel65 = new javax.swing.JLabel();
-        csy1 = new javax.swing.JFormattedTextField();
-        psy1 = new javax.swing.JFormattedTextField();
+        csySH = new javax.swing.JFormattedTextField();
+        psySH = new javax.swing.JFormattedTextField();
         jLabel66 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
         jLabel69 = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
-        sectioNs1 = new javax.swing.JComboBox();
+        sectioNsSH = new javax.swing.JComboBox();
         jPanel56 = new javax.swing.JPanel();
-        lrnno1 = new javax.swing.JTextField();
+        lrnnoSH = new javax.swing.JTextField();
         jPanel57 = new javax.swing.JPanel();
-        NAME1 = new javax.swing.JTextField();
+        NAMESH = new javax.swing.JTextField();
         jPanel58 = new javax.swing.JPanel();
-        GRADES1 = new javax.swing.JTextField();
+        GRADESSH = new javax.swing.JTextField();
         jPanel59 = new javax.swing.JPanel();
         jLabel71 = new javax.swing.JLabel();
-        registrar1 = new javax.swing.JComboBox();
-        presposistion1 = new javax.swing.JComboBox();
+        registrarSH = new javax.swing.JComboBox();
+        presposistionSH = new javax.swing.JComboBox();
         jLabel72 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
-        pres1 = new javax.swing.JComboBox();
+        presSH = new javax.swing.JComboBox();
         jLabel74 = new javax.swing.JLabel();
-        vpresident1 = new javax.swing.JComboBox();
+        vpresidentSH = new javax.swing.JComboBox();
         jLabel75 = new javax.swing.JLabel();
-        vpresposisition1 = new javax.swing.JComboBox();
+        vpresposisitionSH = new javax.swing.JComboBox();
         jLabel76 = new javax.swing.JLabel();
-        regesposition1 = new javax.swing.JComboBox();
+        regespositionSH = new javax.swing.JComboBox();
         jLabel77 = new javax.swing.JLabel();
         jPanel60 = new javax.swing.JPanel();
-        TRACK1 = new javax.swing.JTextField();
+        TRACKSH = new javax.swing.JTextField();
         jPanel61 = new javax.swing.JPanel();
         CLEAR4 = new javax.swing.JButton();
         HONORABLE1 = new javax.swing.JButton();
         ENROLL1 = new javax.swing.JButton();
         MORAL1 = new javax.swing.JButton();
+        jPanel63 = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1386,7 +1387,7 @@ public void SomeWindow() {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Student");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -2758,7 +2759,7 @@ public void SomeWindow() {
         jPanel27Layout.setHorizontalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel27Layout.createSequentialGroup()
-                .addGap(188, 188, 188)
+                .addGap(190, 190, 190)
                 .addGroup(jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel56)
                     .addComponent(jLabel55)
@@ -2766,12 +2767,12 @@ public void SomeWindow() {
                     .addComponent(TRACKS, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(STRAND, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Semester, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel27Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addGap(64, 64, 64)
                 .addComponent(jLabel41)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Semester, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2783,7 +2784,7 @@ public void SomeWindow() {
                 .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(STRAND, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -2836,7 +2837,7 @@ public void SomeWindow() {
         jPanel47.setLayout(jPanel47Layout);
         jPanel47Layout.setHorizontalGroup(
             jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 322, Short.MAX_VALUE)
             .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel47Layout.createSequentialGroup()
                     .addGap(16, 16, 16)
@@ -2854,19 +2855,19 @@ public void SomeWindow() {
         jPanel28.setLayout(jPanel28Layout);
         jPanel28Layout.setHorizontalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addGap(186, 186, 186)
                 .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TRACK_ENROLLED, 0, 324, Short.MAX_VALUE)
+                    .addComponent(TRACK_ENROLLED, 0, 0, Short.MAX_VALUE)
                     .addComponent(TRACK_STRAND)
                     .addComponent(GRADE_LEVEL)
-                    .addComponent(jPanel47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(238, 238, 238))
+                    .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(206, Short.MAX_VALUE))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel28Layout.createSequentialGroup()
+                .addGap(93, 93, 93)
                 .addComponent(GRADE_LEVEL, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2874,7 +2875,7 @@ public void SomeWindow() {
                 .addComponent(TRACK_STRAND, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TRACK_ENROLLED, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(157, 157, 157))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -2892,7 +2893,7 @@ public void SomeWindow() {
 
         jTable.setBackground(new java.awt.Color(253, 253, 255));
         jTable.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTable.setFont(new java.awt.Font("Segoe UI Semibold", 1, 14)); // NOI18N
+        jTable.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -2918,7 +2919,7 @@ public void SomeWindow() {
         });
         jTable.setFocusable(false);
         jTable.setRequestFocusEnabled(false);
-        jTable.setRowHeight(25);
+        jTable.setRowHeight(30);
         jTable.setSelectionBackground(new java.awt.Color(0, 51, 0));
         jTable.setSelectionForeground(new java.awt.Color(244, 241, 233));
         jTable.setShowVerticalLines(false);
@@ -3452,46 +3453,46 @@ public void SomeWindow() {
         jLabel23.setForeground(new java.awt.Color(56, 74, 19));
         jLabel23.setText("Coming School Year:");
 
-        csy.setBackground(new java.awt.Color(255, 255, 255));
-        csy.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
-        csy.setColumns(12);
-        csy.setForeground(new java.awt.Color(0, 0, 0));
+        csyJH.setBackground(new java.awt.Color(255, 255, 255));
+        csyJH.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
+        csyJH.setColumns(12);
+        csyJH.setForeground(new java.awt.Color(0, 0, 0));
         try {
-            csy.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
+            csyJH.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        csy.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        csy.setCaretColor(new java.awt.Color(102, 0, 0));
-        csy.setDisabledTextColor(new java.awt.Color(51, 51, 51));
-        csy.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        csy.addKeyListener(new java.awt.event.KeyAdapter() {
+        csyJH.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        csyJH.setCaretColor(new java.awt.Color(102, 0, 0));
+        csyJH.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        csyJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        csyJH.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                csyKeyTyped(evt);
+                csyJHKeyTyped(evt);
             }
         });
 
-        psy.setBackground(new java.awt.Color(255, 255, 255));
-        psy.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
-        psy.setColumns(12);
-        psy.setForeground(new java.awt.Color(0, 0, 0));
+        psyJH.setBackground(new java.awt.Color(255, 255, 255));
+        psyJH.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
+        psyJH.setColumns(12);
+        psyJH.setForeground(new java.awt.Color(0, 0, 0));
         try {
-            psy.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
+            psyJH.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        psy.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        psy.setCaretColor(new java.awt.Color(102, 0, 0));
-        psy.setDisabledTextColor(new java.awt.Color(51, 51, 51));
-        psy.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        psy.addActionListener(new java.awt.event.ActionListener() {
+        psyJH.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        psyJH.setCaretColor(new java.awt.Color(102, 0, 0));
+        psyJH.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        psyJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        psyJH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                psyActionPerformed(evt);
+                psyJHActionPerformed(evt);
             }
         });
-        psy.addKeyListener(new java.awt.event.KeyAdapter() {
+        psyJH.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                psyKeyTyped(evt);
+                psyJHKeyTyped(evt);
             }
         });
 
@@ -3520,15 +3521,15 @@ public void SomeWindow() {
         jLabel48.setForeground(new java.awt.Color(56, 74, 19));
         jLabel48.setText("Section :");
 
-        sectioNs.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        sectioNsJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jPanel48.setBackground(new java.awt.Color(244, 241, 233));
         jPanel48.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
 
-        lrnno.setBackground(new java.awt.Color(244, 241, 233));
-        lrnno.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lrnno.setForeground(new java.awt.Color(51, 51, 51));
-        lrnno.setBorder(null);
+        lrnnoJH.setBackground(new java.awt.Color(244, 241, 233));
+        lrnnoJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lrnnoJH.setForeground(new java.awt.Color(51, 51, 51));
+        lrnnoJH.setBorder(null);
 
         javax.swing.GroupLayout jPanel48Layout = new javax.swing.GroupLayout(jPanel48);
         jPanel48.setLayout(jPanel48Layout);
@@ -3536,24 +3537,24 @@ public void SomeWindow() {
             jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel48Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(lrnno, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                .addComponent(lrnnoJH, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel48Layout.setVerticalGroup(
             jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lrnno, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(lrnnoJH, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jPanel50.setBackground(new java.awt.Color(244, 241, 233));
         jPanel50.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0)));
 
-        studename.setBackground(new java.awt.Color(244, 241, 233));
-        studename.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        studename.setForeground(new java.awt.Color(51, 51, 51));
-        studename.setBorder(null);
-        studename.addKeyListener(new java.awt.event.KeyAdapter() {
+        studenameJH.setBackground(new java.awt.Color(244, 241, 233));
+        studenameJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        studenameJH.setForeground(new java.awt.Color(51, 51, 51));
+        studenameJH.setBorder(null);
+        studenameJH.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                studenameKeyReleased(evt);
+                studenameJHKeyReleased(evt);
             }
         });
 
@@ -3563,21 +3564,21 @@ public void SomeWindow() {
             jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel50Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(studename, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(studenameJH, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel50Layout.setVerticalGroup(
             jPanel50Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(studename, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+            .addComponent(studenameJH, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
         );
 
         jPanel51.setBackground(new java.awt.Color(244, 241, 233));
         jPanel51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
 
-        GRDAESLEVELS.setBackground(new java.awt.Color(244, 241, 233));
-        GRDAESLEVELS.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        GRDAESLEVELS.setForeground(new java.awt.Color(51, 51, 51));
-        GRDAESLEVELS.setBorder(null);
+        GRDAESLEVELSJH.setBackground(new java.awt.Color(244, 241, 233));
+        GRDAESLEVELSJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        GRDAESLEVELSJH.setForeground(new java.awt.Color(51, 51, 51));
+        GRDAESLEVELSJH.setBorder(null);
 
         javax.swing.GroupLayout jPanel51Layout = new javax.swing.GroupLayout(jPanel51);
         jPanel51.setLayout(jPanel51Layout);
@@ -3585,12 +3586,12 @@ public void SomeWindow() {
             jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel51Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(GRDAESLEVELS, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(GRDAESLEVELSJH, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel51Layout.setVerticalGroup(
             jPanel51Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(GRDAESLEVELS, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(GRDAESLEVELSJH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel52.setBackground(new java.awt.Color(244, 241, 233));
@@ -3601,9 +3602,9 @@ public void SomeWindow() {
         jLabel57.setForeground(new java.awt.Color(56, 74, 19));
         jLabel57.setText("Registrar In-Charge :");
 
-        registrar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        registrarJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        presposistion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        presposistionJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel58.setBackground(new java.awt.Color(255, 255, 255));
         jLabel58.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -3615,28 +3616,28 @@ public void SomeWindow() {
         jLabel59.setForeground(new java.awt.Color(56, 74, 19));
         jLabel59.setText("School President :");
 
-        pres.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        presJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel60.setBackground(new java.awt.Color(255, 255, 255));
         jLabel60.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel60.setForeground(new java.awt.Color(56, 74, 19));
         jLabel60.setText("School Vice President :");
 
-        vpresident.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        vpresidentJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel61.setBackground(new java.awt.Color(255, 255, 255));
         jLabel61.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel61.setForeground(new java.awt.Color(56, 74, 19));
         jLabel61.setText("Position :");
 
-        vpresposisition.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        vpresposisitionJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel62.setBackground(new java.awt.Color(255, 255, 255));
         jLabel62.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(56, 74, 19));
         jLabel62.setText("Position :");
 
-        regesposition.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        regespositionJH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel52Layout = new javax.swing.GroupLayout(jPanel52);
         jPanel52.setLayout(jPanel52Layout);
@@ -3654,24 +3655,24 @@ public void SomeWindow() {
                             .addComponent(jLabel57))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pres, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vpresident, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(presJH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registrarJH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vpresidentJH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel52Layout.createSequentialGroup()
                             .addComponent(jLabel58)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(presposistion, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(presposistionJH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel52Layout.createSequentialGroup()
                             .addComponent(jLabel61)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(vpresposisition, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(vpresposisitionJH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel52Layout.createSequentialGroup()
                         .addComponent(jLabel62)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(regesposition, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(regespositionJH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(49, 49, 49))
         );
         jPanel52Layout.setVerticalGroup(
@@ -3682,21 +3683,21 @@ public void SomeWindow() {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel52Layout.createSequentialGroup()
                         .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(regesposition, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(regespositionJH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(presposistion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(presposistionJH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vpresposisition, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(vpresposisitionJH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel52Layout.createSequentialGroup()
                         .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel52Layout.createSequentialGroup()
-                                .addComponent(registrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(registrarJH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pres, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(presJH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel52Layout.createSequentialGroup()
                                 .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3704,7 +3705,7 @@ public void SomeWindow() {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel52Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vpresident, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(vpresidentJH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(17, 17, 17))
         );
 
@@ -3731,7 +3732,7 @@ public void SomeWindow() {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel48)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(sectioNs, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(sectioNsJH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel33Layout.createSequentialGroup()
                         .addContainerGap()
@@ -3740,11 +3741,11 @@ public void SomeWindow() {
                             .addGroup(jPanel33Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addGap(6, 6, 6)
-                                .addComponent(psy, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(psyJH, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel23)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(csy, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(csyJH, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel33Layout.setVerticalGroup(
@@ -3753,9 +3754,9 @@ public void SomeWindow() {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(csy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(csyJH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(psy, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(psyJH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel48, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -3774,7 +3775,7 @@ public void SomeWindow() {
                     .addComponent(jPanel51, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(sectioNs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(sectioNsJH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jPanel52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -4033,41 +4034,41 @@ public void SomeWindow() {
         jLabel65.setForeground(new java.awt.Color(56, 74, 19));
         jLabel65.setText("Coming School Year:");
 
-        csy1.setBackground(new java.awt.Color(255, 255, 255));
-        csy1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
-        csy1.setColumns(12);
-        csy1.setForeground(new java.awt.Color(0, 0, 0));
+        csySH.setBackground(new java.awt.Color(255, 255, 255));
+        csySH.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
+        csySH.setColumns(12);
+        csySH.setForeground(new java.awt.Color(0, 0, 0));
         try {
-            csy1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
+            csySH.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        csy1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        csy1.setCaretColor(new java.awt.Color(102, 0, 0));
-        csy1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
-        csy1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        csy1.addKeyListener(new java.awt.event.KeyAdapter() {
+        csySH.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        csySH.setCaretColor(new java.awt.Color(102, 0, 0));
+        csySH.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        csySH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        csySH.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                csy1KeyTyped(evt);
+                csySHKeyTyped(evt);
             }
         });
 
-        psy1.setBackground(new java.awt.Color(255, 255, 255));
-        psy1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
-        psy1.setColumns(12);
-        psy1.setForeground(new java.awt.Color(0, 0, 0));
+        psySH.setBackground(new java.awt.Color(255, 255, 255));
+        psySH.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
+        psySH.setColumns(12);
+        psySH.setForeground(new java.awt.Color(0, 0, 0));
         try {
-            psy1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
+            psySH.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        psy1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        psy1.setCaretColor(new java.awt.Color(102, 0, 0));
-        psy1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
-        psy1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        psy1.addKeyListener(new java.awt.event.KeyAdapter() {
+        psySH.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        psySH.setCaretColor(new java.awt.Color(102, 0, 0));
+        psySH.setDisabledTextColor(new java.awt.Color(51, 51, 51));
+        psySH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        psySH.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                psy1KeyTyped(evt);
+                psySHKeyTyped(evt);
             }
         });
 
@@ -4096,20 +4097,20 @@ public void SomeWindow() {
         jLabel70.setForeground(new java.awt.Color(56, 74, 19));
         jLabel70.setText("Section :");
 
-        sectioNs1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        sectioNs1.addActionListener(new java.awt.event.ActionListener() {
+        sectioNsSH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        sectioNsSH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sectioNs1ActionPerformed(evt);
+                sectioNsSHActionPerformed(evt);
             }
         });
 
         jPanel56.setBackground(new java.awt.Color(244, 241, 233));
         jPanel56.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
 
-        lrnno1.setBackground(new java.awt.Color(244, 241, 233));
-        lrnno1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        lrnno1.setForeground(new java.awt.Color(51, 51, 51));
-        lrnno1.setBorder(null);
+        lrnnoSH.setBackground(new java.awt.Color(244, 241, 233));
+        lrnnoSH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lrnnoSH.setForeground(new java.awt.Color(51, 51, 51));
+        lrnnoSH.setBorder(null);
 
         javax.swing.GroupLayout jPanel56Layout = new javax.swing.GroupLayout(jPanel56);
         jPanel56.setLayout(jPanel56Layout);
@@ -4117,24 +4118,24 @@ public void SomeWindow() {
             jPanel56Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel56Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(lrnno1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                .addComponent(lrnnoSH, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel56Layout.setVerticalGroup(
             jPanel56Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lrnno1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(lrnnoSH, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jPanel57.setBackground(new java.awt.Color(244, 241, 233));
         jPanel57.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0)));
 
-        NAME1.setBackground(new java.awt.Color(244, 241, 233));
-        NAME1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        NAME1.setForeground(new java.awt.Color(51, 51, 51));
-        NAME1.setBorder(null);
-        NAME1.addKeyListener(new java.awt.event.KeyAdapter() {
+        NAMESH.setBackground(new java.awt.Color(244, 241, 233));
+        NAMESH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        NAMESH.setForeground(new java.awt.Color(51, 51, 51));
+        NAMESH.setBorder(null);
+        NAMESH.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                NAME1KeyReleased(evt);
+                NAMESHKeyReleased(evt);
             }
         });
 
@@ -4144,21 +4145,21 @@ public void SomeWindow() {
             jPanel57Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel57Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(NAME1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(NAMESH, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel57Layout.setVerticalGroup(
             jPanel57Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(NAME1, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+            .addComponent(NAMESH, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
         );
 
         jPanel58.setBackground(new java.awt.Color(244, 241, 233));
         jPanel58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
 
-        GRADES1.setBackground(new java.awt.Color(244, 241, 233));
-        GRADES1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        GRADES1.setForeground(new java.awt.Color(51, 51, 51));
-        GRADES1.setBorder(null);
+        GRADESSH.setBackground(new java.awt.Color(244, 241, 233));
+        GRADESSH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        GRADESSH.setForeground(new java.awt.Color(51, 51, 51));
+        GRADESSH.setBorder(null);
 
         javax.swing.GroupLayout jPanel58Layout = new javax.swing.GroupLayout(jPanel58);
         jPanel58.setLayout(jPanel58Layout);
@@ -4166,12 +4167,12 @@ public void SomeWindow() {
             jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel58Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(GRADES1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(GRADESSH, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel58Layout.setVerticalGroup(
             jPanel58Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(GRADES1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(GRADESSH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel59.setBackground(new java.awt.Color(244, 241, 233));
@@ -4182,9 +4183,9 @@ public void SomeWindow() {
         jLabel71.setForeground(new java.awt.Color(56, 74, 19));
         jLabel71.setText("Registrar In-Charge :");
 
-        registrar1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        registrarSH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
-        presposistion1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        presposistionSH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel72.setBackground(new java.awt.Color(255, 255, 255));
         jLabel72.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -4196,28 +4197,28 @@ public void SomeWindow() {
         jLabel73.setForeground(new java.awt.Color(56, 74, 19));
         jLabel73.setText("School President :");
 
-        pres1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        presSH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel74.setBackground(new java.awt.Color(255, 255, 255));
         jLabel74.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel74.setForeground(new java.awt.Color(56, 74, 19));
         jLabel74.setText("School Vice President :");
 
-        vpresident1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        vpresidentSH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel75.setBackground(new java.awt.Color(255, 255, 255));
         jLabel75.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel75.setForeground(new java.awt.Color(56, 74, 19));
         jLabel75.setText("Position :");
 
-        vpresposisition1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        vpresposisitionSH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jLabel76.setBackground(new java.awt.Color(255, 255, 255));
         jLabel76.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel76.setForeground(new java.awt.Color(56, 74, 19));
         jLabel76.setText("Position :");
 
-        regesposition1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        regespositionSH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel59Layout = new javax.swing.GroupLayout(jPanel59);
         jPanel59.setLayout(jPanel59Layout);
@@ -4235,24 +4236,24 @@ public void SomeWindow() {
                             .addComponent(jLabel71))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pres1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(registrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vpresident1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(presSH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registrarSH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vpresidentSH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel59Layout.createSequentialGroup()
                             .addComponent(jLabel72)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(presposistion1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(presposistionSH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel59Layout.createSequentialGroup()
                             .addComponent(jLabel75)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(vpresposisition1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(vpresposisitionSH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel59Layout.createSequentialGroup()
                         .addComponent(jLabel76)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(regesposition1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(regespositionSH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(49, 49, 49))
         );
         jPanel59Layout.setVerticalGroup(
@@ -4263,21 +4264,21 @@ public void SomeWindow() {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel59Layout.createSequentialGroup()
                         .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(regesposition1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(regespositionSH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(presposistion1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(presposistionSH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vpresposisition1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(vpresposisitionSH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel59Layout.createSequentialGroup()
                         .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel59Layout.createSequentialGroup()
-                                .addComponent(registrar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(registrarSH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pres1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(presSH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel59Layout.createSequentialGroup()
                                 .addComponent(jLabel71, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -4285,7 +4286,7 @@ public void SomeWindow() {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel59Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(vpresident1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(vpresidentSH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(17, 17, 17))
         );
 
@@ -4297,10 +4298,10 @@ public void SomeWindow() {
         jPanel60.setBackground(new java.awt.Color(244, 241, 233));
         jPanel60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(56, 74, 19)));
 
-        TRACK1.setBackground(new java.awt.Color(244, 241, 233));
-        TRACK1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        TRACK1.setForeground(new java.awt.Color(51, 51, 51));
-        TRACK1.setBorder(null);
+        TRACKSH.setBackground(new java.awt.Color(244, 241, 233));
+        TRACKSH.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        TRACKSH.setForeground(new java.awt.Color(51, 51, 51));
+        TRACKSH.setBorder(null);
 
         javax.swing.GroupLayout jPanel60Layout = new javax.swing.GroupLayout(jPanel60);
         jPanel60.setLayout(jPanel60Layout);
@@ -4308,12 +4309,12 @@ public void SomeWindow() {
             jPanel60Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel60Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(TRACK1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TRACKSH, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel60Layout.setVerticalGroup(
             jPanel60Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TRACK1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(TRACKSH, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout jPanel55Layout = new javax.swing.GroupLayout(jPanel55);
@@ -4332,11 +4333,11 @@ public void SomeWindow() {
                             .addContainerGap()
                             .addComponent(jLabel66)
                             .addGap(6, 6, 6)
-                            .addComponent(psy1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(psySH, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jLabel65)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(csy1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(csySH, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel55Layout.createSequentialGroup()
                             .addGap(29, 29, 29)
                             .addGroup(jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -4350,7 +4351,7 @@ public void SomeWindow() {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel70)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(sectioNs1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(sectioNsSH, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jPanel56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jPanel57, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel55Layout.createSequentialGroup()
@@ -4364,9 +4365,9 @@ public void SomeWindow() {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(csy1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(csySH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(psy1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(psySH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4385,7 +4386,7 @@ public void SomeWindow() {
                         .addComponent(jPanel58, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel55Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sectioNs1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(sectioNsSH, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel55Layout.createSequentialGroup()
                         .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(3, 3, 3)))
@@ -4516,6 +4517,17 @@ public void SomeWindow() {
 
         jTabbedPane1.addTab("Certificates (senior high)     ", jPanel26);
 
+        javax.swing.GroupLayout jPanel63Layout = new javax.swing.GroupLayout(jPanel63);
+        jPanel63.setLayout(jPanel63Layout);
+        jPanel63Layout.setHorizontalGroup(
+            jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel63Layout.setVerticalGroup(
+            jPanel63Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -4523,16 +4535,20 @@ public void SomeWindow() {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(jPanel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -5195,7 +5211,7 @@ public void SomeWindow() {
 
         try {
             
-             if (verifyTextFiles()) {
+//             if (verifyTextFiles()) {
 
             DefaultTableModel model2 =  (DefaultTableModel)jTableinsert.getModel() ;
             int selecIndex = jTableinsert.getSelectedRow();
@@ -5210,8 +5226,8 @@ public void SomeWindow() {
                 PreparedStatement ps;
                 ps=Mycon.prepareStatement("SELECT * from insert_data_file where  id="+tc+" ");
 
-                if (verifyTextFiles())
-                {
+//                if (verifyTextFiles())
+//                {
                     ResultSet rs = ps.executeQuery();
                     System.out.println("Following flies are downloaded from database..");
 
@@ -5227,36 +5243,36 @@ public void SomeWindow() {
                         System.out.println("File Extension:"+fileExtension);
 
                         Blob blob = (Blob) rs.getBlob("file_content");
-                        InputStream inputStream = blob.getBinaryStream();
+                        InputStream inputStreams = blob.getBinaryStream();
 
                         System.out.println("-----------------------------------");
                         String home = System.getProperty("user.home");
-                        File filed = new File(home+"/Downloads/" + fileName);
-                        Files.copy(inputStream, Paths.get(filed + fileName));
+                        File filez = new File(home+"/Downloads/" + fileName);
+                        Files.copy(inputStreams, Paths.get(filez + fileName));
                     }
 
                     table_update_files();
                     //                schoolyr.setSelectedIndex(-1);
                     
-                    JOptionPane.showMessageDialog(this, "Successfully Download","",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Successfully Download");
                     fullname.setText("");
                     file_text.setText("");
 
-                }
+               // }
 
             }catch (ClassNotFoundException | SQLException  ex) {
                 Logger.getLogger(Add_Students.class.getName()).log(Level.SEVERE, null, ex);
             }    catch (IOException ex) {
-                JOptionPane.showMessageDialog(this, "Already Downloaded");
-                Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, "Already Downloaded","Message",JOptionPane.ERROR_MESSAGE);
+               // Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        //}
             
             
             
         } catch (Exception e) {
             
-            JOptionPane.showMessageDialog(this, "Download Faild" + "\n File is not ");
+            JOptionPane.showMessageDialog(this, "Download Faild");
             
         }
         
@@ -5784,8 +5800,8 @@ public void SomeWindow() {
       
 
         
-        lrnno.setText(model2.getValueAt(selecIndex, 4).toString());
-        studename.setText(model2.getValueAt(selecIndex, 5).toString());
+        lrnnoJH.setText(model2.getValueAt(selecIndex, 4).toString());
+        studenameJH.setText(model2.getValueAt(selecIndex, 5).toString());
 
         if (model2.getValueAt(selecIndex, 7).toString().equals("Male")) {
             He.setSelected(true);
@@ -5795,7 +5811,7 @@ public void SomeWindow() {
             He.setSelected(false);
         }
 
-        GRDAESLEVELS.setText(model2.getValueAt(selecIndex, 27).toString());
+        GRDAESLEVELSJH.setText(model2.getValueAt(selecIndex, 27).toString());
         //        TRACK.setText(model2.getValueAt(selecIndex, 28).toString());
     }//GEN-LAST:event_jTableCERTIFICATESMouseClicked
 
@@ -5839,8 +5855,8 @@ public void SomeWindow() {
         searchcertificateshs.setText("Search Here. . . .");
 
         //        SCHOOLYEARS.setText(model2.getValueAt(selecIndex, 1).toString());
-        lrnno1.setText(model2.getValueAt(selecIndex, 4).toString());
-        NAME1.setText(model2.getValueAt(selecIndex, 5).toString());
+        lrnnoSH.setText(model2.getValueAt(selecIndex, 4).toString());
+        NAMESH.setText(model2.getValueAt(selecIndex, 5).toString());
 
         if (model2.getValueAt(selecIndex, 7).toString().equals("Male")) {
             He.setSelected(true);
@@ -5850,43 +5866,43 @@ public void SomeWindow() {
             He.setSelected(false);
         }
 
-        GRADES1.setText(model2.getValueAt(selecIndex, 27).toString());
-        TRACK1.setText(model2.getValueAt(selecIndex, 28).toString());
+        GRADESSH.setText(model2.getValueAt(selecIndex, 27).toString());
+        TRACKSH.setText(model2.getValueAt(selecIndex, 28).toString());
     }//GEN-LAST:event_jTableCERTIFICATESSHSMouseClicked
 
-    private void csy1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_csy1KeyTyped
+    private void csySHKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_csySHKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_csy1KeyTyped
+    }//GEN-LAST:event_csySHKeyTyped
 
-    private void psy1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_psy1KeyTyped
+    private void psySHKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_psySHKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_psy1KeyTyped
+    }//GEN-LAST:event_psySHKeyTyped
 
-    private void NAME1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NAME1KeyReleased
+    private void NAMESHKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NAMESHKeyReleased
 
-        int position = studename.getCaretPosition();
-        studename.setText(studename.getText().toUpperCase());
-        studename.setCaretPosition(position);
-    }//GEN-LAST:event_NAME1KeyReleased
+        int position = studenameJH.getCaretPosition();
+        studenameJH.setText(studenameJH.getText().toUpperCase());
+        studenameJH.setCaretPosition(position);
+    }//GEN-LAST:event_NAMESHKeyReleased
 
-    private void sectioNs1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sectioNs1ActionPerformed
+    private void sectioNsSHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sectioNsSHActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sectioNs1ActionPerformed
+    }//GEN-LAST:event_sectioNsSHActionPerformed
 
     private void CLEAR4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR4ActionPerformed
-        psy.setText("");
-        csy.setText("");
-        lrnno1.setText("");
-        studename.setText("");
-        GRDAESLEVELS.setText("");
-        TRACK1.setText("");
-        sectioNs.setSelectedIndex(-1);
-        registrar.setSelectedIndex(-1);
-        regesposition.setSelectedIndex(-1);
-        pres.setSelectedIndex(-1);
-        presposistion.setSelectedIndex(-1);
-        vpresident.setSelectedIndex(-1);
-        vpresposisition.setSelectedIndex(-1);
+        psyJH.setText("");
+        csyJH.setText("");
+        lrnnoSH.setText("");
+        studenameJH.setText("");
+        GRDAESLEVELSJH.setText("");
+        TRACKSH.setText("");
+        sectioNsJH.setSelectedIndex(-1);
+        registrarJH.setSelectedIndex(-1);
+        regespositionJH.setSelectedIndex(-1);
+        presJH.setSelectedIndex(-1);
+        presposistionJH.setSelectedIndex(-1);
+        vpresidentJH.setSelectedIndex(-1);
+        vpresposisitionJH.setSelectedIndex(-1);
     }//GEN-LAST:event_CLEAR4ActionPerformed
 
     private void HONORABLE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HONORABLE1ActionPerformed
@@ -5896,7 +5912,7 @@ public void SomeWindow() {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\dismissal_shs.jrxml");
+                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\reportprint\\HonorableDismissal_shs.jrxml");
                 String query="select * from certificate_of_enrollment";
 
                 JRDesignQuery updateQuery = new JRDesignQuery();
@@ -5905,23 +5921,23 @@ public void SomeWindow() {
                 jdesign.setQuery(updateQuery);
 
                 HashMap<String,Object> para = new HashMap<>();
-                para.put("sy",psy1.getText() );
-                para.put("future sy",csy1.getText() ); //
-                para.put("lrn",lrnno1.getText());
-                para.put("name",NAME1.getText());
-                para.put("grade", GRADES1.getText());
-                para.put("section",sectioNs1.getSelectedItem().toString());
-                para.put("trak", TRACK1.getText());
-                para.put("schoolregistrar", registrar1.getSelectedItem().toString());
-                para.put("regpos", regesposition1.getSelectedItem().toString());
-                para.put("schoolpresident", pres1.getSelectedItem().toString());
-                para.put("prespos", presposistion1.getSelectedItem().toString());
+                para.put("sy",psySH.getText() );
+                para.put("future sy",csySH.getText() ); //
+                para.put("lrn",lrnnoSH.getText());
+                para.put("name",NAMESH.getText());
+                para.put("grade", GRADESSH.getText());
+                para.put("section",sectioNsSH.getSelectedItem().toString());
+                para.put("trak", TRACKSH.getText());
+                para.put("schoolregistrar", registrarSH.getSelectedItem().toString());
+                para.put("regpos", regespositionSH.getSelectedItem().toString());
+                para.put("president", presSH.getSelectedItem().toString());
+                para.put("presiposisitons", presposistionSH.getSelectedItem().toString());
 
                 //jTextField1
 
                 JasperReport jreport = JasperCompileManager.compileReport(jdesign);
                 JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
-                JasperViewer.viewReport(jprint);
+                JasperViewer.viewReport(jprint, false);
 
             }catch (ClassNotFoundException | SQLException  ex) {
                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -5939,7 +5955,7 @@ public void SomeWindow() {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\enrollment_shs.jrxml");
+                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\reportprint\\Certificate OfEnrollment_shs.jrxml");
                 String query="select * from certificate_of_enrollment";
 
                 JRDesignQuery updateQuery = new JRDesignQuery();
@@ -5948,21 +5964,21 @@ public void SomeWindow() {
                 jdesign.setQuery(updateQuery);
 
                 HashMap<String,Object> para = new HashMap<>();
-                para.put("sy",psy1.getText() );
-                para.put("future sy",csy1.getText() ); //
-                para.put("lrn",lrnno1.getText());
-                para.put("name",NAME1.getText());
-                para.put("grade", GRADES1.getText());
-                para.put("section",sectioNs1.getSelectedItem().toString()); //trak TRACK
-                para.put("trak", TRACK1.getText());
-                para.put("schoolregistrar", registrar1.getSelectedItem().toString());
-                para.put("regpos", regesposition1.getSelectedItem().toString());
+                para.put("sy",psySH.getText() );
+                para.put("future sy",csySH.getText() ); //
+                para.put("lrn",lrnnoSH.getText());
+                para.put("name",NAMESH.getText());
+                para.put("grade", GRADESSH.getText());
+                para.put("section",sectioNsSH.getSelectedItem().toString()); //trak TRACK
+                para.put("trak", TRACKSH.getText());
+                para.put("schoolregistrar", registrarSH.getSelectedItem().toString());
+                para.put("regpos", regespositionSH.getSelectedItem().toString());
                 //para.put("schoolpresident", pres.getSelectedItem().toString());
                 //  para.put("presiposisitons", presposistion.getSelectedItem().toString());
 
                 JasperReport jreport = JasperCompileManager.compileReport(jdesign);
                 JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
-                JasperViewer.viewReport(jprint);
+               JasperViewer.viewReport(jprint, false);
 
             }catch (ClassNotFoundException | SQLException  ex) {
                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -5980,7 +5996,7 @@ public void SomeWindow() {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\moral_grade.jrxml");
+                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\reportprint\\GoodMoral.jrxml");
                 String query="select * from certificate_of_enrollment";
 
                 JRDesignQuery updateQuery = new JRDesignQuery();
@@ -5989,18 +6005,18 @@ public void SomeWindow() {
                 jdesign.setQuery(updateQuery);
 
                 HashMap<String,Object> para = new HashMap<>();
-                para.put("sy",psy1.getText() );
-                para.put("future sy",csy1.getText() ); //
-                para.put("lrn",lrnno1.getText());
-                para.put("name", NAME1.getText());
-                para.put("grade", GRADES1.getText());
-                para.put("section",sectioNs1.getSelectedItem().toString());
-                para.put("schoolregistrar", registrar1.getSelectedItem().toString());
-                para.put("posistion1", regesposition1.getSelectedItem().toString());
-                para.put("president", pres1.getSelectedItem().toString());
-                para.put("position3", presposistion1.getSelectedItem().toString());
-                para.put("vp", vpresident1.getSelectedItem().toString());
-                para.put("position2", vpresposisition1.getSelectedItem().toString());
+                para.put("sy",psySH.getText() );
+                para.put("future sy",csySH.getText() ); //
+                para.put("lrn",lrnnoSH.getText());
+                para.put("name", NAMESH.getText());
+                para.put("grade", GRADESSH.getText());
+                para.put("section",sectioNsSH.getSelectedItem().toString());
+                para.put("schoolregistrar", registrarSH.getSelectedItem().toString());
+                para.put("posistion1", regespositionSH.getSelectedItem().toString());
+                para.put("president", presSH.getSelectedItem().toString());
+                para.put("position3", presposistionSH.getSelectedItem().toString());
+                para.put("vp", vpresidentSH.getSelectedItem().toString());
+                para.put("position2", vpresposisitionSH.getSelectedItem().toString());
 
                 if (She.isSelected()) {
                     para.put("genders", "She");
@@ -6013,7 +6029,7 @@ public void SomeWindow() {
 
                 JasperReport jreport = JasperCompileManager.compileReport(jdesign);
                 JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
-                JasperViewer.viewReport(jprint);
+                JasperViewer.viewReport(jprint, false);
 
             }catch (ClassNotFoundException | SQLException  ex) {
                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -6026,18 +6042,18 @@ public void SomeWindow() {
 
     private void CLEAR6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR6ActionPerformed
 
-        psy.setText("");
-        csy.setText("");
-        lrnno1.setText("");
-        studename.setText("");
-        GRDAESLEVELS.setText("");
-        sectioNs.setSelectedIndex(-1);
-        registrar.setSelectedIndex(-1);
-        regesposition.setSelectedIndex(-1);
-        pres.setSelectedIndex(-1);
-        presposistion.setSelectedIndex(-1);
-        vpresident.setSelectedIndex(-1);
-        vpresposisition.setSelectedIndex(-1);
+        psyJH.setText("");
+        csyJH.setText("");
+        lrnnoSH.setText("");
+        studenameJH.setText("");
+        GRDAESLEVELSJH.setText("");
+        sectioNsJH.setSelectedIndex(-1);
+        registrarJH.setSelectedIndex(-1);
+        regespositionJH.setSelectedIndex(-1);
+        presJH.setSelectedIndex(-1);
+        presposistionJH.setSelectedIndex(-1);
+        vpresidentJH.setSelectedIndex(-1);
+        vpresposisitionJH.setSelectedIndex(-1);
 
     }//GEN-LAST:event_CLEAR6ActionPerformed
 
@@ -6049,7 +6065,8 @@ public void SomeWindow() {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\dismissal_grade.jrxml");
+                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\reportprint\\HonorableDismissal_jhs.jrxml");
+                 
                 String query="select * from certificate_of_enrollment";
 
                 JRDesignQuery updateQuery = new JRDesignQuery();
@@ -6058,24 +6075,27 @@ public void SomeWindow() {
                 jdesign.setQuery(updateQuery);
 
                 HashMap<String,Object> para = new HashMap<>();
-                para.put("sy",psy.getText() );
-                para.put("future sy",csy.getText() ); //
-                para.put("lrn",lrnno.getText());
-                para.put("name",studename.getText());
-                para.put("grade", GRDAESLEVELS.getText());
-                para.put("section",sectioNs.getSelectedItem().toString());
+                para.put("sy",psyJH.getText() );
+                para.put("future sy",csyJH.getText() ); //
+                para.put("lrn",lrnnoJH.getText());
+                para.put("name",studenameJH.getText());
+                para.put("grade", GRDAESLEVELSJH.getText());
+                para.put("section",sectioNsJH.getSelectedItem().toString());
                 //                para.put("trak", TRACK.getText());
-                para.put("schoolregistrar", registrar.getSelectedItem().toString());
-                para.put("regpos", regesposition.getSelectedItem().toString());
-                para.put("schoolpresident", pres.getSelectedItem().toString());
-                para.put("prespos", presposistion.getSelectedItem().toString());
+                para.put("schoolregistrar", registrarJH.getSelectedItem().toString());
+                para.put("regpos", regespositionJH.getSelectedItem().toString());
+                para.put("president", presJH.getSelectedItem().toString());
+                para.put("presiposisitons", presposistionJH.getSelectedItem().toString());
 
                 //jTextField1
 
                 JasperReport jreport = JasperCompileManager.compileReport(jdesign);
                 JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
 
-                JasperViewer.viewReport(jprint);
+               // JasperViewer.viewReport(jprint);
+                JasperViewer.viewReport(jprint, false);
+                
+                
 
             }catch (ClassNotFoundException | SQLException  ex) {
                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -6095,7 +6115,8 @@ public void SomeWindow() {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\enrollment_grade.jrxml");
+//                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\enrollment_grade.jrxml");
+                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\reportprint\\Certificate OfEnrollment_jhs.jrxml");
                 String query="select * from certificate_of_enrollment";
 
                 JRDesignQuery updateQuery = new JRDesignQuery();
@@ -6104,15 +6125,15 @@ public void SomeWindow() {
                 jdesign.setQuery(updateQuery);
 
                 HashMap<String,Object> para = new HashMap<>();
-                para.put("sy",psy.getText() );
-                para.put("future sy",csy.getText() ); //
-                para.put("lrn",lrnno.getText());
-                para.put("name",studename.getText());
-                para.put("grade", GRDAESLEVELS.getText());
-                para.put("section",sectioNs.getSelectedItem().toString()); //trak TRACK
+                para.put("sy",psyJH.getText() );
+                para.put("future sy",csyJH.getText() ); //
+                para.put("lrn",lrnnoJH.getText());
+                para.put("name",studenameJH.getText());
+                para.put("grade", GRDAESLEVELSJH.getText());
+                para.put("section",sectioNsJH.getSelectedItem().toString()); //trak TRACK
                 //                para.put("trak", TRACK.getText());
-                para.put("schoolregistrar", registrar.getSelectedItem().toString());
-                para.put("regpos", regesposition.getSelectedItem().toString());
+                para.put("schoolregistrar", registrarJH.getSelectedItem().toString());
+                para.put("regpos", regespositionJH.getSelectedItem().toString());
                 //para.put("schoolpresident", pres.getSelectedItem().toString());
                 //  para.put("presiposisitons", presposistion.getSelectedItem().toString());
 
@@ -6121,7 +6142,7 @@ public void SomeWindow() {
                 JasperReport jreport = JasperCompileManager.compileReport(jdesign);
                 JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
 
-                JasperViewer.viewReport(jprint);
+                JasperViewer.viewReport(jprint, false);
 
             }catch (ClassNotFoundException | SQLException  ex) {
                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -6140,7 +6161,7 @@ public void SomeWindow() {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\report_records\\moral_grade.jrxml");
+                JasperDesign jdesign = JRXmlLoader.load("D:\\USERSsdasda\\Documents\\NetBeansProjects\\DCAA_REGISTRAR2\\src\\reportprint\\GoodMoral.jrxml");
                 String query="select * from certificate_of_enrollment";
 
                 JRDesignQuery updateQuery = new JRDesignQuery();
@@ -6149,18 +6170,18 @@ public void SomeWindow() {
                 jdesign.setQuery(updateQuery);
 
                 HashMap<String,Object> para = new HashMap<>();
-                para.put("sy",psy.getText() );
-                para.put("future sy",csy.getText() ); //
-                para.put("lrn",lrnno.getText());
-                para.put("name",studename.getText());
-                para.put("grade", GRDAESLEVELS.getText());
-                para.put("section",sectioNs.getSelectedItem().toString());
-                para.put("schoolregistrar", registrar.getSelectedItem().toString());
-                para.put("posistion1", regesposition.getSelectedItem().toString());
-                para.put("president", pres.getSelectedItem().toString());
-                para.put("position3", presposistion.getSelectedItem().toString());
-                para.put("vp", vpresident.getSelectedItem().toString());
-                para.put("position2", vpresposisition.getSelectedItem().toString());
+                para.put("sy",psyJH.getText() );
+                para.put("future sy",csyJH.getText() ); //
+                para.put("lrn",lrnnoJH.getText());
+                para.put("name",studenameJH.getText());
+                para.put("grade", GRDAESLEVELSJH.getText());
+                para.put("section",sectioNsJH.getSelectedItem().toString());
+                para.put("schoolregistrar", registrarJH.getSelectedItem().toString());
+                para.put("posistion1", regespositionJH.getSelectedItem().toString());
+                para.put("president", presJH.getSelectedItem().toString());
+                para.put("position3", presposistionJH.getSelectedItem().toString());
+                para.put("vp", vpresidentJH.getSelectedItem().toString());
+                para.put("position2", vpresposisitionJH.getSelectedItem().toString());
 
                 if (She.isSelected()) {
                     para.put("genders", "She");
@@ -6169,12 +6190,12 @@ public void SomeWindow() {
                     para.put("genders", "He");
                 }
 
-                //jTextField1
+                
 
                 JasperReport jreport = JasperCompileManager.compileReport(jdesign);
                 JasperPrint jprint =JasperFillManager.fillReport(jreport, para, Mycon);
 
-                JasperViewer.viewReport(jprint);
+                JasperViewer.viewReport(jprint, false);
 
             }catch (ClassNotFoundException | SQLException  ex) {
                 JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
@@ -6213,9 +6234,9 @@ public void SomeWindow() {
         
         JOptionPane.showMessageDialog(this, " Unable to Close : " + "\n Please Log out Before you Leave   ","Message", JOptionPane.WARNING_MESSAGE);
         
-//        Mainframe m = new Mainframe();
-//        this.hide();
-//        m.setVisible(true);
+        StudentFrame m = new StudentFrame();
+        this.dispose();
+        m.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -6236,36 +6257,37 @@ public void SomeWindow() {
          {
              
              Login l = new Login();
-             this.hide();
+             this.dispose();
              l.setVisible(true);
-             dispose();
+            
              
              
          } else {
           
             Mainframe m = new Mainframe();
+            this.dispose();
             m.setVisible(true);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void studenameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_studenameKeyReleased
+    private void studenameJHKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_studenameJHKeyReleased
 
-        int position = studename.getCaretPosition();
-        studename.setText(studename.getText().toUpperCase());
-        studename.setCaretPosition(position);
-    }//GEN-LAST:event_studenameKeyReleased
+        int position = studenameJH.getCaretPosition();
+        studenameJH.setText(studenameJH.getText().toUpperCase());
+        studenameJH.setCaretPosition(position);
+    }//GEN-LAST:event_studenameJHKeyReleased
 
-    private void psyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_psyKeyTyped
+    private void psyJHKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_psyJHKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_psyKeyTyped
+    }//GEN-LAST:event_psyJHKeyTyped
 
-    private void psyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psyActionPerformed
+    private void psyJHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psyJHActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_psyActionPerformed
+    }//GEN-LAST:event_psyJHActionPerformed
 
-    private void csyKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_csyKeyTyped
+    private void csyJHKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_csyJHKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_csyKeyTyped
+    }//GEN-LAST:event_csyJHKeyTyped
 
     
           
@@ -6353,9 +6375,9 @@ public void SomeWindow() {
     private javax.swing.JTextField FATHERNAME;
     private javax.swing.JCheckBox Female;
     private javax.swing.JTextField GRADELEVEL;
-    private javax.swing.JTextField GRADES1;
+    private javax.swing.JTextField GRADESSH;
     private javax.swing.JLabel GRADE_LEVEL;
-    private javax.swing.JTextField GRDAESLEVELS;
+    private javax.swing.JTextField GRDAESLEVELSJH;
     private javax.swing.JTextField GUARDIAN;
     private javax.swing.JButton HONORABLE;
     private javax.swing.JButton HONORABLE1;
@@ -6368,7 +6390,7 @@ public void SomeWindow() {
     private javax.swing.JTextField MOTHERNAME;
     private javax.swing.JTextField MOTHERTONGUE;
     private javax.swing.JCheckBox Male;
-    private javax.swing.JTextField NAME1;
+    private javax.swing.JTextField NAMESH;
     private javax.swing.JCheckBox No;
     private javax.swing.JButton SAVE;
     private javax.swing.JTextField SCHOOLADDRESS;
@@ -6380,8 +6402,8 @@ public void SomeWindow() {
     private javax.swing.JComboBox Semester;
     private javax.swing.JCheckBox She;
     private javax.swing.JFormattedTextField TELNO;
-    private javax.swing.JTextField TRACK1;
     private javax.swing.JComboBox TRACKS;
+    private javax.swing.JTextField TRACKSH;
     private javax.swing.JComboBox TRACK_ENROLLED;
     private javax.swing.JLabel TRACK_STRAND;
     private javax.swing.JButton UPDATE;
@@ -6389,8 +6411,8 @@ public void SomeWindow() {
     private javax.swing.JTextField YES_IPSPECIFY;
     private javax.swing.JCheckBox Yes;
     private javax.swing.JTextField ZIPCODE;
-    private javax.swing.JFormattedTextField csy;
-    private javax.swing.JFormattedTextField csy1;
+    private javax.swing.JFormattedTextField csyJH;
+    private javax.swing.JFormattedTextField csySH;
     private javax.swing.JTextField file_text;
     private javax.swing.JTextField fullname;
     private javax.swing.JButton jButton1;
@@ -6488,8 +6510,10 @@ public void SomeWindow() {
     private javax.swing.JPanel jPanel26;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
     private javax.swing.JPanel jPanel32;
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
@@ -6524,6 +6548,7 @@ public void SomeWindow() {
     private javax.swing.JPanel jPanel60;
     private javax.swing.JPanel jPanel61;
     private javax.swing.JPanel jPanel62;
+    private javax.swing.JPanel jPanel63;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
@@ -6538,32 +6563,32 @@ public void SomeWindow() {
     private javax.swing.JTable jTableCERTIFICATES;
     private javax.swing.JTable jTableCERTIFICATESSHS;
     private javax.swing.JTable jTableinsert;
-    private javax.swing.JTextField lrnno;
-    private javax.swing.JTextField lrnno1;
+    private javax.swing.JTextField lrnnoJH;
+    private javax.swing.JTextField lrnnoSH;
     private javax.swing.JTabbedPane panel;
-    private javax.swing.JComboBox pres;
-    private javax.swing.JComboBox pres1;
-    private javax.swing.JComboBox presposistion;
-    private javax.swing.JComboBox presposistion1;
-    private javax.swing.JFormattedTextField psy;
-    private javax.swing.JFormattedTextField psy1;
-    private javax.swing.JComboBox regesposition;
-    private javax.swing.JComboBox regesposition1;
-    private javax.swing.JComboBox registrar;
-    private javax.swing.JComboBox registrar1;
+    private javax.swing.JComboBox presJH;
+    private javax.swing.JComboBox presSH;
+    private javax.swing.JComboBox presposistionJH;
+    private javax.swing.JComboBox presposistionSH;
+    private javax.swing.JFormattedTextField psyJH;
+    private javax.swing.JFormattedTextField psySH;
+    private javax.swing.JComboBox regespositionJH;
+    private javax.swing.JComboBox regespositionSH;
+    private javax.swing.JComboBox registrarJH;
+    private javax.swing.JComboBox registrarSH;
     private javax.swing.JComboBox schoolyr;
     private javax.swing.JTextField search;
     private javax.swing.JTextField searchcertificatesJHS;
     private javax.swing.JTextField searchcertificateshs;
     private javax.swing.JTextField searchinsert;
-    private javax.swing.JComboBox sectioNs;
-    private javax.swing.JComboBox sectioNs1;
+    private javax.swing.JComboBox sectioNsJH;
+    private javax.swing.JComboBox sectioNsSH;
     private javax.swing.JComboBox stnames;
-    private javax.swing.JTextField studename;
+    private javax.swing.JTextField studenameJH;
     public static javax.swing.JLabel usernamedeskStudent;
-    private javax.swing.JComboBox vpresident;
-    private javax.swing.JComboBox vpresident1;
-    private javax.swing.JComboBox vpresposisition;
-    private javax.swing.JComboBox vpresposisition1;
+    private javax.swing.JComboBox vpresidentJH;
+    private javax.swing.JComboBox vpresidentSH;
+    private javax.swing.JComboBox vpresposisitionJH;
+    private javax.swing.JComboBox vpresposisitionSH;
     // End of variables declaration//GEN-END:variables
 }

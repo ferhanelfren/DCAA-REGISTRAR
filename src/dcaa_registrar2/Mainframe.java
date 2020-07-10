@@ -1520,14 +1520,15 @@ public void SomeWindow() {
          {
              
              Login l = new Login();
-             this.hide();
+             this.dispose();
              l.setVisible(true);
-             dispose();
+             
              
              
          } else {
           
             Mainframe m = new Mainframe();
+            this.dispose();
             m.setVisible(true);
         }
         
@@ -1547,6 +1548,7 @@ public void SomeWindow() {
          } else {
           
             Mainframe m = new Mainframe();
+            this.dispose();
             m.setVisible(true);
         }
         
