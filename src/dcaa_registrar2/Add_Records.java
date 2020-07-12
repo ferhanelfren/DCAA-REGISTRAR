@@ -518,6 +518,11 @@ File filed;
         STUDENTNAMES = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        SAVE = new javax.swing.JButton();
+        UPDATE1 = new javax.swing.JButton();
+        DELETE1 = new javax.swing.JButton();
+        DOWNLOAD = new javax.swing.JButton();
+        CLEAR1 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -661,7 +666,7 @@ File filed;
 
         jPanel1.setBackground(new java.awt.Color(244, 241, 233));
 
-        jPanel5.setBackground(new java.awt.Color(43, 70, 60));
+        jPanel5.setBackground(new java.awt.Color(0, 51, 0));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -794,18 +799,102 @@ File filed;
         jPanel4.setBackground(new java.awt.Color(244, 241, 233));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.black, java.awt.Color.red));
 
+        SAVE.setBackground(new java.awt.Color(51, 51, 51));
+        SAVE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/default.png"))); // NOI18N
+        SAVE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        SAVE.setFocusPainted(false);
+        SAVE.setRolloverEnabled(true);
+        SAVE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/hover.png"))); // NOI18N
+        SAVE.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/hover.png"))); // NOI18N
+        SAVE.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SAVEActionPerformed(evt);
+            }
+        });
+
+        UPDATE1.setBackground(new java.awt.Color(51, 51, 51));
+        UPDATE1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/default.png"))); // NOI18N
+        UPDATE1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        UPDATE1.setFocusPainted(false);
+        UPDATE1.setRolloverEnabled(true);
+        UPDATE1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/hover.png"))); // NOI18N
+        UPDATE1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/hover.png"))); // NOI18N
+        UPDATE1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UPDATE1ActionPerformed(evt);
+            }
+        });
+
+        DELETE1.setBackground(new java.awt.Color(51, 51, 51));
+        DELETE1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DELETE/default.png"))); // NOI18N
+        DELETE1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        DELETE1.setFocusPainted(false);
+        DELETE1.setRolloverEnabled(true);
+        DELETE1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DELETE/hover.png"))); // NOI18N
+        DELETE1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DELETE/hover.png"))); // NOI18N
+        DELETE1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DELETE1ActionPerformed(evt);
+            }
+        });
+
+        DOWNLOAD.setBackground(new java.awt.Color(51, 51, 51));
+        DOWNLOAD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Download/default.png"))); // NOI18N
+        DOWNLOAD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        DOWNLOAD.setFocusPainted(false);
+        DOWNLOAD.setRolloverEnabled(true);
+        DOWNLOAD.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Download/hover.png"))); // NOI18N
+        DOWNLOAD.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Download/hover.png"))); // NOI18N
+        DOWNLOAD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DOWNLOADActionPerformed(evt);
+            }
+        });
+
+        CLEAR1.setBackground(new java.awt.Color(51, 51, 51));
+        CLEAR1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/CLEAR/default.png"))); // NOI18N
+        CLEAR1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        CLEAR1.setFocusPainted(false);
+        CLEAR1.setRolloverEnabled(true);
+        CLEAR1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/CLEAR/hover.png"))); // NOI18N
+        CLEAR1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/CLEAR/hover.png"))); // NOI18N
+        CLEAR1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CLEAR1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 292, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(232, 232, 232)
+                .addComponent(SAVE)
+                .addGap(18, 18, 18)
+                .addComponent(UPDATE1)
+                .addGap(18, 18, 18)
+                .addComponent(DELETE1)
+                .addGap(18, 18, 18)
+                .addComponent(DOWNLOAD)
+                .addGap(18, 18, 18)
+                .addComponent(CLEAR1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 72, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CLEAR1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DOWNLOAD, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DELETE1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SAVE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UPDATE1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
-        jPanel9.setBackground(new java.awt.Color(43, 70, 60));
+        jPanel9.setBackground(new java.awt.Color(0, 51, 0));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/loh.png"))); // NOI18N
 
@@ -935,12 +1024,12 @@ File filed;
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(278, 278, 278))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1071,10 +1160,287 @@ File filed;
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
-          StudentFrame2 z=new StudentFrame2();
-                    this.hide();
-                    z.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
+
+    private void SAVEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SAVEActionPerformed
+
+        try {
+
+            if (verifyText()) {
+
+                STUDENT stud = (STUDENT)STUDENTNAMES.getSelectedItem();
+
+                DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd");
+                LocalDateTime now= LocalDateTime.now();
+                String timestamp = dtf.format(now);
+
+                try {
+
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+                    PreparedStatement ps = null;
+                    ps=Mycon.prepareStatement("INSERT INTO insert_data_file ( enrolled_students_id,file_name, file_size_in_kb, file_extension, file_content, timestamp)VALUES(?,?,?,?,?,?)");
+
+                    if (verifyText()) {
+
+                        filed = new File (path);
+
+                        System.out.println("Following files are saved in database..");
+                        System.out.println(filed.getName());
+
+                        String fileName = filed.getName();
+
+                        long fileLength =filed.length();
+
+                        long fileLengthInKb=fileLength/1024;
+
+                        ps.setInt(1, stud.id);
+                        //ps.setString(2, none);
+                        ps.setString(2, fileName);
+                        ps.setLong(3, fileLengthInKb);
+                        ps.setString(4, fileName.substring(fileName.lastIndexOf(".")+1));
+                        FileInputStream fis = new FileInputStream(filed);
+                        ps.setBinaryStream(5, fis, fileLength);
+                        ps.setString(6,timestamp);
+                        ps.execute();
+
+                        table_update_files();
+                        //                                schoolyr.setSelectedIndex(-1);
+
+                        file_text.setText("");
+
+                        JOptionPane.showMessageDialog(this, "Successfully Save","Save",JOptionPane.WARNING_MESSAGE);
+
+                        System.out.println("----------------------------------------");
+                        System.out.println("");
+
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(this, e,"ERROR",  JOptionPane.ERROR_MESSAGE);
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(this, ex,"ERROR",  JOptionPane.ERROR_MESSAGE);
+                    Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(this, ex,"ERROR",  JOptionPane.ERROR_MESSAGE);
+                    Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, " Unable to Save" + "\n Please Fill in all the Necessary Student Basic Information");
+
+        }
+
+    }//GEN-LAST:event_SAVEActionPerformed
+
+    private void UPDATE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATE1ActionPerformed
+
+        try {
+
+            if (verifyText()) {
+
+                DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
+                int selecIndex= jTable.getSelectedRow();
+
+                int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
+
+                if (id == -1) {
+
+                    JOptionPane.showMessageDialog(this, "File is already Exist");
+
+                } else {
+
+                    try {
+
+                        STUDENT stud =  (STUDENT)STUDENTNAMES.getSelectedItem();
+
+                        try {
+
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+                            PreparedStatement ps;
+                            ps=Mycon.prepareStatement("update insert_data_file set enrolled_students_id=?, file_name=?, file_size_in_kb=?, file_extension=?, file_content=? where id=?");
+
+                            if (verifyText()) {
+
+                                if (path == null) {
+
+                                    JOptionPane.showMessageDialog(this, "Error");
+                                } else {
+
+                                    filed = new File (path);
+                                    System.out.println("Following files are saved in database..");
+                                    System.out.println(filed.getName());
+
+                                    String fileName = filed.getName();
+
+                                    long fileLength =filed.length();
+
+                                    long fileLengthInKb=fileLength/1024;
+
+                                    // ps.setInt(1, sy.id);
+                                    ps.setInt(1, stud.id);
+                                    ps.setString(2, fileName);
+                                    ps.setLong(3, fileLengthInKb);
+                                    ps.setString(4, fileName.substring(fileName.lastIndexOf(".")+1));
+
+                                    FileInputStream fis = new FileInputStream(filed);
+                                    ps.setBinaryStream(5, fis, fileLength);
+
+                                    ps.setInt(6,id);
+
+                                    ps.executeUpdate();
+                                    table_update_files();
+
+                                    JOptionPane.showMessageDialog(null, "Student Successfully Updated");
+                                    file_text.setText("");
+
+                                }
+
+                            }
+                        } catch (ClassNotFoundException | SQLException ex) {
+
+                            JOptionPane.showMessageDialog(this, ex," Unable to Update" + "\n Student ID is not Specified", JOptionPane.ERROR_MESSAGE);
+                            Logger.getLogger(Add_Records.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (FileNotFoundException ex) {
+                            Logger.getLogger(StudentFrame.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(this, " Unable to Update" + "\n Student ID is not Specified");
+                    }
+
+                }
+
+            }
+
+        } catch (HeadlessException | NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(this, " Unable to Update" + "\n Student ID is not Specified");
+        }
+    }//GEN-LAST:event_UPDATE1ActionPerformed
+
+    private void DELETE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETE1ActionPerformed
+
+        try {
+
+            if (verifyText()) {
+
+                DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
+                int selecIndex = jTable.getSelectedRow();
+                int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
+                int dialogResult = JOptionPane.showConfirmDialog(null, "Do you want to delete the record","Warning",JOptionPane.YES_NO_OPTION);
+                if (dialogResult == JOptionPane.YES_OPTION)
+
+                {
+
+                    try {
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+                        PreparedStatement ps;
+                        ps=Mycon.prepareStatement("delete from insert_data_file where id=?");
+                        ps.setInt(1, id);
+
+                        if (verifyText()) {
+
+                            ps.execute();
+                            //                schoolyr.setSelectedIndex(-1);
+
+                            table_update_files();
+                            JOptionPane.showMessageDialog(null, "Successfully Deleted");
+                            file_text.setText("");
+                        }
+                    }catch (ClassNotFoundException | SQLException  ex) {
+                        Logger.getLogger(Add_Students.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Then please Proceed");
+
+                }
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, " Unable to Delete" + "\n Student ID is not Specified");
+        }
+
+    }//GEN-LAST:event_DELETE1ActionPerformed
+
+    private void DOWNLOADActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DOWNLOADActionPerformed
+
+        try {
+
+            //             if (verifyTextFiles()) {
+
+                DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
+                int selecIndex = jTable.getSelectedRow();
+                int row = jTable.getSelectedRow();
+                int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
+                String tc = jTable.getModel().getValueAt(row, 0).toString();
+
+                try {
+
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+                    PreparedStatement ps;
+                    ps=Mycon.prepareStatement("SELECT * from insert_data_file where  id="+tc+" ");
+
+                    //                if (verifyTextFiles())
+                    //                {
+                        ResultSet rs = ps.executeQuery();
+                        System.out.println("Following flies are downloaded from database..");
+
+                        while (rs.next()) {
+
+                            int fileId = rs.getInt("id");
+                            String fileName = rs.getString("file_name");
+                            long fileSizeInKb = rs.getLong("file_size_in_kb");
+                            String fileExtension = rs.getString("file_extension");
+                            System.out.println("File Id:"+fileId);
+                            System.out.println("File Name:"+fileName);
+                            System.out.println("File Size In KB:"+fileSizeInKb);
+                            System.out.println("File Extension:"+fileExtension);
+
+                            Blob blob = (Blob) rs.getBlob("file_content");
+                            InputStream inputStreams = blob.getBinaryStream();
+
+                            System.out.println("-----------------------------------");
+                            String home = System.getProperty("user.home");
+                            File filez = new File(home+"/Downloads/" + fileName);
+                            Files.copy(inputStreams, Paths.get(filez + fileName));
+                        }
+
+                        table_update_files();
+                        //                schoolyr.setSelectedIndex(-1);
+
+                        JOptionPane.showMessageDialog(this, "Successfully Download");
+                        
+                        file_text.setText("");
+
+                        // }
+
+                }catch (ClassNotFoundException | SQLException  ex) {
+                    Logger.getLogger(Add_Students.class.getName()).log(Level.SEVERE, null, ex);
+                }    catch (IOException ex) {
+                    JOptionPane.showMessageDialog(this, "Already Downloaded","Message",JOptionPane.ERROR_MESSAGE);
+                    // Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                //}
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(this, "Download Faild");
+
+        }
+
+    }//GEN-LAST:event_DOWNLOADActionPerformed
+
+    private void CLEAR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEAR1ActionPerformed
+
+    }//GEN-LAST:event_CLEAR1ActionPerformed
 
     
     
@@ -1116,8 +1482,13 @@ File filed;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CLEAR1;
+    private javax.swing.JButton DELETE1;
+    private javax.swing.JButton DOWNLOAD;
+    private javax.swing.JButton SAVE;
     private javax.swing.JLabel STUDENTNAME;
     private javax.swing.JComboBox STUDENTNAMES;
+    private javax.swing.JButton UPDATE1;
     private javax.swing.JTextField file_text;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

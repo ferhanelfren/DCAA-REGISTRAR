@@ -8,6 +8,7 @@ package dcaa_registrar2;
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -85,6 +86,11 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
+            }
+        });
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
             }
         });
 
@@ -399,6 +405,74 @@ public class Login extends javax.swing.JFrame {
 
          jPasswordField1.setEchoChar((char)0);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+       
+        
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        
+        {
+
+                                      String user = username.getText();
+                                      String pass =jPasswordField1.getText();
+
+
+                                      try {
+
+
+                                          Class.forName("com.mysql.cj.jdbc.Driver");
+                                          Mycon=DriverManager.getConnection("jdbc:mysql://127.1.1.2:3306/dcaa_registrar","root","root");  
+                                          PreparedStatement ps;   
+                                          ps=Mycon.prepareStatement("select * from useraccount where username=? and password=?");
+
+
+                                          ps.setString(1, user);
+                                          ps.setString(2,pass);
+                                          ResultSet rs;
+                                          rs = ps.executeQuery();
+
+
+
+                                           if (rs.next()) 
+
+                                           {
+
+
+
+                                               Mainframe dk= new  Mainframe();
+
+
+
+                                             Mainframe.usernamedesk.setText(username.getText());
+
+
+
+                                                 this.hide();
+
+                                                 dk.setVisible(true);
+
+                                           } 
+
+                                           else {
+
+
+                                               JOptionPane.showMessageDialog(this, "Username or Password are Inncorect");
+
+
+
+                                               username.requestFocus();
+
+                                           }
+
+                                     } catch (ClassNotFoundException  ex) {
+                                                      Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                                      }catch ( SQLException ex) {
+                                                      Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+                                      }
+
+        }
+        
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments

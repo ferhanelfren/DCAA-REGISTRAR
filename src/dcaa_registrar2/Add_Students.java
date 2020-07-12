@@ -2870,10 +2870,10 @@ public class Add_Students extends javax.swing.JFrame {
 //                    z.setVisible(true);
 //          }   
 //                        
-                    StudentFrame2 z=new StudentFrame2();
-                    this.hide();
-                    z.setVisible(true);
-                        
+//                    StudentFrame2 z=new StudentFrame2();
+//                    this.hide();
+//                    z.setVisible(true);
+//                        
         
     }//GEN-LAST:event_formWindowClosing
 

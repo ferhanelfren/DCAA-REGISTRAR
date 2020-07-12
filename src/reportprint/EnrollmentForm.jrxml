@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="936" whenNoDataType="AllSectionsNoDetail" columnWidth="451" leftMargin="72" rightMargin="72" topMargin="36" bottomMargin="36" uuid="b38e4708-f41c-4419-b8aa-d0c42e61f41f">
+	<property name="ireport.zoom" value="1.3310000000000033"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="schoolyear" class="java.lang.String"/>
+	<parameter name="lrnstatus" class="java.lang.String"/>
+	<parameter name="studentaccount" class="java.lang.String"/>
+	<parameter name="lrnno" class="java.lang.String"/>
+	<parameter name="fulname" class="java.lang.String"/>
+	<parameter name="birtday" class="java.lang.String"/>
+	<parameter name="sexs" class="java.lang.String"/>
+	<parameter name="aged" class="java.lang.String"/>
+	<parameter name="yesnoip" class="java.lang.String"/>
+	<parameter name="statip" class="java.lang.String"/>
+	<parameter name="mothertongue" class="java.lang.String"/>
+	<parameter name="parameter12" class="java.lang.String"/>
+	<parameter name="parameter13" class="java.lang.String"/>
+	<parameter name="parameter14" class="java.lang.String"/>
+	<parameter name="parameter15" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="399" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="139" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="227" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
