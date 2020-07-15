@@ -1,1 +1,2 @@
-SELECT * FROM dcaa_registrar.enrolled_students;
+SELECT * FROM officialy_enrolled_students ;
+delete from officialy_enrolled_students where id=?

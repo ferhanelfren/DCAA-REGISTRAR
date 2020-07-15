@@ -13,10 +13,14 @@ import java.awt.Component;
 import java.awt.Cursor;
 
 import java.awt.Font;
+import java.awt.HeadlessException;
+import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -38,11 +42,20 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 /**
@@ -4418,7 +4431,95 @@ public void SomeWindow() {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
        
-       
+//        JFileChooser fileChooser = new JFileChooser();
+//        fileChooser.setDialogTitle("Specify a file save");
+//        int userSelection = fileChooser.showSaveDialog(this);
+//        if(userSelection == JFileChooser.APPROVE_OPTION){
+//            File fileToSave = fileChooser.getSelectedFile();
+//            //lets write to file
+//         
+//            try {
+//                
+//                FileWriter fw = new FileWriter(fileToSave);
+//                BufferedWriter bw = new BufferedWriter(fw);
+//                for (int i = 0; i < jTableUserAccount.getRowCount(); i++) {
+//                
+//                    for (int j = 0; j <  jTableUserAccount.getColumnCount(); j++) {
+//                        //write
+//                        bw.write(jTableUserAccount.getValueAt(i, j).toString()+ ",");
+//                    }
+//                    bw.newLine();//record per line 
+//                }
+//                JOptionPane.showMessageDialog(this, "SUCCESSFULLY LOADED","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+//                bw.close();
+//                fw.close();
+//            } catch (IOException ex) {
+//               JOptionPane.showMessageDialog(this, "ERROR","ERROR MESSAGE",JOptionPane.ERROR_MESSAGE);
+//            }
+//            
+//            
+//        }
+        
+
+
+
+
+       JFileChooser save = new JFileChooser();
+    save.setDialogTitle("Save as...");
+    save.setFileFilter(new FileNameExtensionFilter("xls", "xlsx", "xlsm"));
+    int choose = save.showSaveDialog(null);
+
+    if(choose == JFileChooser.APPROVE_OPTION) {
+        XSSFWorkbook export = new XSSFWorkbook();
+        XSSFSheet sheet1 = export.createSheet("new file");
+        try{
+            TableModel tableModel = jTableUserAccount.getModel();
+
+            for(int i=0; i<jTableUserAccount.getRowCount(); i++) {
+               XSSFRow newRow = sheet1.createRow(i);
+                for(int j=0; j<jTableUserAccount.getColumnCount(); j++) {
+                    XSSFCell newCell = newRow.createCell((short) j);
+                    if(i==0){
+                        
+//                        XSSFCellStyle style = export.createCellStyle();
+//                        style.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
+//                        //style.setFillPattern(XSSFCellStyle.SOLID_FOREGROUND);
+//                        style.setBorderBottom(BorderStyle.THIN);
+//                        style.setBorderTop(BorderStyle.THIN);
+//                        style.setBorderLeft(BorderStyle.THIN);
+//                        style.setBorderRight(BorderStyle.THIN);
+               //         newCell.setCellStyle(style);
+                        newCell.setCellValue(tableModel.getColumnName(j));
+                        
+                        
+                    } else {
+                        
+//                        XSSFCellStyle style = export.createCellStyle();
+//                        style.setBorderBottom(BorderStyle.THIN);
+//                        style.setBorderTop(BorderStyle.THIN);
+//                        style.setBorderLeft(BorderStyle.THIN);
+//                        style.setBorderRight(BorderStyle.THIN);
+                 //       newCell.setCellStyle(style);
+                        newCell.setCellValue(tableModel.getValueAt(i, j).toString());
+                    
+                    }
+                }
+            }
+
+            try (FileOutputStream otp = new FileOutputStream(save.getSelectedFile()+".xlsx"); 
+                 BufferedOutputStream bos = new BufferedOutputStream(otp)) {
+               
+                export.write(bos);
+                
+            }
+
+            JOptionPane.showMessageDialog(null, "Student Data Export Successfully");
+        }catch(HeadlessException | IOException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+        
     }//GEN-LAST:event_jLabel10MouseClicked
 
     

@@ -20,6 +20,8 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Blob;
@@ -477,7 +479,7 @@ public void SomeWindow() {
                                                  TableColumn col4 = jTableCERTIFICATES.getColumnModel().getColumn(0);
                                                     DefaultTableCellRenderer dtcr4 = new DefaultTableCellRenderer();  
                                                     dtcr4.setHorizontalAlignment(SwingConstants.CENTER);
-                                                    col4.setCellRenderer(dtcr);
+                                                    col4.setCellRenderer(dtcr4);
                                                     
                                                     
                                                      jTableCERTIFICATESSHS.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,16));
@@ -526,7 +528,7 @@ public void SomeWindow() {
                                                  TableColumn col3 = jTableCERTIFICATESSHS.getColumnModel().getColumn(0);
                                                     DefaultTableCellRenderer dtcr3 = new DefaultTableCellRenderer();  
                                                     dtcr3.setHorizontalAlignment(SwingConstants.CENTER);
-                                                    col3.setCellRenderer(dtcr);
+                                                    col3.setCellRenderer(dtcr3);
 
 
 
@@ -6496,37 +6498,44 @@ public void SomeWindow() {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
         
-       DefaultTableModel modelStudent =  (DefaultTableModel)jTableStudents.getModel() ;
-       FileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Specify a file save");
-        int userSelection = fileChooser.showSaveDialog(this);
-        if(userSelection == JFileChooser.APPROVE_OPTION){
-            File fileToSave = fileChooser.getSelectedFile();
-            //lets write to file
-         
-            try {
-                
-                FileWriter fw = new FileWriter(fileToSave);
-                BufferedWriter bw = new BufferedWriter(fw);
-                for (int i = 0; i modelStudent.getRowCount(); i++) {
-                
-                    for (int j = 0; j  modelStudent .getColumnCount(); j++) {
-                        //write
-                        bw.write(jTableStudents.getValueAt(i, j).toString()+",");
-                    }
-                    bw.newLine();//record per line 
-                }
-                JOptionPane.showMessageDialog(this, "SUCCESSFULLY LOADED","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
-                bw.close();
-                fw.close();
-            } catch (IOException ex) {
-               JOptionPane.showMessageDialog(this, "ERROR","ERROR MESSAGE",JOptionPane.ERROR_MESSAGE);
-            }
-            
-            
-        }
+      // DefaultTableModel modelStudent =  (DefaultTableModel)jTableStudents.getModel() ;
+//       JFileChooser fileChooser = new JFileChooser();
+//        fileChooser.setDialogTitle("Specify a file save");
+//        int userSelection = fileChooser.showSaveDialog(this);
+//        if(userSelection == JFileChooser.APPROVE_OPTION){
+//            File fileToSave = fileChooser.getSelectedFile();
+//            //lets write to file
+//         
+//            try {
+//                
+//                FileWriter fw = new FileWriter(fileToSave);
+//                BufferedWriter bw = new BufferedWriter(fw);
+//                for (int i = 0; i < jTableStudents.getRowCount(); i++) {
+//                
+//                    for (int j = 0; j <  jTableStudents.getColumnCount(); j++) {
+//                        //write
+//                        bw.write(jTableStudents.getValueAt(i, j).toString()+ ",");
+//                    }
+//                    bw.newLine();//record per line 
+//                }
+//                JOptionPane.showMessageDialog(this, "SUCCESSFULLY LOADED","INFORMATION",JOptionPane.INFORMATION_MESSAGE);
+//                bw.close();
+//                fw.close();
+//            } catch (IOException ex) {
+//               JOptionPane.showMessageDialog(this, "ERROR","ERROR MESSAGE",JOptionPane.ERROR_MESSAGE);
+//            }
+//            
+//            
+//        }
+        
+        
+
+        
     }//GEN-LAST:event_jLabel10MouseClicked
 
+    
+    
+    
     
           
     
