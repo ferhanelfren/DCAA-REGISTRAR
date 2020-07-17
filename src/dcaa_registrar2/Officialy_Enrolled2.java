@@ -257,7 +257,7 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
 
                                            //select a.file_id, b.school_year_name, c.fullname, a.file_name, a.file_size_in_kb, a.file_extension, a.file_content, a.timestamp from insert_data_file a, enrolled_students c, school_year b  where a.school_year_id = b.id and a.enrolled_students_id = c.id
 
-                                           ps=Mycon.prepareStatement("select a.id, s.school_year_id, s.fullname, s.grade_level,  b.section_name from enrolled_students s, sections b, officialy_enrolled_students a  where a.enrolled_students_id = s.id and a.sections_id = b.id");
+                                           ps=Mycon.prepareStatement("select a.id, s.fullname, s.grade_level,  b.section_name from enrolled_students s, sections b, officialy_enrolled_students a  where a.enrolled_students_id = s.id and a.sections_id = b.id");
 
                                            ResultSet rs = ps.executeQuery();
 
@@ -283,7 +283,7 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
 
                                                          v.add(rs.getString("id")); 
 
-                                                          v.add(rs.getString("school_year_id"));
+                                                          //v.add(rs.getString("school_year_id"));
 
                                                           v.add(rs.getString("fullname")); 
 
@@ -506,13 +506,7 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
 
                                                     col3.setCellRenderer(dtcr);   
                                                     
-                                                TableColumn col4 =  jTable.getColumnModel().getColumn(4);
-                                                
-                                                    DefaultTableCellRenderer dtcr4 = new DefaultTableCellRenderer();  
-
-                                                    dtcr4.setHorizontalAlignment(SwingConstants.CENTER);
-
-                                                    col4.setCellRenderer(dtcr);   
+                                              
                                                     
 
           
@@ -684,20 +678,20 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
         jTable.setBackground(new java.awt.Color(253, 253, 255));
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Id", "School Year", "Student Name", "Grade Level", "Section"
+                "Id", "Student Name", "Grade Level", "Section"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
