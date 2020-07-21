@@ -49,12 +49,12 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
  *
  * @author GOD
  */
-public class Officialy_Enrolled2 extends javax.swing.JFrame {
+public class Officialy_Enrolled extends javax.swing.JFrame {
 
     /**
      * 
      */
-    public Officialy_Enrolled2() {
+    public Officialy_Enrolled() {
         initComponents();
       AutoCompleteDecorator.decorate(stnames);
       AutoCompleteDecorator.decorate(sect);
@@ -281,7 +281,7 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
 
                                                     { 
 
-                                                         v.add(rs.getString("id")); 
+                                                        // v.add(rs.getString("id")); 
 
                                                           //v.add(rs.getString("school_year_id"));
 
@@ -493,27 +493,9 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
                                                 
                                                     DefaultTableCellRenderer dtcr2 = new DefaultTableCellRenderer();  
 
-                                                    dtcr2.setHorizontalAlignment(SwingConstants.LEFT);
+                                                    dtcr2.setHorizontalAlignment(SwingConstants.CENTER);
 
                                                     col2.setCellRenderer(dtcr); 
-                                                    
-                                                    
-                                                TableColumn col3 =  jTable.getColumnModel().getColumn(3);
-                                                
-                                                    DefaultTableCellRenderer dtcr3 = new DefaultTableCellRenderer();  
-
-                                                    dtcr3.setHorizontalAlignment(SwingConstants.CENTER);
-
-                                                    col3.setCellRenderer(dtcr);   
-                                                    
-                                              
-                                                    
-
-          
-
-          
-
-          
 
       }
 
@@ -560,6 +542,9 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -571,7 +556,6 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
         stnames = new javax.swing.JComboBox();
         sect = new javax.swing.JComboBox();
         ADD = new javax.swing.JButton();
-        UPDATE = new javax.swing.JButton();
         DELETE = new javax.swing.JButton();
         CLEAR = new javax.swing.JButton();
 
@@ -581,15 +565,40 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 0));
 
+        jLabel3.setFont(new java.awt.Font("Dubai Medium", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("DIGOS   CENTRAL   ADVENTIST   ACADEMY,   INC.");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/loh.png"))); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Lapu  -  Lapu  Ext.,  Digos  City,   Davao   del   Sur,   Pphilippines");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(75, 75, 75))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 67, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel3)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
 
         jPanel5.setBackground(new java.awt.Color(0, 51, 0));
@@ -614,7 +623,7 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
         );
 
         jPanel3.setBackground(new java.awt.Color(253, 253, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), " Search Here . . .  ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial Narrow", 0, 24), new java.awt.Color(204, 0, 0))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2), " Search Here . . .  ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24), new java.awt.Color(204, 0, 0))); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -632,6 +641,16 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
                 searchFocusLost(evt);
             }
         });
+        search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchActionPerformed(evt);
+            }
+        });
+        search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -639,8 +658,8 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -649,9 +668,8 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
 
         jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "  Student Name", "  Grade Level", "  Section" }));
-        jComboBox1.setSelectedIndex(-1);
+        jComboBox1.setForeground(new java.awt.Color(204, 0, 0));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "  Student Name", "  Section" }));
         jComboBox1.setBorder(null);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -659,39 +677,39 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
-                .addGap(15, 15, 15))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
         );
 
         jTable.setBackground(new java.awt.Color(253, 253, 255));
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Id", "Student Name", "Grade Level", "Section"
+                "Student Name", "Grade Level", "Section"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -718,12 +736,14 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
         stnames.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         stnames.setForeground(new java.awt.Color(0, 0, 0));
         stnames.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        stnames.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(22, 88, 22), 3));
 
         sect.setBackground(new java.awt.Color(0, 0, 0));
         sect.setEditable(true);
         sect.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         sect.setForeground(new java.awt.Color(0, 0, 0));
         sect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
+        sect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(22, 88, 22), 3));
 
         ADD.setBackground(new java.awt.Color(51, 51, 51));
         ADD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/default.png"))); // NOI18N
@@ -735,19 +755,6 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
         ADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ADDActionPerformed(evt);
-            }
-        });
-
-        UPDATE.setBackground(new java.awt.Color(51, 51, 51));
-        UPDATE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/default.png"))); // NOI18N
-        UPDATE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        UPDATE.setFocusPainted(false);
-        UPDATE.setRolloverEnabled(true);
-        UPDATE.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/hover.png"))); // NOI18N
-        UPDATE.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/hover.png"))); // NOI18N
-        UPDATE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UPDATEActionPerformed(evt);
             }
         });
 
@@ -765,12 +772,12 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
         });
 
         CLEAR.setBackground(new java.awt.Color(51, 51, 51));
-        CLEAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/CLEAR/default.png"))); // NOI18N
+        CLEAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Export/default.png"))); // NOI18N
         CLEAR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
         CLEAR.setFocusPainted(false);
         CLEAR.setRolloverEnabled(true);
-        CLEAR.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/CLEAR/hover.png"))); // NOI18N
-        CLEAR.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/CLEAR/hover.png"))); // NOI18N
+        CLEAR.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Export/hover.png"))); // NOI18N
+        CLEAR.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Export/hover.png"))); // NOI18N
         CLEAR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CLEARActionPerformed(evt);
@@ -783,30 +790,22 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))
-                        .addContainerGap(57, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(stnames, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sect, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ADD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UPDATE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DELETE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CLEAR)
-                .addGap(156, 156, 156))
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(stnames, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sect, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(CLEAR)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ADD)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DELETE))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -814,19 +813,18 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stnames, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sect, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DELETE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CLEAR, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ADD, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(UPDATE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(96, 96, 96)
+                    .addComponent(CLEAR, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -872,12 +870,6 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
 
 
                 try {
-
-
-
-                               
-
-
 
                     Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -929,74 +921,9 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ADDActionPerformed
 
-    private void UPDATEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATEActionPerformed
-
-        
-                student names = (student)stnames.getSelectedItem();
-
-                Section  st = (Section)sect.getSelectedItem();
-        
-        
-        try {
-
-            if (verifyText()) {
-
-                DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-                int selecIndex= jTable.getSelectedRow();
-                int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
-
-                
-
-               
-                if (verifyText()) {
-                    try {
-                       
-
-                        Class.forName("com.mysql.cj.jdbc.Driver");
-                        Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                        PreparedStatement ps;
-                        //ps=Mycon.prepareStatement("update enrolled_students set s.school_year_name, a.lrnStatus, a.student_account_no, a.lrnNumber, a.fullname, a.bdate, a.sex, a.age, a.ip, a.ip_status, a.mother_tongue, a.address, a.zip_code, a.fathername, a.mothername, a.guardianname, a.telephone, a.cellphone, a.last_grade_level_completed, a.last_school_year_completed, a.school_name, a.school_id, a.school_address, a.semester, a.track, a.strand, a.grade_level, a.enrolled_track from enrolled_students a, school_year s  where a.school_year_id = s.id ");
-                        //ps=Mycon.prepareStatement("update enrolled_students set school_year_id=?, lrnStatus=?, student_account_no=?, lrnNumber=?, fullname=?, bdate=?, sex=?, age=?, ip=?, ip_status=?, mother_tongue=?, address=?, zip_code=?, fathername=?, mothername=?, guardianname=?, telephone=?, cellphone=?, last_grade_level_completed=?, last_school_year_completed=?, school_name=?, school_id=?, school_address=?, semester=?, track=?, strand=?, grade_level=?, enrolled_track=? where id=?");
-                        ps=Mycon.prepareStatement("update officialy_enrolled_students set enrolled_students_id=?, sections_id=? where id=?");
-
-                        if (verifyText()) {
-                            ps.setInt(1,names.id);
-                            ps.setInt(2,st.id);
-                            ps.setInt(3,id);
-
-                            ps.execute();
-                            table_update();
-                            
-                            stnames.setSelectedIndex(-1);
-                            sect.setSelectedIndex(-1);
-
-                            // schoolyr.setSelectedIndex(-1);
-                          
-
-                            JOptionPane.showMessageDialog(null, "Student Successfully Updated");
-
-                        }
-
-                        // DESKTOP.schoolyear.setText(jComboBox1.getSelectedItem().toString());
-
-                    } catch (ClassNotFoundException | SQLException ex) {
-
-                        JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-                    }
-                }
-
-            }
-
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(this, " Unable to Update" + "\n Student ID is not Specified");
-        }
-
-    }//GEN-LAST:event_UPDATEActionPerformed
-
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
 
-        try {
+        
 
             DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
             int selecIndex = jTable.getSelectedRow();
@@ -1004,6 +931,9 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
 
             int dialogResult = JOptionPane.showConfirmDialog(null, "Do you want to delete the record","Warning",JOptionPane.YES_NO_OPTION);
 
+            
+            try {
+            
             if (dialogResult == JOptionPane.YES_OPTION)
 
             {
@@ -1165,13 +1095,34 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
         int selecIndex = jTable.getSelectedRow();
         //SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
 
-        stnames.setSelectedItem(model2.getValueAt(selecIndex, 2).toString());
-        sect.setSelectedItem(model2.getValueAt(selecIndex, 4).toString());
+        stnames.setSelectedItem(model2.getValueAt(selecIndex, 0).toString());
+        sect.setSelectedItem(model2.getValueAt(selecIndex, 2).toString());
         
         
         
         
     }//GEN-LAST:event_jTableMouseClicked
+
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+
+         
+    }//GEN-LAST:event_searchActionPerformed
+
+    private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
+
+           int position = search.getCaretPosition();
+       search.setText(search.getText().toUpperCase());
+      search.setCaretPosition(position);
+        
+       if (jComboBox1.getSelectedIndex() == 0) {
+            load_Names();
+        } else if (jComboBox1.getSelectedIndex() == 1) {
+            load_sections();
+        }
+       
+       
+       
+    }//GEN-LAST:event_searchKeyReleased
 
     /**
      * @param args the command line arguments
@@ -1190,32 +1141,90 @@ public class Officialy_Enrolled2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Officialy_Enrolled2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Officialy_Enrolled.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Officialy_Enrolled2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Officialy_Enrolled.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Officialy_Enrolled2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Officialy_Enrolled.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Officialy_Enrolled2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Officialy_Enrolled.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Officialy_Enrolled2().setVisible(true);
+                new Officialy_Enrolled().setVisible(true);
             }
         });
     }
+    
+    
+   private void load_Names() 
+   {
+       
+       try {
+               String name="%"+this.search.getText()+"%";
+               DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+               int col;
+               Class.forName("com.mysql.cj.jdbc.Driver");
+               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+               PreparedStatement ps;
+               //ps = Mycon.prepareStatement("select * from enrolled_students where fullname LIKE '"+name+"'"); 
+               ps = Mycon.prepareStatement("select  s.fullname, s.grade_level,  b.section_name from enrolled_students s, sections b, officialy_enrolled_students a  where a.enrolled_students_id = s.id and a.sections_id = b.id and fullname LIKE '"+name+"'"); 
+               
+                         rs= ps.executeQuery();
+                         
+                         model.setRowCount(0);
+                         while(rs.next()){   
+                             //number sa mga columns sa imohang tables
+                        model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3)});
+                                }  
+            }catch (ClassNotFoundException | SQLException  ex) {
+                JOptionPane.showMessageDialog(this,  ex, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+   }
+   
+   
+      private void load_sections() 
+   {
+       
+       try {
+               String name="%"+this.search.getText()+"%";
+               DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+               int col;
+               Class.forName("com.mysql.cj.jdbc.Driver");
+               Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+               PreparedStatement ps;
+               //ps = Mycon.prepareStatement("select * from enrolled_students where fullname LIKE '"+name+"'"); 
+               ps = Mycon.prepareStatement("select  s.fullname, s.grade_level,  b.section_name from enrolled_students s, sections b, officialy_enrolled_students a  where a.enrolled_students_id = s.id and a.sections_id = b.id and section_name LIKE '"+name+"'"); 
+               
+                         rs= ps.executeQuery();
+                         
+                         model.setRowCount(0);
+                         while(rs.next()){   
+                             //number sa mga columns sa imohang tables
+                        model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3)});
+                                }  
+            }catch (ClassNotFoundException | SQLException  ex) {
+                JOptionPane.showMessageDialog(this,  ex, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+   }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADD;
     private javax.swing.JButton CLEAR;
     private javax.swing.JButton DELETE;
-    private javax.swing.JButton UPDATE;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

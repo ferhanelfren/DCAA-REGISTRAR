@@ -6469,7 +6469,7 @@ public void SomeWindow() {
     }//GEN-LAST:event_jPanel9MouseReleased
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        BackUp bk = new BackUp();
+        BackUp_DataBase bk = new BackUp_DataBase();
         this.show();
         bk.setVisible(true);
     }//GEN-LAST:event_jLabel9MouseClicked
