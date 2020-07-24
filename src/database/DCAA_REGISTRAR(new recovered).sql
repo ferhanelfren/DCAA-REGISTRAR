@@ -1,1 +1,1 @@
-delete from officialy_enrolled_students where id=10
+update officialy_enrolled_students set enrolled_students_id=PORGATORIO, JIZZY DANE NICOLE T., sections_id=KING AMAZIAH where id=14;

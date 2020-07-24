@@ -6,16 +6,17 @@
 package dcaa_registrar2;
 
 
+import com.sun.glass.events.KeyEvent;
+import dcaa_registrar2.Officialy_Enrolled.student;
 import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Desktop.Action;
 import java.awt.Font;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
 import java.io.BufferedOutputStream;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -27,19 +28,19 @@ import java.time.format.DateTimeFormatter;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
-import static org.apache.poi.hssf.usermodel.HeaderFooter.file;
-import org.apache.poi.ss.usermodel.BorderStyle;
-import org.apache.poi.ss.usermodel.IndexedColors;
+import net.sf.jasperreports.web.actions.AbstractAction;
+import net.sf.jasperreports.web.actions.ActionException;
 import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -58,25 +59,26 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
         initComponents();
       AutoCompleteDecorator.decorate(stnames);
       AutoCompleteDecorator.decorate(sect);
-
         SomeWindow();
-
-        //schoolyear2();
-
         stnamae();
-
         sectionname();
-
         tableformat();
-
         table_update();
+        
+     
+    
+    
+
+        
+       
 
     }
 
 
-
-    
-
+      
+      
+      
+      
     
 
     Connection Mycon;
@@ -85,7 +87,16 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
     
 
-    
+    public void refres()
+    {
+        
+        Officialy_Enrolled s = new Officialy_Enrolled();
+        s.setVisible(true);
+        this.dispose();
+        
+        
+    }         
+   
 
     
 
@@ -107,48 +118,7 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
 }
 
-    
-
-    
-
-//     public class SchoolYear2 
-
-//       {
-
-//           int id;
-
-//           String name;
-
-//           public SchoolYear2 (int id, String name)
-
-//           {     
-
-//               this.id=id;
-
-//               this.name=name;     
-
-//           }
-
-//           @Override
-
-//           public String toString ()
-
-//           {   
-
-//               return name;  
-
-//            }
-
-//       }
-
-//     
-
-     
-
-     
-
-     
-
+ 
  public class student
 
             
@@ -265,7 +235,7 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
                                                 c = rsd.getColumnCount();            
 
-                                                DefaultTableModel modelStudent =  (DefaultTableModel)jTable.getModel() ;
+                                                DefaultTableModel modelStudent =  (DefaultTableModel)jTableEnrolled.getModel() ;
 
                                                 
 
@@ -281,10 +251,8 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
                                                     { 
 
-                                                        // v.add(rs.getString("id")); 
-
-                                                          //v.add(rs.getString("school_year_id"));
-
+                                                         v.add(rs.getString("id")); 
+                                                        
                                                           v.add(rs.getString("fullname")); 
 
                                                           v.add(rs.getString("grade_level")); 
@@ -308,51 +276,8 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
     }
 
        
-
     
-
-//     private void schoolyear2()
-
-//        {
-
-//             try {
-
-//
-
-//                Class.forName("com.mysql.cj.jdbc.Driver");
-
-//            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
-
-//                PreparedStatement ps;
-
-//                ps=Mycon.prepareStatement("select * from school_year");
-
-//                rs= ps.executeQuery();
-
-//                syear.removeAllItems();
-
-//                while (rs.next())
-
-//                {             
-
-//                     syear.addItem(new SchoolYear2(rs.getInt(1),rs.getString(2)));             
-
-//                }
-
-//            }catch (ClassNotFoundException | SQLException  ex) {
-
-//                  JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-
-//            }
-
-//
-
-//        }
-
-    
-
-     
-
+  
      
 
      
@@ -367,7 +292,7 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
 
                 PreparedStatement ps;
 
@@ -381,7 +306,8 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
                 {             
 
-                     stnames.addItem(new student(rs.getInt(1),rs.getString(6)));             
+                     stnames.addItem(new student(rs.getInt(1),rs.getString(6)));  
+                     // stnames.addItem(rs.getString(6));
 
                 }
 
@@ -411,17 +337,17 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
 
-            Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
+                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
 
                 PreparedStatement ps;
 
                 ps=Mycon.prepareStatement("select * from sections");
 
-                ResultSet rs= ps.executeQuery();
+                rs= ps.executeQuery();
 
                 sect.removeAllItems();
 
-                //sectioNsSH.removeAllItems();
+                
 
                 while (rs.next())
 
@@ -429,13 +355,13 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
                       sect.addItem(new Section(rs.getInt(1),rs.getString(2)));
 
-                     //sectioNsSH.addItem(new StudentFrame.Section(rs.getInt(1),rs.getString(2)));
+                  //   sect.addItem(rs.getString(2));
 
                 }
 
             }catch (ClassNotFoundException | SQLException  ex) {
 
-                 // JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+                 
 
             }
 
@@ -452,27 +378,27 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
           
 
-                                                jTable.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,16));
+                                                jTableEnrolled.getTableHeader().setFont(new Font("Segui UI", Font.BOLD,16));
 
-                                                jTable.getTableHeader().setOpaque(false);
+                                                jTableEnrolled.getTableHeader().setOpaque(false);
 
-                                                jTable.getTableHeader().setBackground(new Color(165,19,29));
+                                                jTableEnrolled.getTableHeader().setBackground(new Color(165,19,29));
 
-                                                jTable.getTableHeader().setForeground(new Color(255,255,255));
+                                                jTableEnrolled.getTableHeader().setForeground(new Color(255,255,255));
 
-                                                jTable.getRowHeight(20);
+                                                jTableEnrolled.getRowHeight(20);
 
                                                 
 
 
 
-                                                DefaultTableCellRenderer renderer3 = (DefaultTableCellRenderer)  jTable.getTableHeader().getDefaultRenderer();
+                                                DefaultTableCellRenderer renderer3 = (DefaultTableCellRenderer)  jTableEnrolled.getTableHeader().getDefaultRenderer();
 
                                                 renderer3.setHorizontalAlignment(SwingConstants.CENTER);
 
                                                 
 
-                                                TableColumn col =  jTable.getColumnModel().getColumn(0);
+                                                TableColumn col =  jTableEnrolled.getColumnModel().getColumn(0);
                                               
                                                     DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();  
 
@@ -481,7 +407,7 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
                                                     col.setCellRenderer(dtcr);
                                                     
                                                     
-                                                 TableColumn col1 =  jTable.getColumnModel().getColumn(1);
+                                                 TableColumn col1 =  jTableEnrolled.getColumnModel().getColumn(1);
                                                 
                                                     DefaultTableCellRenderer dtcr1 = new DefaultTableCellRenderer();  
 
@@ -489,13 +415,26 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
                                                     col1.setCellRenderer(dtcr);    
                                                     
-                                                TableColumn col2 =  jTable.getColumnModel().getColumn(2);
+                                                TableColumn col2 =  jTableEnrolled.getColumnModel().getColumn(2);
                                                 
                                                     DefaultTableCellRenderer dtcr2 = new DefaultTableCellRenderer();  
 
                                                     dtcr2.setHorizontalAlignment(SwingConstants.CENTER);
 
                                                     col2.setCellRenderer(dtcr); 
+                                                    
+                                                TableColumn col3 =  jTableEnrolled.getColumnModel().getColumn(3);
+                                                
+                                                    DefaultTableCellRenderer dtcr3 = new DefaultTableCellRenderer();  
+
+                                                    dtcr3.setHorizontalAlignment(SwingConstants.CENTER);
+
+                                                    col3.setCellRenderer(dtcr); 
+                                                    
+                                                    
+                                                jTableEnrolled.getColumnModel().getColumn(0).setPreferredWidth(10);
+                                                jTableEnrolled.getColumnModel().getColumn(1).setPreferredWidth(200);
+                                                jTableEnrolled.getColumnModel().getColumn(2).setPreferredWidth(10);
 
       }
 
@@ -540,6 +479,8 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        CLEAR = new javax.swing.JButton();
+        UPDATE1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -552,14 +493,50 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
         search = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable = new javax.swing.JTable();
+        jTableEnrolled = new javax.swing.JTable();
+        ADD = new javax.swing.JButton();
         stnames = new javax.swing.JComboBox();
         sect = new javax.swing.JComboBox();
-        ADD = new javax.swing.JButton();
         DELETE = new javax.swing.JButton();
-        CLEAR = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+
+        CLEAR.setBackground(new java.awt.Color(51, 51, 51));
+        CLEAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Export/default.png"))); // NOI18N
+        CLEAR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        CLEAR.setFocusPainted(false);
+        CLEAR.setRolloverEnabled(true);
+        CLEAR.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Export/hover.png"))); // NOI18N
+        CLEAR.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Export/hover.png"))); // NOI18N
+        CLEAR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CLEARActionPerformed(evt);
+            }
+        });
+
+        UPDATE1.setBackground(new java.awt.Color(51, 51, 51));
+        UPDATE1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/default.png"))); // NOI18N
+        UPDATE1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
+        UPDATE1.setFocusPainted(false);
+        UPDATE1.setRolloverEnabled(true);
+        UPDATE1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/hover.png"))); // NOI18N
+        UPDATE1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPDATE/hover.png"))); // NOI18N
+        UPDATE1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UPDATE1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Student Dissemination of Section");
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                formKeyTyped(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(253, 253, 255));
 
@@ -629,7 +606,7 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         search.setBackground(new java.awt.Color(255, 255, 255));
-        search.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        search.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         search.setForeground(new java.awt.Color(153, 153, 153));
         search.setText("Search Here . . .");
         search.setBorder(null);
@@ -693,23 +670,24 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        jTable.setBackground(new java.awt.Color(253, 253, 255));
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTableEnrolled.setAutoCreateRowSorter(true);
+        jTableEnrolled.setBackground(new java.awt.Color(253, 253, 255));
+        jTableEnrolled.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Student Name", "Grade Level", "Section"
+                "Id", "Student Name", "Grade Level", "Section"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -720,30 +698,16 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable.setRowHeight(30);
-        jTable.setSelectionBackground(new java.awt.Color(0, 51, 0));
-        jTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jTable.setShowVerticalLines(false);
-        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTableEnrolled.setRowHeight(30);
+        jTableEnrolled.setSelectionBackground(new java.awt.Color(0, 51, 0));
+        jTableEnrolled.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jTableEnrolled.setShowVerticalLines(false);
+        jTableEnrolled.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableMouseClicked(evt);
+                jTableEnrolledMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable);
-
-        stnames.setBackground(new java.awt.Color(0, 0, 0));
-        stnames.setEditable(true);
-        stnames.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        stnames.setForeground(new java.awt.Color(0, 0, 0));
-        stnames.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        stnames.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(22, 88, 22), 3));
-
-        sect.setBackground(new java.awt.Color(0, 0, 0));
-        sect.setEditable(true);
-        sect.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        sect.setForeground(new java.awt.Color(0, 0, 0));
-        sect.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " " }));
-        sect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(22, 88, 22), 3));
+        jScrollPane1.setViewportView(jTableEnrolled);
 
         ADD.setBackground(new java.awt.Color(51, 51, 51));
         ADD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/ADD/default.png"))); // NOI18N
@@ -758,6 +722,16 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
             }
         });
 
+        stnames.setBackground(new java.awt.Color(51, 51, 51));
+        stnames.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        stnames.setForeground(new java.awt.Color(0, 0, 0));
+        stnames.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 2));
+
+        sect.setBackground(new java.awt.Color(51, 51, 51));
+        sect.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        sect.setForeground(new java.awt.Color(0, 0, 0));
+        sect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 0), 2));
+
         DELETE.setBackground(new java.awt.Color(51, 51, 51));
         DELETE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/DELETE/default.png"))); // NOI18N
         DELETE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
@@ -771,16 +745,21 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
             }
         });
 
-        CLEAR.setBackground(new java.awt.Color(51, 51, 51));
-        CLEAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Export/default.png"))); // NOI18N
-        CLEAR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(104, 143, 78), 2));
-        CLEAR.setFocusPainted(false);
-        CLEAR.setRolloverEnabled(true);
-        CLEAR.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Export/hover.png"))); // NOI18N
-        CLEAR.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/Export/hover.png"))); // NOI18N
-        CLEAR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CLEARActionPerformed(evt);
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel5.setText("Note: If theres any problem try to ");
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 3, 16)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel6.setText("CLICK HERE");
+        jLabel6.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel6MouseMoved(evt);
+            }
+        });
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
             }
         });
 
@@ -792,19 +771,22 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(31, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(stnames, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(sect, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(CLEAR)
+                        .addComponent(jLabel5)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ADD)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DELETE))
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(DELETE)
+                        .addGap(6, 6, 6))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(stnames, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sect, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29))
         );
         jPanel1Layout.setVerticalGroup(
@@ -813,18 +795,24 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(stnames, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sect, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                    .addComponent(stnames, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sect, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DELETE, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ADD, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CLEAR, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(DELETE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ADD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(10, 10, 10))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, 18)))
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -845,21 +833,18 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
 
     private void ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDActionPerformed
 
-           try {
-
-
-
-            if (verifyText()) {
+        //try {
+            
+            
+             if (verifyText()) {
 
 
 
                 
 
-                
 
                 student names = (student)stnames.getSelectedItem();
-
-                Section  st = (Section)sect.getSelectedItem(); // SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
+                Section  st = (Section)sect.getSelectedItem(); 
 
 
                 DateTimeFormatter dtf= DateTimeFormatter.ofPattern("yyyy/MM/dd");
@@ -880,7 +865,7 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
                     ps=Mycon.prepareStatement("insert into officialy_enrolled_students (enrolled_students_id, sections_id,timestamp) values (?,?,?)");
 
                     ps.setInt(1,names.id);
-                    ps.setInt(2,st.id);
+                   ps.setInt(2,st.id);
                     ps.setString(3,timestamp);
 
 
@@ -903,42 +888,41 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
                 } catch (ClassNotFoundException | SQLException ex) {
 
                     JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+                    Logger.getLogger(Officialy_Enrolled.class.getName()).log(Level.SEVERE, null, ex);
 
                 }
 
             }
 
 
+            
+            
+//        } catch (Exception e) {
+//            
+//             JOptionPane.showMessageDialog(this, " Unable to Save" + "\n Please Refresh Your Current Frame before you Save");
+//            
+//        }
 
-        } catch (Exception e) {
+           
 
 
-
-            JOptionPane.showMessageDialog(this, " Unable to Save" + "\n Please Fill in all the Necessary Student Basic Information");
-
-
-
-        }
     }//GEN-LAST:event_ADDActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
 
-        
-
-            DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-            int selecIndex = jTable.getSelectedRow();
-            int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
-
             int dialogResult = JOptionPane.showConfirmDialog(null, "Do you want to delete the record","Warning",JOptionPane.YES_NO_OPTION);
 
-            
-            try {
-            
-            if (dialogResult == JOptionPane.YES_OPTION)
+        if (dialogResult == JOptionPane.YES_OPTION)
 
-            {
+        {
+
+            if (verifyText()) {
 
                 try {
+
+                    DefaultTableModel model2 =  (DefaultTableModel)jTableEnrolled.getModel() ;
+                    int selecIndex = jTableEnrolled.getSelectedRow();
+                    int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
 
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
@@ -946,27 +930,29 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
                     ps=Mycon.prepareStatement("delete from officialy_enrolled_students where id=?");
                     ps.setInt(1, id);
 
-                    ps.execute();
-                    table_update();
-                    
-                    stnames.setSelectedIndex(-1);
-                    sect.setSelectedIndex(-1);
-                    
-                    JOptionPane.showMessageDialog(null, "Student Successfully Deleted");
-                    
-                    
-                   
+                    if (verifyText()) {
+
+                        ps.execute();
+                        table_update();
+                        JOptionPane.showMessageDialog(null, "Successfully Deleted");
+                        //schoolyr.setSelectedIndex(-1);
+
+                        
+                    }
                 }catch (ClassNotFoundException | SQLException  ex) {
-                    Logger.getLogger(Add_Students.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Add_School_President.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
+        } else {
 
-        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Then please Proceed");
 
-            JOptionPane.showMessageDialog(this, " Unable to Delete" + "\n Student ID is not Specified");
         }
 
+         
+         
+         
     }//GEN-LAST:event_DELETEActionPerformed
 
     private void CLEARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEARActionPerformed
@@ -1012,7 +998,7 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
         XSSFWorkbook export = new XSSFWorkbook();
         XSSFSheet sheet1 = export.createSheet("new file");
         try{
-            TableModel tableModel = jTable.getModel();
+            TableModel tableModel = jTableEnrolled.getModel();
 
             for(int i=0; i<tableModel.getRowCount(); i++) {
                 
@@ -1088,20 +1074,20 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchFocusLost
 
-    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+    private void jTableEnrolledMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEnrolledMouseClicked
 
         
-         DefaultTableModel model2 =  (DefaultTableModel)jTable.getModel() ;
-        int selecIndex = jTable.getSelectedRow();
+         DefaultTableModel model2 =  (DefaultTableModel)jTableEnrolled.getModel() ;
+        int selecIndex = jTableEnrolled.getSelectedRow();
         //SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
 
-        stnames.setSelectedItem(model2.getValueAt(selecIndex, 0).toString());
-        sect.setSelectedItem(model2.getValueAt(selecIndex, 2).toString());
+        stnames.setSelectedItem(model2.getValueAt(selecIndex, 1).toString());
+        sect.setSelectedItem(model2.getValueAt(selecIndex, 3).toString());
         
         
         
         
-    }//GEN-LAST:event_jTableMouseClicked
+    }//GEN-LAST:event_jTableEnrolledMouseClicked
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
 
@@ -1123,6 +1109,94 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
        
        
     }//GEN-LAST:event_searchKeyReleased
+
+    private void UPDATE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATE1ActionPerformed
+
+
+
+   try {
+            
+       student names = (student) stnames.getSelectedItem();
+
+       Section  st = (Section)sect.getSelectedItem(); // SchoolYear2 sy = (SchoolYear2)schoolyr.getSelectedItem();
+       
+       
+                if (verifyText()) {
+            
+            DefaultTableModel model2 =  (DefaultTableModel)jTableEnrolled.getModel() ;
+         int selecIndex= jTableEnrolled.getSelectedRow();
+         int id = Integer.parseInt(model2.getValueAt(selecIndex, 0).toString());
+         
+                
+        
+        // student n = (student) stnames.getSelectedItem();
+       //   Section  st = (Section)sect.getSelectedItem(); 
+        
+
+       if (verifyText()) {
+            try {
+                
+                
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+                PreparedStatement ps;
+                ps=Mycon.prepareStatement("update officialy_enrolled_students set enrolled_students_id=?, sections_id=? where id=?");
+                
+                 if (verifyText()) {
+               
+                     
+                                ps.setInt(1,names.id);
+                   ps.setInt(2,st.id);
+                               ps.setInt(3,id);
+                
+                      ps.executeUpdate();
+                      table_update();
+                    
+                  
+                    JOptionPane.showMessageDialog(null, "Student Successfully Updated");
+                   
+                
+                 }
+
+                // DESKTOP.schoolyear.setText(jComboBox1.getSelectedItem().toString());
+
+            } catch (ClassNotFoundException | SQLException ex) {
+
+                JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+       }
+
+        }
+            
+        } catch (HeadlessException | NumberFormatException e) {
+            
+             JOptionPane.showMessageDialog(this, " Unable to Update" + "\n Student ID is not Specified");
+        }
+        
+
+
+
+
+    }//GEN-LAST:event_UPDATE1ActionPerformed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+   
+    }//GEN-LAST:event_formKeyPressed
+
+    private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
+   
+    }//GEN-LAST:event_formKeyTyped
+
+    private void jLabel6MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseMoved
+
+       jLabel6.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jLabel6MouseMoved
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        Officialy_Enrolled s = new Officialy_Enrolled();
+        s.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1168,20 +1242,19 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
        
        try {
                String name="%"+this.search.getText()+"%";
-               DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+               DefaultTableModel model =  (DefaultTableModel)jTableEnrolled.getModel() ;
                int col;
                Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
                PreparedStatement ps;
                //ps = Mycon.prepareStatement("select * from enrolled_students where fullname LIKE '"+name+"'"); 
-               ps = Mycon.prepareStatement("select  s.fullname, s.grade_level,  b.section_name from enrolled_students s, sections b, officialy_enrolled_students a  where a.enrolled_students_id = s.id and a.sections_id = b.id and fullname LIKE '"+name+"'"); 
+               ps = Mycon.prepareStatement("select  a.id, s.fullname, s.grade_level,  b.section_name from enrolled_students s, sections b, officialy_enrolled_students a  where a.enrolled_students_id = s.id and a.sections_id = b.id and fullname LIKE '"+name+"'"); 
                
                          rs= ps.executeQuery();
-                         
                          model.setRowCount(0);
                          while(rs.next()){   
                              //number sa mga columns sa imohang tables
-                        model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3)});
+                        model.addRow(new Object[]{rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4)});
                                 }  
             }catch (ClassNotFoundException | SQLException  ex) {
                 JOptionPane.showMessageDialog(this,  ex, "Error", JOptionPane.ERROR_MESSAGE);
@@ -1194,20 +1267,20 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
        
        try {
                String name="%"+this.search.getText()+"%";
-               DefaultTableModel model =  (DefaultTableModel)jTable.getModel() ;
+               DefaultTableModel model =  (DefaultTableModel)jTableEnrolled.getModel() ;
                int col;
                Class.forName("com.mysql.cj.jdbc.Driver");
                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");   
                PreparedStatement ps;
                //ps = Mycon.prepareStatement("select * from enrolled_students where fullname LIKE '"+name+"'"); 
-               ps = Mycon.prepareStatement("select  s.fullname, s.grade_level,  b.section_name from enrolled_students s, sections b, officialy_enrolled_students a  where a.enrolled_students_id = s.id and a.sections_id = b.id and section_name LIKE '"+name+"'"); 
+               ps = Mycon.prepareStatement("select a.id, s.fullname, s.grade_level,  b.section_name from enrolled_students s, sections b, officialy_enrolled_students a  where a.enrolled_students_id = s.id and a.sections_id = b.id and section_name LIKE '"+name+"'"); 
                
                          rs= ps.executeQuery();
                          
                          model.setRowCount(0);
                          while(rs.next()){   
                              //number sa mga columns sa imohang tables
-                        model.addRow(new Object[]{rs.getString(1),rs.getString(2),rs.getString(3)});
+                        model.addRow(new Object[]{rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4)});
                                 }  
             }catch (ClassNotFoundException | SQLException  ex) {
                 JOptionPane.showMessageDialog(this,  ex, "Error", JOptionPane.ERROR_MESSAGE);
@@ -1220,18 +1293,21 @@ public class Officialy_Enrolled extends javax.swing.JFrame {
     private javax.swing.JButton ADD;
     private javax.swing.JButton CLEAR;
     private javax.swing.JButton DELETE;
+    private javax.swing.JButton UPDATE1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable;
+    private javax.swing.JTable jTableEnrolled;
     private javax.swing.JTextField search;
     private javax.swing.JComboBox sect;
     private javax.swing.JComboBox stnames;

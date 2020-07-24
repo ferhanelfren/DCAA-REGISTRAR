@@ -6,21 +6,13 @@
 package dcaa_registrar2;
 
 import trials.table_suggetions;
-import static com.jtransc.event.JTranscEventLoop.frame;
-import static dcaa_registrar2.StudentFrame.usernamedeskStudent;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 
 import java.awt.Font;
-import java.awt.HeadlessException;
-import java.io.BufferedOutputStream;
-import java.io.BufferedWriter;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -37,25 +29,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import javax.swing.plaf.basic.BasicButtonUI;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
-import javax.swing.table.TableModel;
-import org.apache.poi.ss.usermodel.BorderStyle;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 /**
@@ -806,6 +786,8 @@ public void SomeWindow() {
         NAMEreg = new javax.swing.JTextField();
         jPanel57 = new javax.swing.JPanel();
         searchschoolRegistrar = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1022,11 +1004,21 @@ public void SomeWindow() {
                 jLabel4MouseMoved(evt);
             }
         });
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPPER BAR/folder.png"))); // NOI18N
         jLabel7.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jLabel7MouseMoved(evt);
+            }
+        });
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
             }
         });
 
@@ -1036,11 +1028,21 @@ public void SomeWindow() {
                 jLabel8MouseMoved(evt);
             }
         });
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ICONS/UPPER BAR/viewdata.png"))); // NOI18N
         jLabel9.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jLabel9MouseMoved(evt);
+            }
+        });
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
             }
         });
 
@@ -1072,6 +1074,7 @@ public void SomeWindow() {
         jPanel53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         searchschoolyear.setBackground(new java.awt.Color(255, 255, 255));
+        searchschoolyear.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         searchschoolyear.setText("Search Here. . . .");
         searchschoolyear.setBorder(null);
         searchschoolyear.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1693,6 +1696,7 @@ public void SomeWindow() {
         jPanel59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         searchuser.setBackground(new java.awt.Color(255, 255, 255));
+        searchuser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         searchuser.setText("Search Here. . . .");
         searchuser.setBorder(null);
         searchuser.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1754,6 +1758,7 @@ public void SomeWindow() {
         jPanel58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         searchsection.setBackground(new java.awt.Color(255, 255, 255));
+        searchsection.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         searchsection.setText("Search Here. . . .");
         searchsection.setBorder(null);
         searchsection.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -1999,6 +2004,7 @@ public void SomeWindow() {
         jPanel55.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         searchschoolPresident.setBackground(new java.awt.Color(255, 255, 255));
+        searchschoolPresident.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         searchschoolPresident.setText("Search Here. . . .");
         searchschoolPresident.setBorder(null);
         searchschoolPresident.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -2620,6 +2626,7 @@ public void SomeWindow() {
         jPanel56.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         searchschoolVice.setBackground(new java.awt.Color(255, 255, 255));
+        searchschoolVice.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         searchschoolVice.setText("Search Here. . . .");
         searchschoolVice.setBorder(null);
         searchschoolVice.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -2961,6 +2968,7 @@ public void SomeWindow() {
         jPanel57.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         searchschoolRegistrar.setBackground(new java.awt.Color(255, 255, 255));
+        searchschoolRegistrar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         searchschoolRegistrar.setText("Search Here. . . .");
         searchschoolRegistrar.setBorder(null);
         searchschoolRegistrar.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -3017,6 +3025,24 @@ public void SomeWindow() {
 
         jTabbedPane1.addTab("Registrar  ", jPanel7);
 
+        jLabel26.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel26.setText("Note: If theres any problem try to ");
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel12.setText("CLICK HERE");
+        jLabel12.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel12MouseMoved(evt);
+            }
+        });
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel67Layout = new javax.swing.GroupLayout(jPanel67);
         jPanel67.setLayout(jPanel67Layout);
         jPanel67Layout.setHorizontalGroup(
@@ -3041,7 +3067,12 @@ public void SomeWindow() {
                 .addGap(90, 90, 90))
             .addGroup(jPanel67Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel67Layout.createSequentialGroup()
+                        .addComponent(jLabel26)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel67Layout.setVerticalGroup(
@@ -3060,7 +3091,11 @@ public void SomeWindow() {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel67Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel12))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -3070,15 +3105,13 @@ public void SomeWindow() {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel67, javax.swing.GroupLayout.PREFERRED_SIZE, 1173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jPanel67, javax.swing.GroupLayout.PREFERRED_SIZE, 1163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel67, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel67, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -4460,67 +4493,109 @@ public void SomeWindow() {
 //            
 //        }
         
+//
+//       JFileChooser save = new JFileChooser();
+//    save.setDialogTitle("Save as...");
+//    save.setFileFilter(new FileNameExtensionFilter("xls", "xlsx", "xlsm"));
+//    int choose = save.showSaveDialog(null);
+//
+//    if(choose == JFileChooser.APPROVE_OPTION) {
+//        XSSFWorkbook export = new XSSFWorkbook();
+//        XSSFSheet sheet1 = export.createSheet("new file");
+//        try{
+//            TableModel tableModel = jTableUserAccount.getModel();
+//
+//            for(int i=0; i<jTableUserAccount.getRowCount(); i++) {
+//               XSSFRow newRow = sheet1.createRow(i);
+//                for(int j=0; j<jTableUserAccount.getColumnCount(); j++) {
+//                    XSSFCell newCell = newRow.createCell((short) j);
+//                    if(i==0){
+//                        
+////                        XSSFCellStyle style = export.createCellStyle();
+////                        style.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
+////                        //style.setFillPattern(XSSFCellStyle.SOLID_FOREGROUND);
+////                        style.setBorderBottom(BorderStyle.THIN);
+////                        style.setBorderTop(BorderStyle.THIN);
+////                        style.setBorderLeft(BorderStyle.THIN);
+////                        style.setBorderRight(BorderStyle.THIN);
+//               //         newCell.setCellStyle(style);
+//                        newCell.setCellValue(tableModel.getColumnName(j));
+//                        
+//                        
+//                    } else {
+//                        
+////                        XSSFCellStyle style = export.createCellStyle();
+////                        style.setBorderBottom(BorderStyle.THIN);
+////                        style.setBorderTop(BorderStyle.THIN);
+////                        style.setBorderLeft(BorderStyle.THIN);
+////                        style.setBorderRight(BorderStyle.THIN);
+//                 //       newCell.setCellStyle(style);
+//                        newCell.setCellValue(tableModel.getValueAt(i, j).toString());
+//                    
+//                    }
+//                }
+//            }
+//
+//            try (FileOutputStream otp = new FileOutputStream(save.getSelectedFile()+".xlsx"); 
+//                 BufferedOutputStream bos = new BufferedOutputStream(otp)) {
+//               
+//                export.write(bos);
+//                
+//            }
+//
+//            JOptionPane.showMessageDialog(null, "Student Data Export Successfully");
+//        }catch(HeadlessException | IOException e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+//    }
 
 
-
-
-       JFileChooser save = new JFileChooser();
-    save.setDialogTitle("Save as...");
-    save.setFileFilter(new FileNameExtensionFilter("xls", "xlsx", "xlsm"));
-    int choose = save.showSaveDialog(null);
-
-    if(choose == JFileChooser.APPROVE_OPTION) {
-        XSSFWorkbook export = new XSSFWorkbook();
-        XSSFSheet sheet1 = export.createSheet("new file");
-        try{
-            TableModel tableModel = jTableUserAccount.getModel();
-
-            for(int i=0; i<jTableUserAccount.getRowCount(); i++) {
-               XSSFRow newRow = sheet1.createRow(i);
-                for(int j=0; j<jTableUserAccount.getColumnCount(); j++) {
-                    XSSFCell newCell = newRow.createCell((short) j);
-                    if(i==0){
-                        
-//                        XSSFCellStyle style = export.createCellStyle();
-//                        style.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
-//                        //style.setFillPattern(XSSFCellStyle.SOLID_FOREGROUND);
-//                        style.setBorderBottom(BorderStyle.THIN);
-//                        style.setBorderTop(BorderStyle.THIN);
-//                        style.setBorderLeft(BorderStyle.THIN);
-//                        style.setBorderRight(BorderStyle.THIN);
-               //         newCell.setCellStyle(style);
-                        newCell.setCellValue(tableModel.getColumnName(j));
-                        
-                        
-                    } else {
-                        
-//                        XSSFCellStyle style = export.createCellStyle();
-//                        style.setBorderBottom(BorderStyle.THIN);
-//                        style.setBorderTop(BorderStyle.THIN);
-//                        style.setBorderLeft(BorderStyle.THIN);
-//                        style.setBorderRight(BorderStyle.THIN);
-                 //       newCell.setCellStyle(style);
-                        newCell.setCellValue(tableModel.getValueAt(i, j).toString());
-                    
-                    }
-                }
-            }
-
-            try (FileOutputStream otp = new FileOutputStream(save.getSelectedFile()+".xlsx"); 
-                 BufferedOutputStream bos = new BufferedOutputStream(otp)) {
-               
-                export.write(bos);
-                
-            }
-
-            JOptionPane.showMessageDialog(null, "Student Data Export Successfully");
-        }catch(HeadlessException | IOException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
-
+        Export_Data s = new Export_Data();
+        this.show();
+        s.setVisible(true);
         
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+
+        Officialy_Enrolled s = new Officialy_Enrolled();
+        this.show();
+        s.setVisible(true);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+
+        BackUp_DataBase bk = new BackUp_DataBase();
+        this.show();
+        bk.setVisible(true);
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+
+        AdminFrame bk = new AdminFrame();
+        this.hide();
+        bk.setVisible(true);
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+       Add_Records s = new Add_Records();
+        this.show();
+        s.setVisible(true);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel12MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseMoved
+
+        jLabel12.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+    }//GEN-LAST:event_jLabel12MouseMoved
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+
+        AdminFrame s = new AdminFrame();
+        s.setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_jLabel12MouseClicked
 
     
           
@@ -4624,6 +4699,7 @@ public void SomeWindow() {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -4638,6 +4714,7 @@ public void SomeWindow() {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;

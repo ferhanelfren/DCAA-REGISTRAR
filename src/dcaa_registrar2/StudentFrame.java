@@ -113,6 +113,7 @@ File filed;
        tableEditFormat();
        SomeWindow();
         AutoCompleteDecorator.decorate(stnames);
+          AutoCompleteDecorator.decorate(schoolyr);
         table_update_files();
         StudentCombo();
         sectionname();
@@ -1119,7 +1120,6 @@ public void SomeWindow() {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel30 = new javax.swing.JPanel();
         search = new javax.swing.JTextField();
         panel = new javax.swing.JTabbedPane();
@@ -1226,7 +1226,6 @@ public void SomeWindow() {
         CLEAR = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
-        jLabel31 = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         searchinsert = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -1330,6 +1329,8 @@ public void SomeWindow() {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1551,19 +1552,25 @@ public void SomeWindow() {
         jPanel7.setBackground(new java.awt.Color(244, 241, 233));
         jPanel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(43, 70, 60));
-        jLabel3.setText("Search :");
-
         jPanel30.setBackground(new java.awt.Color(255, 255, 255));
         jPanel30.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         search.setBackground(new java.awt.Color(255, 255, 255));
-        search.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        search.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        search.setForeground(new java.awt.Color(153, 153, 153));
+        search.setText("Search Here . . .");
         search.setBorder(null);
         search.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 searchCaretUpdate(evt);
+            }
+        });
+        search.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchFocusLost(evt);
             }
         });
 
@@ -1571,14 +1578,14 @@ public void SomeWindow() {
         jPanel30.setLayout(jPanel30Layout);
         jPanel30Layout.setHorizontalGroup(
             jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel30Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(search, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel30Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 643, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(134, 134, 134))
         );
         jPanel30Layout.setVerticalGroup(
             jPanel30Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(search, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(search, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
         panel.setBackground(new java.awt.Color(244, 241, 233));
@@ -1607,7 +1614,7 @@ public void SomeWindow() {
 
         STUDENT_ACCOUNTS.setBackground(new java.awt.Color(255, 255, 255));
         STUDENT_ACCOUNTS.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        STUDENT_ACCOUNTS.setForeground(new java.awt.Color(0, 0, 0));
+        STUDENT_ACCOUNTS.setForeground(new java.awt.Color(153, 153, 153));
         STUDENT_ACCOUNTS.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         STUDENT_ACCOUNTS.setText("None");
         STUDENT_ACCOUNTS.setBorder(null);
@@ -1669,7 +1676,7 @@ public void SomeWindow() {
 
         LRNNO.setBackground(new java.awt.Color(255, 255, 255));
         LRNNO.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        LRNNO.setForeground(new java.awt.Color(0, 0, 0));
+        LRNNO.setForeground(new java.awt.Color(153, 153, 153));
         LRNNO.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         LRNNO.setText("None");
         LRNNO.setBorder(null);
@@ -1711,7 +1718,7 @@ public void SomeWindow() {
 
         fullname.setBackground(new java.awt.Color(255, 255, 255));
         fullname.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        fullname.setForeground(new java.awt.Color(0, 0, 0));
+        fullname.setForeground(new java.awt.Color(153, 153, 153));
         fullname.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         fullname.setText("Last Name,  First Name   Middle Name");
         fullname.setBorder(null);
@@ -1829,7 +1836,7 @@ public void SomeWindow() {
 
         YES_IPSPECIFY.setBackground(new java.awt.Color(255, 255, 255));
         YES_IPSPECIFY.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        YES_IPSPECIFY.setForeground(new java.awt.Color(0, 0, 0));
+        YES_IPSPECIFY.setForeground(new java.awt.Color(153, 153, 153));
         YES_IPSPECIFY.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         YES_IPSPECIFY.setText("Please Specify. . .");
         YES_IPSPECIFY.setBorder(null);
@@ -1911,7 +1918,7 @@ public void SomeWindow() {
 
         MOTHERTONGUE.setBackground(new java.awt.Color(255, 255, 255));
         MOTHERTONGUE.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        MOTHERTONGUE.setForeground(new java.awt.Color(0, 0, 0));
+        MOTHERTONGUE.setForeground(new java.awt.Color(153, 153, 153));
         MOTHERTONGUE.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         MOTHERTONGUE.setText("None");
         MOTHERTONGUE.setBorder(null);
@@ -2017,7 +2024,7 @@ public void SomeWindow() {
 
         FATHERNAME.setBackground(new java.awt.Color(255, 255, 255));
         FATHERNAME.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        FATHERNAME.setForeground(new java.awt.Color(0, 0, 0));
+        FATHERNAME.setForeground(new java.awt.Color(153, 153, 153));
         FATHERNAME.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         FATHERNAME.setText("Last Name,  First Name   Middle Name");
         FATHERNAME.setBorder(null);
@@ -2068,7 +2075,7 @@ public void SomeWindow() {
 
         MOTHERNAME.setBackground(new java.awt.Color(255, 255, 255));
         MOTHERNAME.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        MOTHERNAME.setForeground(new java.awt.Color(0, 0, 0));
+        MOTHERNAME.setForeground(new java.awt.Color(153, 153, 153));
         MOTHERNAME.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         MOTHERNAME.setText("Last Name,  First Name   Middle Name");
         MOTHERNAME.setBorder(null);
@@ -2114,7 +2121,7 @@ public void SomeWindow() {
 
         GUARDIAN.setBackground(new java.awt.Color(255, 255, 255));
         GUARDIAN.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        GUARDIAN.setForeground(new java.awt.Color(0, 0, 0));
+        GUARDIAN.setForeground(new java.awt.Color(153, 153, 153));
         GUARDIAN.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         GUARDIAN.setText("Last Name,  First Name   Middle Name");
         GUARDIAN.setBorder(null);
@@ -2242,7 +2249,7 @@ public void SomeWindow() {
 
         ZIPCODE.setBackground(new java.awt.Color(255, 255, 255));
         ZIPCODE.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        ZIPCODE.setForeground(new java.awt.Color(0, 0, 0));
+        ZIPCODE.setForeground(new java.awt.Color(153, 153, 153));
         ZIPCODE.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         ZIPCODE.setText("0000");
         ZIPCODE.setBorder(null);
@@ -2540,7 +2547,7 @@ public void SomeWindow() {
 
         SCHOOLNAME.setBackground(new java.awt.Color(255, 255, 255));
         SCHOOLNAME.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        SCHOOLNAME.setForeground(new java.awt.Color(0, 0, 0));
+        SCHOOLNAME.setForeground(new java.awt.Color(153, 153, 153));
         SCHOOLNAME.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         SCHOOLNAME.setText("None");
         SCHOOLNAME.setBorder(null);
@@ -2586,7 +2593,7 @@ public void SomeWindow() {
 
         SCHOOLID.setBackground(new java.awt.Color(255, 255, 255));
         SCHOOLID.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        SCHOOLID.setForeground(new java.awt.Color(0, 0, 0));
+        SCHOOLID.setForeground(new java.awt.Color(153, 153, 153));
         SCHOOLID.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         SCHOOLID.setText("None");
         SCHOOLID.setBorder(null);
@@ -2627,7 +2634,7 @@ public void SomeWindow() {
 
         SCHOOLADDRESS.setBackground(new java.awt.Color(255, 255, 255));
         SCHOOLADDRESS.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        SCHOOLADDRESS.setForeground(new java.awt.Color(0, 0, 0));
+        SCHOOLADDRESS.setForeground(new java.awt.Color(153, 153, 153));
         SCHOOLADDRESS.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         SCHOOLADDRESS.setText("None");
         SCHOOLADDRESS.setBorder(null);
@@ -3051,12 +3058,6 @@ public void SomeWindow() {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(171, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(167, 167, 167))
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -3064,15 +3065,17 @@ public void SomeWindow() {
                     .addComponent(jPanel49, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(290, 290, 290))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel30, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -3098,19 +3101,25 @@ public void SomeWindow() {
 
         jPanel13.setBackground(new java.awt.Color(244, 241, 233));
 
-        jLabel31.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel31.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(56, 74, 19));
-        jLabel31.setText("Search :");
-
         jPanel14.setBackground(new java.awt.Color(255, 255, 255));
         jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         searchinsert.setBackground(new java.awt.Color(255, 255, 255));
+        searchinsert.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        searchinsert.setForeground(new java.awt.Color(153, 153, 153));
+        searchinsert.setText("Search Here . . .");
         searchinsert.setBorder(null);
         searchinsert.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 searchinsertCaretUpdate(evt);
+            }
+        });
+        searchinsert.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                searchinsertFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchinsertFocusLost(evt);
             }
         });
         searchinsert.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -3124,13 +3133,13 @@ public void SomeWindow() {
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel14Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(searchinsert, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(searchinsert, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchinsert)
+            .addComponent(searchinsert, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
         );
 
         jTableinsert.setAutoCreateRowSorter(true);
@@ -3371,11 +3380,9 @@ public void SomeWindow() {
                     .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel16, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel31)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(166, 166, 166))
         );
@@ -3383,9 +3390,7 @@ public void SomeWindow() {
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -3414,6 +3419,8 @@ public void SomeWindow() {
         jPanel32.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         searchcertificatesJHS.setBackground(new java.awt.Color(255, 255, 255));
+        searchcertificatesJHS.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        searchcertificatesJHS.setForeground(new java.awt.Color(153, 153, 153));
         searchcertificatesJHS.setText("Search Here. . . .");
         searchcertificatesJHS.setBorder(null);
         searchcertificatesJHS.addCaretListener(new javax.swing.event.CaretListener() {
@@ -3907,7 +3914,7 @@ public void SomeWindow() {
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGap(227, 227, 227)
                         .addComponent(jPanel32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3936,6 +3943,8 @@ public void SomeWindow() {
         jPanel53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         searchcertificateshs.setBackground(new java.awt.Color(255, 255, 255));
+        searchcertificateshs.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        searchcertificateshs.setForeground(new java.awt.Color(153, 153, 153));
         searchcertificateshs.setText("Search Here. . . .");
         searchcertificateshs.setBorder(null);
         searchcertificateshs.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -4446,7 +4455,7 @@ public void SomeWindow() {
                     .addGroup(jPanel26Layout.createSequentialGroup()
                         .addGap(224, 224, 224)
                         .addComponent(jPanel53, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(196, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel26Layout.createSequentialGroup()
                         .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4606,6 +4615,24 @@ public void SomeWindow() {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jLabel12.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel12.setText("CLICK HERE");
+        jLabel12.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel12MouseMoved(evt);
+            }
+        });
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel13.setText("Note: If theres any problem try to ");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -4613,9 +4640,13 @@ public void SomeWindow() {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel63, javax.swing.GroupLayout.PREFERRED_SIZE, 1173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTabbedPane1))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -4625,7 +4656,11 @@ public void SomeWindow() {
                 .addComponent(jPanel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel12))
+                .addGap(11, 11, 11))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -4684,7 +4719,7 @@ public void SomeWindow() {
     private void LRNNOFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LRNNOFocusLost
 
         if (LRNNO.getText().trim().isEmpty()) {
-            LRNNO.setForeground(Color.black);
+            LRNNO.setForeground(new Color(51,51,51));
             LRNNO.setText("None");
         }
     }//GEN-LAST:event_LRNNOFocusLost
@@ -4783,7 +4818,7 @@ public void SomeWindow() {
         if(MOTHERTONGUE.getText().trim().equals(""))
         {
             MOTHERTONGUE.setText("None");
-            MOTHERTONGUE.setForeground( Color.black);
+            MOTHERTONGUE.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_MOTHERTONGUEFocusLost
 
@@ -4818,7 +4853,7 @@ public void SomeWindow() {
     private void FATHERNAMEFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_FATHERNAMEFocusLost
 
         if ( FATHERNAME.getText().trim().isEmpty()) {
-            FATHERNAME.setForeground(new Color(51,51,51));
+            FATHERNAME.setForeground(new Color(153,153,153));
             FATHERNAME.setText("Last Name,  First Name   Middle Name");
         }
     }//GEN-LAST:event_FATHERNAMEFocusLost
@@ -4837,7 +4872,7 @@ public void SomeWindow() {
 
     private void MOTHERNAMEFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MOTHERNAMEFocusLost
         if ( MOTHERNAME.getText().trim().isEmpty()) {
-            MOTHERNAME.setForeground(new Color(51,51,51));
+            MOTHERNAME.setForeground(new Color(153,153,153));
             MOTHERNAME.setText("Last Name,  First Name   Middle Name");
         }
     }//GEN-LAST:event_MOTHERNAMEFocusLost
@@ -4858,7 +4893,7 @@ public void SomeWindow() {
         if(GUARDIAN.getText().trim().equals(""))
         {
             GUARDIAN.setText("Last Name,  First Name   Middle Name");
-            GUARDIAN.setForeground( Color.black);
+            GUARDIAN.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_GUARDIANFocusLost
 
@@ -4892,7 +4927,7 @@ public void SomeWindow() {
         if(ZIPCODE.getText().trim().equals(""))
         {
             ZIPCODE.setText("0000");
-            ZIPCODE.setForeground(new Color(51,51,51));
+            ZIPCODE.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_ZIPCODEFocusLost
 
@@ -4923,10 +4958,11 @@ public void SomeWindow() {
 
     private void SCHOOLNAMEFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SCHOOLNAMEFocusLost
 
+        
         if(SCHOOLNAME.getText().trim().equals(""))
         {
             SCHOOLNAME.setText("None");
-            SCHOOLNAME.setForeground(new Color(51,51,51));
+            SCHOOLNAME.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_SCHOOLNAMEFocusLost
 
@@ -4944,7 +4980,7 @@ public void SomeWindow() {
         if(SCHOOLID.getText().trim().equals(""))
         {
             SCHOOLID.setText("None");
-            SCHOOLID.setForeground(new Color(51,51,51));
+            SCHOOLID.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_SCHOOLIDFocusLost
 
@@ -4967,7 +5003,7 @@ public void SomeWindow() {
         if(SCHOOLADDRESS.getText().trim().equals(""))
         {
             SCHOOLADDRESS.setText("None");
-            SCHOOLADDRESS.setForeground(new Color(51,51,51));
+            SCHOOLADDRESS.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_SCHOOLADDRESSFocusLost
 
@@ -4987,7 +5023,7 @@ public void SomeWindow() {
         if(GRADELEVEL.getText().trim().equals(""))
         {
             GRADELEVEL.setText("None");
-            GRADELEVEL.setForeground(new Color(51,51,51));
+            GRADELEVEL.setForeground(new Color(153,153,153));
         }
     }//GEN-LAST:event_GRADELEVELFocusLost
 
@@ -6388,58 +6424,58 @@ public void SomeWindow() {
     }//GEN-LAST:event_jLabel10MouseMoved
 
     private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
-            JFileChooser save = new JFileChooser();
-    save.setDialogTitle("Save as...");
-    save.setFileFilter(new FileNameExtensionFilter("xls", "xlsx", "xlsm"));
-    int choose = save.showSaveDialog(null);
-
-    if(choose == JFileChooser.APPROVE_OPTION) {
-        XSSFWorkbook export = new XSSFWorkbook();
-        XSSFSheet sheet1 = export.createSheet("new file");
-        try{
-            TableModel tableModel = jTableStudents.getModel();
-
-            for(int i=0; i<tableModel.getRowCount(); i++) {
-                XSSFRow newRow = sheet1.createRow(i);
-                for(int j=0; j<tableModel.getColumnCount(); j++) {
-                    XSSFCell newCell = newRow.createCell((short) j);
-                    if(i==0){
-                        
-                        XSSFCellStyle style = export.createCellStyle();
-                        style.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
-                        //style.setFillPattern(XSSFCellStyle.SOLID_FOREGROUND);
-                        style.setBorderBottom(BorderStyle.THIN);
-                        style.setBorderTop(BorderStyle.THIN);
-                        style.setBorderLeft(BorderStyle.THIN);
-                        style.setBorderRight(BorderStyle.THIN);
-                        newCell.setCellStyle(style);
-                        newCell.setCellValue(tableModel.getColumnName(j));
-                        
-                        
-                    } else {
-                        
-                        XSSFCellStyle style = export.createCellStyle();
-                        style.setBorderBottom(BorderStyle.THIN);
-                        style.setBorderTop(BorderStyle.THIN);
-                        style.setBorderLeft(BorderStyle.THIN);
-                        style.setBorderRight(BorderStyle.THIN);
-                        newCell.setCellStyle(style);
-                        newCell.setCellValue(tableModel.getValueAt(i, j).toString());
-                    
-                    }
-                }
-            }
-
-            try (FileOutputStream otp = new FileOutputStream(save.getSelectedFile()+".xlsx"); 
-                 BufferedOutputStream bos = new BufferedOutputStream(otp)) {
-                export.write(bos);
-            }
-
-            JOptionPane.showMessageDialog(null, "Student Data Export Successfully");
-        }catch(HeadlessException | IOException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
+//            JFileChooser save = new JFileChooser();
+//    save.setDialogTitle("Save as...");
+//    save.setFileFilter(new FileNameExtensionFilter("xls", "xlsx", "xlsm"));
+//    int choose = save.showSaveDialog(null);
+//
+//    if(choose == JFileChooser.APPROVE_OPTION) {
+//        XSSFWorkbook export = new XSSFWorkbook();
+//        XSSFSheet sheet1 = export.createSheet("new file");
+//        try{
+//            TableModel tableModel = jTableStudents.getModel();
+//
+//            for(int i=0; i<tableModel.getRowCount(); i++) {
+//                XSSFRow newRow = sheet1.createRow(i);
+//                for(int j=0; j<tableModel.getColumnCount(); j++) {
+//                    XSSFCell newCell = newRow.createCell((short) j);
+//                    if(i==0){
+//                        
+//                        XSSFCellStyle style = export.createCellStyle();
+//                        style.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
+//                        //style.setFillPattern(XSSFCellStyle.SOLID_FOREGROUND);
+//                        style.setBorderBottom(BorderStyle.THIN);
+//                        style.setBorderTop(BorderStyle.THIN);
+//                        style.setBorderLeft(BorderStyle.THIN);
+//                        style.setBorderRight(BorderStyle.THIN);
+//                        newCell.setCellStyle(style);
+//                        newCell.setCellValue(tableModel.getColumnName(j));
+//                        
+//                        
+//                    } else {
+//                        
+//                        XSSFCellStyle style = export.createCellStyle();
+//                        style.setBorderBottom(BorderStyle.THIN);
+//                        style.setBorderTop(BorderStyle.THIN);
+//                        style.setBorderLeft(BorderStyle.THIN);
+//                        style.setBorderRight(BorderStyle.THIN);
+//                        newCell.setCellStyle(style);
+//                        newCell.setCellValue(tableModel.getValueAt(i, j).toString());
+//                    
+//                    }
+//                }
+//            }
+//
+//            try (FileOutputStream otp = new FileOutputStream(save.getSelectedFile()+".xlsx"); 
+//                 BufferedOutputStream bos = new BufferedOutputStream(otp)) {
+//                export.write(bos);
+//            }
+//
+//            JOptionPane.showMessageDialog(null, "Student Data Export Successfully");
+//        }catch(HeadlessException | IOException e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+//    }
 
     }//GEN-LAST:event_jLabel10MousePressed
 
@@ -6483,7 +6519,7 @@ public void SomeWindow() {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
 
        
-        Add_Students s = new Add_Students();
+        Officialy_Enrolled s = new Officialy_Enrolled();
         this.show();
         s.setVisible(true);
         
@@ -6528,10 +6564,60 @@ public void SomeWindow() {
 //            
 //        }
         
-        
-
+        Export_Data s = new Export_Data();
+        this.show();
+        s.setVisible(true);
+    
         
     }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel12MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseMoved
+
+        jLabel12.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        
+    }//GEN-LAST:event_jLabel12MouseMoved
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+       
+        StudentFrame s = new StudentFrame();
+        s.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void searchinsertFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchinsertFocusGained
+        
+        if(searchinsert.getText().trim().equals("Search Here . . ."))
+        {
+           searchinsert.setText("");
+           searchinsert.setForeground(Color.black);
+        }
+  
+    }//GEN-LAST:event_searchinsertFocusGained
+
+    private void searchinsertFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchinsertFocusLost
+        if(searchinsert.getText().trim().equals(""))
+        {
+            searchinsert.setText("Search Here . . .");
+            searchinsert.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_searchinsertFocusLost
+
+    private void searchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFocusGained
+       if(search.getText().trim().equals("Search Here . . ."))
+        {
+           search.setText("");
+           search.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_searchFocusGained
+
+    private void searchFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchFocusLost
+        if(search.getText().trim().equals(""))
+        {
+            search.setText("Search Here . . .");
+            search.setForeground(new Color(153,153,153));
+        }
+    }//GEN-LAST:event_searchFocusLost
 
     
     
@@ -6674,6 +6760,8 @@ public void SomeWindow() {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -6689,9 +6777,7 @@ public void SomeWindow() {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
