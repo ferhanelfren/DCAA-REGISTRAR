@@ -162,6 +162,7 @@ public void SomeWindow() {
         jPanel27 = new javax.swing.JPanel();
         jPasswordField3 = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
+        ids = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -240,7 +241,7 @@ public void SomeWindow() {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("User Profile");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -560,6 +561,10 @@ public void SomeWindow() {
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        ids.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        ids.setForeground(new java.awt.Color(0, 51, 0));
+        ids.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -580,25 +585,30 @@ public void SomeWindow() {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
+                .addComponent(ids, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel20)
-                    .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
-                .addGap(156, 156, 156))
+                    .addComponent(jLabel21)
+                    .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(115, 115, 115))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jPanel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ids, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(44, 44, 44)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -698,9 +708,9 @@ public void SomeWindow() {
         
        JOptionPane.showMessageDialog(this, " Unable to Close : " + "\n Please Log out Before you Leave   ","Message", JOptionPane.WARNING_MESSAGE);
         
-        ProfileFrame m = new ProfileFrame();
-        this.dispose();
-        m.setVisible(true);
+//        ProfileFrame m = new ProfileFrame();
+//        this.dispose();
+//        m.setVisible(true);
 
     }//GEN-LAST:event_formWindowClosing
 
@@ -713,62 +723,107 @@ public void SomeWindow() {
     }//GEN-LAST:event_emailaddKeyReleased
 
     private void UPDATE3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATE3ActionPerformed
-
-              String user = emailadd.getText();
-              String fname = usename.getText();
-             String password = jPasswordField1.getText();
-             String confirmPassword = jPasswordField3.getText();
+                
+            int i = Integer.parseInt(ids.getText());
+            String user = emailadd.getText();
+            String fname = usename.getText();
+            String password = jPasswordField1.getText();
+            String confirmPassword = jPasswordField3.getText();
         
-                    if(password.equals(confirmPassword))
-                    {
+//                    if(password.equals(confirmPassword))
+//                    {
+//
+//                                        if (verifyText()) {
+//
+//                                            int id=0;
+//
+//                                            try {
+//                                                Class.forName("com.mysql.cj.jdbc.Driver");
+//                                                Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+//                                                PreparedStatement ps;
+//                                                ps=Mycon.prepareStatement("update useraccount  set username=?, fullname=?, password=?   where id=?");
+//                                                    
+//                                                    ps.setInt(1, i);
+//                                                    ps.setString(2, user);
+//                                                    ps.setString(3, fname);
+//                                                    ps.setString(4, confirmPassword);
+//                                                   
+//
+//                                                if (verifyText()) {
+//                                                    ps.execute();
+//
+//                                                    JOptionPane.showMessageDialog(null, "Password Successfully Change");
+//
+//
+//                                                    jPasswordField1.setText("");
+//                                                    jPasswordField3.setText("");
+//
+//
+//                                                }
+//
+//
+//
+//                                            } catch (ClassNotFoundException | SQLException   ex) {
+//
+//                                                JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+//                                                Logger.getLogger(ProfileFrame .class.getName()).log(Level.SEVERE, null, ex);
+//                                            }
+//                                        }
+//
+//         
+//       
+//                    
+//               
+//
+//                }
+//                    else {
+//                        JOptionPane.showMessageDialog(this, " Unable to Change " + "\n Password didn't much, Please try again","Error", JOptionPane.ERROR_MESSAGE);
+//                    }
 
-            if (verifyText()) {
 
-                int id = 0;
+                 if(password.equals(confirmPassword)){
+                     
+                                        try {
+                                                                  Class.forName("com.mysql.cj.jdbc.Driver");
+                                                                  Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
+                                                                  PreparedStatement ps;
+                                                                  ps=Mycon.prepareStatement("update useraccount  set username=?, fullname=?, password=?   where id=?");
 
-                try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    Mycon=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/dcaa_registrar","root","root");
-                    PreparedStatement ps;
-                    ps=Mycon.prepareStatement("update useraccount  set username=?, fullname=?, password=?   where id=?");
-   
-                        ps.setString(1, user);
-                        ps.setString(2, fname);
-                        ps.setString(3, confirmPassword);
-                        ps.setInt(4, id);
 
-                    if (verifyText()) {
-                        ps.execute();
+                                                                      ps.setString(1, user);
+                                                                      ps.setString(2, fname);
+                                                                      ps.setString(3, confirmPassword);
+                                                                      ps.setInt(4, i);
 
-                        JOptionPane.showMessageDialog(null, "Password Successfully Change");
-                        
-                        
-                        jPasswordField1.setText("");
-                        jPasswordField3.setText("");
-                        
-                        
-                    }
 
-                    
+                                                                  if (verifyText()) {
+                                                                       ps.executeUpdate();
 
-                } catch (ClassNotFoundException | SQLException   ex) {
+                                                                      JOptionPane.showMessageDialog(null, "Password Successfully Change");
 
-                    JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-            }
 
-         
-       
-                    
-               
+                                                                      jPasswordField1.setText("");
+                                                                      jPasswordField3.setText("");
 
-                }
-                    else {
+
+                                                                  }
+
+
+
+                                                              } catch (ClassNotFoundException | SQLException   ex) {
+
+                                                                  JOptionPane.showMessageDialog(this, ex,"ERROR", JOptionPane.ERROR_MESSAGE);
+                                                                  Logger.getLogger(ProfileFrame .class.getName()).log(Level.SEVERE, null, ex);
+                                                              }
+
+                     
+                 }   else {
                         JOptionPane.showMessageDialog(this, " Unable to Change " + "\n Password didn't much, Please try again","Error", JOptionPane.ERROR_MESSAGE);
-                    }
+                   }
+                    
+                                        
 
 
-        
         
     }//GEN-LAST:event_UPDATE3ActionPerformed
 
@@ -899,6 +954,7 @@ public void SomeWindow() {
     private javax.swing.JCheckBox She;
     private javax.swing.JButton UPDATE3;
     public static javax.swing.JTextField emailadd;
+    public static javax.swing.JLabel ids;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

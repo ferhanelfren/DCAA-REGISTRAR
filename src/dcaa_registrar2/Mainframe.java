@@ -225,7 +225,7 @@ public void SomeWindow() {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Home");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1485,8 +1485,9 @@ public void SomeWindow() {
                                      // email.setText("");
                                   } else {
                                       String fullname=rs.getString("fullname");
+                                      int idd = rs.getInt("id");
                                       
-                                     //ProfileFrame.name.setText(fullname.trim());
+                                     ProfileFrame.ids.setText(String.valueOf(idd));
                                      ProfileFrame.emailadd.setText(usernamedesk.getText()); 
                                      ProfileFrame.usename.setText(fullname);
 

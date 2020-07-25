@@ -5,6 +5,7 @@
  */
 package dcaa_registrar2;
 
+import static dcaa_registrar2.StudentFrame.usernamedeskStudent;
 import trials.table_suggetions;
 import java.awt.Color;
 import java.awt.Component;
@@ -866,7 +867,7 @@ public void SomeWindow() {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Admin");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -4409,10 +4410,48 @@ public void SomeWindow() {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-          ProfileFrame m = new ProfileFrame();
+      
+        
+      ProfileFrame m = new ProfileFrame();
       ProfileFrame.usernamedeskProf.setText(usernamedeskAdmin.getText());
-      this.hide();
+      String emailname = usernamedeskAdmin.getText();
+      
+       try {
+
+
+                              Class.forName("com.mysql.cj.jdbc.Driver");
+                              Mycon=DriverManager.getConnection("jdbc:mysql://127.1.1.2:3306/dcaa_registrar","root","root");  
+                              PreparedStatement ps;
+                              ps = Mycon.prepareStatement("select * from useraccount where username=?");
+                              ps.setString(1, emailname);
+                              ResultSet rs= ps.executeQuery();
+
+                              
+                                 if (rs.next() == false) {
+                                      JOptionPane.showMessageDialog(null, "Email does not Exist");
+                                     // email.setText("");
+                                  } else {
+                                      String fullname=rs.getString("fullname");
+                                      int idd = rs.getInt("id");
+                                      
+                                     ProfileFrame.ids.setText(String.valueOf(idd));
+                                     ProfileFrame.emailadd.setText(usernamedeskAdmin.getText()); 
+                                     ProfileFrame.usename.setText(fullname);
+
+                                  }
+                                    
+                          } catch (ClassNotFoundException  ex) {
+                              Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+                          }catch ( SQLException ex) {
+                              Logger.getLogger(AdminFrame.class.getName()).log(Level.SEVERE, null, ex);
+                          }
+      
+      
+       
+      
+      this.dispose();
       m.setVisible(true);
+   
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
